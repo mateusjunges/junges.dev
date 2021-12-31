@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-
+Route::view('posts', 'posts');
 Route::get('/', function () {
     return view('welcome');
 });
