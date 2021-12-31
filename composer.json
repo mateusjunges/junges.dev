@@ -5,13 +5,22 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^8.0",
+        "ext-json": "*",
+        "doctrine/dbal": "^2.10",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",
         "laravel/nova": "^3.30",
         "laravel/sanctum": "^2.11",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "react/child-process": "^0.6.1",
+        "react/promise": "^2.8",
+        "spatie/valuestore": "^1.2",
+        "spatie/sheets": "^1.6",
+        "spatie/laravel-markdown": "^1.1.2",
+        "wyrihaximus/react-child-process-promise": "^3.0",
+        "symfony/process": "^5.3"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
