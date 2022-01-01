@@ -2,50 +2,67 @@
 
 namespace App\Console\Commands\OpenSource;
 
+use App\Docs\Docs;
+use App\Exceptions\DocsImportException;
 use App\Support\ValueStores\UpdatedRepositoriesValueStore;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
-use React\ChildProcess\Process;
-use React\EventLoop\Loop;
-use React\EventLoop\LoopInterface;
-use Spatie\Sheets\Sheets;
-use function React\Promise\all;
-use function WyriHaximus\React\childProcessPromise;
+use Spatie\Fork\Fork;
+use Symfony\Component\Finder\Finder;
+use Symfony\Component\Process\Process;
 
 class ImportDocsFromRepositoriesCommand extends Command
 {
-    protected $signature = 'docs:import';
+    protected $signature = 'docs:import {--repo=} {--all}';
 
     protected $description = 'Fetches docs from all repositories in docs-repositories.json';
-
-    public function handle(): int
+    public function handle()
     {
         $this->info('Importing docs...');
 
-        $loop = Loop::get();
-
         $updatedRepositoriesValueStore = UpdatedRepositoriesValueStore::make();
 
-        $updatedRepositoriesNames = $updatedRepositoriesValueStore->getNames();
+        $updatedRepositoryNames = $updatedRepositoriesValueStore->getNames();
 
-        $this->convertRepositoriesToProcesses($updatedRepositoriesNames, $loop)
-            ->pipe(fn (Collection $processes) => $this->wrapInPromise($processes));
+        if ($extraRepo = $this->option('repo')) {
+            $updatedRepositoryNames[] = $extraRepo;
+        }
 
-        $loop->run();
+        $this->cleanRepositoryFolders();
 
-        $updatedRepositoriesValueStore->flush();
+        if ($this->option('all')) {
+            $updatedRepositoryNames = collect(config('docs.repositories'))
+                ->map(function (array $repository) {
+                    return $repository['repository'];
+                })
+                ->toArray();
+        }
+
+        $callables = $this->convertRepositoriesToCallables($updatedRepositoryNames);
+
+        $this->getOutput()->progressStart(count($callables));
+
+        Fork::new()
+            ->after(parent: fn() => $this->getOutput()->progressAdvance())
+            ->concurrent(4)
+            ->run(...$callables);
+
+        $this->getOutput()->progressFinish();
+
+        $this->info('Fetched & cached docs from all repositories.');
+
+//        $updatedRepositoriesValueStore->flush();
+
+        File::deleteDirectory(storage_path('docs-temp'));
 
         $this->info('All done!');
-
-        return Command::SUCCESS;
     }
 
-    protected function convertRepositoriesToProcesses(
-        array $updatedRepositoryNames,
-        LoopInterface $loop
-    ): Collection {
-        $repositoriesWithDocs = $this->getRepositoriesWitDocs();
+    protected function convertRepositoriesToCallables(
+        array $updatedRepositoryNames
+    ): array {
+        $repositoriesWithDocs = $this->getRepositoriesWithDocs();
 
         return collect($updatedRepositoryNames)
             ->map(fn (string $repositoryName) => $repositoriesWithDocs[$repositoryName] ?? null)
@@ -53,35 +70,31 @@ class ImportDocsFromRepositoriesCommand extends Command
             ->flatMap(function (array $repository) {
                 return collect($repository['branches'])
                     ->map(fn (string $alias, string $branch) => [$repository, $alias, $branch])
+                    ->values()
                     ->toArray();
             })
-            ->mapSpread(function (array $repository, string $alias, string $branch) use ($loop) {
+            ->mapSpread(function (array $repository, string $alias, string $branch) {
                 $process = $this->createProcessComponent($repository, $branch, $alias);
 
-                return childProcessPromise($loop, $process);
-            });
-    }
+                $this->info("Created import process for {$repository['name']} {$branch}");
 
-    protected function wrapInPromise(Collection $processes): void
-    {
-        all($processes->toArray())
-            ->then(function (): void {
-                $this->info('Fetched docs from all repositories.');
+                return function () use ($process, $repository) {
+                    $process->run();
 
-                $this->info('Caching Sheets.');
+                    if (! $process->isSuccessful()) {
+                        $this->error($process->getErrorOutput());
+                        report(new DocsImportException("Import for repository {$repository['name']} unsuccessful: " . $process->getErrorOutput()));
+                        return;
+                    }
 
-                $pages = app(Sheets::class)->collection('docs')->all()->sortBy('weight');
-
-                cache()->store('docs')->forever('docs', $pages);
-
-                $this->info('Done caching Sheets.');
+                    cache()->store('docs')->forget($repository['name']);
+                    app(Docs::class)->getRepository($repository['name']);
+                };
             })
-            ->always(function (): void {
-                File::deleteDirectory(storage_path('docs-temp/'));
-            });
+            ->toArray();
     }
 
-    protected function getRepositoriesWitDocs(): Collection
+    protected function getRepositoriesWithDocs(): Collection
     {
         return collect(config('docs.repositories'))->keyBy('repository');
     }
@@ -91,22 +104,43 @@ class ImportDocsFromRepositoriesCommand extends Command
         $accessToken = config('services.github.docs_access_token');
         $publicDocsAssetPath = public_path('docs');
 
-        return new Process(
+        return Process::fromShellCommandline(
             <<<BASH
-                    rm -rf storage/docs/{$repository['name']}/{$alias} \
-                    && mkdir -p storage/docs/{$repository['name']}/{$alias} \
-                    && mkdir -p storage/docs-temp/{$repository['name']}/{$alias} \
-                    && cd storage/docs-temp/{$repository['name']}/{$alias} \
-                    && git init \
-                    && git config core.sparseCheckout true \
-                    && echo "/docs" >> .git/info/sparse-checkout \
-                    && git remote add -f origin https://{$accessToken}@github.com/mateusjunges/{$repository['name']}.git \
-                    && git pull origin ${branch} \
-                    && cp -r docs/* ../../../docs/{$repository['name']}/{$alias} \
-                    && echo "---\ntitle: {$repository['name']}\ncategory: {$repository['category']}\n---" > ../../../docs/{$repository['name']}/_index.md \
-                    && cd docs/ \
-                    && find . -not -name '*.md' | cpio -pdm {$publicDocsAssetPath}/{$repository['name']}/{$alias}/
-                BASH
-        );
+                rm -rf storage/docs/{$repository['name']}/{$alias} \
+                && mkdir -p storage/docs/{$repository['name']}/{$alias} \
+                && mkdir -p storage/docs-temp/{$repository['name']}/{$alias} \
+                && cd storage/docs-temp/{$repository['name']}/{$alias} \
+                && rm -rf .git \
+                && git init \
+                && git config core.sparseCheckout true \
+                && echo "/docs" >> .git/info/sparse-checkout \
+                && git remote add -f origin https://{$accessToken}@github.com/mateusjunges/{$repository['name']}.git \
+                && git pull origin ${branch} \
+                && cp -r docs/* ../../../docs/{$repository['name']}/{$alias} \
+                && echo "---\ntitle: {$repository['name']}\ncategory: {$repository['category']}\n---" > ../../../docs/{$repository['name']}/_index.md \
+                && cd docs/ \
+                && find . -not -name '*.md' | cpio -pdm {$publicDocsAssetPath}/{$repository['name']}/{$alias}/
+            BASH
+            , base_path());
+    }
+
+    private function cleanRepositoryFolders(): void
+    {
+        $publicDocsPath = public_path('docs');
+        $storageDocsPath  = storage_path('docs');
+
+        File::ensureDirectoryExists($publicDocsPath);
+        File::ensureDirectoryExists($storageDocsPath);
+
+        $directoriesToKeep = collect(config('docs.repositories'))->pluck('name');
+
+        $finder = new Finder();
+        $directories = $finder->in([$storageDocsPath, $publicDocsPath])->depth(0)->directories();
+
+        foreach ($directories as $directory) {
+            if (! $directoriesToKeep->contains($directory->getFilename())) {
+                File::deleteDirectory($directory->getRealPath());
+            }
+        }
     }
 }
