@@ -33,5 +33,7 @@ return [
     'github' => [
         'webhook_secret' => env('GITHUB_WEBHOOK_SECRET'),
         'docs_access_token' => env('GITHUB_DOCS_ACCESS_TOKEN'),
+        'token' => env('GITHUB_TOKEN'),
+        'username' => env('GITHUB_USERNAME', 'mateusjunges')
     ]
 ];

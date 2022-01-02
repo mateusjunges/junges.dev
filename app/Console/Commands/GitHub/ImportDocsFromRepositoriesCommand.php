@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\OpenSource;
+namespace App\Console\Commands\GitHub;
 
 use App\Docs\Docs;
 use App\Exceptions\DocsImportException;
