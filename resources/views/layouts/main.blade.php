@@ -9,12 +9,13 @@
     <livewire:styles>
     @stack('head')
 </head>
-<body class="flex items-center justify-center" style="background: #edf2f7;">
+<body class="flex items-center justify-center">
 <div class="overflow-x-hidden bg-gray-100 w-screen">
     @include('layouts.nav')
     <div class="px-6 py-8">
         <div class="container flex justify-between mx-auto">
-            {{ $slot }}
+            {{ $slot ?? null}}
+            @yield("content")
         </div>
     </div>
     @include('layouts.partials.footer')

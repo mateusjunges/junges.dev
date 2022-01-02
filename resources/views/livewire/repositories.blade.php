@@ -99,8 +99,7 @@
         </div>
         @unless(count($repositories))
             <p class="mt-12 text-lg text-gray">
-                Apparently there's not a Spatie package for everything! <br>
-                Maybe check back later.
+                Unfortunately, the package you are looking for does not exist (yet).
             </p>
         @endunless
     </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Docs;
 use App\Docs\Alias;
 use App\Docs\Docs;
 use App\Docs\DocumentationPage;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use RuntimeException;
@@ -18,7 +19,7 @@ class DocsController
         ]);
     }
 
-    public function repository(Docs $docs, string $repository, ?string $alias = null)
+    public function repository(Docs $docs, string $repository, ?string $alias = null): View|RedirectResponse
     {
         try {
             $repository = $docs->getRepository($repository);
@@ -55,7 +56,7 @@ class DocsController
         ]);
     }
 
-    public function show(string $repository, string $alias, string $slug, Docs $docs)
+    public function show(string $repository, string $alias, string $slug, Docs $docs): View|RedirectResponse
     {
         try {
             $repository = $docs->getRepository($repository);

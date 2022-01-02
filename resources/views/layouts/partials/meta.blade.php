@@ -4,7 +4,7 @@
 <link rel="dns-prefetch" href="https://cloud.typography.com">
 <link rel="dns-prefetch" href="https://pro.fontawesome.com">
 
-<title>{!! $title ?? '' !!} | Spatie</title>
+<title>{!! $title ?? '' !!} | Junges</title>
 
 <meta name="description" content="{{ $description ?? '' }}">
 <meta property="og:title" content="{{ $ogTitle ?? $title ?? '' }}"/>
