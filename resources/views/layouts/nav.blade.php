@@ -2,7 +2,7 @@
     <div class="container flex flex-col mx-auto md:flex-row md:items-center md:justify-between">
         <div class="flex items-center justify-between">
             <div>
-                <a href="#" class="text-xl font-bold text-gray-800 md:text-2xl">Junges.dev</a>
+                <a href="#" class="text-xl font-bold text-gray-800 md:text-2xl">JUNGES.DEV</a>
             </div>
             <div>
                 <button type="button" class="block text-gray-800 hover:text-gray-600 focus:text-gray-600 focus:outline-none md:hidden">

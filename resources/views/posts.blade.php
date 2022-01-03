@@ -3,7 +3,7 @@
 @section('content')
     <div class="w-full lg:w-8/12">
         <div class="flex items-center justify-between">
-            <h1 class="text-xl font-bold text-gray-700 md:text-2xl">Post</h1>
+            <h1 class="text-xl font-bold text-gray-700 md:text-2xl">Posts</h1>
         </div>
         <div class="mt-6">
             @include('posts.preview')
