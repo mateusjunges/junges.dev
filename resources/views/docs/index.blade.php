@@ -12,7 +12,7 @@
 {{--                        <h2 class="title underline font-bold text-2xl text-gray-700 mb-12">{{ $category }}</h2>--}}
 {{--                    </div>--}}
                 <div class="mb-24">
-                    <div class="grid">
+                    <div class="flex flex-wrap -mb-4">
                         @each('docs.partials.repository', $repositories, 'repository')
                     </div>
                 </div>

@@ -13,5 +13,13 @@ return [
             ],
             "category" => "Laravel"
         ],
+        [
+            "name" => "laravel-acl",
+            "repository" => "mateusjunges/laravel-acl",
+            "branches" => [
+                "master" => "v4"
+            ],
+            "category" => "Laravel"
+        ],
     ]
 ];
