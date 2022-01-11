@@ -13,7 +13,7 @@
 <div class="overflow-x-hidden bg-gray-100 w-screen">
     @include('layouts.nav')
     <div class="px-6 py-8">
-        <div class="container flex justify-between mx-auto">
+        <div class="flex-grow" role="main">
             {{ $slot ?? null}}
             @yield("content")
         </div>
