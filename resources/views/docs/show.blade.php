@@ -69,7 +69,7 @@
                     </div>
                 @endif
 
-                    <div class="markup markup-titles markup-lists markup-tables markup-code markup-embeds links-blue links-underline">
+                    <div class="markup markup-titles markup-lists markup-tables markup-code markup-embeds links-blue links-underline max-w-sm md:max-w-full">
                         {!! $page->contents !!}
                     </div>
 
