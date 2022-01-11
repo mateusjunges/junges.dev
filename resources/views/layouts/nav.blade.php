@@ -14,8 +14,8 @@
             </div>
         </div>
         <div class="flex-col hidden md:flex md:flex-row md:-mx-4">
-            <a href="#" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">Blog</a>
-            <a href="{{ route('open-source') }}" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">Open Source</a>
+{{--            <a href="#" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">Blog</a>--}}
+            <a href="{{ route('open-source') }}" class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0">Open Source Docs</a>
         </div>
     </div>
 </nav>

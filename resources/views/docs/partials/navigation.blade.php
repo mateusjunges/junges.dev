@@ -30,7 +30,7 @@
         <ol class="text-xs">
             @foreach($navigation as $key => $section)
                 @if ($key !== '_root')
-                    <h2 class="title-sm text-sm">{{ $section['_index']['title'] }}</h2>
+                    <h2 class="title-sm text-sm mb-2">{{ $section['_index']['title'] }}</h2>
                 @endif
 
                 <ul class="mb-6 space-y-1 @if($key !== '_root') pl-2 border-l-2 border-gray-lighter border-opacity-75 @endif">
