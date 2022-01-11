@@ -52,7 +52,7 @@ class ImportDocsFromRepositoriesCommand extends Command
 
         $this->info('Fetched & cached docs from all repositories.');
 
-//        $updatedRepositoriesValueStore->flush();
+        $updatedRepositoriesValueStore->flush();
 
         File::deleteDirectory(storage_path('docs-temp'));
 
