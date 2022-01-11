@@ -6,13 +6,13 @@
                 Documentation for all of my open source packages
             </p>
         </div>
-        <div class="mt-6 ml-0">
+        <div class="mt-6">
             @foreach($repositories->groupBy('category') as $category => $repositories)
 {{--                    <div class="wrap">--}}
 {{--                        <h2 class="title underline font-bold text-2xl text-gray-700 mb-12">{{ $category }}</h2>--}}
 {{--                    </div>--}}
                 <div class="mb-24">
-                    <div class="flex flex-wrap -mb-4">
+                    <div class="flex flex-wrap">
                         @each('docs.partials.repository', $repositories, 'repository')
                     </div>
                 </div>

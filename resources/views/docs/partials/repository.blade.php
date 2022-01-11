@@ -1,10 +1,10 @@
-<div class="w-1/2 h-48 border-opacity-25">
+<div class="w-screen md:w-1/2 h-48 border-opacity-25">
     <div class="mx-auto bg-white rounded-lg">
         <div class="mt-2">
             <a href="{{ action([\App\Http\Controllers\Docs\DocsController::class, 'repository'], $repository->slug) }}" class="underline text-2xl font-bold text-gray-700 hover:underline">
                 mateusjunges/{{ $repository->slug }}
             </a>
-            <p class="mt-2 text-gray-600">
+            <p class="mt-2 text-gray-600 px-2">
                 {{ optional($repository->aliases->last())->slogan }}
             </p>
         </div>

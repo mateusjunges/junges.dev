@@ -22,6 +22,7 @@
 </div>
 <livewire:scripts></livewire:scripts>
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/alpine.js') }}"></script>
 @stack('scripts')
 </body>
 </html>
