@@ -7,7 +7,7 @@ use App\Http\Requests\Github\RepositoryWebhookRequest;
 use App\Support\ValueStores\UpdatedRepositoriesValueStore;
 use Illuminate\Http\Request;
 
-class HandleGithubWebhookController
+class HandleGithubRepositoryWebhookController
 {
     public function __invoke(RepositoryWebhookRequest $request)
     {
