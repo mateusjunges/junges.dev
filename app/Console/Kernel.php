@@ -10,7 +10,7 @@ class Kernel extends ConsoleKernel
 {
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command(ImportDocsFromRepositoriesCommand::class)->everyMinute();
+        $schedule->command(ImportDocsFromRepositoriesCommand::class)->dailyAt('00:00');
     }
 
     protected function commands()
