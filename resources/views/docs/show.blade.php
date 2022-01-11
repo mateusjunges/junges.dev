@@ -10,10 +10,9 @@
     canonical="{{ url('/docs/' . $repository->slug . '/' . $latestVersion->slug . '/' . $page->slug) }}"
 >
     <div class="flex flex-col">
-        <div class="w-screen">
-            @include('docs.partials.breadcrumbs')
-        </div>
-        <div class="w-screen">
+        @include('docs.partials.breadcrumbs')
+
+        <div class="">
             <div class="wrap md:grid pb-24 gap-12 md:grid-cols-10 items-stretch">
                 <div class="z-10 | md:col-span-3 | lg:col-span-2 | print:hidden">
                     @include('docs.partials.navigation')
