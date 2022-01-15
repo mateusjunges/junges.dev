@@ -1,4 +1,4 @@
-<div class="max-w-4xl px-10 py-6 mx-auto bg-white rounded-lg shadow-md">
+<div class="max-w-4xl px-10 py-6 mx-auto bg-white">
     <div class="flex items-center justify-between"><span class="font-light text-gray-600">Jun 1, 2020</span>
         <a href="#" class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500">Laravel</a>
     </div>

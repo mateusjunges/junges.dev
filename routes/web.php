@@ -3,7 +3,7 @@
 use App\Http\Controllers\Docs\DocsController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome');
+Route::view('/', 'welcome2');
 Route::view('posts', 'posts');
 
 Route::redirect('open-source', 'documentation')->name('open-source');
