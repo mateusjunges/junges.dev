@@ -7,14 +7,12 @@
     title="{{ $page->title }} | {{ $repository->slug }}"
     background=""
     :no-index="$page->alias !== $latestVersion->slug"
-    canonical="{{ url('/docs/' . $repository->slug . '/' . $latestVersion->slug . '/' . $page->slug) }}"
->
+    canonical="{{ url('/docs/' . $repository->slug . '/' . $latestVersion->slug . '/' . $page->slug) }}">
     <div class="flex flex-col">
         @include('docs.partials.breadcrumbs')
-
-        <div class="">
-            <div class="wrap md:grid pb-24 gap-12 md:grid-cols-10 items-stretch">
-                <div class="z-10 | md:col-span-3 | lg:col-span-2 | print:hidden">
+        <div class="w-full">
+            <div class="pb-24 flex flex-col md:flex-row items-stretch">
+                <div class="md:mr-8">
                     @include('docs.partials.navigation')
                 </div>
                 <article class="md:col-span-7 lg:col-span-6">

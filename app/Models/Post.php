@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Tags\HasTags;
+use Spatie\Tags\Tag;
 
 /**
  * @method static Builder published()
@@ -41,6 +43,7 @@ class Post extends Model implements Sluggable
 {
     use HasFactory;
     use HasSlug;
+    use HasTags;
     use InteractsWithMedia;
 
     public const TYPE_LINK = 'link';
@@ -132,6 +135,12 @@ class Post extends Model implements Sluggable
 
         $this->save();
 
+        $tags = explode(',', $attributes['tags_text']);
+
+        $tags = array_map(fn (string $tag) => trim(strtolower($tag)), $tags);
+
+        $this->syncTags($tags);
+
         return $this;
     }
 
@@ -143,6 +152,13 @@ class Post extends Model implements Sluggable
     public function getPreviewUrlAttribute(): string
     {
         return route('post', [$this->idSlug()]) . "?preview_secret={$this->preview_secret}";
+    }
+
+    public function hasTag(string $tagName): bool
+    {
+        return $this->refresh()
+            ->tags
+            ->contains(fn (Tag $tag) => $tag->name === $tagName);
     }
 
     public function isLink(): bool
@@ -171,13 +187,19 @@ class Post extends Model implements Sluggable
 
     public function toTweet(): string
     {
+        $tags = $this->tags
+            ->map(fn (Tag $tag) => $tag->name)
+            ->map(fn (string $tagName) => '#' . str_replace(' ', '', $tagName))
+            ->implode(' ');
+
         $twitterAuthorString = '';
         if ($twitterHandle = $this->authorTwitterHandle()) {
             $twitterAuthorString = " (by @{$twitterHandle})";
         }
 
         return $this->emoji . ' ' . $this->title . $twitterAuthorString
-            . PHP_EOL . $this->promotional_url;
+            . PHP_EOL . $this->promotional_url
+            . PHP_EOL . $tags;
     }
 
     public function onAfterTweet(string $tweetUrl): void

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "58999160c510f6a35302b6b7448098f5",
+    "content-hash": "5a59340fb2e8db275333d81260912734",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -5228,6 +5228,79 @@
             "time": "2021-07-11T09:34:56+00:00"
         },
         {
+            "name": "spatie/eloquent-sortable",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/eloquent-sortable.git",
+                "reference": "6b4ca608144153a69b6a9f457e15bd7eafbe97a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/eloquent-sortable/zipball/6b4ca608144153a69b6a9f457e15bd7eafbe97a9",
+                "reference": "6b4ca608144153a69b6a9f457e15bd7eafbe97a9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.6"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^5.0|^6.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\EloquentSortable\\EloquentSortableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\EloquentSortable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be"
+                }
+            ],
+            "description": "Sortable behaviour for eloquent models",
+            "homepage": "https://github.com/spatie/eloquent-sortable",
+            "keywords": [
+                "behaviour",
+                "eloquent",
+                "laravel",
+                "model",
+                "sort",
+                "sortable"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/eloquent-sortable/issues",
+                "source": "https://github.com/spatie/eloquent-sortable/tree/4.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-03-31T14:07:53+00:00"
+        },
+        {
             "name": "spatie/enum",
             "version": "3.11.1",
             "source": {
@@ -5672,6 +5745,78 @@
             "time": "2021-12-17T13:52:45+00:00"
         },
         {
+            "name": "spatie/laravel-menu",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-menu.git",
+                "reference": "912c9d5162359c07f39287ee754b8fd1ccc9ee9a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-menu/zipball/912c9d5162359c07f39287ee754b8fd1ccc9ee9a",
+                "reference": "912c9d5162359c07f39287ee754b8fd1ccc9ee9a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/auth": "^8.0|^9.0",
+                "illuminate/contracts": "^8.71|^9.0",
+                "illuminate/support": "^8.71|^9.0",
+                "php": "^8.0",
+                "spatie/menu": "^3.0"
+            },
+            "require-dev": {
+                "fakerphp/faker": "^1.9",
+                "orchestra/testbench": "^6.23|^7.0",
+                "phpunit/phpunit": "^9.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Menu\\Laravel\\MenuServiceProvider"
+                    ],
+                    "aliases": {
+                        "Menu": "Spatie\\Menu\\Laravel\\Facades\\Menu"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Menu\\Laravel\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastiandedeyne@gmail.com",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Html menu generator for Laravel",
+            "homepage": "https://github.com/spatie/laravel-menu",
+            "keywords": [
+                "laravel-menu",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-menu/issues",
+                "source": "https://github.com/spatie/laravel-menu/tree/4.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2022-01-13T08:47:48+00:00"
+        },
+        {
             "name": "spatie/laravel-package-tools",
             "version": "1.11.0",
             "source": {
@@ -5729,6 +5874,271 @@
                 }
             ],
             "time": "2022-01-11T16:14:23+00:00"
+        },
+        {
+            "name": "spatie/laravel-tags",
+            "version": "4.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-tags.git",
+                "reference": "64a1ba78a69ddb3b0dbe3abe56ecb456c0591771"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-tags/zipball/64a1ba78a69ddb3b0dbe3abe56ecb456c0591771",
+                "reference": "64a1ba78a69ddb3b0dbe3abe56ecb456c0591771",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^8.67|^9.0",
+                "php": "^8.0",
+                "spatie/eloquent-sortable": "^3.10|^4.0",
+                "spatie/laravel-package-tools": "^1.4",
+                "spatie/laravel-translatable": "^4.6|^5.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.13|^7.0",
+                "phpunit/phpunit": "^9.5.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Tags\\TagsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Tags\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Add tags and taggable behaviour to your Laravel app",
+            "homepage": "https://github.com/spatie/laravel-tags",
+            "keywords": [
+                "laravel-tags",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-tags/issues",
+                "source": "https://github.com/spatie/laravel-tags/tree/4.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-01-14T07:44:43+00:00"
+        },
+        {
+            "name": "spatie/laravel-translatable",
+            "version": "5.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-translatable.git",
+                "reference": "4567de39c483f7e43dddab9b8cb657796b139fd2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-translatable/zipball/4567de39c483f7e43dddab9b8cb657796b139fd2",
+                "reference": "4567de39c483f7e43dddab9b8cb657796b139fd2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^8.0|^9.0",
+                "illuminate/support": "^8.0|^9.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.9"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4",
+                "orchestra/testbench": "^6.23|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Translatable\\TranslatableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Translatable\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Mohamed Said",
+                    "email": "theMohamedSaid@gmail.com",
+                    "role": "Original idea"
+                }
+            ],
+            "description": "A trait to make an Eloquent model hold translations",
+            "homepage": "https://github.com/spatie/laravel-translatable",
+            "keywords": [
+                "eloquent",
+                "i8n",
+                "laravel-translatable",
+                "model",
+                "multilingual",
+                "spatie",
+                "translate"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-translatable/issues",
+                "source": "https://github.com/spatie/laravel-translatable/tree/5.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2022-01-13T11:15:07+00:00"
+        },
+        {
+            "name": "spatie/macroable",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/macroable.git",
+                "reference": "ec2c320f932e730607aff8052c44183cf3ecb072"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/macroable/zipball/ec2c320f932e730607aff8052c44183cf3ecb072",
+                "reference": "ec2c320f932e730607aff8052c44183cf3ecb072",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0|^9.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Macroable\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A trait to dynamically add methods to a class",
+            "homepage": "https://github.com/spatie/macroable",
+            "keywords": [
+                "macroable",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/macroable/issues",
+                "source": "https://github.com/spatie/macroable/tree/2.0.0"
+            },
+            "time": "2021-03-26T22:39:02+00:00"
+        },
+        {
+            "name": "spatie/menu",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/menu.git",
+                "reference": "c4025b362db73a2a08083d8e7a82fc0c74b052ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/menu/zipball/c4025b362db73a2a08083d8e7a82fc0c74b052ed",
+                "reference": "c4025b362db73a2a08083d8e7a82fc0c74b052ed",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0",
+                "spatie/url": "^2.0.0"
+            },
+            "require-dev": {
+                "larapack/dd": "^1.0",
+                "phpunit/phpunit": "^9.0",
+                "vimeo/psalm": "^4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Menu\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Html menu generator",
+            "homepage": "https://github.com/spatie/menu",
+            "keywords": [
+                "menu",
+                "navigation",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/menu/issues",
+                "source": "https://github.com/spatie/menu/tree/3.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/spatie",
+                    "type": "github"
+                },
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "other"
+                }
+            ],
+            "time": "2021-11-11T11:24:18+00:00"
         },
         {
             "name": "spatie/once",
@@ -5995,6 +6405,68 @@
                 }
             ],
             "time": "2021-03-30T19:46:13+00:00"
+        },
+        {
+            "name": "spatie/url",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/url.git",
+                "reference": "4b9b58aae0f83db54d3d45466aba9f27760e4524"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/url/zipball/4b9b58aae0f83db54d3d45466aba9f27760e4524",
+                "reference": "4b9b58aae0f83db54d3d45466aba9f27760e4524",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0",
+                "psr/http-message": "^1.0",
+                "spatie/macroable": "^2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Url\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Parse, build and manipulate URL's",
+            "homepage": "https://github.com/spatie/url",
+            "keywords": [
+                "spatie",
+                "url"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/url/issues",
+                "source": "https://github.com/spatie/url/tree/2.0.3"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-12-29T10:38:37+00:00"
         },
         {
             "name": "spatie/valuestore",
@@ -11518,7 +11990,9 @@
     "prefer-lowest": false,
     "platform": {
         "php": "^8.0",
-        "ext-json": "*"
+        "ext-dom": "*",
+        "ext-json": "*",
+        "ext-libxml": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"

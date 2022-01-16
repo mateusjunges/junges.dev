@@ -1,5 +1,5 @@
 <section id="breadcrumb" class="hidden md:block py-4 md:py-6 lg:py-8">
-    <div class="wrap">
+    <div class="px-4">
         <p class="mt-4">
             <a href="{{ route('docs')}}" class="link-underline link-blue">Docs</a>
             <span class="icon mx-2 opacity-50 fill-current text-blue">{{ svg('icons/far-angle-right') }}</span>
