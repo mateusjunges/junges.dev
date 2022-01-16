@@ -22,6 +22,14 @@ class NavigationServiceProvider extends ServiceProvider
                 ->add(Link::to(route('docs'), 'Documentations'))
                 ->action(OpenSourceController::class, 'Open Source')
                 ->action(CommunityController::class, 'Community')
+                ->add(Link::to(route('blog.index'), 'Blog'))
+                ->setActiveFromRequest();
+        });
+
+        Menu::macro('navbar', function () {
+            return Menu::new()
+                ->action(OpenSourceController::class, 'Open Source')
+                ->add(Link::to(route('blog.index'), 'Blog'))
                 ->setActiveFromRequest();
         });
 

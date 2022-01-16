@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\Docs\DocsController;
 use App\Http\Controllers\HomeController;
@@ -10,6 +11,8 @@ Route::any('/', HomeController::class);
 Route::any('open-source', OpenSourceController::class)->name('open-source');
 Route::any('community', CommunityController::class);
 Route::view('posts', 'posts');
+
+Route::get('blog', [BlogController::class, 'index'])->name('blog.index');
 
 Route::get('documentation', [DocsController::class, 'index'])->name('docs');
 Route::get('documentation/{repository}/{alias?}', [DocsController::class, 'repository']);

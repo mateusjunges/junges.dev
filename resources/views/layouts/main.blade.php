@@ -12,7 +12,7 @@
 
 <body class="bg-grey-lightest tracking-wide">
 @include('layouts.partials.navbar')
-<div class="container w-screen mx-auto px-2 pt-8 mt-16 flex">
+<div class="container w-screen mx-auto px-2 pt-8 mt-16 flex flex-col md:flex-row">
     @yield('sidebar')
     <div class="w-full p-2 md:mt-6 lg:mt-0 text-black leading-normal bg-white">
         {{ $slot ?? null }}
