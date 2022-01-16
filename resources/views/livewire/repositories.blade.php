@@ -4,18 +4,18 @@
 
         </div>
         <div class="">
-            <div class="md:flex items-baseline justify-between mb-8">
+            <div class="flex flex-col justify-between mb-8 items-center md:flex-row w-full">
                 <input
                     type="search"
-                    class="form-input px-4 focus:border-2 focus:border-black"
+                    class="form-input px-4 focus:border-2 focus:border-black w-full md:w-2/3"
                     placeholder="Search packages..."
                     wire:model="search"
                 >
-                <div class="mt-6 md:mt-0 md:ml-6">
+                <div class="mt-6 md:mt-0 md:ml-6 flex flex-row justify-between items-center w-full md:w-1/3 md:justify-end">
                     <label for="sort" class="text-gray mr-2">
                         Sort
                     </label>
-                    <div class="select">
+                    <div class="select w-full">
                         <select name="sort" wire:model="sort">
                             <option value="-downloads">by downloads</option>
                             <option value="name">by name</option>
