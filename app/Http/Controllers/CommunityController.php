@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
+
 class CommunityController
 {
-    public function __index()
+    public function __invoke(): View
     {
-
+        return view('welcome');
     }
 }

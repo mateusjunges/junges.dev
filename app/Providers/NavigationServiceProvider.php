@@ -3,11 +3,13 @@
 namespace App\Providers;
 
 use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\Docs\DocsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OpenSourceController;
 use App\Http\Controllers\UsesController;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Menu\Laravel\Menu;
+use Spatie\Menu\Link;
 
 class NavigationServiceProvider extends ServiceProvider
 {
@@ -17,6 +19,7 @@ class NavigationServiceProvider extends ServiceProvider
         Menu::macro('primary', function () {
             return Menu::new()
                 ->action(HomeController::class, 'Home')
+                ->add(Link::to(route('docs'), 'Documentations'))
                 ->action(OpenSourceController::class, 'Open Source')
                 ->action(CommunityController::class, 'Community')
                 ->setActiveFromRequest();
