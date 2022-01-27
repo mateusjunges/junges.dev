@@ -18,18 +18,18 @@ class NavigationServiceProvider extends ServiceProvider
     {
         Menu::macro('primary', function () {
             return Menu::new()
-                ->action(HomeController::class, 'Home')
+//                ->action(HomeController::class, 'Home')
                 ->add(Link::to(route('docs'), 'Documentations'))
                 ->action(OpenSourceController::class, 'Open Source')
-                ->action(CommunityController::class, 'Community')
-                ->add(Link::to(route('blog.index'), 'Blog'))
+//                ->action(CommunityController::class, 'Community')
+//                ->add(Link::to(route('blog.index'), 'Blog'))
                 ->setActiveFromRequest();
         });
 
         Menu::macro('navbar', function () {
             return Menu::new()
                 ->action(OpenSourceController::class, 'Open Source')
-                ->add(Link::to(route('blog.index'), 'Blog'))
+//                ->add(Link::to(route('blog.index'), 'Blog'))
                 ->setActiveFromRequest();
         });
 
