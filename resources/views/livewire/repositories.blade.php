@@ -3,39 +3,38 @@
         <div class="wrap flex justify-start mb-8">
 
         </div>
-        <div class="wrap">
-            <div class="md:flex items-baseline justify-between mb-8">
+        <div class="">
+            <div class="flex flex-col justify-between mb-8 items-center md:flex-row w-full">
                 <input
                     type="search"
-                    class="form-input px-4"
+                    class="form-input px-4 focus:border-2 focus:border-black w-full md:w-2/3"
                     placeholder="Search packages..."
                     wire:model="search"
                 >
-                <div class="mt-6 md:mt-0 md:ml-6">
+                <div class="mt-6 md:mt-0 md:ml-6 flex flex-row justify-between items-center w-full md:w-1/3 md:justify-end">
                     <label for="sort" class="text-gray mr-2">
                         Sort
                     </label>
-                    <div class="select">
+                    <div class="select w-full">
                         <select name="sort" wire:model="sort">
                             <option value="-downloads">by downloads</option>
                             <option value="name">by name</option>
                             <option value="-stars">by popularity</option>
-                            <option value="-repository_created_at">by date</option>
                         </select>
-                        <span class="select-arrow">
+                        <span class="select-arrow text-black focus:border-2 focus:border-black">
                         {{ svg('icons/far-angle-down') }}</span>
                     </div>
                 </div>
             </div>
         </div>
     @endif
-    <div class="wrap">
+    <div class="">
         <div>
             @foreach($repositories as $repository)
                 <div class="cells" style="grid-template-columns: 3fr 3fr 1fr">
                     <div class="cell-l">
                         <div>
-                            <a class="font-sans-bold link-underline link-blue" href="{{ $repository->url }}" target="_blank" rel="nofollow noreferrer noopener">
+                            <a class="font-normal link-underline" href="{{ $repository->url }}" target="_blank" rel="nofollow noreferrer noopener">
                                 {{ $repository->name }}
                             </a>
                         </div>
@@ -98,7 +97,7 @@
             @endforeach
         </div>
         @unless(count($repositories))
-            <p class="mt-12 text-lg text-gray">
+            <p class="mt-6 mb-16 text-lg text-gray">
                 Unfortunately, the package you are looking for does not exist (yet).
             </p>
         @endunless

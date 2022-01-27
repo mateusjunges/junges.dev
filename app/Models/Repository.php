@@ -10,11 +10,21 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
+/**
+ * @method static \Illuminate\Database\Eloquent\Builder visible();
+ */
 class Repository extends Model
 {
     use HasFactory;
 
+    const TYPE_PACKAGE = 'package';
+    const TYPE_PROJECT = 'project';
+
     protected $guarded = ['id'];
+
+    protected $casts = [
+        'topics' => 'array'
+    ];
 
     public function getSlug(): string
     {

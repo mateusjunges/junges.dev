@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Docs;
 use App\Docs\Alias;
 use App\Docs\Docs;
 use App\Docs\DocumentationPage;
+use App\Models\Repository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
@@ -14,8 +15,11 @@ class DocsController
 {
     public function index(Docs $docs): View
     {
+        $githubRepositories = Repository::all();
+
         return view('docs.index', [
             'repositories' => $docs->getRepositories(),
+            'githubRepositories' => $githubRepositories
         ]);
     }
 

@@ -177,8 +177,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         \App\Providers\BladeComponentsServiceProvider::class,
         \App\Providers\LivewireServiceProvider::class,
-        \App\Providers\DocsServiceProvider::class
-
+        \App\Providers\DocsServiceProvider::class,
+        \App\Providers\TwitterServiceProvider::class,
+        \App\Providers\NavigationServiceProvider::class,
     ],
 
     /*

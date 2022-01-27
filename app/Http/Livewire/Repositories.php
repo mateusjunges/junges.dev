@@ -30,7 +30,7 @@ class Repositories extends Component
         $this->filterable = $filterable;
         $this->highlighted = $highlighted;
         $this->sort = request()->query('sort', $sort);
-        $this->search = request()->query('search', '');
+        $this->search = empty(request()->query('search', '')) ? "" : request()->query('search', '');
     }
 
     private function getRepositories(): Collection
@@ -54,7 +54,7 @@ class Repositories extends Component
 
     public function render()
     {
-        return view('front.livewire.repositories', [
+        return view('livewire.repositories', [
             'repositories' => $this->getRepositories(),
         ]);
     }

@@ -1,4 +1,4 @@
-<nav class="h-full py-6 md:bg-white md:shadow-light rounded-sm px-4">
+<nav class="h-full pb-6 md:py-6 md:shadow-light rounded-sm pl-4 pr-4 md:px-4">
     <div class="flex justify-between items-center pb-4 border-b-2 border-gray-lighter py-2 my-2">
         <div class="text-xs font-normal leading-normal select h-12">
             <select name="alias" class="text-lg bg-gray-500 text-gray-700" onChange="location='/docs/{{ $repository->slug }}/' + this.options[this.selectedIndex].value">
