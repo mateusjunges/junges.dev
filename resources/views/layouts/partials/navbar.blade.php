@@ -1,7 +1,7 @@
 <nav id="header" class="fixed w-full z-10 pin-t bg-white -mt-16 shadow">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-4">
         <div class="pl-4 items-center">
-            <a class="text-black text-base no-underline hover:no-underline font-extrabold text-xl"  href="#">
+            <a class="text-black text-base no-underline hover:no-underline font-extrabold text-xl"  href="{{ route('home') }}">
                 JUNGES.DEV
             </a>
         </div>

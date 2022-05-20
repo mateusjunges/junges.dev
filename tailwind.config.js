@@ -24,7 +24,8 @@ module.exports = {
     theme: {
         colors: {
             transparent: 'transparent',
-            black: '#172a3d',
+            black: '#000000',
+            'simple-black': '#191919',
             white: '#ffffff',
 
             paper: 'rgba(249, 248, 248, 0.5)',

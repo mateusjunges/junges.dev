@@ -7,8 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OpenSourceController;
 use Illuminate\Support\Facades\Route;
 
-Route::any('/', HomeController::class);
-Route::redirect('/', 'open-source');
+Route::any('/', HomeController::class)->name('home');
+//Route::redirect('/', 'open-source');
 Route::any('open-source', OpenSourceController::class)->name('open-source');
 Route::any('community', CommunityController::class);
 Route::view('posts', 'posts');

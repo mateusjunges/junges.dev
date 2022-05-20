@@ -59,3 +59,11 @@ a.anchor-link {
 .show-input-number-buttons::-webkit-outer-spin-button {
     opacity: 1;
 }
+
+.font-inter {
+    font-family: "Inter", system-ui,sans-serif;
+}
+
+.font-super-bold {
+    font-weight: 900 !important;
+}
