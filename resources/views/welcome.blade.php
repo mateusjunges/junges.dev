@@ -3,17 +3,14 @@
 <head>
     @include('layouts.partials.meta', ['title' => 'Welcome!'])
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <livewire:styles>
-        @stack('head')
-        </head>
+<livewire:styles>
+@stack('head')
+</head>
 
 {{--{{ $slot ?? null}}--}}
 {{--@yield("content")--}}
 
-<body class="tracking-wide flex justify-center w-full md:w-3/5 mx-auto bg-black text-white">
+<body class="tracking-wide flex justify-center w-full md:w-2/5 mx-auto bg-black text-white">
 {{--@include('layouts.partials.navbar')--}}
 <div class="container w-screen flex flex-col md:flex-row bg-black text-white">
     @yield('sidebar')

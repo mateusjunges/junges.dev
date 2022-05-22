@@ -1,24 +1,18 @@
-<nav id="header" class="fixed w-full z-10 pin-t bg-black text-white -mt-16 shadow">
-    <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-4">
-        <div class="pl-4 items-center">
-            <a class="text-white text-base no-underline hover:no-underline font-extrabold text-xl"  href="{{ route('home') }}">
-                JUNGES.DEV
-            </a>
-        </div>
-        <div class="block lg:hidden pr-4">
-            <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-grey border-grey-dark hover:text-white hover:border-purple appearance-none focus:outline-none">
-                <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <title>Menu</title>
-                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
-                </svg>
-            </button>
-        </div>
-        <div class="w-full lg:flex lg:content-center lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 z-20 justify-between" id="nav-content">
-            {{ \Spatie\Menu\Laravel\Menu::navbar()
-                ->addClass('list-reset lg:flex justify-end items-center')
-                ->addItemClass('inline-block text-grey-dark no-underline hover:text-white hover:underline py-2 px-4')
-                ->setActiveClass('font-bold text-white mb:border-b-2 mb:border-black')
-                }}
-        </div>
+<nav id="header" class="w-full fixed z-10 pin-t bg-black text-white -mt-16 shadow flex justify-center text-center">
+    <div class="flex justify-center w-full">
+        <div class="container flex flex-wrap items-center justify-center mt-0 py-4">
+            <div class="pl-4 items-center">
+                <a class="text-white text-base font-inter no-underline hover:no-underline font-super-bold text-3xl"  href="{{ route('home') }}">
+                    junges.dev
+                </a>
+            </div>
+    </div>
+{{--        <div class="w-full lg:flex lg:content-center lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 z-20 justify-between font-inter" id="nav-content">--}}
+{{--            {{ \Spatie\Menu\Laravel\Menu::navbar()--}}
+{{--                ->addClass('list-reset lg:flex justify-end items-center')--}}
+{{--                ->addItemClass('inline-block no-underline hover:text-white hover:underline py-2 px-4')--}}
+{{--                ->setActiveClass('font-super-bold text-white mb:border-b-2 mb:border-black')--}}
+{{--                }}--}}
+{{--        </div>--}}
     </div>
 </nav>
