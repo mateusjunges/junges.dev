@@ -4,7 +4,7 @@
 @endphp
 
 <x-page
-{{--    title="{{ $page->title }} | {{ $repository->slug }}"--}}
+    title="{{ $page->title }} | {{ $repository->slug }}"
     background=""
     :no-index="$page->alias !== $latestVersion->slug"
     canonical="{{ url('/docs/' . $repository->slug . '/' . $latestVersion->slug . '/' . $page->slug) }}">
