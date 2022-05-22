@@ -135,10 +135,16 @@ class DocsController
 
     private function extractTableOfContents(string $contents): array
     {
-        $matches = [];
+        $h2 = [];
 
-        preg_match_all('/<h2><a.*id="([^"]+)".*>#<\/a>([^<]+)/', $contents, $matches);
+        preg_match_all('/<h2.*><a.*id="([^"]+)".*>#<\/a>([^<]+)/', $contents, $h2);
 
+        $h3 = [];
+
+        preg_match_all('/<h3.*><a.*id="([^"]+)".*>#<\/a>([^<]+)/', $contents, $h3);
+
+        $matches = $h2 + $h3;
+//dd($matches);
         return array_combine($matches[1], $matches[2]);
     }
 }

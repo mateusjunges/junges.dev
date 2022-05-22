@@ -21,11 +21,6 @@
 }
 
 html {
-    @apply font-sans;
-    @apply font-normal;
-    @apply leading-normal;
-    @apply text-black;
-
     box-sizing: border-box;
     font-size: 16px;
 }

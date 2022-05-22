@@ -169,9 +169,10 @@
 .markup-code > pre > code {
     display: block;
     overflow-x: auto;
+    @apply rounded;
     @apply my-8;
     @apply p-6;
-    /*@apply bg-purple-light;*/
+    @apply bg-black;
     @apply bg-opacity-25;
     @apply text-sm;
     @apply font-mono;

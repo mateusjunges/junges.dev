@@ -10,7 +10,7 @@
     canonical="{{ url('/docs/' . $repository->slug . '/' . $latestVersion->slug . '/' . $page->slug) }}">
     <div class="flex flex-col">
         @include('docs.partials.breadcrumbs')
-        <div class="w-full">
+        <div class="font-inter w-full">
             <div class="pb-24 flex flex-col md:flex-row items-stretch">
                 <div class="md:mr-8">
                     @include('docs.partials.navigation')
@@ -37,10 +37,10 @@
 
                     @if($showBigTitle)
                         <div class="mb-16">
-                            <h1 class="text-4xl">
+                            <h1 class="text-4xl font-inter font-super-bold">
                                 {{ ucfirst($repository->slug) }}
                             </h1>
-                            <div class="banner-intro flex items-center justify-start">
+                            <div class="banner-intro flex items-center justify-start font-inter font-light">
                                 {{ $alias->slogan }}
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                             @endforeach
                         </ol>
                     </div>
-                @endif
+                 @endif
 
                     <div class="markup markup-titles markup-lists markup-tables markup-code markup-embeds links-underline">
                         {!! $page->contents !!}
@@ -73,10 +73,10 @@
 
                 </article>
                 @if(count($tableOfContents))
-                    <aside class="hidden lg:block w-full pb-16 col-span-2 print-hidden">
+                    <aside class="hidden lg:block pb-16 col-span-2 print-hidden">
                         <div class="sticky top-0 py-6">
-                            <div class="pl-4 border-l-2 border-gray-light border-opacity-50">
-                                <h3 class="mb-3 text-gray font-semibold uppercase tracking-wider text-xs">
+                            <div class="pl-4 border-l-2 border-gray-light border-opacity-50" style="margin-top: 60px">
+                                <h3 class="mb-3 text-gray font-super-bold uppercase tracking-wider text-xs">
                                     On this page
                                 </h3>
                                 <ul class="grid gap-2">
