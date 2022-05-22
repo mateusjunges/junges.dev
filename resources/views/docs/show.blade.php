@@ -4,7 +4,7 @@
 @endphp
 
 <x-page
-    title="{{ $page->title }} | {{ $repository->slug }}"
+{{--    title="{{ $page->title }} | {{ $repository->slug }}"--}}
     background=""
     :no-index="$page->alias !== $latestVersion->slug"
     canonical="{{ url('/docs/' . $repository->slug . '/' . $latestVersion->slug . '/' . $page->slug) }}">
@@ -17,7 +17,7 @@
                 </div>
                 <article class="md:col-span-7 lg:col-span-6">
                     @if(count($repository->aliases) > 1)
-                        <div class="mb-12 p-4 flex text-sm bg-white bg-opacity-50 rounded-sm md:shadow-light markup-code">
+                        <div class="mb-12 p-4 flex text-sm bg-opacity-50 rounded-sm md:shadow-light markup-code bg-simple-black">
                             <div class="flex-none h-6 w-6 text-orange fill-current">{{ svg('icons/fal-exclamation-circle') }}</div>
                             <div class="ml-4">
                                 <p>
@@ -27,7 +27,7 @@
                                     Check your current version with the following command:
                                 </p>
                                 <div class="mt-2">
-                                    <code class="bg-blue-lightest bg-opacity-50 px-2 py-1">
+                                    <code class="bg-gray-dark bg-opacity-50 px-2 py-1">
                                         composer show mateusjunges/{{ $repository->slug }}
                                     </code>
                                 </div>
