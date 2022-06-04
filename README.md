@@ -1,3 +1,3 @@
 # Junges.dev
 
-The source code for my personal blog.
+The source code for my personal website.
