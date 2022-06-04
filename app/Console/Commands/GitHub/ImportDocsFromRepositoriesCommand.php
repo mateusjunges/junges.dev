@@ -17,6 +17,7 @@ class ImportDocsFromRepositoriesCommand extends Command
     protected $signature = 'docs:import {--repo=} {--all}';
 
     protected $description = 'Fetches docs from all repositories in docs-repositories.json';
+
     public function handle()
     {
         $this->info('Importing docs...');
@@ -120,8 +121,8 @@ class ImportDocsFromRepositoriesCommand extends Command
                 && echo "---\ntitle: {$repository['name']}\ncategory: {$repository['category']}\n---" > ../../../docs/{$repository['name']}/_index.md \
                 && cd docs/ \
                 && find . -not -name '*.md' | cpio -pdm {$publicDocsAssetPath}/{$repository['name']}/{$alias}/
-            BASH
-            , base_path());
+            BASH,
+            base_path());
     }
 
     private function cleanRepositoryFolders(): void

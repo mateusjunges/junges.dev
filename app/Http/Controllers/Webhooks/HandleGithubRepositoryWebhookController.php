@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class HandleGithubRepositoryWebhookController
 {
-    public function __invoke(RepositoryWebhookRequest $request)
+    public function __invoke(RepositoryWebhookRequest $request): void
     {
         $payload = json_decode($request->getContent(), true);
 
