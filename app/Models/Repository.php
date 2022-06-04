@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 
 /**
  * @method static \Illuminate\Database\Eloquent\Builder visible();
+ * @method static \Illuminate\Database\Eloquent\Builder whereName(string $name);
  */
 class Repository extends Model
 {
@@ -68,6 +69,11 @@ class Repository extends Model
     public function scopeVisible(Builder $builder): void
     {
         $builder->where('visible', true);
+    }
+
+    public function scopeWhereName(Builder $builder, string $name): void
+    {
+        $builder->where('name', $name);
     }
 
     public function scopePackages(Builder $builder): void

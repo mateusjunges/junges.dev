@@ -1,8 +1,12 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Webhooks\HandleGithubRepositoryWebhookController;
+use App\Http\Controllers\Webhooks\HandleGithubStarWebhookController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('webhooks')->group(function() {
-    Route::post('github', \App\Http\Controllers\Webhooks\HandleGithubRepositoryWebhookController::class);
+    Route::prefix('github')->group(function() {
+        Route::post('/', HandleGithubRepositoryWebhookController::class);
+        Route::post('repo-starred', HandleGithubStarWebhookController::class);
+    });
 });
