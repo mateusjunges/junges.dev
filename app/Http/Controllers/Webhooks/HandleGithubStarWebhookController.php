@@ -9,7 +9,7 @@ class HandleGithubStarWebhookController
 {
     public function __invoke(GithubWebhookRequest $request): void
     {
-        $payload = json_decode($request->getContent(), true);
+        $payload = $request->all();
 
         /** @var Repository $repository */
         $repository = Repository::whereName($payload['repository']['name'])->first();

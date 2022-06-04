@@ -10,6 +10,10 @@ class GithubWebhookRequest extends FormRequest
 {
     public function authorize(): bool
     {
+        if (! config('services.github.should_verify_webhook_signature')) {
+            return true;
+        }
+
         $signature = $this->header('X-Hub-Signature');
 
         if ($signature === null) {

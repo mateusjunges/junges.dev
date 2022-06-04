@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Enums\RepositoryType;
 use BadMethodCallException;
+use Database\Factories\RepositoryFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -11,6 +12,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
 /**
+ * @property int stars
  * @method static \Illuminate\Database\Eloquent\Builder visible();
  * @method static \Illuminate\Database\Eloquent\Builder whereName(string $name);
  */
@@ -116,6 +118,16 @@ class Repository extends Model
             ltrim($sort, '-'),
             Str::startsWith($sort, '-') ? 'desc' : 'asc'
         );
+    }
+
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return \Database\Factories\RepositoryFactory
+     */
+    protected static function newFactory(): RepositoryFactory
+    {
+        return new RepositoryFactory();
     }
 
 }
