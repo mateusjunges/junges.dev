@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\UnauthorizedException;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
-class RepositoryWebhookRequest extends FormRequest
+class GithubWebhookRequest extends FormRequest
 {
     public function authorize(): bool
     {
