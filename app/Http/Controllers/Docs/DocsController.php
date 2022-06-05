@@ -49,7 +49,7 @@ class DocsController
             abort_if(is_null($alias), 404, 'Alias not found');
         } else {
             $alias = $repository->aliases->first(function (Alias $alias) {
-                return $alias->branch !== 'v9';
+                return true;
             });
         }
 
