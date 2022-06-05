@@ -88,7 +88,6 @@ class DocsController
             return redirect()->action([DocsController::class, 'show'], [$repository->slug, $alias, $slug]);
         }
 
-        /** @var Collection $pages */
         $pages = $alias->pages;
 
         $page = $pages->firstWhere('slug', $slug);
@@ -144,7 +143,7 @@ class DocsController
         preg_match_all('/<h3.*><a.*id="([^"]+)".*>#<\/a>([^<]+)/', $contents, $h3);
 
         $matches = $h2 + $h3;
-//dd($matches);
+
         return array_combine($matches[1], $matches[2]);
     }
 }
