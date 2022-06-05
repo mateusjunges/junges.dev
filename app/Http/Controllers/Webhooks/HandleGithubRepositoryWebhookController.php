@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\Webhooks;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Github\GithubWebhookRequest;
 use App\Support\ValueStores\UpdatedRepositoriesValueStore;
-use Illuminate\Http\Request;
 
 class HandleGithubRepositoryWebhookController
 {

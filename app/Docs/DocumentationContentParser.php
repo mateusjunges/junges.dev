@@ -3,12 +3,12 @@
 namespace App\Docs;
 
 use Illuminate\Support\HtmlString;
+use League\CommonMark\Extension\CommonMark\Node\Inline\Image;
+use League\CommonMark\Extension\CommonMark\Node\Inline\Link;
+use League\CommonMark\Extension\CommonMark\Renderer\Inline\ImageRenderer;
+use League\CommonMark\Extension\CommonMark\Renderer\Inline\LinkRenderer;
 use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
 use League\CommonMark\Extension\Table\TableExtension;
-use League\CommonMark\Inline\Element\Image;
-use League\CommonMark\Inline\Element\Link;
-use League\CommonMark\Inline\Renderer\ImageRenderer;
-use League\CommonMark\Inline\Renderer\LinkRenderer;
 use Spatie\LaravelMarkdown\MarkdownRenderer;
 use Spatie\Sheets\ContentParser;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
