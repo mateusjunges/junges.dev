@@ -8,6 +8,7 @@ return [
             "branches" => [
                 "v1.6.x" => "v1.6",
                 "v1.7.x" => "v1.7",
+                "v1.8.x" => "v1.8"
             ],
             "category" => "Laravel"
         ],
