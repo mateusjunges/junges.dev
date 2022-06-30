@@ -20,5 +20,13 @@ return [
             ],
             "category" => "Laravel"
         ],
+        [
+            "name" => "trackable-jobs-for-laravel",
+            "repository" => "mateusjunges/trackable-jobs-for-laravel",
+            "branches" => [
+                "v1.5.x" => "v1.5",
+            ],
+            "category" => "Laravel"
+        ]
     ]
 ];
