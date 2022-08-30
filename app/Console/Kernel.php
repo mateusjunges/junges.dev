@@ -12,6 +12,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command(ImportPackagistDownloadsCommand::class)->hourly();
+        $schedule->command(ImportDocsFromRepositoriesCommand::class)->everyMinute();
     }
 
     protected function commands()
