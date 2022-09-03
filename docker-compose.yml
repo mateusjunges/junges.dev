@@ -3,7 +3,7 @@ version: '3.9'
 
 services:
 
-    junges:
+    app:
         build:
             args:
                 USER_ID: ${CUR_USER_ID:-10000}
@@ -13,13 +13,13 @@ services:
             context: ./
             dockerfile: ./.docker/app/Dockerfile
         image: junges-dev-web-app
-        container_name: junges
+        container_name: app
         restart: unless-stopped
         working_dir: /var/www/
         depends_on:
             - nginx
-            - db-junges-dev
-            - redis-junges-dev
+            - db
+            - redis
         environment:
             XDEBUG_MODE: ${XDEBUG_MODE:-off}
         volumes:
@@ -34,10 +34,10 @@ services:
         networks:
             - junges-dev-web-app-network
 
-    db-junges-dev:
+    db:
         image: mysql:8.0.28-oracle
         command: --explicit_defaults_for_timestamp --lower_case_table_names=1
-        container_name: db-junges-dev
+        container_name: db
         restart: unless-stopped
         healthcheck:
             test: ['CMD', 'mysqladmin', '-u$DB_USERNAME', '-p$DB_PASSWORD',  'ping', '-h', 'localhost']
@@ -57,10 +57,10 @@ services:
             - junges-dev-web-app-network
         stop_grace_period: 2m
 
-    db-junges-dev-tests:
+    db-tests:
         image: mysql:8.0.28-oracle
         command: --explicit_defaults_for_timestamp --lower_case_table_names=1
-        container_name: db-junges-dev-tests
+        container_name: db-tests
         restart: unless-stopped
         environment:
             MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
@@ -77,9 +77,9 @@ services:
         networks:
             - junges-dev-web-app-network
 
-    redis-junges-dev:
+    redis:
         image: redis:5-alpine
-        container_name: redis-junges-dev
+        container_name: redis
         restart: unless-stopped
         healthcheck:
             test: redis-cli ping
@@ -118,7 +118,7 @@ services:
         tty: true
         working_dir: /app
         volumes:
-            - ./:/junges:delegated
+            - ./:/app:delegated
         networks:
             - junges-dev-web-app-network
 
