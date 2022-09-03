@@ -1,0 +1,11 @@
+{
+  "github-oauth": {
+    "github.com": "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"
+  },
+  "http-basic": {
+    "nova.laravel.com": {
+      "username": "LARAVEL_NOVA_USERNAME",
+      "password": "LARAVEL_NOVA_PASSWORD"
+    }
+  }
+}
