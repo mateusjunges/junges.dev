@@ -24,10 +24,10 @@ DEV_BACKUP_VERSION=$(date "+%Y%m%d%H%M%S")
 DEV_BACKUP_VERSION_FILENAME=lastbackup--dev.sql.gz.version
 
 # @todo consider using _import_dot_env.sh
-DB_DATABASE=forge
+DB_DATABASE=junges_dev
 DB_USERNAME=forge
 
-S3_BUCKET_NAME=idf--backup
+S3_BUCKET_NAME=junges--backup
 
 if [ "$(date "+%d")" = "01" ]; then
     S3_SUBDIRECTORY="monthly"
@@ -36,36 +36,9 @@ else
 fi
 
 # remove listed tables from minimal backup
-EXCLUDED_TABLES_FOR_DEV=(
-    action_events
-    logging__logs
-    leads
-    contact_list_subscriber
-    download_request
-    guest_downloaders
-    notification__message_log_email
-    notification__message_log_postcard
-    notification__message_log_sms
-    notification__message_queue_email
-    notification__message_queue_postcard
-    notification__message_queue_sms
-    notification__notification_log
-    notification__notification_queue
-    session_reference
-    jobs--failed
-    statistic_value
-    memberships__renewal_results
-)
+EXCLUDED_TABLES_FOR_DEV=()
 
-TABLES_SHOULD_BE_EXPORTED_AT_THE_END=(
-    course__quiz_answers
-    payment__transactions
-    payment__invoices
-    payment__invoice_lines
-    payment__invoice_line_discounts
-    discussion_member_subscription_v2
-    discussion_message_v2
-)
+TABLES_SHOULD_BE_EXPORTED_AT_THE_END=()
 
 IGNORED_TABLES_STRING=''
 for TABLE in "${EXCLUDED_TABLES_FOR_DEV[@]}"; do
@@ -148,8 +121,8 @@ echo "$(date) -- Uploaded!"
 ############### Step 5: Upload dev dump to staging server ##################
 
 echo "$(date) -- Uploading dev dump to staging server ..."
-scp ${DEV_BACKUP_LATEST_FILENAME} forge@information-architecture.org:/home/forge/backups/
-scp ${DEV_BACKUP_VERSION_FILENAME} forge@information-architecture.org:/home/forge/backups/
+scp ${DEV_BACKUP_LATEST_FILENAME} forge@junges.dev:/home/forge/backups/
+scp ${DEV_BACKUP_VERSION_FILENAME} forge@junges.dev:/home/forge/backups/
 echo "$(date) -- Uploaded!"
 
 ############### Step 6: Final cleanup ##################

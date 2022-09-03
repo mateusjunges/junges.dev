@@ -23,19 +23,19 @@ LOCAL_DUMP_FILEPATH=${LOCAL_DB_DUMPS_PATH}/${LOCAL_DUMP_FILENAME}
 LOCAL_VERSION_FILENAME=${DB_DATABASE:-dump}.sql.gz.version.local
 LOCAL_VERSION_FILEPATH=${LOCAL_DB_DUMPS_PATH}/${LOCAL_VERSION_FILENAME}
 
-SERVER_DUMP=forge@information-architecture.org:/home/forge/backups/lastbackup--dev.sql.gz
-SERVER_VERSION=forge@information-architecture.org:/home/forge/backups/lastbackup--dev.sql.gz.version
+SERVER_DUMP=forge@junges.dev:/home/forge/backups/lastbackup--dev.sql.gz
+SERVER_VERSION=forge@junges.dev:/home/forge/backups/lastbackup--dev.sql.gz.version
 
 # Test SSH connection
-# At the first run ~/.ssh/known_hosts can be empty and ask to confirm to connect to unknown develop.information-architecture.org domain
+# At the first run ~/.ssh/known_hosts can be empty and ask to confirm to connect to unknown develop.junges.dev domain
 # -oStrictHostKeyChecking=no will handle it, but it produce additional output "Warning..."
 set +e # Disable set -e for an individual command
-CONNECTION_OUTPUT=$(ssh -o BatchMode=yes -o ConnectTimeout=5 -o StrictHostKeyChecking=no -o LogLevel=error forge@information-architecture.org echo 'connection_established' 2>&1)
+CONNECTION_OUTPUT=$(ssh -o BatchMode=yes -o ConnectTimeout=5 -o StrictHostKeyChecking=no -o LogLevel=error forge@junges.dev echo 'connection_established' 2>&1)
 EXIT_CODE=$?
 set -e
 if [[ $CONNECTION_OUTPUT != *"connection_established"* ]]; then
     echo "$CONNECTION_OUTPUT (exit code: $EXIT_CODE)"
-    echo "🛑️ Could not connect to staging server. Check https://forge.laravel.com/servers/359885/keys to see if your SSH key is present for the staging server and try again."
+    echo "🛑️ Could not connect to staging server. Check https://forge.laravel.com/servers/587754/keys to see if your SSH key is present for the staging server and try again."
     exit $EXIT_CODE # terminate and indicate error
 fi;
 
