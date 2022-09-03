@@ -19,6 +19,11 @@ RUN apt-get update && apt-get install -y \
 # Install PHP extensions (keep in sync them with composer.json required expentions [expect curl dom hash filter json libxml pdo])
 RUN docker-php-ext-install pdo_mysql pcntl bcmath
 
+RUN docker-php-ext-install sockets
+
+RUN docker-php-ext-install exif
+RUN docker-php-ext-enable exif
+
 # Install ext-gd
 RUN apt-get install -y \
     libpng-dev \
