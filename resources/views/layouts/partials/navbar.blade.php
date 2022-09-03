@@ -1,4 +1,4 @@
-<nav id="header" class="w-full fixed z-10 pin-t bg-black text-white -mt-16 shadow flex justify-center text-center">
+<nav id="header" class="w-full fixed z-10 pin-t bg-blue-darker text-white -mt-16 shadow flex justify-center text-center">
     <div class="flex justify-center w-full">
         <div class="container flex flex-wrap items-center justify-center mt-0 py-4">
             <div class="pl-4 items-center">
