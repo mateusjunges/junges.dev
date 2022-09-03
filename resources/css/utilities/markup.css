@@ -156,7 +156,7 @@
 /* inline code */
 
 .markup-code :not(pre) code {
-    @apply bg-gray-dark;
+    /*@apply bg-gray-dark;*/
     @apply bg-opacity-25;
     @apply px-1;
     @apply font-mono;
@@ -172,7 +172,7 @@
     @apply rounded;
     @apply my-8;
     @apply p-6;
-    @apply bg-black;
+    @apply bg-opaque;
     @apply bg-opacity-25;
     @apply text-sm;
     @apply font-mono;

@@ -1,4 +1,4 @@
-<div class="bg-black text-white font-inter">
+<div class="bg-blue-darkest text-white font-inter">
     @if($this->filterable)
         <div class="wrap flex justify-start mb-8">
         </div>
@@ -6,7 +6,7 @@
             <div class="flex flex-col justify-between mb-8 items-center md:flex-row w-full">
                 <input
                     type="search"
-                    class="form-input px-4 focus:border-2 focus:border-black w-full md:w-2/3 bg-simple-black text-white"
+                    class="form-input px-4 focus:border-2 focus:border-blue-dark w-full md:w-2/3 bg-blue-darkest text-white"
                     placeholder="Search packages..."
                     wire:model="search"
                 >
@@ -14,13 +14,13 @@
                     <label for="sort" class="text-gray mr-2">
                         Sort
                     </label>
-                    <div class="select w-full bg-simple-black">
-                        <select name="sort" wire:model="sort" class="bg-simple-black text-white">
+                    <div class="select w-full bg-blue-darkest">
+                        <select name="sort" wire:model="sort" class="bg-blue-darkest text-white">
                             <option value="-downloads">by downloads</option>
                             <option value="name">by name</option>
                             <option value="-stars">by popularity</option>
                         </select>
-                        <span class="select-arrow text-white focus:border-2 focus:border-black">
+                        <span class="select-arrow text-white focus:border-2 focus:border-blue-dark">
                         {{ svg('icons/far-angle-down') }}</span>
                     </div>
                 </div>

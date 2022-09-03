@@ -1,5 +1,5 @@
 <div class="w-screen md:w-1/2 border-opacity-25 px-2 md:px-0 min-h-90px my-4 border-l-2 border-white">
-    <div class="bg-black flex flex-col justify-between px-4">
+    <div class="bg-blue-darkest flex flex-col justify-between px-4">
         <div class="mt-2">
             <a href="{{ action([\App\Http\Controllers\Docs\DocsController::class, 'repository'], $repository->slug) }}" class="text-2xl font-bold text-white hover:underline">
                 mateusjunges/{{ $repository->slug }}
@@ -12,7 +12,7 @@
             Available Versions:
             @foreach($repository->aliases as $alias)
                 <span>
-                    <a class="inline-flex items-center justify-center rounded-full w-8 h-8 px-2 bg-opacity-50 hover:bg-opacity-100 hover:font-super-bold {{ $loop->first ? 'bg-white text-white hover:text-black font-bold' : 'bg-simple-black text-white hover:font-super-bold'}}" href="{{action([\App\Http\Controllers\Docs\DocsController::class, 'repository'], [$repository->slug, $alias->slug])}}">
+                    <a class="inline-flex items-center justify-center rounded-full w-8 h-8 px-2 bg-opacity-50 hover:bg-opacity-100 hover:font-super-bold {{ $loop->first ? 'bg-white text-white hover:text-black font-bold' : 'bg-blue-dark text-white hover:font-super-bold'}}" href="{{action([\App\Http\Controllers\Docs\DocsController::class, 'repository'], [$repository->slug, $alias->slug])}}">
                         {{ $alias->slug }}
                     </a>
                 </span>

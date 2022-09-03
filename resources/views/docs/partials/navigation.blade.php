@@ -1,7 +1,7 @@
 <nav class="h-full pb-6 md:py-6 md:shadow-light rounded-sm pl-4 pr-4 md:px-4">
     <div class="flex justify-between items-center pb-4 border-b-2 border-gray-lighter py-2 my-2">
-        <div class="text-xs font-normal leading-normal select h-12 bg-black">
-            <select name="alias" class="text-lg bg-black text-gray-700" onChange="location='/documentation/{{ $repository->slug }}/' + this.options[this.selectedIndex].value">
+        <div class="text-xs font-normal leading-normal select h-12 bg-blue-darkest">
+            <select name="alias" class="text-lg bg-blue-darkest text-gray-700" onChange="location='/documentation/{{ $repository->slug }}/' + this.options[this.selectedIndex].value">
                 @foreach($repository->aliases as $aliasOption)
                     <option value="{{ $aliasOption->slug }}" {{ $page->alias === $aliasOption->slug ? 'selected="selected"' : '' }}>
                         {{ $aliasOption->slug }} ({{ $aliasOption->branch }})
@@ -36,7 +36,7 @@
                 <ul class="mb-6 space-y-1 @if($key !== '_root') pl-2 border-l-2 border-gray-lighter border-opacity-75 @endif">
                     @foreach($section['pages'] as $navItem)
                         <li class="leading-snug">
-                            <a href="{{ $navItem->url }}" class="@if($page->slug === $navItem->slug) font-bold @endif">
+                            <a href="{{ $navItem->url }}" class="@if($page->slug === $navItem->slug) font-bold underline @endif">
                                 {{ $navItem->title }}
                             </a>
                         </li>

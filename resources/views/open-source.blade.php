@@ -3,7 +3,7 @@
     @include('layouts.partials.sidebar')
 @endsection
 
-<x-page title="Open source" background="">
+<x-page title="Open source" background="" class="bg-blue-darkest">
     <h1 class="banner-slogan text-2xl font-bold text-gray-700 md:text-4xl mb-6 font-inter font-super-bold">Open Source</h1>
     <p class="font-inter leading-tight">
         Since I use Laravel for most of my projects, I build open source projects to contribute to the awesome Laravel ecosystem.
