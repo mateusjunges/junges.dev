@@ -23,4 +23,14 @@ class Repository
     {
         return $this->aliases->firstWhere('slug', $alias);
     }
+
+    public function getStargazersUrl(): string
+    {
+        return "https://github.com/mateusjunges/".$this->slug."/stargazers";
+    }
+
+    public function getForksUrl(): string
+    {
+        return "https://github/mateusjunges/".$this->slug."/network/members";
+    }
 }

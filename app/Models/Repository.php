@@ -129,5 +129,4 @@ class Repository extends Model
     {
         return new RepositoryFactory();
     }
-
 }
