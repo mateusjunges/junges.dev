@@ -31,6 +31,6 @@ class Repository
 
     public function getForksUrl(): string
     {
-        return "https://github/mateusjunges/".$this->slug."/network/members";
+        return "https://github.com/mateusjunges/".$this->slug."/network/members";
     }
 }
