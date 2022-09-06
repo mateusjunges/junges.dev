@@ -30,6 +30,7 @@ class ImportGitHubRepositoriesCommand extends Command
                 'stars' => $repositoryAttributes['stargazers_count'],
                 'language' => $repositoryAttributes['language'],
                 'repository_created_at' => Carbon::createFromFormat(DateTime::ATOM, $repositoryAttributes['created_at']),
+                'forks' => $repositoryAttributes['forks']
             ]);
 
             $repository->setTopics(

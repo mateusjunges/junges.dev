@@ -28,11 +28,11 @@
         <div class="mt-6">
             @foreach($repositories->groupBy('category') as $category => $repositories)
                 <div class="mb-24">
-                    <div class="flex flex-wrap">
+                    <ol class="flex flex-wrap list-none">
                         @foreach($repositories as $repository)
                             @include('docs.partials.repository', ['githubRepositories' => $githubRepositories])
                         @endforeach
-                    </div>
+                    </ol>
                 </div>
             @endforeach
         </div>
