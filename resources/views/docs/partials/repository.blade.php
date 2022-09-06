@@ -65,10 +65,10 @@
                 </div>
 
                 <!-- Composer install statistics -->
-                <a href="" class="text-right flex">
+                <div class="text-right flex">
                     <span class="mr-2">{{ svg('icons/download') }}</span>
                     <p>{{ $githubRepositories->where('name', $repository->slug)->first()->downloads }}</p>
-                </a>
+                </div>
             </div>
 
         </div>
