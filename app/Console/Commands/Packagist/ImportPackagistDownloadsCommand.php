@@ -28,13 +28,14 @@ class ImportPackagistDownloadsCommand extends Command
                 return $packagist->getPackage($packageName)['package'];
             })
             ->each(function (array $package): void {
-                $name = explode('/', $package['name'])[1];
+                $githubRepoName = explode('/', $package['repository']);
+                $githubRepoName = $githubRepoName[count($githubRepoName) - 1];
 
-                $this->comment("Fetching downloads for `{$name}`");
+                $this->comment("Fetching downloads for `{$githubRepoName}`");
 
                 $downloadCount = $package['downloads']['total'];
 
-                Repository::query()->where('name', $name)->update(['downloads' => $downloadCount]);
+                Repository::query()->where('name', $githubRepoName)->update(['downloads' => $downloadCount]);
             });
 
         $this->info('All done!');
