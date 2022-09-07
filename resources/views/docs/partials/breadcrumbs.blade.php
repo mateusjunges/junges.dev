@@ -1,4 +1,4 @@
-<section id="breadcrumb" class="hidden md:block py-4 md:py-6 lg:py-8">
+<section id="breadcrumb" class="hidden md:block container wrap py-4 md:py-6 lg:py-8 items-stretch">
     <div class="px-4">
         <p class="mt-4">
             <a href="{{ route('docs')}}" class="link-underline">Docs</a>

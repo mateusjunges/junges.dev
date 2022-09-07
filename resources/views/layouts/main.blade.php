@@ -7,17 +7,16 @@
     @stack('head')
 </head>
 
-{{--{{ $slot ?? null}}--}}
-{{--@yield("content")--}}
-
 <body class="bg-blue-darkest tracking-wide text-white">
-@include('layouts.partials.navbar')
-<div class="container w-screen mx-auto px-2 pt-8 mt-16 flex flex-col md:flex-row">
-    <div class="w-full p-2 md:mt-6 lg:mt-0 leading-normal bg-blue-darkest font-inter text-white">
-        {{ $slot ?? null }}
-        @yield('content')
-    </div>
-    @yield('on-this-page')
+
+@include('layouts.partials.header')
+
+<div class="flex-grow" role="main">
+{{--    <div class="w-full p-2 md:mt-6 lg:mt-0 leading-normal bg-blue-darkest font-inter text-white">--}}
+        {{ $slot }}
+{{--        @yield('content')--}}
+{{--    </div>--}}
+{{--    @yield('on-this-page')--}}
 </div>
 <!--/container-->
 {{--@include('layouts.partials.footer')--}}
