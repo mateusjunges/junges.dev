@@ -3,7 +3,7 @@
 @endsection
 
 <x-page title="Documentation">
-    <div class="min-h-12">
+    <div class="container wrap min-h-12">
         <div>
             <h1 class="banner-slogan text-2xl font-bold text-gray-700 md:text-4xl">Docs</h1>
             <p class="mt-4 text-lg">
