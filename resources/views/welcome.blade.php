@@ -43,9 +43,15 @@
                         <a href="mailto:mateus@junges.dev" class="underline">email</a>.
                     </h5>
                 </div>
+                <a href="{{ route('docs') }}">
+                    <div class="experience flex flex-col bg-blue-darker rounded py-4 px-2 hover:bg-gray-100 my-4">
+                        <h3 class="font-super-bold flex items-center">Documentations</h3>
+                        <h5 class="font-light text-sm">Here you can find the documentation for my open source projects.</h5>
+                    </div>
+                </a>
                 <a href="{{ route('open-source') }}">
                     <div class="experience flex flex-col bg-blue-darker rounded py-4 px-2 hover:bg-gray-100 my-4">
-                        <h3 class="font-super-bold flex items-center">Open Source {{ svg('link') }}</h3>
+                        <h3 class="font-super-bold flex items-center">Open Source</h3>
                         <h5 class="font-light text-sm">Public projects I contributed through commits, issues, pull requests or reviews on Github</h5>
                     </div>
                 </a>
