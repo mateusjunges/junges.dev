@@ -1,7 +1,7 @@
-<nav id="header" class="w-full fixed z-10 pin-t bg-blue-darker text-white -mt-16 shadow flex justify-center text-center">
-    <div class="flex justify-center w-full">
-        <div class="container flex flex-wrap items-center justify-center mt-0 py-4">
-            <div class="pl-4 items-center">
+<nav id="header" class="bg-blue-darker text-white shadow flex justify-center text-center">
+    <div class="flex justify-center">
+        <div class="flex md:flex-wrap items-center md:justify-center mt-0 py-4">
+            <div class="px-6 md:px-0 items-center">
                 <a class="text-white text-base font-inter no-underline hover:no-underline font-super-bold text-3xl"  href="{{ route('home') }}">
                     junges.dev
                 </a>
