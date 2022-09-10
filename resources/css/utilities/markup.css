@@ -156,7 +156,7 @@
 /* inline code */
 
 .markup-code :not(pre) code {
-    background-color: #193b5c;
+    @apply bg-blue-dark;
     @apply bg-opacity-25;
     @apply px-1;
     @apply font-mono;
