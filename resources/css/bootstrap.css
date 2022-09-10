@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.text-blue {
-
-}
-
 * {
     position: relative;
     box-sizing: inherit;

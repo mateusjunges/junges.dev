@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     @include('layouts.partials.meta')
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <livewire:styles>
     @stack('head')
 </head>
