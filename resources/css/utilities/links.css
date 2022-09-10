@@ -63,14 +63,14 @@ a.link-black:hover,
 .link-blue,
 a.link-blue,
 .links-blue a {
-    @apply text-blue;
+    /*@apply text-blue;*/
     --link-border-color: theme(colors.blue) 40;
 }
 
 .link-blue:hover,
 a.link-blue:hover,
 .links-blue a:hover {
-    @apply text-blue-dark;
+    /*@apply text-blue-dark;*/
     --link-border-color: theme(colors.blue) 80;
 }
 
