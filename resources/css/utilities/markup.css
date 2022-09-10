@@ -120,7 +120,7 @@
 }
 
 .markup-lists ul li:before {
-    @apply text-blue;
+    /*@apply text-blue;*/
     content: '•';
     left: 0;
     position: absolute;
