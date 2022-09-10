@@ -46,7 +46,7 @@
 }
 
 .bullets-inline li:not(:last-child):after {
-    @apply text-blue;
+    /*@apply text-blue;*/
     margin: 0 0.5em;
     content: '•';
     color: var(--bullet-color);
