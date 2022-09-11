@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     @include('layouts.partials.meta', ['title' => 'Welcome!'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <livewire:styles>
 @stack('head')
