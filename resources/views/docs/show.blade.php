@@ -60,62 +60,38 @@
                 <h1 class="title-xl mb-8">{{ $page->title }}</h1>
             @endif
 
-            {{--            @if(count($tableOfContents))--}}
-            {{--                <div class="lg:hidden p-6 bg-blue-lightest rounded-sm bg-opacity-25 mb-8">--}}
-            {{--                    <h3 class="mb-2 text-gray font-semibold uppercase tracking-wider text-xs">--}}
-            {{--                        On this page--}}
-            {{--                    </h3>--}}
-            {{--                    <ol class="grid gap-1">--}}
-            {{--                        @foreach($tableOfContents as $fragment => $title)--}}
-            {{--                            <li class="text-sm">--}}
-            {{--                                <a href="#{{ $fragment }}">--}}
-            {{--                                    {{ $title }}--}}
-            {{--                                </a>--}}
-            {{--                            </li>--}}
-            {{--                        @endforeach--}}
-            {{--                    </ol>--}}
-            {{--                </div>--}}
-            {{--            @endif--}}
-
             <div class="markup markup-titles markup-lists markup-code markup-tables markup-shiki markup-embeds links-underline">
                 {!! $page->contents !!}
             </div>
-
         </article>
-        {{--        @if(count($tableOfContents))--}}
-        {{--            <aside class="hidden lg:block w-full pb-16 col-span-2 print-hidden">--}}
-        {{--                <div class="sticky top-0 py-6">--}}
-        {{--                    <div class="pl-4 border-l-2 border-gray-light border-opacity-50">--}}
-        {{--                        <h3 class="mb-3 text-gray font-semibold uppercase tracking-wider text-xs">--}}
-        {{--                            On this page--}}
-        {{--                        </h3>--}}
-        {{--                        <ul class="grid gap-2">--}}
-        {{--                            @foreach($tableOfContents as $fragment => $title)--}}
-        {{--                                <li class="text-sm">--}}
-        {{--                                    <a href="#{{ $fragment }}" class="docs-submenu-item">--}}
-        {{--                                        {{ $title }}--}}
-        {{--                                    </a>--}}
-        {{--                                </li>--}}
-        {{--                            @endforeach--}}
-        {{--                        </ul>--}}
-        {{--                    </div>--}}
-        {{--                </div>--}}
-        {{--            </aside>--}}
-        {{--        @endif--}}
+
+        <aside class="hidden md:block w-48 pb-16 print-hidden right-px pin-t fixed" style="right: 2px" id="freelance-ad">
+            <div class="sticky top-0 py-6">
+                <div class="pl-4 py-2 border-l-2 border-gray-light rounded bg-gray-dark border-opacity-50">
+                    <div class="flex justify-between items-center">
+                        <h3 class="mb-3 text-white font-semibold uppercase tracking-wider text-xs">
+                            Do you need help with this package?
+                        </h3>
+                    </div>
+                    <p class="grid gap-2 text-xs">
+                        I'm available for freelance projects. Contact me <a href="mailto:mateus@junges.dev" class="underline hover:cursor-pointer">via email</a>
+                    </p>
+                    <p class="text-center text-xs underline hover:cursor-pointer" id="close-ad">close</p>
+                </div>
+            </div>
+        </aside>
+
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 
     <script>
-        {{--docsearch({--}}
-        {{--    apiKey: '',--}}
-        {{--    indexName: 'mateusjunges',--}}
-        {{--    inputSelector: '#algolia-search',--}}
-        {{--    debug: true,--}}
-        {{--    algoliaOptions: {--}}
-        {{--        'hitsPerPage': 5,--}}
-        {{--        'facetFilters': ['project:{{ $repository->slug }}', 'version:{{ $alias->slug }}']--}}
-        {{--    }--}}
-        {{--});--}}
+        let close = document.getElementById('close-ad');
+
+        close.addEventListener('click', closeAd);
+
+        function closeAd() {
+            document.getElementById('freelance-ad').remove();
+        }
     </script>
 </x-page>
