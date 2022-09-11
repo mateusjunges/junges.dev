@@ -6,6 +6,7 @@
 /public/css/
 /public/resources/
 /public/build/
+/public/vendor/
 /public/storage
 /storage/*.key
 /vendor
