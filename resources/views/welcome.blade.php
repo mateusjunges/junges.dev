@@ -22,7 +22,7 @@
                 <div>
                     <p class="leading-tight text-sm font-light">
                         Mateus Junges. Senior Software Engineer based in Brazil 🇧🇷 working for
-                        <a href="https://www.interaction-design.org/" class="underline">The Interaction Design Foundation</a>, in Dubai 🇦🇪.
+                        <a href="https://www.interaction-design.org/" rel="noopener noreferrer" target="_blank" class="underline">The Interaction Design Foundation</a>, in Dubai 🇦🇪.
                     </p>
                 </div>
             </div>
