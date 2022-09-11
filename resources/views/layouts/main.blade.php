@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     @include('layouts.partials.meta')
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'], 'build')
     <livewire:styles>
     @stack('head')
 </head>
