@@ -76,7 +76,7 @@
                     <p class="grid gap-2 text-xs">
                         I'm available for freelance projects. Contact me <a href="mailto:mateus@junges.dev" class="underline hover:cursor-pointer">via email</a>
                     </p>
-                    <p class="text-center text-xs underline hover:cursor-pointer" id="close-ad">close</p>
+                    <p class="text-right mr-2 text-xs underline hover:cursor-pointer" id="close-ad">close</p>
                 </div>
             </div>
         </aside>
