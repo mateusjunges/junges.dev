@@ -1,6 +1,6 @@
 @php
     /** @var \App\Docs\Repository $repository */
-    $latestVersion = $repository->aliases->first()
+    $latestVersion = $repository->aliases->first();
 @endphp
 
 <x-page

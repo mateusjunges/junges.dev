@@ -8,6 +8,7 @@ use App\Docs\DocumentationPage;
 use App\Models\Repository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 use RuntimeException;
 
@@ -48,9 +49,9 @@ class DocsController
 
             abort_if(is_null($alias), 404, 'Alias not found');
         } else {
-            $alias = $repository->aliases->first(function (Alias $alias) {
-                return true;
-            });
+            $alias = $repository->aliases->sortByDesc(
+                fn (Alias $value, string $key) => (int) Str::after($key, 'v1.')
+            )->first();
         }
 
         return redirect()->action([DocsController::class, 'show'], [
@@ -103,6 +104,10 @@ class DocsController
         $showBigTitle = $page->slug === $navigation['_root']['pages'][0]->slug;
 
         $tableOfContents = $this->extractTableOfContents($page->contents);
+
+        $repository->aliases = $repository->aliases->sortByDesc(
+            fn (Alias $value, string $key) => (int) Str::after($key, 'v1.')
+        );
 
         return view('docs.show', compact(
             'page',
