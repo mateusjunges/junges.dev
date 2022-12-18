@@ -28,4 +28,4 @@ Finally, run the following command to start the project:
 docker compose up -d --build
 ```
 
-You should be able to acess the local env at `http://localhost:8000`.
+You should be able to acess the local env at [`http://localhost:8000`](http://localhost:8000).
