@@ -9,7 +9,9 @@ class UpdatedRepositoriesValueStore extends Valuestore
 {
     protected Valuestore $valueStore;
 
-    public static function make(string $fileName = 'updatesRepositories', array $values = null): self
+    protected string $fileName = 'updatesRepositories.json';
+
+    public static function make(string $fileName = 'updatesRepositories', array $values = null): static
     {
         return new static();
     }
@@ -37,8 +39,8 @@ class UpdatedRepositoriesValueStore extends Valuestore
         return $this;
     }
 
-    public function flush(): void
+    public function flush(): static
     {
-        $this->valueStore->flush();
+        return $this->setContent([]);
     }
 }
