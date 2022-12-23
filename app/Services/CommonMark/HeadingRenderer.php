@@ -3,12 +3,13 @@
 namespace App\Services\CommonMark;
 
 use Illuminate\Support\Str;
-use League\CommonMark\Block\Element\AbstractBlock;
-use League\CommonMark\Block\Renderer\BlockRendererInterface;
+use League\CommonMark\Node\Block\AbstractBlock;
+use League\CommonMark\NodeBlock\Renderer\BlockRendererInterface;
 use League\CommonMark\ElementRendererInterface;
+use League\CommonMark\Renderer\NodeRendererInterface;
 use League\CommonMark\HtmlElement;
 
-class HeadingRenderer implements BlockRendererInterface
+class HeadingRenderer implements NodeRendererInterface
 {
     public function render(AbstractBlock $block, ElementRendererInterface $htmlRenderer, $inTightList = false)
     {
