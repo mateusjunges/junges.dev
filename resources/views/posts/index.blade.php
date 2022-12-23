@@ -9,3 +9,4 @@
         {{ $posts->links() }}
     </div>
 </x-page>
+
