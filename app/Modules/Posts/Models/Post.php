@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Models;
+namespace App\Modules\Posts\Models;
 
 use App\Actions\ConvertPostToHtmlAction;
 use App\Actions\PublishPostAction;
 use App\Jobs\CreateOgImageJob;
 use App\Models\Concerns\HasSlug;
-use App\Models\Contracts\Sluggable;
+use App\Models\User;
+use App\Modules\Posts\Contracts\Sluggable;
+use App\Modules\Posts\Presenters\PostPresenter;
 use App\Modules\Posts\QueryBuilders\PostsEloquentBuilder;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -45,6 +47,7 @@ class Post extends Model implements Sluggable
 {
     use HasFactory;
     use HasSlug;
+    use PostPresenter;
     use HasTags;
     use InteractsWithMedia;
 

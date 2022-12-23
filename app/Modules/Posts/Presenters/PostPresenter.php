@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models\Presenters;
+namespace App\Modules\Posts\Presenters;
 
-use App\Models\Post;
+use App\Modules\Posts\Models\Post;
 use App\Services\CommonMark\CommonMark;
 use Illuminate\Support\Str;
 use JetBrains\PhpStorm\Pure;
@@ -12,9 +12,8 @@ use JetBrains\PhpStorm\Pure;
  * @property string $excerpt
  * @property string $plain_text_excerpt
  */
-class PostPresenter
+trait PostPresenter
 {
-
     public function getExcerptAttribute(): string
     {
         $excerpt = $this->getManualExcerpt() ?? $this->getAutomaticExcerpt();

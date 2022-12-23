@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Contracts;
+namespace App\Modules\Posts\Contracts;
 
 interface Sluggable
 {
