@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('author_id');
+            $table->string('author')->default('Mateus Junges');
             $table->foreignId('submitted_by_user_id')
                 ->nullable()
                 ->references('id')
@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('slug');
             $table->string('author_twitter_handle')->nullable();
             $table->string('preview_secret');
+            $table->string('tweet_url')->nullable();
+            $table->string('series_slug')->nullable();
             $table->string('external_url')->nullable();
             $table->datetime('publish_date')->nullable();
             $table->boolean('original_content')->default(false);
