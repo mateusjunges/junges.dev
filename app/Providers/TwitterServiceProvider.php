@@ -11,6 +11,9 @@ class TwitterServiceProvider extends ServiceProvider
 {
     public function register()
     {
+        if (! config('services.twitter.enabled')) {
+            return;
+        }
         $this->app->bind(TwitterContract::class, function () {
             $connection = new TwitterOAuth(
                 config('services.twitter.consumer_key'),

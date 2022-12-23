@@ -2,7 +2,7 @@
 
 namespace App\View\Components;
 
-use App\Models\Post;
+use App\Modules\Posts\Models\Post;
 use Illuminate\View\Component;
 
 class SeriesTocComponent extends Component
