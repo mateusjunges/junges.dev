@@ -4,12 +4,12 @@ namespace App\Models;
 
 use App\Models\Enums\RepositoryType;
 use BadMethodCallException;
-use Database\Factories\RepositoryFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Tests\Factories\RepositoryFactory;
 
 /**
  * @property int stars
@@ -123,7 +123,7 @@ class Repository extends Model
     /**
      * Create a new factory instance for the model.
      *
-     * @return \Database\Factories\RepositoryFactory
+     * @return \Tests\Factories\RepositoryFactory
      */
     protected static function newFactory(): RepositoryFactory
     {

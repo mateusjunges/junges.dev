@@ -1,10 +1,10 @@
 <?php
 
-namespace Database\Factories;
+namespace Tests\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PostFactory extends Factory
+class PostDatabaseFactory extends Factory
 {
     public function definition(): array
     {
