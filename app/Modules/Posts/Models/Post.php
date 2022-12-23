@@ -7,6 +7,7 @@ use App\Actions\PublishPostAction;
 use App\Jobs\CreateOgImageJob;
 use App\Models\Concerns\HasSlug;
 use App\Models\Contracts\Sluggable;
+use App\Modules\Posts\QueryBuilders\PostsEloquentBuilder;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,6 +17,7 @@ use Illuminate\Support\Str;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Tags\HasTags;
 use Spatie\Tags\Tag;
+use Tests\Factories\PostDatabaseFactory;
 
 /**
  * @method static Builder published()
@@ -88,22 +90,31 @@ class Post extends Model implements Sluggable
         });
     }
 
+    /**
+     * @inheritDoc
+     * @return PostsEloquentBuilder<self>
+     */
+    public static function query(): PostsEloquentBuilder
+    {
+        $builder = parent::query();
+        assert($builder instanceof PostsEloquentBuilder);
+
+        return $builder;
+    }
+
+    /**
+     * @inheritDoc
+     * @param \Illuminate\Database\Query\Builder $query
+     * @return PostsEloquentBuilder<self>
+     */
+    public function newEloquentBuilder($query): PostsEloquentBuilder
+    {
+        return new PostsEloquentBuilder($query);
+    }
+
     public function submittedByUser(): BelongsTo
     {
         return $this->belongsTo(User::class, 'submitted_by_user_id');
-    }
-
-    public function scopePublished(Builder $query)
-    {
-        $query
-            ->where('published', true)
-            ->orderBy('publish_date', 'desc')
-            ->orderBy('id', 'desc');
-    }
-
-    public function scopeOriginalContent(Builder $query)
-    {
-        $query->where('original_content', true);
     }
 
     public function scopeScheduled(Builder $query)
@@ -146,12 +157,12 @@ class Post extends Model implements Sluggable
 
     public function getUrlAttribute(): string
     {
-        return route('post', [$this->idSlug()]);
+        return route('posts.show', [$this->idSlug()]);
     }
 
     public function getPreviewUrlAttribute(): string
     {
-        return route('post', [$this->idSlug()]) . "?preview_secret={$this->preview_secret}";
+        return route('posts.show', [$this->idSlug()]) . "?preview_secret={$this->preview_secret}";
     }
 
     public function hasTag(string $tagName): bool
@@ -218,9 +229,9 @@ class Post extends Model implements Sluggable
         return route('post.ogImage', $this) . "?preview_secret={$this->preview_secret}";
     }
 
-    public function isPartOfSeries()
+    public function isPartOfSeries(): bool
     {
-        return ! empty($this->series_slug);
+        return $this->series_slug !== null;
     }
 
     public function getAllPostsInSeries(): Collection
@@ -251,5 +262,10 @@ class Post extends Model implements Sluggable
     public function getSluggableValue(): string
     {
         return $this->title;
+    }
+
+    public static function newFactory(): PostDatabaseFactory
+    {
+        return new PostDatabaseFactory();
     }
 }
