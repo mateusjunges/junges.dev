@@ -24,7 +24,7 @@
         </div>
         <article class="md:col-span-7 lg:col-span-8">
             @if(count($repository->aliases) > 1)
-                <div class="mb-12 p-4 flex text-sm bg-blue-dark bg-opacity-50 rounded-sm md:shadow-light markup-shiki">
+                <div class="mb-12 p-4 flex text-sm bg-gray-light bg-opacity-50 rounded-sm md:shadow-light markup-shiki">
                     <div class="flex-none h-6 w-6 text-orange fill-current">{{ svg('icons/fal-exclamation-circle') }}</div>
                     <div class="ml-4">
                         <p>
@@ -71,7 +71,7 @@
             <div class="sticky top-0 py-6">
                 <div class="pl-4 py-2 border-l-2 border-gray-light rounded bg-gray-dark border-opacity-50">
                     <div class="flex justify-between items-center">
-                        <h3 class="mb-3 text-white font-semibold uppercase tracking-wider text-xs">
+                        <h3 class="mb-3 text-black font-semibold uppercase tracking-wider text-xs">
                             Do you need help with this package?
                         </h3>
                     </div>
