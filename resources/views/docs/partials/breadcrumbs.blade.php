@@ -6,7 +6,7 @@
             <span class="icon mx-2 opacity-50 fill-current text-blue">{{ __svg('icons/far-angle-right') }}</span>
             <a
                     class="link-underline"
-                    href="{{ action([\App\Http\Controllers\Docs\DocsController::class, 'repository'], [$repository->slug, $alias->slug]) }}"
+                    href="{{ action([\App\Modules\Documentation\Http\Controllers\DocsController::class, 'repository'], [$repository->slug, $alias->slug]) }}"
             >{{ ucfirst($repository->slug) }}</a>
             @if(! $page->isRootPage())
                 <span class="icon mx-2 opacity-50 fill-current text-blue">{{ __svg('icons/far-angle-right') }}</span>

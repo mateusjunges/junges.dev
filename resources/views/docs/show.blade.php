@@ -1,5 +1,5 @@
 @php
-    /** @var \App\Docs\Repository $repository */
+    /** @var \App\Modules\Documentation\Support\Repository $repository */
     $latestVersion = $repository->getSortedAliases()->first();
 @endphp
 

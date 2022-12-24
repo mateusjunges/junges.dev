@@ -178,7 +178,7 @@ return [
         App\Providers\TelescopeServiceProvider::class,
         \App\Providers\BladeComponentsServiceProvider::class,
         \App\Providers\LivewireServiceProvider::class,
-        \App\Providers\DocsServiceProvider::class,
+        \App\Modules\Documentation\Providers\DocsServiceProvider::class,
         \App\Providers\TwitterServiceProvider::class,
         \App\Providers\NavigationServiceProvider::class,
     ],

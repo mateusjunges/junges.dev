@@ -97,7 +97,7 @@ class GitHubApi
         return collect($paginator->fetchAll($api, 'contributors', [$username, $repository]));
     }
 
-    public function getUser($username)
+    public function getUser($username): array
     {
         /** @var \Github\Api\User $api */
         $api = $this->client->api('user');

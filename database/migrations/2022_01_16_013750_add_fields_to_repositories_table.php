@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\Repository;
+use App\Modules\Documentation\Enums\RepositoryType;
+use App\Modules\Documentation\Models\Repository;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -28,7 +29,7 @@ return new class extends Migration
                 'trackable-jobs-for-laravel'
             ])
             ->update([
-                'type' => Repository::TYPE_PACKAGE,
+                'type' => RepositoryType::PACKAGE->value,
                 'visible' => true
             ]);
     }

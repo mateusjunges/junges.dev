@@ -33,7 +33,6 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "knplabs/github-api": "dev-master#9b01208e1e5500201b45699c911ad53d08f59105",
         "laravel/framework": "^9.19",
-        "laravel/nova": "^3.30",
         "laravel/sanctum": "^2.11",
         "laravel/telescope": "^4.9",
         "laravel/tinker": "^2.5",
@@ -68,10 +67,6 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://nova.laravel.com"
-        },
-        {
-            "type": "composer",
             "url": "https://satis.spatie.be"
         }
     ],
@@ -91,8 +86,7 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "@php artisan nova:publish"
+            "Illuminate\\Foundation\\ComposerScripts::postInstall"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
