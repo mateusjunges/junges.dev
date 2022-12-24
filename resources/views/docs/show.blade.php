@@ -3,6 +3,8 @@
     $latestVersion = $repository->aliases->first();
 @endphp
 
+
+
 <x-page
     title="{{ $page->title }} | {{ $repository->slug }}"
 {{--    background="/backgrounds/docs-blur.jpg"--}}

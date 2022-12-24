@@ -1,6 +1,4 @@
-<livewire:scripts></livewire:scripts>
-<script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/alpine.js') }}"></script>
+@livewireScripts
 <script>
     var navMenuDiv = document.getElementById("nav-content");
     var navMenu = document.getElementById("nav-toggle");
