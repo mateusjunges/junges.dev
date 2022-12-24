@@ -1,9 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-    @include('layouts.partials.meta')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <livewire:styles>
+    @include('layouts.partials.meta')
     @stack('head')
 </head>
 
