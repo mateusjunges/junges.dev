@@ -1,4 +1,4 @@
-<nav id="header" class="bg-white text-black shadow-md flex justify-center text-center">
+<nav id="header" class="bg-white text-black flex justify-center text-center">
     <div class="flex justify-center">
         <div class="flex md:flex-wrap items-center md:justify-center mt-0 py-4">
             <div class="px-6 md:px-0 items-center">
