@@ -67,21 +67,25 @@
             </div>
         </article>
 
-        <aside class="hidden md:block w-48 pb-16 print-hidden right-px pin-t fixed" style="right: 2px" id="freelance-ad">
-            <div class="sticky top-0 py-6">
-                <div class="pl-4 py-2 border-l-2 border-gray-light rounded bg-gray-dark border-opacity-50">
-                    <div class="flex justify-between items-center">
-                        <h3 class="mb-3 text-black font-semibold uppercase tracking-wider text-xs">
-                            Do you need help with this package?
-                        </h3>
+        @unless(request()->cookie('freelance-ad-dismissed'))
+
+            <aside class="hidden md:block w-48 pb-16 print-hidden right-px pin-t fixed" style="right: 2px" id="freelance-ad">
+                <div class="sticky top-0 py-6">
+                    <div class="pl-4 py-2 border-l-2 border-gray-light rounded bg-gray-light border-opacity-50">
+                        <div class="flex justify-between items-center">
+                            <h3 class="mb-3 text-black font-semibold uppercase tracking-wider text-xs">
+                                Do you need help with this package?
+                            </h3>
+                        </div>
+                        <p class="grid gap-2 text-xs">
+                            I'm available for freelance projects. Contact me <a href="mailto:mateus@junges.dev" class="underline hover:cursor-pointer">via email</a>
+                        </p>
+                        <p class="text-right mr-2 text-xs underline hover:cursor-pointer" id="close-ad">close</p>
                     </div>
-                    <p class="grid gap-2 text-xs">
-                        I'm available for freelance projects. Contact me <a href="mailto:mateus@junges.dev" class="underline hover:cursor-pointer">via email</a>
-                    </p>
-                    <p class="text-right mr-2 text-xs underline hover:cursor-pointer" id="close-ad">close</p>
                 </div>
-            </div>
-        </aside>
+            </aside>
+
+        @endunless
 
     </section>
 
@@ -94,6 +98,7 @@
 
         function closeAd() {
             document.getElementById('freelance-ad').remove();
+            document.cookie= "freelance-ad-dismissed=true; expires=Thu, {{ now()->addWeek()->day }} {{ now()->addWeek()->format('M') }} {{ now()->addWeek()->year }} 12:00:00 UTC; path=/";
         }
     </script>
 </x-page>
