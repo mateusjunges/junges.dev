@@ -24,9 +24,9 @@
         <article class="md:col-span-7 lg:col-span-8">
             @if(count($repository->aliases) > 1)
                 <div
-                    class="mb-12 p-4 flex text-sm bg-gray-light bg-opacity-50 rounded-sm md:shadow-light markup-shiki">
+                    class="mb-12 p-4 flex text-sm bg-blue-light bg-opacity-50 rounded-sm md:shadow-light markup-shiki">
                     <div
-                        class="flex-none h-6 w-6 text-orange fill-current">{{ __svg('icons/fal-exclamation-circle') }}</div>
+                        class="flex-none h-6 w-6 text-orange-400 fill-current">{{ __svg('icons/fal-exclamation-circle') }}</div>
                     <div class="ml-4">
                         <p>
                             This is the documentation for
@@ -40,7 +40,7 @@
                             Check your current version with the following command:
                         </p>
                         <div class="mt-2">
-                            <code class="bg-gray-dark bg-opacity-50 px-2 py-1">
+                            <code class="bg-gray-500 bg-opacity-50 px-2 py-1">
                                 composer show mateusjunges/{{ $repository->slug }}
                             </code>
                         </div>
