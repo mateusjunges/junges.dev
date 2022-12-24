@@ -52,7 +52,7 @@
             </dl>
             <div class="mt-10 font-inter text-">
                 <div
-                    class="experience flex flex-col bg-gray-light bg-opacity-50 rounded py-4 px-2 hover:bg-gray-60 my-4">
+                    class="experience flex flex-col bg-gray-light bg-opacity-50 rounded py-4 px-2 hover:bg-gray-100 my-4">
                     <h3 class="font-super-bold">Want to hire me?</h3>
                     <h5 class="font-light text-sm">Please contact me by
                         <a href="mailto:mateus@junges.dev" class="underline">email</a>.
