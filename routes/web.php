@@ -21,5 +21,5 @@ Route::get('documentation', [DocsController::class, 'index'])->name('docs');
 Route::get('documentation/{repository}/{alias?}', [DocsController::class, 'repository']);
 Route::get('documentation/{repository}/{alias}/{slug}', [DocsController::class, 'show'])->where('slug', '.*');
 
-//Route::get('posts', OriginalsController::class)->name('posts.originals');
-//Route::get('posts/{post:slug}', ShowPostController::class)->name('posts.show');
+Route::get('posts', OriginalsController::class)->name('posts.originals');
+Route::get('posts/{post:slug}', ShowPostController::class)->name('posts.show');

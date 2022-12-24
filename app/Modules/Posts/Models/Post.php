@@ -16,13 +16,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Spatie\Comments\Models\Concerns\HasComments;
+use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Tags\HasTags;
 use Spatie\Tags\Tag;
 use Tests\Factories\PostDatabaseFactory;
 
 /**
- * @method static Builder published()
  * @property string $promotional_url
  * @property \Illuminate\Support\Carbon $publish_date
  * @property bool $published
@@ -43,13 +44,14 @@ use Tests\Factories\PostDatabaseFactory;
  *
  * @mixin Builder
  */
-class Post extends Model implements Sluggable
+class Post extends Model implements Sluggable, HasMedia
 {
     use HasFactory;
     use HasSlug;
     use PostPresenter;
     use HasTags;
     use InteractsWithMedia;
+    use HasComments;
 
     public const TYPE_LINK = 'link';
     public const TYPE_TWEET = 'tweet';
@@ -160,7 +162,7 @@ class Post extends Model implements Sluggable
 
     public function getUrlAttribute(): string
     {
-        return route('posts.show', [$this->idSlug()]);
+        return route('posts.show', [$this->slug]);
     }
 
     public function getPreviewUrlAttribute(): string
@@ -270,5 +272,15 @@ class Post extends Model implements Sluggable
     public static function newFactory(): PostDatabaseFactory
     {
         return new PostDatabaseFactory();
+    }
+
+    public function commentableName(): string
+    {
+        return $this->title;
+    }
+
+    public function commentUrl(): string
+    {
+        return $this->url;
     }
 }
