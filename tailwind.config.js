@@ -4,12 +4,9 @@ module.exports = {
     content: [
         './resources/**/*.blade.php',
         './app/*.php',
-        './vendor/filament/**/*.blade.php',
-        './vendor/filament/**/*.css',
 
     ],
     plugins: [
-        require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
     ],
     theme: {
@@ -97,6 +94,19 @@ module.exports = {
                 auto: 'auto',
                 back: -1,
                 postcard: 700,
+            },
+
+            lineHeight: {
+                none: 1,
+                tight: 1.1,
+                normal: 1.6,
+                loose: 2,
+            },
+
+            letterSpacing: {
+                tight: '-0.05em',
+                normal: '0',
+                wide: '0.05em',
             },
 
             borderWidth: {
