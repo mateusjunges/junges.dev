@@ -7,19 +7,13 @@
     @apply top-0;
     @apply bottom-0;
     @apply left-0;
-    @apply w-2px;
     @apply opacity-25;
     @apply rounded;
-    @apply bg-gray;
     content: '';
 }
 
 .line-l-white:after {
     @apply bg-white;
-}
-
-.line-l-green:after {
-    @apply bg-green-light;
 }
 
 .line-before {
@@ -28,8 +22,7 @@
 }
 
 .line-before:before {
-    @apply bg-gray;
-    @apply text-gray;
+    @apply text-gray-100;
     content: '';
     flex-grow: 1;
     height: 2px;
@@ -44,7 +37,6 @@
 }
 
 .line-after:after {
-    @apply bg-gray;
     content: '';
     flex-grow: 1;
     height: 2px;

@@ -5,7 +5,6 @@
 @import './utilities/animation.css';
 @import './utilities/avatar.css';
 @import './utilities/banner.css';
-@import './utilities/bullets.css';
 @import './utilities/card.css';
 @import './utilities/cell.css';
 @import './utilities/char.css';
@@ -22,7 +21,6 @@
 @import './utilities/modal.css';
 @import './utilities/section.css';
 @import './utilities/select.css';
-@import './utilities/submenu.css';
 @import './utilities/tag.css';
 @import './utilities/title.css';
 @import './utilities/wallpaper.css';

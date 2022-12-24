@@ -41,8 +41,6 @@ use Tests\Factories\PostDatabaseFactory;
  * @property boolean $tweet_sent
  * @property string $series_slug
  * @property int $id
- *
- * @mixin Builder
  */
 class Post extends Model implements Sluggable, HasMedia
 {

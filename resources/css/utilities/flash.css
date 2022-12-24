@@ -27,8 +27,6 @@
     --gradient-angle: 120deg;
     --gradient-from: #1fc08d;
     --gradient-to: #31b48b;
-
-    @apply bg-green;
     @apply text-black;
 }
 
@@ -36,8 +34,6 @@
     --gradient-angle: 120deg;
     --gradient-from: #d1828b;
     --gradient-to: #dd9099;
-
-    @apply bg-pink;
     @apply text-black;
 }
 

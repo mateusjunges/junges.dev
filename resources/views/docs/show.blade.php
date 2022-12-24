@@ -26,7 +26,7 @@
                 <div
                     class="mb-12 p-4 flex text-sm bg-gray-light bg-opacity-50 rounded-sm md:shadow-light markup-shiki">
                     <div
-                        class="flex-none h-6 w-6 text-orange fill-current">{{ svg('icons/fal-exclamation-circle') }}</div>
+                        class="flex-none h-6 w-6 text-orange fill-current">{{ __svg('icons/fal-exclamation-circle') }}</div>
                     <div class="ml-4">
                         <p>
                             This is the documentation for

@@ -12,8 +12,6 @@
     --gradient-angle: 120deg;
     --gradient-from: #21b989;
     --gradient-to: #82d8af;
-
-    @apply bg-green;
 }
 
 .gradient-pink {
@@ -21,7 +19,6 @@
     --gradient-from: #ddaeb4;
     --gradient-to: #dd9099;
 
-    @apply bg-pink;
 }
 
 .gradient-blue {
@@ -36,6 +33,4 @@
     --gradient-angle: 120deg;
     --gradient-from: #31302f;
     --gradient-to: #172a3d;
-
-    @apply bg-gray-dark;
 }

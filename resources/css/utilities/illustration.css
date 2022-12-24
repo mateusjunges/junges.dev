@@ -6,7 +6,6 @@
     @apply border-white;
     @apply border-solid;
     @apply shadow-lg;
-    @apply max-w-1/2;
     @apply mx-auto;
 }
 
@@ -27,19 +26,13 @@
     .illustration.h-full img {
         @apply absolute;
         @apply w-full;
-        @apply h-full;
+        /*@apply h-full;*/
         @apply inset-0;
         @apply object-cover;
         max-height: none;
     }
 }
 
-@screen print {
-    .illustration {
-        @apply shadow; /* Large shadow doesn't print so well */
-        max-height: 7cm !important;
-    }
-}
 
 .illustration-svg {
     @apply hidden;

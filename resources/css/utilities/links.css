@@ -64,70 +64,29 @@ a.link-black:hover,
 a.link-blue,
 .links-blue a {
     /*@apply text-blue;*/
-    --link-border-color: theme(colors.blue) 40;
+    --link-border-color: theme(colors.blue.600) 40;
 }
 
 .link-blue:hover,
 a.link-blue:hover,
 .links-blue a:hover {
     /*@apply text-blue-dark;*/
-    --link-border-color: theme(colors.blue) 80;
+    --link-border-color: theme(colors.blue.600) 80;
 }
 
-.link-pink,
-a.link-pink,
-.links-pink a {
-    @apply text-pink;
-    --link-border-color: theme(colors.pink) 40;
-}
 
-.link-pink:hover,
-a.link-pink:hover,
-.links-pink a:hover {
-    @apply text-pink-dark;
-    --link-border-color: theme(colors.pink) 80;
-}
-
-.link-red,
-a.link-red,
-.links-red a {
-    @apply text-pink-dark;
-    --link-border-color: theme(colors.pink-dark) 40;
-}
-
-.link-red:hover,
-a.link-red:hover,
-.links-red a:hover {
-    @apply text-pink;
-    --link-border-color: theme(colors.pink) 80;
-}
-
-.link-green,
-a.link-green,
-.links-green a {
-    @apply text-green;
-    --link-border-color: theme(colors.green) 40;
-}
-
-.link-green:hover,
-a.link-green:hover,
-.links-green a:hover {
-    @apply text-green-dark;
-    --link-border-color: theme(colors.green) 80;
-}
 
 .link-gray,
 a.link-gray,
 .links-gray a {
-    @apply text-gray;
-    --link-border-color: theme(colors.gray) 40;
+    @apply text-gray-100;
+    --link-border-color: theme(colors.gray.300) 40;
 }
 
 .link-gray:hover,
 a.link-gray:hover,
 .links-gray a:hover {
-    @apply text-gray-dark;
-    --link-border-color: theme(colors.gray) 80;
+    --link-border-color: theme(colors.gray.300) 80;
 }
 
 .link-white,
@@ -146,7 +105,7 @@ a.link-white:hover,
 }
 
 .links-button a {
-    @apply w-full truncate no-underline font-bold cursor-pointer bg-green-dark bg-opacity-75 rounded-sm border-2 border-transparent justify-center flex items-center px-6 py-2 text-black duration-300 whitespace-no-wrap text-xs;
+    @apply w-full truncate no-underline font-bold cursor-pointer bg-opacity-75 rounded-sm border-2 border-transparent justify-center flex items-center px-6 py-2 text-black duration-300 whitespace-nowrap text-xs;
     transition: background-color;
 }
 
@@ -161,5 +120,4 @@ a.link-white:hover,
 }
 
 .links-button a:focus {
-    @apply outline-none border-blue-light;
 }

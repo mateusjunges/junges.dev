@@ -53,7 +53,7 @@
                     <a href="{{ $repository->getStargazersUrl() }}"
                        class="inline-block text-xs leading-4 text-left text-blue-400 break-words bg-transparent cursor-pointer flex items-center"
                        style="text-decoration: none; list-style: outside none none;">
-                        {{ svg('icons/github-star') }}
+                        {{ __svg('icons/github-star') }}
                         {{ $githubRepositories->where('name', $repository->slug)->first()->stars }}
                     </a>
 
@@ -62,7 +62,7 @@
                         <a
                             href="{{ $repository->getForksUrl() }}"
                             class="flex ml-4 text-xs leading-4 text-left text-blue-400 break-words bg-transparent cursor-pointer items-center">
-                            {{ svg('icons/github-forks') }}
+                            {{ __svg('icons/github-forks') }}
                             {{ $githubRepositories->where('name', $repository->slug)->first()->forks ?? rand(1, 150)}}
                         </a>
                     @endif
@@ -70,7 +70,7 @@
 
                 <!-- Composer install statistics -->
                 <div class="text-right flex">
-                    <span class="mr-2">{{ svg('icons/download') }}</span>
+                    <span class="mr-2">{{ __svg('icons/download') }}</span>
                     <p>{{ $githubRepositories->where('name', $repository->slug)->first()->downloads }}</p>
                 </div>
             </div>
