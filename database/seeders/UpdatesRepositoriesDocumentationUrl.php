@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Repository;
+use App\Modules\Documentation\Models\Repository;
 use Illuminate\Database\Seeder;
 
 class UpdatesRepositoriesDocumentationUrl extends Seeder

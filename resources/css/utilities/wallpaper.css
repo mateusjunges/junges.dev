@@ -1,8 +1,8 @@
 .wallpaper {
     @apply absolute;
     @apply inset-0;
-    @apply z-back;
     @apply overflow-hidden;
+    @apply z-back;
 }
 
 .wallpaper img {

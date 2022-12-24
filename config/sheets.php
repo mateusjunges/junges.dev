@@ -6,9 +6,9 @@ return [
     'collections' => [
         'docs' => [
             'disk' => 'docs',
-            'sheet_class' => \App\Docs\DocumentationPage::class,
-            'path_parser' => \App\Docs\DocumentationPathParser::class,
-            'content_parser' => \App\Docs\DocumentationContentParser::class,
+            'sheet_class' => \App\Modules\Documentation\Sheets\DocumentationPage::class,
+            'path_parser' => \App\Modules\Documentation\Services\DocumentationPathParser::class,
+            'content_parser' => \App\Modules\Documentation\Services\DocumentationContentParser::class,
         ],
     ],
 ];

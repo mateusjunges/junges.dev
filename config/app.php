@@ -171,14 +171,12 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-        App\Providers\NovaServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         \App\Providers\BladeComponentsServiceProvider::class,
         \App\Providers\LivewireServiceProvider::class,
-        \App\Providers\DocsServiceProvider::class,
+        \App\Modules\Documentation\Providers\DocsServiceProvider::class,
         \App\Providers\TwitterServiceProvider::class,
         \App\Providers\NavigationServiceProvider::class,
     ],
@@ -190,7 +188,7 @@ return [
     |
     | This array of class aliases will be registered when this application
     | is started. However, feel free to register as many as you wish as
-    | the aliases are "lazy" loaded so they don't hinder performance.
+    | the aliases are "lazy" loaded, so they don't hinder performance.
     |
     */
 

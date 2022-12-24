@@ -3,9 +3,3 @@
     @apply py-8;
     @apply rounded-lg;
 }
-
-@screen print {
-    .card {
-        page-break-after: avoid;
-    }
-}

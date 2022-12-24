@@ -2,9 +2,11 @@
 
 use Illuminate\Support\HtmlString;
 
-function svg($filename): HtmlString
-{
-    return new HtmlString(
-        file_get_contents(resource_path("svg/{$filename}.svg"))
-    );
+if (! function_exists('__svg')) {
+    function __svg($filename): HtmlString
+    {
+        return new HtmlString(
+            file_get_contents(resource_path("svg/{$filename}.svg"))
+        );
+    }
 }

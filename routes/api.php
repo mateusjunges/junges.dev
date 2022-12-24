@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Webhooks\HandleGithubRepositoryWebhookController;
-use App\Http\Controllers\Webhooks\HandleGithubStarWebhookController;
+use App\Modules\Documentation\Http\Controllers\Webhooks\HandleGithubRepositoryWebhookController;
+use App\Modules\Documentation\Http\Controllers\Webhooks\HandleGithubStarWebhookController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('webhooks')->group(function() {

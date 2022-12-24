@@ -2,8 +2,8 @@
     @apply inline-flex;
     @apply items-center;
     @apply border-2;
-    @apply border-gray-light;
     @apply bg-white;
+    @apply border-gray-light;
     @apply px-2;
     @apply py-1;
     @apply rounded-sm;
@@ -12,7 +12,7 @@
 .select select {
     @apply font-sans;
     @apply lowercase;
-    @apply text-gray;
+    @apply text-gray-700;
     @apply bg-transparent;
     @apply appearance-none;
     -webkit-appearance: none;
@@ -35,7 +35,7 @@
         @apply mr-3;
         @apply w-2;
         @apply h-2;
-        @apply text-blue-light;
+        @apply text-gray-700;
         @apply pointer-events-none;
         @apply fill-current;
     }

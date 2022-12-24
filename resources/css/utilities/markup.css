@@ -172,7 +172,8 @@
     @apply rounded;
     @apply my-8;
     @apply p-6;
-    @apply bg-opaque;
+    @apply bg-blue-lightest;
+    @apply border-gray-lighter;
     @apply bg-opacity-25;
     @apply text-sm;
     @apply font-mono;
@@ -194,7 +195,6 @@
     @apply border-collapse;
     @apply border-t;
     @apply border-b;
-    @apply border-gray-lighter;
     @apply w-full;
     @apply text-xs;
     @apply my-6;
@@ -224,16 +224,14 @@
 .markup-tables table th {
     @apply text-left;
     @apply font-normal;
-    @apply whitespace-no-wrap;
+    @apply whitespace-nowrap;
     @apply uppercase;
     @apply text-xs;
-    @apply text-gray;
+    @apply text-gray-100;
 }
 
 .markup-tables table tbody tr {
-    @apply border-t;
-    @apply border-gray-lighter;
-}
+    @apply border-t;}
 
 .markup-tables table thead .th-numeric,
 .markup-tables table tbody .td-numeric {

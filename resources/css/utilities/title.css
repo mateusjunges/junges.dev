@@ -21,12 +21,6 @@
     border-radius: 4px;
 }
 
-@screen print {
-    .title-2xl {
-        margin-top: 1cm;
-    }
-}
-
 @screen sm {
     .title-2xl {
         @apply text-5xl;

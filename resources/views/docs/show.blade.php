@@ -1,5 +1,5 @@
 @php
-    /** @var \App\Docs\Repository $repository */
+    /** @var \App\Modules\Documentation\Support\Repository $repository */
     $latestVersion = $repository->getSortedAliases()->first();
 @endphp
 
@@ -24,9 +24,9 @@
         <article class="md:col-span-7 lg:col-span-8">
             @if(count($repository->aliases) > 1)
                 <div
-                    class="mb-12 p-4 flex text-sm bg-gray-light bg-opacity-50 rounded-sm md:shadow-light markup-shiki">
+                    class="mb-12 p-4 flex text-sm bg-blue-light bg-opacity-50 rounded-sm md:shadow-light markup-shiki">
                     <div
-                        class="flex-none h-6 w-6 text-orange fill-current">{{ svg('icons/fal-exclamation-circle') }}</div>
+                        class="flex-none h-6 w-6 text-orange-400 fill-current">{{ __svg('icons/fal-exclamation-circle') }}</div>
                     <div class="ml-4">
                         <p>
                             This is the documentation for
@@ -40,7 +40,7 @@
                             Check your current version with the following command:
                         </p>
                         <div class="mt-2">
-                            <code class="bg-gray-dark bg-opacity-50 px-2 py-1">
+                            <code class="bg-gray-500 bg-opacity-50 px-2 py-1">
                                 composer show mateusjunges/{{ $repository->slug }}
                             </code>
                         </div>
@@ -102,16 +102,18 @@
     </section>
 
     <script
-        src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-
-    <script>
-        let close = document.getElementById('close-ad');
-
-        close.addEventListener('click', closeAd);
-
-        function closeAd() {
-            document.getElementById('freelance-ad').remove();
-            document.cookie = "freelance-ad-dismissed=true; expires=Thu, {{ now()->addWeek()->day }} {{ now()->addWeek()->format('M') }} {{ now()->addWeek()->year }} 12:00:00 UTC; path=/";
-        }
+        src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js">
     </script>
+    @unless(request()->cookie('freelance-ad-dismissed') || (bool) config('junges_dev_advertising.freelance.enabled') === false)
+        <script>
+            let close = document.getElementById('close-ad');
+
+            close.addEventListener('click', closeAd);
+
+            function closeAd() {
+                document.getElementById('freelance-ad').remove();
+                document.cookie = "freelance-ad-dismissed=true; expires=Thu, {{ now()->addWeek()->day }} {{ now()->addWeek()->format('M') }} {{ now()->addWeek()->year }} 12:00:00 UTC; path=/";
+            }
+        </script>
+    @endunless
 </x-page>

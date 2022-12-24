@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Console\Commands\GitHub\ImportGitHubRepositoriesCommand;
+use App\Modules\Documentation\Console\Commands\GitHub\ImportGitHubRepositoriesCommand;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
 
