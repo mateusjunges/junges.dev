@@ -10,8 +10,6 @@ use App\Modules\Posts\Http\Controllers\ShowPostController;
 use Illuminate\Support\Facades\Route;
 
 Route::any('/', HomeController::class)->name('home');
-//Route::redirect('/', 'open-source');
-Route::any('open-source', OpenSourceController::class)->name('open-source');
 Route::any('community', CommunityController::class);
 Route::view('posts', 'posts');
 

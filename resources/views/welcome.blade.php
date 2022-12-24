@@ -66,15 +66,15 @@
                             for my open source projects.</h5>
                     </div>
                 </a>
-                <a href="{{ route('open-source') }}">
-                    <div
-                        class="experience flex flex-col bg-gray-light bg-opacity-50 rounded py-4 px-2 hover:bg-gray-100 my-4">
-                        <h3 class="font-super-bold flex items-center">Open Source</h3>
-                        <h5 class="font-light text-sm">Public projects I contributed
-                            through commits, issues, pull requests or reviews on
-                            Github</h5>
-                    </div>
-                </a>
+{{--                <a href="{{ route('open-source') }}">--}}
+{{--                    <div--}}
+{{--                        class="experience flex flex-col bg-gray-light bg-opacity-50 rounded py-4 px-2 hover:bg-gray-100 my-4">--}}
+{{--                        <h3 class="font-super-bold flex items-center">Open Source</h3>--}}
+{{--                        <h5 class="font-light text-sm">Public projects I contributed--}}
+{{--                            through commits, issues, pull requests or reviews on--}}
+{{--                            Github</h5>--}}
+{{--                    </div>--}}
+{{--                </a>--}}
                 <a href="{{ route('posts.originals') }}">
                     <div
                         class="experience flex flex-col bg-gray-light bg-opacity-50 rounded py-4 px-2 hover:bg-gray-100 my-4">
