@@ -24,7 +24,7 @@
 </ol>
 <blockquote class="border-l-4 border-purple italic my-8 pl-8 md:pl-12">Example of blockquote - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.</blockquote>
 <p class="py-6">Example code block:</p>
-<pre class="bg-black rounded text-white font-mono text-base p-2 md:p-4">
+<pre class="bg-black rounded text-black font-mono text-base p-2 md:p-4">
 				<code class="break-words whitespace-pre-wrap">
 &lt;header class="site-header outer"&gt;
 &lt;div class="inner"&gt;

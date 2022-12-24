@@ -29,7 +29,7 @@
     --gradient-to: #31b48b;
 
     @apply bg-green;
-    @apply text-white;
+    @apply text-black;
 }
 
 .flash-error {
@@ -38,7 +38,7 @@
     --gradient-to: #dd9099;
 
     @apply bg-pink;
-    @apply text-white;
+    @apply text-black;
 }
 
 .flash-info {

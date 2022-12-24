@@ -2,7 +2,7 @@
 
 namespace Tests\Factories;
 
-use App\Models\Post;
+use App\Modules\Posts\Models\Post;
 use Faker\Factory;
 use Faker\Generator;
 use Illuminate\Support\Arr;
@@ -43,7 +43,7 @@ class PostFactory
     public function create(array $attributes = [])
     {
         foreach (range(1, $this->times) as $i) {
-            /** @var \App\Models\Post $post */
+            /** @var \App\Modules\Posts\Models\Post $post */
             $post = Post::factory()->create($attributes);
             if (is_null($this->type)) {
                 $this->type = Arr::random([

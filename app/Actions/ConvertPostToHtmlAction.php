@@ -2,7 +2,7 @@
 
 namespace App\Actions;
 
-use App\Models\Post;
+use App\Modules\Posts\Models\Post;
 use App\Services\CommonMark\CommonMark;
 use App\View\Components\SeriesNextPostComponent;
 use App\View\Components\SeriesTocComponent;

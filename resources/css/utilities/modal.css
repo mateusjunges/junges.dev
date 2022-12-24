@@ -23,7 +23,7 @@
     @apply flex;
     @apply items-start;
     @apply justify-end;
-    @apply text-white;
+    @apply text-black;
     top: 0.5em;
     right: 0.5em;
     content: '×';

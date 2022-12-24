@@ -2,7 +2,7 @@
 
 namespace App\Models\Concerns;
 
-use App\Models\Contracts\Sluggable;
+use App\Modules\Posts\Contracts\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 

@@ -10,5 +10,7 @@ class BladeComponentsServiceProvider extends ServiceProvider
     public function register()
     {
         Blade::component('layouts.main', 'page');
+
+        Blade::component('components.post-header', 'post-header');
     }
 }

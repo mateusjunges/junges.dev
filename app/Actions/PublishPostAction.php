@@ -4,12 +4,12 @@ namespace App\Actions;
 
 use App\Jobs\CreateOgImageJob;
 use App\Jobs\TweetPostJob;
-use App\Models\Post;
+use App\Modules\Posts\Models\Post;
 use Illuminate\Support\Facades\Bus;
 
 class PublishPostAction
 {
-    public function execute(Post $post)
+    public function execute(Post $post): void
     {
         $post->published = true;
 

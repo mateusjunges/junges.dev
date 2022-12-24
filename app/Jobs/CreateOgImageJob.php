@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Models\Post;
+use App\Modules\Posts\Models\Post;
 use Exception;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

@@ -49,9 +49,7 @@ class DocsController
 
             abort_if(is_null($alias), 404, 'Alias not found');
         } else {
-            $alias = $repository->aliases->sortByDesc(
-                fn (Alias $value, string $key) => (int) Str::after($key, 'v1.')
-            )->first();
+            $alias = $repository->getSortedAliases()->first();
         }
 
         return redirect()->action([DocsController::class, 'show'], [
@@ -104,10 +102,6 @@ class DocsController
         $showBigTitle = $page->slug === $navigation['_root']['pages'][0]->slug;
 
         $tableOfContents = $this->extractTableOfContents($page->contents);
-
-        $repository->aliases = $repository->aliases->sortByDesc(
-            fn (Alias $value, string $key) => (int) Str::after($key, 'v1.')
-        );
 
         return view('docs.show', compact(
             'page',
