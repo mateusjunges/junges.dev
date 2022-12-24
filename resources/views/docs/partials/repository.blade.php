@@ -4,7 +4,7 @@
 
 <li class="flex px-2 mb-4 w-full leading-5 text-left, break-words lg:w-1/2 md:w-1/2 text-slate-300 border-none">
     <div
-        class="flex p-4 w-full leading-5 text-left break-words rounded-md border border-solid border-neutral-700 bg-gray text-slate-300">
+        class="flex p-4 w-full leading-5 text-left break-words rounded-md border border-solid border-neutral-700 bg-gray-light text-slate-300">
         <div class="flex flex-col p-4 w-full leading-5 text-left rounded-md
             text-slate-300">
             <div class="leading-5 text-left items-center text-slate-300">
