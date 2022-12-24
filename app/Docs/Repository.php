@@ -3,6 +3,7 @@
 namespace App\Docs;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 class Repository
 {
@@ -32,5 +33,12 @@ class Repository
     public function getForksUrl(): string
     {
         return "https://github.com/mateusjunges/".$this->slug."/network/members";
+    }
+
+    public function getSortedAliases(): Collection
+    {
+        return $this->aliases->sortByDesc(
+            fn (Alias $value, string $key) => (int) Str::after($key, 'v1.')
+        );
     }
 }

@@ -1,13 +1,12 @@
 @php
     /** @var \App\Docs\Repository $repository */
-    $latestVersion = $repository->aliases->first();
+    $latestVersion = $repository->getSortedAliases()->first();
 @endphp
-
 
 
 <x-page
     title="{{ $page->title }} | {{ $repository->slug }}"
-{{--    background="/backgrounds/docs-blur.jpg"--}}
+    {{--    background="/backgrounds/docs-blur.jpg"--}}
     :no-index="$page->alias !== $latestVersion->slug"
     canonical="{{ url('/docs/' . $repository->slug . '/' . $latestVersion->slug . '/' . $page->slug) }}"
 >
@@ -24,13 +23,20 @@
         </div>
         <article class="md:col-span-7 lg:col-span-8">
             @if(count($repository->aliases) > 1)
-                <div class="mb-12 p-4 flex text-sm bg-gray-light bg-opacity-50 rounded-sm md:shadow-light markup-shiki">
-                    <div class="flex-none h-6 w-6 text-orange fill-current">{{ svg('icons/fal-exclamation-circle') }}</div>
+                <div
+                    class="mb-12 p-4 flex text-sm bg-gray-light bg-opacity-50 rounded-sm md:shadow-light markup-shiki">
+                    <div
+                        class="flex-none h-6 w-6 text-orange fill-current">{{ svg('icons/fal-exclamation-circle') }}</div>
                     <div class="ml-4">
                         <p>
-                            This is the documentation for <strong>{{ $page->alias }}</strong>@if($page->alias !== $latestVersion->slug) but the latest version is
-                            <strong>{{ $latestVersion->slug }}</strong>@endif.
-                            You can switch versions in the menu <span class="hidden md:inline">on the left</span><span class="hidden">/</span><span class="inline md:hidden">at the top</span>.
+                            This is the documentation for
+                            <strong>{{ $page->alias }}</strong>@if($page->alias !== $latestVersion->slug)
+                                but the latest version is
+                                <strong>{{ $latestVersion->slug }}</strong>
+                            @endif.
+                            You can switch versions in the menu <span
+                                class="hidden md:inline">on the left</span><span
+                                class="hidden">/</span><span class="inline md:hidden">at the top</span>.
                             Check your current version with the following command:
                         </p>
                         <div class="mt-2">
@@ -62,25 +68,31 @@
                 <h1 class="title-xl mb-8">{{ $page->title }}</h1>
             @endif
 
-            <div class="markup markup-titles markup-lists markup-code markup-tables markup-shiki markup-embeds links-underline">
+            <div
+                class="markup markup-titles markup-lists markup-code markup-tables markup-shiki markup-embeds links-underline">
                 {!! $page->contents !!}
             </div>
         </article>
 
         @unless(request()->cookie('freelance-ad-dismissed'))
 
-            <aside class="hidden md:block w-48 pb-16 print-hidden right-px pin-t fixed" style="right: 2px" id="freelance-ad">
+            <aside class="hidden md:block w-48 pb-16 print-hidden right-px pin-t fixed"
+                   style="right: 2px" id="freelance-ad">
                 <div class="sticky top-0 py-6">
-                    <div class="pl-4 py-2 border-l-2 border-gray-light rounded bg-gray-light border-opacity-50">
+                    <div
+                        class="pl-4 py-2 border-l-2 border-gray-light rounded bg-gray-light border-opacity-50">
                         <div class="flex justify-between items-center">
                             <h3 class="mb-3 text-black font-semibold uppercase tracking-wider text-xs">
                                 Do you need help with this package?
                             </h3>
                         </div>
                         <p class="grid gap-2 text-xs">
-                            I'm available for freelance projects. Contact me <a href="mailto:mateus@junges.dev" class="underline hover:cursor-pointer">via email</a>
+                            I'm available for freelance projects. Contact me <a
+                                href="mailto:mateus@junges.dev"
+                                class="underline hover:cursor-pointer">via email</a>
                         </p>
-                        <p class="text-right mr-2 text-xs underline hover:cursor-pointer" id="close-ad">close</p>
+                        <p class="text-right mr-2 text-xs underline hover:cursor-pointer"
+                           id="close-ad">close</p>
                     </div>
                 </div>
             </aside>
@@ -89,7 +101,8 @@
 
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
 
     <script>
         let close = document.getElementById('close-ad');
@@ -98,7 +111,7 @@
 
         function closeAd() {
             document.getElementById('freelance-ad').remove();
-            document.cookie= "freelance-ad-dismissed=true; expires=Thu, {{ now()->addWeek()->day }} {{ now()->addWeek()->format('M') }} {{ now()->addWeek()->year }} 12:00:00 UTC; path=/";
+            document.cookie = "freelance-ad-dismissed=true; expires=Thu, {{ now()->addWeek()->day }} {{ now()->addWeek()->format('M') }} {{ now()->addWeek()->year }} 12:00:00 UTC; path=/";
         }
     </script>
 </x-page>
