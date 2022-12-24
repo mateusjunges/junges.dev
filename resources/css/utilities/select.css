@@ -35,7 +35,7 @@
         @apply mr-3;
         @apply w-2;
         @apply h-2;
-        @apply text-blue-light;
+        @apply text-gray-700;
         @apply pointer-events-none;
         @apply fill-current;
     }

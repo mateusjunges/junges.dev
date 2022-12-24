@@ -10,7 +10,8 @@
                 @endforeach
             </select>
             <span class="select-arrow text-black">
-            {{ __svg('icons/far-angle-down') }}</span>
+                {{ __svg('icons/far-angle-down') }}
+            </span>
         </div>
         <div class="ml-auto pl-2 flex items-center">
             <a class="text-xs underline hover:text-black-500"

@@ -102,16 +102,18 @@
     </section>
 
     <script
-        src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-
-    <script>
-        let close = document.getElementById('close-ad');
-
-        close.addEventListener('click', closeAd);
-
-        function closeAd() {
-            document.getElementById('freelance-ad').remove();
-            document.cookie = "freelance-ad-dismissed=true; expires=Thu, {{ now()->addWeek()->day }} {{ now()->addWeek()->format('M') }} {{ now()->addWeek()->year }} 12:00:00 UTC; path=/";
-        }
+        src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js">
     </script>
+    @unless(request()->cookie('freelance-ad-dismissed') || (bool) config('junges_dev_advertising.freelance.enabled') === false)
+        <script>
+            let close = document.getElementById('close-ad');
+
+            close.addEventListener('click', closeAd);
+
+            function closeAd() {
+                document.getElementById('freelance-ad').remove();
+                document.cookie = "freelance-ad-dismissed=true; expires=Thu, {{ now()->addWeek()->day }} {{ now()->addWeek()->format('M') }} {{ now()->addWeek()->year }} 12:00:00 UTC; path=/";
+            }
+        </script>
+    @endunless
 </x-page>
