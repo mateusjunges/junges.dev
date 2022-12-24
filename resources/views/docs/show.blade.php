@@ -74,7 +74,7 @@
             </div>
         </article>
 
-        @unless(request()->cookie('freelance-ad-dismissed'))
+        @unless(request()->cookie('freelance-ad-dismissed') || (bool) config('junges_dev_advertising.freelance.enabled') === false)
 
             <aside class="hidden md:block w-48 pb-16 print-hidden right-px pin-t fixed"
                    style="right: 2px" id="freelance-ad">
