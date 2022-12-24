@@ -6,6 +6,13 @@ use App\Http\Controllers\Docs\DocsController;
 use Illuminate\Support\Str;
 use Spatie\Sheets\Sheet;
 
+/**
+ * @property string $slug
+ * @property string $section
+ * @property \App\Docs\Repository $repository
+ * @property \App\Docs\Alias $alias
+ */
+#[\AllowDynamicProperties]
 class DocumentationPage extends Sheet
 {
     public function isIndex(): bool

@@ -26,7 +26,7 @@ class DocumentationContentParser implements ContentParser
             ->addInlineRenderer(Link::class, new LinkRenderer())
             ->commonmarkOptions([
                 'heading_permalink' => [
-                    'html_class' => 'anchor-link',
+                    'html_class' => 'anchor-link doc-anchor-link',
                     'symbol' => '#',
                 ]
             ]);
