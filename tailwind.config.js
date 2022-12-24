@@ -65,8 +65,11 @@ module.exports = {
                     light: '#cae1e8',
                 },
                 gray: {
-                    lighter: '#cbd2ce'
-                }
+                    lighter: '#cbd2ce',
+                    lightest: '#f3efea',
+                    light: '#b8bfbb',
+                },
+                opaque: 'rgba(255, 255, 255, 0.5)',
             },
             screens: {
                 sm: '720px',

@@ -172,6 +172,8 @@
     @apply rounded;
     @apply my-8;
     @apply p-6;
+    @apply bg-opaque;
+    @apply border-gray-lighter;
     @apply bg-opacity-25;
     @apply text-sm;
     @apply font-mono;
@@ -200,6 +202,8 @@
 
 .markup-tables table thead tr {
     @apply border-b;
+    @apply border-gray-lighter;
+    @apply bg-gray-lightest;
     @apply bg-opacity-25;
     font-size: 0.875em;
 }

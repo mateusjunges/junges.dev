@@ -3,6 +3,7 @@
     @apply items-center;
     @apply border-2;
     @apply bg-white;
+    @apply border-gray-light;
     @apply px-2;
     @apply py-1;
     @apply rounded-sm;
@@ -11,7 +12,7 @@
 .select select {
     @apply font-sans;
     @apply lowercase;
-    @apply text-gray-100;
+    @apply text-gray-700;
     @apply bg-transparent;
     @apply appearance-none;
     -webkit-appearance: none;

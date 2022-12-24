@@ -2,6 +2,7 @@
     @apply absolute;
     @apply inset-0;
     @apply overflow-hidden;
+    @apply z-back;
 }
 
 .wallpaper img {
