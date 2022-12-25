@@ -11,6 +11,7 @@ final class DatabaseSeeder extends Seeder
         $this->call([
             RepositoriesSeeder::class,
             PostsSeeder::class,
+            UpdatesRepositoriesDocumentationUrl::class,
         ]);
     }
 }
