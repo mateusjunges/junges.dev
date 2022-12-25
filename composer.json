@@ -29,6 +29,7 @@
         "ext-zip": "*",
         "abraham/twitteroauth": "^3.2",
         "doctrine/dbal": "^2.10",
+        "filament/filament": "^2.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "knplabs/github-api": "dev-master#9b01208e1e5500201b45699c911ad53d08f59105",
@@ -93,7 +94,8 @@
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan filament:upgrade"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
