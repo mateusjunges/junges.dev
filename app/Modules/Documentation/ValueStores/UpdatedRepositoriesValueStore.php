@@ -5,7 +5,7 @@ namespace App\Modules\Documentation\ValueStores;
 use Illuminate\Support\Arr;
 use Spatie\Valuestore\Valuestore;
 
-class UpdatedRepositoriesValueStore extends Valuestore
+final class UpdatedRepositoriesValueStore extends Valuestore
 {
     protected Valuestore $valueStore;
 

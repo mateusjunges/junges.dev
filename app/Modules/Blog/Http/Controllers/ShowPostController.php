@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Modules\Posts\Http\Controllers;
+namespace App\Modules\Blog\Http\Controllers;
 
 use App\Modules\Posts\Models\Post;
 
-class ShowPostController
+final class ShowPostController
 {
     public function __invoke(Post $post)
     {

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
  * @template TModelClass of \App\Modules\Documentation\Models\Repository
  * @extends \Illuminate\Database\Eloquent\Builder<TModelClass>
  */
-class RepositoryEloquentBuilder extends Builder
+final class RepositoryEloquentBuilder extends Builder
 {
     public function visible(): self
     {

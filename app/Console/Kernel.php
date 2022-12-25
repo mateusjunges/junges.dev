@@ -7,7 +7,7 @@ use App\Modules\Documentation\Console\Commands\Packagist\ImportPackagistDownload
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
-class Kernel extends ConsoleKernel
+final class Kernel extends ConsoleKernel
 {
     protected function schedule(Schedule $schedule)
     {

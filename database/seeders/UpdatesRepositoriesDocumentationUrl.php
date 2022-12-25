@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Modules\Documentation\Models\Repository;
 use Illuminate\Database\Seeder;
 
-class UpdatesRepositoriesDocumentationUrl extends Seeder
+final class UpdatesRepositoriesDocumentationUrl extends Seeder
 {
     public function run()
     {

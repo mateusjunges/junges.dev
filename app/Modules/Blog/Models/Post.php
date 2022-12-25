@@ -42,7 +42,7 @@ use Tests\Factories\PostDatabaseFactory;
  * @property string $series_slug
  * @property int $id
  */
-class Post extends Model implements Sluggable, HasMedia
+final class Post extends Model implements Sluggable, HasMedia
 {
     use HasFactory;
     use HasSlug;

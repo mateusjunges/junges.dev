@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 use Spatie\Packagist\PackagistClient;
 use Spatie\Packagist\PackagistUrlGenerator;
 
-class ImportPackagistDownloadsCommand extends Command
+final class ImportPackagistDownloadsCommand extends Command
 {
     protected $signature = 'import:packagist-downloads';
 

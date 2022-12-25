@@ -6,7 +6,7 @@ use App\Modules\Posts\Models\Post;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class SeriesNextPostComponent extends Component
+final class SeriesNextPostComponent extends Component
 {
     public function __construct(
         public Post $post

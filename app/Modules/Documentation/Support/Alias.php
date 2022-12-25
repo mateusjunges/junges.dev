@@ -4,7 +4,7 @@ namespace App\Modules\Documentation\Support;
 
 use Illuminate\Support\Collection;
 
-class Alias
+final class Alias
 {
     public function __construct(
         public readonly string $slug,

@@ -4,7 +4,7 @@ namespace App\Modules\Blog\Http\Controllers;
 
 use App\Modules\Posts\Models\Post;
 
-class OriginalsController
+final class OriginalsController
 {
     public function __invoke()
     {

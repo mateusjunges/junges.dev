@@ -5,7 +5,7 @@ namespace App\Modules\Documentation\Services;
 use Illuminate\Support\Str;
 use Spatie\Sheets\PathParser;
 
-class DocumentationPathParser implements PathParser
+final class DocumentationPathParser implements PathParser
 {
     public function parse(string $path): array
     {

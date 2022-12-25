@@ -10,7 +10,7 @@ use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use RuntimeException;
 
-class DocsController
+final class DocsController
 {
     public function index(Docs $docs): View
     {

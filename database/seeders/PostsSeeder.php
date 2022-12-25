@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Tests\Factories\PostFactory;
 
-class PostsSeeder extends Seeder
+final class PostsSeeder extends Seeder
 {
     public function run()
     {

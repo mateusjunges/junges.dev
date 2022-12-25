@@ -4,7 +4,7 @@ namespace App\Modules\Documentation\Exceptions;
 
 use Exception;
 
-class DocsImportException extends Exception
+final class DocsImportException extends Exception
 {
     //
 }

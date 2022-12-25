@@ -10,7 +10,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
-class GitHubApi
+final class GitHubApi
 {
     protected Client $client;
 

@@ -7,7 +7,7 @@ use Exception;
 use Illuminate\Support\Collection;
 use Spatie\Sheets\Sheets;
 
-class Docs
+final class Docs
 {
     public function getRepository(string $slug): ?Repository
     {

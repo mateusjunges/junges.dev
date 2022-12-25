@@ -7,7 +7,7 @@ use App\Modules\Blog\View\Components\SeriesTocComponent;
 use App\Modules\Posts\Models\Post;
 use App\Services\CommonMark\CommonMark;
 
-class ConvertPostToHtmlAction
+final class ConvertPostToHtmlAction
 {
     public function execute(Post $post): void
     {

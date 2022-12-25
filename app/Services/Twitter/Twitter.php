@@ -5,7 +5,7 @@ namespace App\Services\Twitter;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use App\Contracts\Twitter as TwitterContract;
 
-class Twitter implements TwitterContract
+final class Twitter implements TwitterContract
 {
     protected TwitterOAuth $twitter;
 

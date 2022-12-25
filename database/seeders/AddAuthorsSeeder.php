@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Author;
 use Illuminate\Database\Seeder;
 
-class AddAuthorsSeeder extends Seeder
+final class AddAuthorsSeeder extends Seeder
 {
     public function run()
     {

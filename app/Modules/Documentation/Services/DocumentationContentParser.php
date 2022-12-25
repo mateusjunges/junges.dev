@@ -13,7 +13,7 @@ use Spatie\LaravelMarkdown\MarkdownRenderer;
 use Spatie\Sheets\ContentParser;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
-class DocumentationContentParser implements ContentParser
+final class DocumentationContentParser implements ContentParser
 {
     protected MarkdownRenderer $markdownRenderer;
 

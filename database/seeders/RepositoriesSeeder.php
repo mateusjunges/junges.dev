@@ -6,7 +6,7 @@ use App\Modules\Documentation\Console\Commands\GitHub\ImportGitHubRepositoriesCo
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Artisan;
 
-class RepositoriesSeeder extends Seeder
+final class RepositoriesSeeder extends Seeder
 {
     public function run(): void
     {

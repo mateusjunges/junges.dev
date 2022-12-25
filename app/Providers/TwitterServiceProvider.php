@@ -7,7 +7,7 @@ use App\Contracts\Twitter as TwitterContract;
 use App\Services\Twitter\Twitter;
 use Illuminate\Support\ServiceProvider;
 
-class TwitterServiceProvider extends ServiceProvider
+final class TwitterServiceProvider extends ServiceProvider
 {
     public function register()
     {

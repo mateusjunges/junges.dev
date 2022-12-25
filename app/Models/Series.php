@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  *
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Series extends Model
+final class Series extends Model
 {
     use HasFactory;
 

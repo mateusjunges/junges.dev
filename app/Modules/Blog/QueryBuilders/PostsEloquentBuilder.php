@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Posts\QueryBuilders;
+namespace App\Modules\Blog\QueryBuilders;
 
 use Illuminate\Database\Eloquent\Builder;
 
@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
  * @template TModelClass of \App\Modules\Posts\Models\Post
  * @extends \Illuminate\Database\Eloquent\Builder<TModelClass>
  */
-class PostsEloquentBuilder extends Builder
+final class PostsEloquentBuilder extends Builder
 {
     public function published(): self
     {

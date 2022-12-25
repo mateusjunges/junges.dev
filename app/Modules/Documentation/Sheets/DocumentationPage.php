@@ -13,7 +13,7 @@ use Spatie\Sheets\Sheet;
  * @property \App\Modules\Documentation\Support\Alias $alias
  */
 #[\AllowDynamicProperties]
-class DocumentationPage extends Sheet
+final class DocumentationPage extends Sheet
 {
     public function isIndex(): bool
     {

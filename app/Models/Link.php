@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\URL;
  *
  * @mixin Builder
  */
-class Link extends Model implements Sluggable
+final class Link extends Model implements Sluggable
 {
     use HasFactory;
     use HasSlug;

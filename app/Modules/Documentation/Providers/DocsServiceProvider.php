@@ -4,7 +4,7 @@ namespace App\Modules\Documentation\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class DocsServiceProvider extends ServiceProvider
+final class DocsServiceProvider extends ServiceProvider
 {
     public function register()
     {

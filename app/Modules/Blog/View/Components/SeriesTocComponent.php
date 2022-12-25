@@ -6,7 +6,7 @@ use App\Modules\Posts\Models\Post;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class SeriesTocComponent extends Component
+final class SeriesTocComponent extends Component
 {
     public function __construct(
         public Post $post

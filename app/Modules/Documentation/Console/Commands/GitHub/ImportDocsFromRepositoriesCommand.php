@@ -12,7 +12,7 @@ use Spatie\Fork\Fork;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Process\Process;
 
-class ImportDocsFromRepositoriesCommand extends Command
+final class ImportDocsFromRepositoriesCommand extends Command
 {
     protected $signature = 'docs:import {--repo=} {--all}';
 

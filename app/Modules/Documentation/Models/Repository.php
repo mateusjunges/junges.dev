@@ -24,7 +24,7 @@ use Tests\Factories\RepositoryFactory;
  * @property \Illuminate\Support\Carbon $updated_at The date and time this repository was last updated.
  *
  */
-class Repository extends Model
+final class Repository extends Model
 {
     use HasFactory;
 

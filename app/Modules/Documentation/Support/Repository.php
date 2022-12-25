@@ -6,7 +6,7 @@ use App\Modules\Documentation\Sheets\DocumentationPage;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
-class Repository
+final class Repository
 {
     public string $slug;
 

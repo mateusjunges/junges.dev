@@ -5,7 +5,7 @@ namespace App\Modules\Documentation\Http\Controllers\Webhooks;
 use App\Modules\Documentation\Http\Requests\Github\GithubWebhookRequest;
 use App\Modules\Documentation\ValueStores\UpdatedRepositoriesValueStore;
 
-class HandleGithubRepositoryWebhookController
+final class HandleGithubRepositoryWebhookController
 {
     public function __invoke(GithubWebhookRequest $request): void
     {

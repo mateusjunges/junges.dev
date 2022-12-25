@@ -4,7 +4,7 @@ namespace App\Services\CommonMark;
 
 use Spatie\LaravelMarkdown\MarkdownRenderer;
 
-class CommonMark
+final class CommonMark
 {
     public static function convertToHtml(string $markdown, bool $highlightCode = false): string
     {
