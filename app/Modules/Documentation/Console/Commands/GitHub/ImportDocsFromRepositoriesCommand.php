@@ -4,7 +4,7 @@ namespace App\Modules\Documentation\Console\Commands\GitHub;
 
 use App\Modules\Documentation\Exceptions\DocsImportException;
 use App\Modules\Documentation\Support\Docs;
-use App\Support\ValueStores\UpdatedRepositoriesValueStore;
+use App\Modules\Documentation\ValueStores\UpdatedRepositoriesValueStore;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Support\ValueStores;
+namespace App\Modules\Documentation\ValueStores;
 
 use Illuminate\Support\Arr;
 use Spatie\Valuestore\Valuestore;

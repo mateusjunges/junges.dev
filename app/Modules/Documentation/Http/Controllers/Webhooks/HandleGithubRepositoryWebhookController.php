@@ -3,7 +3,7 @@
 namespace App\Modules\Documentation\Http\Controllers\Webhooks;
 
 use App\Modules\Documentation\Http\Requests\Github\GithubWebhookRequest;
-use App\Support\ValueStores\UpdatedRepositoriesValueStore;
+use App\Modules\Documentation\ValueStores\UpdatedRepositoriesValueStore;
 
 class HandleGithubRepositoryWebhookController
 {
