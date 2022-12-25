@@ -14,8 +14,7 @@ class HandleGithubStarWebhookController
         /** @var Repository $repository */
         $repository = Repository::query()->whereName($payload['repository']['name'])->first();
 
-        $repository->update([
-            'stars' => $payload['repository']['stargazers_count']
-        ]);
+        $repository->stars = $payload['repository']['stargazers_count'];
+        $repository->save();
     }
 }

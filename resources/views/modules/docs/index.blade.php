@@ -16,7 +16,7 @@
                 <div class="mb-24">
                     <ol class="flex flex-wrap list-none">
                         @foreach($repositories as $repository)
-                            @include('docs.partials.repository', ['githubRepositories' => $githubRepositories])
+                            @include('modules.docs.partials.repository', ['githubRepositories' => $githubRepositories])
                         @endforeach
                     </ol>
                 </div>

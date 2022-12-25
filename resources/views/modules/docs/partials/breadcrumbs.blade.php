@@ -2,7 +2,7 @@
          class="hidden md:block container wrap py-4 md:py-6 lg:py-8 items-stretch">
     <div class="px-4">
         <p class="mt-4">
-            <a href="{{ route('docs')}}" class="link-underline">Docs</a>
+            <a href="{{ route('docs.index')}}" class="link-underline">Docs</a>
             <span class="icon mx-2 opacity-50 fill-current text-blue">{{ __svg('icons/far-angle-right') }}</span>
             <a
                     class="link-underline"

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components;
+namespace App\Modules\Blog\View\Components;
 
 use App\Modules\Posts\Models\Post;
 use Illuminate\View\Component;

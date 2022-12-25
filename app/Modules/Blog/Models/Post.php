@@ -2,11 +2,11 @@
 
 namespace App\Modules\Posts\Models;
 
-use App\Actions\ConvertPostToHtmlAction;
-use App\Actions\PublishPostAction;
 use App\Jobs\CreateOgImageJob;
 use App\Models\Concerns\HasSlug;
 use App\Models\User;
+use App\Modules\Blog\Actions\ConvertPostToHtmlAction;
+use App\Modules\Blog\Actions\PublishPostAction;
 use App\Modules\Posts\Contracts\Sluggable;
 use App\Modules\Posts\Presenters\PostPresenter;
 use App\Modules\Posts\QueryBuilders\PostsEloquentBuilder;

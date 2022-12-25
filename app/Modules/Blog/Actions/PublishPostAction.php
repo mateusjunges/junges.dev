@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions;
+namespace App\Modules\Blog\Actions;
 
 use App\Jobs\CreateOgImageJob;
 use App\Jobs\TweetPostJob;

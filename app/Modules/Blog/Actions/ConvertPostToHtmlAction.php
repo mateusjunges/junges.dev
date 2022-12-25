@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Actions;
+namespace App\Modules\Blog\Actions;
 
+use App\Modules\Blog\View\Components\SeriesNextPostComponent;
+use App\Modules\Blog\View\Components\SeriesTocComponent;
 use App\Modules\Posts\Models\Post;
 use App\Services\CommonMark\CommonMark;
-use App\View\Components\SeriesNextPostComponent;
-use App\View\Components\SeriesTocComponent;
 
 class ConvertPostToHtmlAction
 {
