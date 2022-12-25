@@ -16,7 +16,7 @@ class DocsController
     {
         $githubRepositories = Repository::all();
 
-        return view('docs.index', [
+        return view('modules.docs.index', [
             'repositories' => $docs->getRepositories(),
             'githubRepositories' => $githubRepositories
         ]);
@@ -101,7 +101,7 @@ class DocsController
 
         $tableOfContents = $this->extractTableOfContents($page->contents);
 
-        return view('docs.show', compact(
+        return view('modules.docs.show', compact(
             'page',
             'repositories',
             'repository',

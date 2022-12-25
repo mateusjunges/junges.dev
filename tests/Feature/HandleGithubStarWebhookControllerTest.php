@@ -174,10 +174,9 @@ class HandleGithubStarWebhookControllerTest extends TestCase
 JSON;
 
         /** @var \App\Modules\Documentation\Models\Repository $repository */
-        $repository = Repository::factory()->create([
+        Repository::factory()->createOne([
             'name' => 'test-repository'
         ]);
-
         config()->set('services.github.should_verify_webhook_signature', false);
 
         $this->post('/api/webhooks/github/repo-starred', $payloadArray = json_decode($payload, true), [
@@ -186,6 +185,8 @@ JSON;
 
         $expectedStars = $payloadArray['repository']['stargazers_count'];
 
-        $this->assertEquals($expectedStars, $repository->refresh()->stars);
+        /** @var Repository $repository */
+        $repository = Repository::query()->whereName('test-repository')->first();
+        $this->assertEquals($expectedStars, $repository->stars);
     }
 }

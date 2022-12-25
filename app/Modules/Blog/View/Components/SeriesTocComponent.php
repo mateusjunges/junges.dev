@@ -1,8 +1,9 @@
 <?php
 
-namespace App\View\Components;
+namespace App\Modules\Blog\View\Components;
 
 use App\Modules\Posts\Models\Post;
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class SeriesTocComponent extends Component
@@ -12,7 +13,7 @@ class SeriesTocComponent extends Component
     ){
     }
 
-    public function render()
+    public function render(): View
     {
         return view('components.series-toc-component', [
             'currentPost' => $this->post,

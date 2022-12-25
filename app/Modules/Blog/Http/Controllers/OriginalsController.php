@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Posts\Http\Controllers;
+namespace App\Modules\Blog\Http\Controllers;
 
 use App\Modules\Posts\Models\Post;
 
