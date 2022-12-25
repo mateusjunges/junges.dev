@@ -178,7 +178,7 @@ return [
         \App\Providers\LivewireServiceProvider::class,
         \App\Modules\Documentation\Providers\DocsServiceProvider::class,
         \App\Providers\TwitterServiceProvider::class,
-        \App\Providers\NavigationServiceProvider::class,
+        \App\Providers\ModuleServiceProvider::class,
     ],
 
     /*
