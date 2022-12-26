@@ -1,6 +1,6 @@
 <?php
 /**
- * @var \App\Modules\Posts\Models\Post $post
+ * @var \App\Modules\Blog\Models\Post $post
  */
 ?>
 
@@ -60,8 +60,8 @@
             @endif
         @endauth
     </p>
-    </header>
-    <div class="markup leading-relaxed">
-        {{ $slot }}
-    </div>
+</header>
+<div class="markup leading-relaxed">
+    {{ $slot }}
+</div>
 </article>

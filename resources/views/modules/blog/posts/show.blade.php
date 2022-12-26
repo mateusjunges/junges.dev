@@ -17,7 +17,7 @@
 
 
         <div class="mb-8">
-            @include('posts.partials.comments')
+            @include('modules.blog.posts.partials.comments')
         </div>
 
         <x-slot name="seo">

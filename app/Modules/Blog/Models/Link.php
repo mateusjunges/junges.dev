@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace App\Modules\Blog\Models;
 
 use App\Models\Concerns\HasSlug;
+use App\Modules\Auth\Models\User;
 use App\Modules\Blog\Contracts\Sluggable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -26,6 +27,9 @@ final class Link extends Model implements Sluggable
     public const STATUS_SUBMITTED = 'pending';
     public const STATUS_APPROVED = 'approved';
     public const STATUS_REJECTED = 'rejected';
+
+    /** @var string $table */
+    protected $table = 'blog__links';
 
     public function user(): BelongsTo
     {

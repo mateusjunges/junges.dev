@@ -13,7 +13,7 @@ final class OriginalsController
             ->published()
             ->simplePaginate();
 
-        return view('posts.index', [
+        return view('modules.blog.index', [
             'posts' => $posts
         ]);
     }

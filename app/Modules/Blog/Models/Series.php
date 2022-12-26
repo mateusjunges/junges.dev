@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Models;
+namespace App\Modules\Blog\Models;
 
-use App\Modules\Posts\Models\Post;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -15,7 +14,7 @@ final class Series extends Model
 {
     use HasFactory;
 
-    protected $table = 'series';
+    protected $table = 'blog__series';
 
     public function posts(): HasMany
     {

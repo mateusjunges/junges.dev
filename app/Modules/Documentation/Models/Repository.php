@@ -28,6 +28,9 @@ final class Repository extends Model
 {
     use HasFactory;
 
+    /** @var string $table */
+    protected $table = 'docs__repositories';
+
     protected $guarded = ['id'];
 
     protected $casts = [

@@ -1,18 +1,25 @@
 <?php
 
-namespace App\Models;
+namespace App\Modules\Auth\Models;
 
-use App\Modules\Posts\Models\Post;
+use App\Modules\Blog\Models\Link;
+use App\Modules\Blog\Models\Post;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Comments\Models\Concerns\InteractsWithComments;
+use Tests\Factories\UserFactory;
+
 
 final class User extends Authenticatable implements FilamentUser
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
+    use InteractsWithComments;
 
     /**
      * The attributes that are mass assignable.
@@ -51,7 +58,7 @@ final class User extends Authenticatable implements FilamentUser
 
     public function submittedPosts(): HasMany
     {
-        return $this->hasMany(Post::class, 'submitted_by_user_id');
+        return $this->hasMany(Post::class, 'submitted_by_user_id',);
     }
 
     public function canAccessFilament(): bool
@@ -63,5 +70,10 @@ final class User extends Authenticatable implements FilamentUser
             || (
                 str_ends_with($this->email, '@junges.dev') && $this->hasVerifiedEmail()
             );
+    }
+
+    public static function newFactory(): UserFactory
+    {
+        return new UserFactory();
     }
 }

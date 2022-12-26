@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources\Users;
 
-use App\Models\User;
-use Filament\Resources\Form;
+use App\Modules\Auth\Models\User;
 use Filament\Forms;
+use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;

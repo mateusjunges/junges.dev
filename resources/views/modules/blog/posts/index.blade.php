@@ -4,7 +4,7 @@
             <h1 class="font-semibold text-3xl">Originals</h1>
         </div>
 
-        @include('posts.partials.list')
+        @include('modules.blog.posts.partials.list')
 
         {{ $posts->links() }}
     </div>

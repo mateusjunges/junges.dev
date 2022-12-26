@@ -4,7 +4,7 @@ namespace App\Modules\Blog\Models;
 
 use App\Jobs\CreateOgImageJob;
 use App\Models\Concerns\HasSlug;
-use App\Models\User;
+use App\Modules\Auth\Models\User;
 use App\Modules\Blog\Actions\ConvertPostToHtmlAction;
 use App\Modules\Blog\Actions\PublishPostAction;
 use App\Modules\Blog\Contracts\Sluggable;
@@ -36,7 +36,7 @@ use Tests\Factories\PostDatabaseFactory;
  * @property ?string $emoji
  * @property string $tweet_url
  * @property mixed $author_twitter_handle
- * @property \App\Models\User $submittedByUser
+ * @property \App\Modules\Auth\Models\User $submittedByUser
  * @property boolean $send_automated_tweet
  * @property boolean $tweet_sent
  * @property string $series_slug
@@ -55,6 +55,9 @@ final class Post extends Model implements Sluggable, HasMedia
     public const TYPE_TWEET = 'tweet';
     public const TYPE_ORIGINAL = 'original';
 
+    /** @var string $table */
+    protected $table = 'blog__posts';
+
     protected $dates = ['publish_date'];
 
     public $casts = [
@@ -65,13 +68,13 @@ final class Post extends Model implements Sluggable, HasMedia
 
     public static function booted()
     {
-        static::creating(function (Post $post) {
+        self::creating(function (Post $post) {
             $post->preview_secret = Str::random(10);
         });
 
 
-        static::saved(function (Post $post) {
-            static::withoutEvents(function () use ($post) {
+        self::saved(function (Post $post) {
+            self::withoutEvents(function () use ($post) {
                 (new ConvertPostToHtmlAction())->execute($post);
 
                 if ($post->isPartOfSeries()) {
@@ -82,7 +85,7 @@ final class Post extends Model implements Sluggable, HasMedia
             });
 
             if ($post->published) {
-                static::withoutEvents(function () use ($post) {
+                self::withoutEvents(function () use ($post) {
                     (new PublishPostAction())->execute($post);
                 });
 
