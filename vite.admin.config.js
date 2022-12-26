@@ -5,10 +5,11 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/css/app.css',
+                'resources/css/app.admin.css',
                 'resources/js/app.js',
+                'resources/css/filament.css',
             ],
-            buildDirectory: '/frontendAssets'
+            buildDirectory: '/adminAssets',
         }),
     ],
     css: {
@@ -16,7 +17,7 @@ export default defineConfig({
             plugins: [
                 require("tailwindcss/nesting"),
                 require("tailwindcss")({
-                    config: "./tailwind.config.js",
+                    config: "./tailwind.admin.config.js",
                 }),
                 require("autoprefixer"),
             ],
