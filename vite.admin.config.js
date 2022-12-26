@@ -9,7 +9,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/css/filament.css',
             ],
-            buildDirectory: '/adminAssets',
+            buildDirectory: '/admin-assets',
         }),
     ],
     css: {

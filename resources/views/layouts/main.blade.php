@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    {{ \Illuminate\Support\Facades\Vite::useBuildDirectory('/frontendAssets') }}
+    {{ \Illuminate\Support\Facades\Vite::useBuildDirectory('/frontend-assets') }}
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @include('layouts.partials.meta')

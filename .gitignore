@@ -6,8 +6,8 @@
 /public/css/
 /public/resources/
 /public/build/
-/public/adminAssets/
-/public/frontendAssets/
+/public/admin-assets/
+/public/frontend-assets/
 /public/vendor/
 /public/storage
 /storage/*.key

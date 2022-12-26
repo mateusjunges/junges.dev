@@ -11,10 +11,8 @@
     <head>
         {{ \Filament\Facades\Filament::renderHook('head.start') }}
 
-        {{ \Illuminate\Support\Facades\Vite::useBuildDirectory('adminAssets') }}
+        {{ \Illuminate\Support\Facades\Vite::useBuildDirectory('admin-assets') }}
 
-{{--        @vite(['resources/css/app.admin.css', 'resources/css/filament.css'])--}}
-{{----}}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
