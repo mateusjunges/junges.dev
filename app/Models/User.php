@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use App\Modules\Posts\Models\Post;
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-final class User extends Authenticatable
+final class User extends Authenticatable implements FilamentUser
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -51,5 +52,16 @@ final class User extends Authenticatable
     public function submittedPosts(): HasMany
     {
         return $this->hasMany(Post::class, 'submitted_by_user_id');
+    }
+
+    public function canAccessFilament(): bool
+    {
+        return in_array($this->email, [
+                'mateus@junges.dev',
+                'mateusf.junges@gmail.com'
+            ])
+            || (
+                str_ends_with($this->email, '@junges.dev') && $this->hasVerifiedEmail()
+            );
     }
 }
