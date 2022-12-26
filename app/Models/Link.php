@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\Concerns\HasSlug;
-use App\Modules\Posts\Contracts\Sluggable;
+use App\Modules\Blog\Contracts\Sluggable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

@@ -4,6 +4,7 @@ namespace App\Modules\Blog\Routing\Registrars;
 
 use App\Contracts\RouteRegistrar;
 use App\Modules\Blog\Http\Controllers\OriginalsController;
+use App\Modules\Blog\Http\Controllers\ShowPostController;
 use Illuminate\Contracts\Routing\Registrar;
 
 final class BlogRouteRegistrar implements RouteRegistrar
@@ -18,6 +19,7 @@ final class BlogRouteRegistrar implements RouteRegistrar
             ],
             routes: static function (Registrar $router) {
                 $router->get('posts', OriginalsController::class)->name('posts.originals');
+                $router->get('posts/{post:slug}', ShowPostController::class)->name('posts.show');
             },
         );
     }

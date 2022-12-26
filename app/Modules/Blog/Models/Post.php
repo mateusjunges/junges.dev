@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Modules\Posts\Models;
+namespace App\Modules\Blog\Models;
 
 use App\Jobs\CreateOgImageJob;
 use App\Models\Concerns\HasSlug;
 use App\Models\User;
 use App\Modules\Blog\Actions\ConvertPostToHtmlAction;
 use App\Modules\Blog\Actions\PublishPostAction;
-use App\Modules\Posts\Contracts\Sluggable;
-use App\Modules\Posts\Presenters\PostPresenter;
-use App\Modules\Posts\QueryBuilders\PostsEloquentBuilder;
+use App\Modules\Blog\Contracts\Sluggable;
+use App\Modules\Blog\Presenters\PostPresenter;
+use App\Modules\Blog\QueryBuilders\PostsEloquentBuilder;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -160,7 +160,7 @@ final class Post extends Model implements Sluggable, HasMedia
 
     public function getUrlAttribute(): string
     {
-        return route('posts.show', [$this->slug]);
+        return route('blog.posts.show', [$this->slug]);
     }
 
     public function getPreviewUrlAttribute(): string
@@ -230,6 +230,11 @@ final class Post extends Model implements Sluggable, HasMedia
         }
 
         return route('post.ogImage', $this) . "?preview_secret={$this->preview_secret}";
+    }
+
+    public function adminPreviewUrl(): string
+    {
+        return $this->published ? $this->url : $this->preview_url;
     }
 
     public function isPartOfSeries(): bool

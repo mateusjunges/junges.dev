@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Posts\Presenters;
+namespace App\Modules\Blog\Presenters;
 
 use App\Modules\Posts\Models\Post;
 use App\Services\CommonMark\CommonMark;
