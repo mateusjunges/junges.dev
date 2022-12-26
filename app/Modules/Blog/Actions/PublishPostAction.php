@@ -4,7 +4,7 @@ namespace App\Modules\Blog\Actions;
 
 use App\Jobs\CreateOgImageJob;
 use App\Jobs\TweetPostJob;
-use App\Modules\Posts\Models\Post;
+use App\Modules\Blog\Models\Post;
 use Illuminate\Support\Facades\Bus;
 
 final class PublishPostAction

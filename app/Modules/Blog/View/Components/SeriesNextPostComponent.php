@@ -2,7 +2,7 @@
 
 namespace App\Modules\Blog\View\Components;
 
-use App\Modules\Posts\Models\Post;
+use App\Modules\Blog\Models\Post;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
@@ -21,6 +21,6 @@ final class SeriesNextPostComponent extends Component
             ->orderBy('id')
             ->first();
 
-        return view('components.series-next-post-component', compact('nextPost'));
+        return view('modules.blog.components.series-next-post-component', compact('nextPost'));
     }
 }

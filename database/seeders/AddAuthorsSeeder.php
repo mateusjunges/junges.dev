@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Author;
+use App\Modules\Blog\Models\Author;
 use Illuminate\Database\Seeder;
 
 final class AddAuthorsSeeder extends Seeder

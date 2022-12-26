@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+    {{ \Illuminate\Support\Facades\Vite::useBuildDirectory('/frontend-assets') }}
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @include('layouts.partials.meta')
     @stack('head')
@@ -11,6 +13,11 @@
 @include('layouts.partials.header')
 
 <div class="flex-grow" role="main">
+    @if (flash()->message)
+        <div class="{{ flash()->class }}">
+            {{ flash()->message }}
+        </div>
+    @endif
 {{--    <div class="w-full p-2 md:mt-6 lg:mt-0 leading-normal bg-white font-inter text-black">--}}
         {{ $slot }}
 {{--        @yield('content')--}}

@@ -3,7 +3,7 @@
 namespace App\Jobs;
 
 use App\Contracts\Twitter;
-use App\Modules\Posts\Models\Post;
+use App\Modules\Blog\Models\Post;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;

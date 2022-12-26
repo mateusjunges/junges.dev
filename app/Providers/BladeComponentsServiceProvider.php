@@ -7,10 +7,12 @@ use Illuminate\Support\ServiceProvider;
 
 final class BladeComponentsServiceProvider extends ServiceProvider
 {
-    public function register()
+    public function register(): void
     {
         Blade::component('layouts.main', 'page');
 
-        Blade::component('components.post-header', 'post-header');
+        Blade::component('modules.blog.components.post-header', 'post-header');
+
+        Blade::component('modules.ads.components.ad', 'ad');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Concerns\MapRouteRegistrars;
+use App\Modules\Auth\Routing\Registrars\AuthRouteRegistrar;
 use App\Modules\Blog\Routing\Registrars\BlogRouteRegistrar;
 use App\Modules\Documentation\Routing\Registrars\DocsRouteRegistrar;
 use App\Modules\Home\Routing\Registrars\HomeRouteRegistrar;
@@ -21,6 +22,7 @@ final class RouteServiceProvider extends ServiceProvider
         DocsRouteRegistrar::class,
         HomeRouteRegistrar::class,
         BlogRouteRegistrar::class,
+        AuthRouteRegistrar::class,
     ];
 
     /** Define your route model bindings, pattern filters, etc.*/

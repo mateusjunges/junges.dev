@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
+    {{ \Illuminate\Support\Facades\Vite::useBuildDirectory('/frontend-assets') }}
+
     @include('layouts.partials.meta', ['title' => 'Welcome!'])
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <livewire:styles>
-        @stack('head')
-        </head>
+    @livewireStyles
+    @stack('head')
+</head>
 
 <body
     class="tracking-wide flex justify-center w-full md:w-2/5 mx-auto bg-white text-black">
