@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+    {{ \Illuminate\Support\Facades\Vite::useBuildDirectory('/frontendAssets') }}
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @include('layouts.partials.meta')
     @stack('head')
