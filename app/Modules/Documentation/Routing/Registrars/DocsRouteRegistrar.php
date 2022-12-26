@@ -19,7 +19,7 @@ final class DocsRouteRegistrar implements RouteRegistrar
                 'middleware' => ['web'],
             ],
             routes: static function (Registrar $router) {
-                $router->get('documentation', [DocsController::class, 'index'])->name('index');
+                $router->get('/', [DocsController::class, 'index'])->name('index');
                 $router->get('{repository}/{alias?}', [DocsController::class, 'repository'])->name('repository');
                 $router->get('{repository}/{alias}/{slug}', [DocsController::class, 'show'])->where('slug', '.*')->name('page');
             },

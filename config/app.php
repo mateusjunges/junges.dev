@@ -179,6 +179,7 @@ return [
         \App\Modules\Documentation\Providers\DocsServiceProvider::class,
         \App\Providers\TwitterServiceProvider::class,
         \App\Providers\ModuleServiceProvider::class,
+        \App\Providers\NavigationServiceProvider::class,
     ],
 
     /*
