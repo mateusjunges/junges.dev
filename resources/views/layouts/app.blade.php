@@ -19,32 +19,7 @@ $mainClasses ??= [];
             </main>
         </div>
 
-        <div class="flex flex-col h-full items-center bg-gray-200 min-h-full rounded mr-0 md:mr-14">
-            <p class="font-bold text-center py-8">
-                Advertising
-            </p>
-            <a href="https://coinspaid.com/" class="px-8 py-4">
-                <img src="https://laravelnews.s3.amazonaws.com/partners/coinspaid.png" alt="CoinsPaid" title="CoinsPaid" class="w-48 object-fit object-center h-auto">
-            </a>
-            <a href="https://coinspaid.com/" class="px-8 py-4">
-                <img src="https://laravelnews.s3.amazonaws.com/partners/coinspaid.png" alt="CoinsPaid" title="CoinsPaid" class="w-48 object-fit object-center h-auto">
-            </a>
-            <a href="https://coinspaid.com/" class="px-8 py-4">
-                <img src="https://laravelnews.s3.amazonaws.com/partners/coinspaid.png" alt="CoinsPaid" title="CoinsPaid" class="w-48 object-fit object-center h-auto">
-            </a>
-            <a href="https://coinspaid.com/" class="px-8 py-4">
-                <img src="https://laravelnews.s3.amazonaws.com/partners/coinspaid.png" alt="CoinsPaid" title="CoinsPaid" class="w-48 object-fit object-center h-auto">
-            </a>
-            <a href="https://coinspaid.com/" class="px-8 py-4">
-                <img src="https://laravelnews.s3.amazonaws.com/partners/coinspaid.png" alt="CoinsPaid" title="CoinsPaid" class="w-48 object-fit object-center h-auto">
-            </a>
-            <a href="https://coinspaid.com/" class="px-8 py-4">
-                <img src="https://laravelnews.s3.amazonaws.com/partners/coinspaid.png" alt="CoinsPaid" title="CoinsPaid" class="w-48 object-fit object-center h-auto">
-            </a>
-            <a href="https://coinspaid.com/" class="px-8 py-4">
-                <img src="https://laravelnews.s3.amazonaws.com/partners/coinspaid.png" alt="CoinsPaid" title="CoinsPaid" class="w-48 object-fit object-center h-auto">
-            </a>
-        </div>
+        <x-sponsors :class="['mr-0', 'md:mr-14']" :sponsor-class="['flex-col']" :bg="'bg-gray-200'"></x-sponsors>
     </div>
 </div>
 

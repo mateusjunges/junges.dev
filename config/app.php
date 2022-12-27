@@ -180,6 +180,7 @@ return [
         \App\Providers\TwitterServiceProvider::class,
         \App\Providers\ModuleServiceProvider::class,
         \App\Providers\NavigationServiceProvider::class,
+        \App\Modules\Adverstisement\Providers\AdvertisementServiceProvider::class,
     ],
 
     /*

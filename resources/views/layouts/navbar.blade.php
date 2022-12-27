@@ -9,7 +9,7 @@
                         </p>
                     </a>
                 </div>
-                <div class="mx-auto">
+                <div class="mx-auto text-center">
                     {{
 	                    Menu::primary()
 	                        ->each(function (\Spatie\Menu\Laravel\Link $item) {

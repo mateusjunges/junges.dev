@@ -11,9 +11,9 @@
 </head>
 
 <body
-    class="tracking-wide flex justify-center w-full md:w-2/5 mx-auto bg-white text-black">
+    class="tracking-wide flex flex-col justify-center w-full md:w-2/5 mx-auto bg-white text-black">
 {{--@include('layouts.partials.navbar')--}}
-<div class="container w-screen flex flex-col md:flex-row bg-white text-black">
+<div class="container flex flex-col md:flex-row bg-white text-black">
     @yield('sidebar')
     <div
         class="w-full mt-10 md:mt-10 lg:mt-6 text-black leading-normal font-inter text-black">
@@ -81,6 +81,8 @@
             </div>
         </div>
     </div>
-
+</div>
+<div class="container mt-12 px-4 bg-white text-black">
+    <x-sponsors :sponsor-class="['flex-row']" :bg="'bg-gray-1000'"/>
 </div>
 </body>
