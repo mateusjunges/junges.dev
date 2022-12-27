@@ -2,7 +2,7 @@
 
 namespace App\Modules\Blog\Http\Controllers;
 
-use App\Modules\Posts\Models\Post;
+use App\Modules\Blog\Models\Post;
 
 final class OriginalsController
 {
@@ -13,7 +13,7 @@ final class OriginalsController
             ->published()
             ->simplePaginate();
 
-        return view('modules.blog.index', [
+        return view('modules.blog.posts.index', [
             'posts' => $posts
         ]);
     }

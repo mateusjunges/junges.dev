@@ -1,5 +1,5 @@
-<x-page :title="$post->title" :canonical="$post->external_url">
-    <div class="container wrap min-h-12">
+<x-app :title="$post->title" :canonical="$post->external_url">
+    <div class="text-justify min-h-12">
         <x-post-header :post="$post" class="mb-8">
 
             {!! $post->html !!}
@@ -39,4 +39,4 @@
             <meta name="twitter:creator" content="@mateusjungess"/>
         </x-slot>
     </div>
-</x-page>
+</x-app>

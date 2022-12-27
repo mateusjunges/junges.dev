@@ -74,7 +74,9 @@ module.exports = {
                 xl: '1615px',
                 print: { raw: 'print' },
             },
-
+            margin: {
+                '3_5': '3.5rem',
+            },
             maxWidth: {
                 sm: '25rem', // xl/2 - half gap
                 md: '40rem',

@@ -10,21 +10,10 @@
 
 <body class="bg-white tracking-wide text-black">
 
-@include('layouts.partials.header')
+@include('layouts.header')
 
 <div class="flex-grow" role="main">
-    @if (flash()->message)
-        <div class="{{ flash()->class }}">
-            {{ flash()->message }}
-        </div>
-    @endif
-{{--    <div class="w-full p-2 md:mt-6 lg:mt-0 leading-normal bg-white font-inter text-black">--}}
-        {{ $slot }}
-{{--        @yield('content')--}}
-{{--    </div>--}}
-{{--    @yield('on-this-page')--}}
+    {{ $slot }}
 </div>
-<!--/container-->
-{{--@include('layouts.partials.footer')--}}
 @include('layouts.partials.scripts')
 </body>

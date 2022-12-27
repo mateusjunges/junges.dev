@@ -2,9 +2,9 @@
     /** @var \App\Modules\Documentation\Support\Repository $repository */
 @endphp
 
-<li class="flex px-2 mb-4 w-full leading-5 text-left, break-words lg:w-1/2 md:w-1/2 text-slate-300">
+<li class="flex px-2 mb-4 w-full leading-5 text-left break-words lg:w-1/2 md:w-1/2 text-slate-300">
     <div
-        class="flex p-4 w-full leading-5 text-left break-words rounded-md border text-slate-300">
+        class="flex p-4 w-full leading-5 text-left break-words rounded-md bg-gray-100 text-slate-300">
         <div
             class="flex flex-col p-4 w-full leading-5 text-left rounded-md text-slate-300">
             <div class="leading-5 text-left items-center text-slate-300">
@@ -36,7 +36,7 @@
                 Available Versions:
                 @foreach($repository->getSortedAliases() as $alias)
                     <span>
-                            <a class="inline-flex items-center underline justify-center rounded-full w-8 h-8 px-2 bg-opacity-50 hover:bg-opacity-100 hover:font-super-bold {{ $loop->first ? 'bg-white text-black hover:text-black font-bold' : 'bg-gray-light text-black hover:font-super-bold'}}"
+                            <a class="inline-flex items-center underline justify-center px-2 hover:font-super-bold {{ $loop->first ? 'text-black hover:text-black font-bold' : 'text-black hover:font-super-bold'}}"
                                href="{{action([\App\Modules\Documentation\Http\Controllers\DocsController::class, 'repository'], [$repository->slug, $alias->slug])}}">
                                 {{ $alias->slug }}
                             </a>

@@ -11,6 +11,10 @@ final class BladeComponentsServiceProvider extends ServiceProvider
     {
         Blade::component('layouts.main', 'page');
 
+        Blade::component('layouts.app', 'app');
+
+        Blade::component('layouts.partials.sponsors', 'sponsors');
+
         Blade::component('modules.blog.components.post-header', 'post-header');
 
         Blade::component('modules.ads.components.ad', 'ad');

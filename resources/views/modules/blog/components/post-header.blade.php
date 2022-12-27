@@ -4,16 +4,16 @@
  */
 ?>
 
-<header class="{{ $class ?? '' }} font-inter">
+<header class="{{ $class ?? '' }} font-sans">
     <div class="mb-6" style="
         height: 6px;
         background-color: {{ $post->theme }};
         box-shadow: 0 3px 0 {{ $post->theme }}dd, 0 3px 0 #000;
         "></div>
     <header class="mb-6">
-        <{{ $heading ?? 'h1' }} class="max-w-lg text-2xl md:text-3xl font-extrabold leading-tight mb-1">
+        <{{ $heading ?? 'h1' }} class="max-w-lg text-xl md:text-3xl font-extrabold leading-tight mb-1">
         @isset($url)
-            <a href="{{ $url }}" class="font-semibold">{{ $post->title }}</a>
+            <a href="{{ $url }}" class="font-semibold text-xl hover:underline">{{ $post->title }}</a>
         @else
             {{ $post->title }}
         @endisset
@@ -56,12 +56,12 @@
             @if(Auth::user()->admin)
                 –
                 <a target="_blank" href="/admin/posts/{{ $post->id }}/edit">
-                    Edit</a>
+                    Edit
+                </a>
             @endif
         @endauth
     </p>
 </header>
-<div class="markup leading-relaxed">
+<div class="markup leading-relaxed text-justify">
     {{ $slot }}
 </div>
-</article>
