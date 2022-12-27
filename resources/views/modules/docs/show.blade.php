@@ -108,3 +108,5 @@
 		</script>
 	@endunless
 </x-app>
+
+<x-support/>

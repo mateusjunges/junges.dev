@@ -24,4 +24,5 @@
         </div>
     </div>
 </x-app>
+<x-support></x-support>
 

@@ -10,8 +10,9 @@
     @stack('head')
 </head>
 
-<body
-    class="tracking-wide flex flex-col justify-center w-full md:w-2/5 mx-auto bg-white text-black">
+<body>
+<div class="tracking-wide flex flex-col justify-center w-full md:w-2/5 mx-auto bg-white text-black">
+
 {{--@include('layouts.partials.navbar')--}}
 <div class="container flex flex-col md:flex-row bg-white text-black">
     @yield('sidebar')
@@ -53,16 +54,14 @@
                 </dd>
             </dl>
             <div class="mt-10 font-inter text-">
-                <div
-                    class="experience flex flex-col bg-gray-light bg-opacity-50 rounded py-4 px-2 hover:bg-gray-100 my-4">
+                <div class="experience flex flex-col bg-gray-light bg-opacity-50 rounded py-4 px-2 hover:bg-blue-800 hover:text-white my-4">
                     <h3 class="font-super-bold">Want to hire me?</h3>
                     <h5 class="font-light text-sm">Please contact me by
                         <a href="mailto:mateus@junges.dev" class="underline">email</a>.
                     </h5>
                 </div>
                 <a href="{{ route('docs.index') }}">
-                    <div
-                        class="experience flex flex-col bg-gray-light bg-opacity-50 rounded py-4 px-2 hover:bg-gray-100 my-4">
+                    <div class="experience flex flex-col bg-gray-light bg-opacity-50 rounded py-4 px-2 hover:bg-blue-800 hover:text-white my-4">
                         <h3 class="font-super-bold flex items-center">Documentations</h3>
                         <h5 class="font-light text-sm">Here you can find the documentation
                             for my open source projects.</h5>
@@ -85,4 +84,6 @@
 <div class="container mt-12 px-4 bg-white text-black">
     <x-sponsors :sponsor-class="['flex-row']" :bg="'bg-gray-1000'"/>
 </div>
+</div>
+<x-support class=""></x-support>
 </body>
