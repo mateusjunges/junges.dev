@@ -16,7 +16,7 @@
         <link rel="canonical" href="{{ $canonical }}" />
     @endisset
 {{--    @include('feed::links')--}}
-{{--    @include('front.layouts.partials.seo')--}}
+    @include('layouts.partials.seo')
 
     {{ \Illuminate\Support\Facades\Vite::useBuildDirectory('/frontend-assets') }}
 
@@ -24,8 +24,6 @@
 
     <link rel="stylesheet" href="https://cloud.typography.com/6194432/6581412/css/fonts.css"/>
     <link href="https://twitter.com/mateusjungess" rel="me">
-    <link rel="webmention" href="https://webmention.io/freek.dev/webmention" />
-    <link rel="pingback" href="https://webmention.io/freek.dev/xmlrpc" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
