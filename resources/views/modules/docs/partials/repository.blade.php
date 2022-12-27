@@ -32,16 +32,18 @@
 
             <!-- Available documentation versions -->
             <div
-                class="mt-2 text-xs text-gray-700 grid grid-flow-col gap-2 justify-start items-center">
-                Available Versions:
-                @foreach($repository->getSortedAliases() as $alias)
-                    <span>
+                class="mt-2 text-xs text-gray-700 flex flex-row gap-2 justify-start items-center">
+                <p class="text-left">Available Versions:</p>
+                <div>
+                    @foreach($repository->getSortedAliases() as $alias)
+                        <span>
                             <a class="inline-flex items-center underline justify-center px-2 hover:font-super-bold {{ $loop->first ? 'text-black hover:text-black font-bold' : 'text-black hover:font-super-bold'}}"
                                href="{{action([\App\Modules\Documentation\Http\Controllers\DocsController::class, 'repository'], [$repository->slug, $alias->slug])}}">
                                 {{ $alias->slug }}
                             </a>
                         </span>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
 
             <!-- statistics -->
