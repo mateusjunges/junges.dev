@@ -11,10 +11,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Comments\Models\Concerns\InteractsWithComments;
+use Spatie\Comments\Models\Concerns\Interfaces\CanComment;
 use Tests\Factories\UserFactory;
 
 
-final class User extends Authenticatable implements FilamentUser
+final class User extends Authenticatable implements FilamentUser, CanComment
 {
     use HasApiTokens;
     use HasFactory;

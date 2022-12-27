@@ -1,31 +1,50 @@
+<?php
+/**
+ * @var array<int, string> $class
+ * @var array<int, string> $mainClasses
+ */
+$class ??= [];
+$mainClasses ??= [];
+?>
+
 @include('layouts.head')
 
 <body class="font-sans">
-<div class="max-w-xl md:max-w-3xl mx-auto">
-    <header class="mt-8 md:mt-12 mb-8 sm:mb-12 md:mb-16 px-4 md:px-8 leading-tight">
-        <div class="border-b pb-4">
-            <h1 class="text-center text-lowercase font-extrabold text-2xl">
-                <a href="">junges.dev</a>
-            </h1>
+@include('layouts.navbar')
+<div class="mx-auto @foreach($class as $c) {{ $c }} @endforeach">
+    <div class="flex flex-col md:flex-row justify-between">
+        <div class="md:flex pb-12">
+            <main class="flex-1 px-4 md:px-12 lg:pl-12 @foreach($mainClasses as $class) {{ $class }} @endforeach">
+                {{ $slot }}
+            </main>
         </div>
-    </header>
-    <div class="md:flex pb-12">
-        <nav class="hidden md:block w-1/4 lg:w-1/5 text-center leading-loose">
-            <div class=" border-gray-200 px-8 mb-16">
-                {{ Menu::primary()
-                    ->addClass('text-gray-700 mb-6')
-                    ->setActiveClass('font-bold text-black') }}
-                {{ Menu::secondary()
-                    ->addClass('text-xs text-gray-700')
-                    ->setActiveClass('font-semibold text-black') }}
-            </div>
-            <div class="pl-8">
-{{--                @include('layouts.partials.carbon')--}}
-            </div>
-        </nav>
-        <main class="flex-1 min-w-0 px-4 md:px-12 lg:pl-24 lg:pr-16">
-            {{ $slot }}
-        </main>
+
+        <div class="flex flex-col h-full items-center bg-gray-200 min-h-full rounded mr-0 md:mr-14">
+            <p class="font-bold text-center py-8">
+                Advertising
+            </p>
+            <a href="https://coinspaid.com/" class="px-8 py-4">
+                <img src="https://laravelnews.s3.amazonaws.com/partners/coinspaid.png" alt="CoinsPaid" title="CoinsPaid" class="w-48 object-fit object-center h-auto">
+            </a>
+            <a href="https://coinspaid.com/" class="px-8 py-4">
+                <img src="https://laravelnews.s3.amazonaws.com/partners/coinspaid.png" alt="CoinsPaid" title="CoinsPaid" class="w-48 object-fit object-center h-auto">
+            </a>
+            <a href="https://coinspaid.com/" class="px-8 py-4">
+                <img src="https://laravelnews.s3.amazonaws.com/partners/coinspaid.png" alt="CoinsPaid" title="CoinsPaid" class="w-48 object-fit object-center h-auto">
+            </a>
+            <a href="https://coinspaid.com/" class="px-8 py-4">
+                <img src="https://laravelnews.s3.amazonaws.com/partners/coinspaid.png" alt="CoinsPaid" title="CoinsPaid" class="w-48 object-fit object-center h-auto">
+            </a>
+            <a href="https://coinspaid.com/" class="px-8 py-4">
+                <img src="https://laravelnews.s3.amazonaws.com/partners/coinspaid.png" alt="CoinsPaid" title="CoinsPaid" class="w-48 object-fit object-center h-auto">
+            </a>
+            <a href="https://coinspaid.com/" class="px-8 py-4">
+                <img src="https://laravelnews.s3.amazonaws.com/partners/coinspaid.png" alt="CoinsPaid" title="CoinsPaid" class="w-48 object-fit object-center h-auto">
+            </a>
+            <a href="https://coinspaid.com/" class="px-8 py-4">
+                <img src="https://laravelnews.s3.amazonaws.com/partners/coinspaid.png" alt="CoinsPaid" title="CoinsPaid" class="w-48 object-fit object-center h-auto">
+            </a>
+        </div>
     </div>
 </div>
 

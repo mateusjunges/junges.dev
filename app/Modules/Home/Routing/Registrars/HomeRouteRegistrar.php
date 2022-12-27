@@ -11,5 +11,6 @@ final class HomeRouteRegistrar implements RouteRegistrar
     public function map(Registrar $router): void
     {
         $router->get('/', HomeController::class)->name('home');
+        $router->view('/test', 'test');
     }
 }

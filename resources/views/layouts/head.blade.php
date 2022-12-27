@@ -20,7 +20,7 @@
 
     {{ \Illuminate\Support\Facades\Vite::useBuildDirectory('/frontend-assets') }}
 
-    @vite(['resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <link rel="stylesheet" href="https://cloud.typography.com/6194432/6581412/css/fonts.css"/>
     <link href="https://twitter.com/mateusjungess" rel="me">

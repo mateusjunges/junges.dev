@@ -2,10 +2,10 @@
     @include('layouts.partials.sidebar')
 @endsection
 
-<x-page title="Documentation">
-    <div class="container wrap min-h-12">
+<x-app title="Documentation">
+    <div class="container wrap border-r-3 h-full border-r border-gray-500">
         <div>
-            <h1 class="banner-slogan text-2xl mt-4 md:mt-0 font-bold text-gray-700 md:text-4xl">Docs</h1>
+            <h1 class="banner-slogan text-2xl mt-4 md:mt-0 font-bold text-black md:text-4xl">Docs</h1>
             <p class="mt-4 text-lg">
                 In this page you can find the documentation for all of my open source packages available
                 <a href="https://github.com/mateusjunges" class="underline font-bold">at github</a>.
@@ -23,5 +23,5 @@
             @endforeach
         </div>
     </div>
-</x-page>
+</x-app>
 

@@ -4,11 +4,10 @@
 @endphp
 
 
-<x-page
+<x-app
 		title="{{ $page->title }} | {{ $repository->slug }}"
 		{{--    background="/backgrounds/docs-blur.jpg"--}}
-		:no-index="$page->alias !== $latestVersion->slug"
-		canonical="{{ url('/docs/' . $repository->slug . '/' . $latestVersion->slug . '/' . $page->slug) }}"
+		:no-index="$page->alias !== $latestVersion->slug" canonical="{{ url('/docs/' . $repository->slug . '/' . $latestVersion->slug . '/' . $page->slug) }}"
 >
 	<x-slot name="description">
 		{{ $repository->slug }}
@@ -23,11 +22,9 @@
 		</div>
 		<article class="md:col-span-7 lg:col-span-8">
 			@if(count($repository->aliases) > 1)
-				<div
-						class="mb-12 p-4 flex text-sm bg-blue-light bg-opacity-50 rounded-sm md:shadow-light markup-shiki">
-					<div
-							class="flex-none h-6 w-6 text-orange-400 fill-current">{{ __svg('icons/fal-exclamation-circle') }}</div>
-					<div class="ml-4">
+				<div class="mb-12 p-4 flex text-sm bg-gray-300 bg-opacity-50 rounded-sm md:shadow-light markup-shiki">
+					<div class="flex-none h-6 w-6 text-orange-400 fill-current">{{ __svg('icons/fal-exclamation-circle') }}</div>
+					<div class="ml-4 hid">
 						<p>
 							This is the documentation for
 							<strong>{{ $page->alias }}</strong>@if($page->alias !== $latestVersion->slug)
@@ -48,9 +45,6 @@
 				</div>
 			@endif
 
-			<div>
-
-			</div>
 			<div class="mb-8"></div>
 
 			@if($showBigTitle)
@@ -113,4 +107,4 @@
             }
 		</script>
 	@endunless
-</x-page>
+</x-app>
