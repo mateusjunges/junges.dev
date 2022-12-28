@@ -25,7 +25,7 @@ jobs:
       -   name: create db
           run: |
             sudo /etc/init.d/mysql start
-            mysql  -u root -proot -e 'CREATE DATABASE IF NOT EXISTS jungesdev_test;'
+            mysql  -u root -proot -e 'CREATE DATABASE IF NOT EXISTS junges_dev;'
       -   name: Cache yarn dependencies
           uses: actions/cache@v2
           with:
