@@ -32,17 +32,17 @@ jobs:
             path: node_modules
             key: yarn-${{ hashFiles('yarn.lock') }}
 
-      -   name: Run yarn
-          run: yarn && yarn build
-
       -   name: Run composer install
           run: composer install -n --prefer-dist
           env:
             COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
 
+      - name: Run yarn
+        run: yarn && yarn build
+
       -   name: Prepare Laravel Application
           run: |
-            cp .env.example .env
+            cp .env.ci.testing .env
             php artisan key:generate
       -   name: Run tests
           run: ./vendor/bin/pest
