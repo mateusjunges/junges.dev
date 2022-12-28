@@ -7,6 +7,7 @@ use App\Modules\Advertising\Routing\Registrars\AdvertisingRouteRegistrar;
 use App\Modules\Auth\Routing\Registrars\AuthRouteRegistrar;
 use App\Modules\Blog\Models\Post;
 use App\Modules\Blog\Routing\Registrars\BlogRouteRegistrar;
+use App\Modules\Blog\Routing\Registrars\LinksRouteRegistrar;
 use App\Modules\Docs\Routing\Registrars\DocsRouteRegistrar;
 use App\Modules\Home\Routing\Registrars\HomeRouteRegistrar;
 use Illuminate\Contracts\Routing\Registrar;
@@ -20,6 +21,7 @@ class RouteServiceProvider extends ServiceProvider
     /** @var array<class-string> $registrars  */
     private array $registrars = [
         HomeRouteRegistrar::class,
+        LinksRouteRegistrar::class,
         DocsRouteRegistrar::class,
         AuthRouteRegistrar::class,
         AdvertisingRouteRegistrar::class,
@@ -41,6 +43,7 @@ class RouteServiceProvider extends ServiceProvider
     public function registerRouteModelBindings(): void
     {
         Route::bind('postSlug', function ($slug) {
+            /** @var Post $post */
             $post = Post::findByIdSlug($slug);
 
             if (! $post) {
