@@ -61,7 +61,7 @@ final class DocsController
     {
         try {
             $repository = $docs->getRepository($repository);
-        } catch (RuntimeException $e) {
+        } catch (\RuntimeException $e) {
             abort(404, 'Repository not found');
         }
 
