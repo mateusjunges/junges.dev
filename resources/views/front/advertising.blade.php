@@ -3,7 +3,7 @@
         <h1>Advertising</h1>
         <p>
             This blog and package documentations are read by an audience of PHP developers with a heavy interest in
-            Laravel, JavaScript, devops and personal/professional growth. You can get your brand or product in front of
+            Laravel, devops and personal/professional growth. You can get your brand or product in front of
             that audience by running an ad on the blog and/or docs.
         </p>
         <p>
