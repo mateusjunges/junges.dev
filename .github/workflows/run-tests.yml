@@ -46,7 +46,7 @@ jobs:
             php artisan key:generate
 
       -   name: Migrate database
-          run: php artisan migrate --seed
+          run: php artisan migrate --seed --env=testing-ci
       -   name: Run tests
           run: ./vendor/bin/phpunit --configuration phpunit-ci.xml
           env:
