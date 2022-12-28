@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Modules\Blog\Models;
 
 use App\Concerns\HasSlug;
 use App\Contracts\Sluggable;
+use App\Models\User;
+use App\Modules\Blog\QueryBuilders\LinkEloquentBuilder;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -39,14 +41,24 @@ final class Link extends Model implements Sluggable
 
     public const STATUS_REJECTED = 'rejected';
 
+    /** @inheritDoc */
+    public static function query(): LinkEloquentBuilder
+    {
+        $builder = parent::query();
+        assert($builder instanceof LinkEloquentBuilder);
+
+        return $builder;
+    }
+
+    /** @inheritDoc */
+    public function newEloquentBuilder($query): LinkEloquentBuilder
+    {
+        return new LinkEloquentBuilder($query);
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function scopeApproved(Builder $query): void
-    {
-        $query->where('status', self::STATUS_APPROVED);
     }
 
     public function getSluggableValue(): string
