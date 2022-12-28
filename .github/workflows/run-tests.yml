@@ -42,10 +42,13 @@ jobs:
 
       -   name: Prepare Laravel Application
           run: |
-            cp .env.ci.testing .env
+            cp .env.testing .env
             php artisan key:generate
+
+      -   name: Migrate database
+          run: php artisan migrate --seed
       -   name: Run tests
-          run: ./vendor/bin/phpunit
+          run: ./vendor/bin/phpunit --configuration phpunit-ci.xml
           env:
             DB_PASSWORD: root
             REDIS_PORT: ${{ job.services.redis.ports[6379] }}

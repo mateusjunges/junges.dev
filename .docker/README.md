@@ -46,43 +46,8 @@ docker compose exec front yarn install && yarn dev # if you want to use Docker (
 
 The app should be available via http://localhost:8000/ (you should see an error page, because your DB not exists or empty).
 
-There 2 options on how to create a DB: long and comprehensive or fast and superficial.
 
-There are downsides to having consistent database seeders:
-1. We should maintain these seeder with the latest updates
-2. It may miss capturing some edge cases
-3. We still need the actual DB dump for testing & to reproduce bugs
-
-### A. Comprehensive: use a production-like DB dump
-
-We create 2 type of daily DB backups on production:
-
-1. Full DB backup
-2. For local-development and staging servers (smaller, without logs and activity tables)
-
-[See the script](https://github.com/InteractionDesignFoundation/IxDF-web/blob/develop/scripts/database/backup.sh) for more info.
-
-You can easily download and import a fresh dump for on your local machine.
-
-**Note:** this production-like DB dump is pretty big, and when imported, it takes >8Gb, please make sure you have enough space.
-
-Run the following commands to download the latest dump (~30min-2hrs):
-```sh
-
-# Download & import a fresh dump (run from repository root)
-composer db:download
-# You can run "dceo db:update" if you have aliases 
-docker compose exec app composer db:import
-# See composer.json file > "scripts" for additional useful scripts
-
-```
-
-Finally, ensure that all migrations are run:
-```sh
-docker compose exec app php artisan migrate
-```
-
-### B. Fast: use another seeder
+### Create the database using a database seeder
 
 Default DB seeder (`DatabaseSeeder`) used for PHPUnit tests also, so it should be small and fast.
 
@@ -92,7 +57,6 @@ This is why we extracted additional seed data to another seeder: `DevelopmentSee
 docker compose exec app php artisan migrate:fresh --seed
 docker compose exec app php artisan db:seed --class=DevelopmentSeeder
 ```
-
 
 ## Setup back-end tests
 
@@ -109,7 +73,6 @@ you only need to migrate the `testing` database:
 ```sh
 docker compose exec app php artisan migrate:fresh --seed --env=testing
 ```
-
 
 ## xdebug
 
