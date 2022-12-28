@@ -31,7 +31,7 @@
                 >
                     Menu
                 </label>
-                <div class="mobile-menu | pt-4 text-right leading-loose">
+                <div class="mobile-menu | pt-4 text-center sm:text-right leading-loose">
                     {{ Menu::primary()
                         ->addClass('text-gray-700 mb-2 md:mb-6')
                         ->setActiveClass('font-bold text-black') }}
