@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Modules\Blog\Models\Link;
 use App\Modules\Blog\Models\Post;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
