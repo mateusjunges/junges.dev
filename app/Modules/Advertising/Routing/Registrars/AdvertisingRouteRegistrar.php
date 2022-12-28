@@ -9,7 +9,14 @@ final class AdvertisingRouteRegistrar implements RouteRegistrar
 {
     public function map(Registrar $router): void
     {
-        $router->view('advertising', 'front.advertising')
-            ->name('advertising.index');
+        $router->group(
+            attributes: [
+                'middleware' => ['web']
+            ],
+            routes: function (Registrar $router) {
+                $router->view('advertising', 'front.advertising')
+                    ->name('advertising.index');
+            }
+        );
     }
 }
