@@ -6,3 +6,7 @@
 .button-gray {
     @apply bg-gray-500 font-semibold border-gray-700;
 }
+
+.button-blue {
+    @apply bg-blue-700 font-semibold border-blue-900;
+}
