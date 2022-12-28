@@ -2,8 +2,8 @@
 
 namespace Tests\Factories;
 
-use App\Models\Link;
 use App\Models\User;
+use App\Modules\Blog\Models\Link;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class LinkFactory extends Factory
