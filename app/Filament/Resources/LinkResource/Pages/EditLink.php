@@ -3,10 +3,10 @@
 namespace App\Filament\Resources\LinkResource\Pages;
 
 use App\Filament\Resources\LinkResource;
-use App\Models\Link;
 use App\Modules\Blog\Actions\ApproveLinkAction;
 use App\Modules\Blog\Actions\CreatePostFromLinkAction;
 use App\Modules\Blog\Actions\RejectLinkAction;
+use App\Modules\Blog\Models\Link;
 use Filament\Notifications\Notification;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;

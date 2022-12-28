@@ -3,7 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\LinkResource\Pages;
-use App\Models\Link;
+use App\Modules\Blog\Models\Link;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;

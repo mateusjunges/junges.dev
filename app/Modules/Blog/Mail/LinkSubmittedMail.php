@@ -2,12 +2,12 @@
 
 namespace App\Mail;
 
-use App\Models\Link;
+use App\Modules\Blog\Models\Link;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class LinkApprovedMail extends Mailable
+class LinkSubmittedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -18,6 +18,6 @@ class LinkApprovedMail extends Mailable
 
     public function build()
     {
-        return $this->markdown('mails.links.approved');
+        return $this->markdown('mails.links.submitted');
     }
 }
