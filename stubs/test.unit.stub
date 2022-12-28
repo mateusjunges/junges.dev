@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace {{ namespace }};
 
@@ -6,12 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class {{ class }} extends TestCase
 {
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
-    public function test_example()
+    public function it_can_test()
     {
         $this->assertTrue(true);
     }

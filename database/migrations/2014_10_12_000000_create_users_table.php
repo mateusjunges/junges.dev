@@ -11,17 +11,13 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('twitter_handle')->nullable();
+            $table->string('twitter_handle')->unique()->nullable();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->boolean('admin')->default(0);
             $table->string('password');
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
-    }
-
-    public function down()
-    {
-        Schema::dropIfExists('users');
     }
 };

@@ -1,0 +1,246 @@
+.markup-docs .title {
+    @apply mb-8;
+}
+
+.markup-docs .title-sm {
+    @apply mb-4;
+}
+
+.markup-docs address:not(:last-child),
+.markup-docs p:not(:last-child),
+.markup-docs ol:not(:last-child),
+.markup-docs ul:not(:last-child),
+.markup-docs iframe {
+    margin-bottom: 1.5em;
+}
+
+.markup-docs strong {
+    @apply font-sans;
+    @apply font-bold;
+}
+
+.markup-docs em {
+    @apply font-sans;
+    @apply font-normal;
+}
+
+.markup-docs sub,
+.markup-docs sup {
+    @apply text-xs;
+}
+
+.markup-docs-titles h1 {
+    @apply text-4xl;
+    @apply font-serif;
+    @apply font-bold;
+    @apply leading-tight;
+    @apply mb-16;
+    page-break-inside: avoid;
+    page-break-after: avoid;
+}
+
+@screen sm {
+    .markup-docs-titles h1 {
+        @apply text-5xl;
+    }
+}
+
+.markup-docs-titles h1:not(:first-child) {
+    @apply mt-32;
+    page-break-before: always;
+}
+
+.markup-docs-titles h2 {
+    @apply text-2xl;
+    @apply font-sans;
+    @apply font-bold;
+    @apply leading-tight;
+    @apply mb-8;
+    page-break-inside: avoid;
+    page-break-after: avoid;
+}
+
+.markup-docs-titles h2:not(:first-child) {
+    @apply mt-16;
+}
+
+.markup-docs-titles h2 + h3 {
+    @apply mt-8;
+}
+
+.markup-docs-titles h3 {
+    @apply font-sans;
+    @apply font-bold;
+    @apply uppercase;
+    @apply leading-tight;
+    @apply mb-4;
+    @apply mt-16;
+    page-break-inside: avoid;
+    page-break-after: avoid;
+}
+
+.markup-docs-titles h4 {
+    @apply text-xs;
+    @apply font-sans;
+    @apply font-bold;
+    @apply uppercase;
+    @apply leading-tight;
+    @apply mt-2;
+    @apply mb-2;
+    @apply mt-8;
+    page-break-inside: avoid;
+    page-break-after: avoid;
+}
+
+.markup-docs-titles h2 .heading-permalink,
+.markup-docs-titles h3 .heading-permalink,
+.markup-docs-titles h4 .heading-permalink {
+    @apply hidden;
+    @apply text-gray-lighter !important;
+    @apply no-underline !important;
+    @apply ml-1;
+}
+
+.markup-docs-titles h2:hover .heading-permalink,
+.markup-docs-titles h3:hover .heading-permalink,
+.markup-docs-titles h4:hover .heading-permalink {
+    @apply inline-block;
+}
+
+.markup-docs-titles code {
+    @apply normal-case;
+}
+
+.markup-docs-lists li:not(:last-child) {
+    margin-bottom: 0.35em;
+}
+
+.markup-docs-lists ul li {
+    padding-left: 1em;
+}
+
+.markup-docs-lists ul li:before {
+    /*@apply text-blue;*/
+    content: "•";
+    left: 0;
+    position: absolute;
+    opacity: 0.75;
+}
+
+.markup-docs-lists ol {
+    --counter-reset: ol;
+    --counter-increment: ol;
+    --counter-style: decimal;
+
+    counter-reset: var(--counter-reset);
+}
+
+.markup-docs-lists ol > li {
+    --counter-content: counter(var(--counter-increment), var(--counter-style))
+        ".";
+
+    counter-increment: var(--counter-increment);
+    padding-left: 2.5rem;
+}
+
+.markup-docs-lists ol > li:before {
+    left: 0;
+    position: absolute;
+    content: var(--counter-content);
+}
+
+.markup-docs-lists-compact li,
+.markup-docs-list-compact li {
+    padding-left: 1.8em !important;
+}
+
+/* inline code */
+
+.markup-docs-code :not(pre) code {
+    @apply bg-blue-light;
+    @apply bg-opacity-25;
+    @apply px-1;
+    @apply font-mono;
+    @apply rounded-sm;
+    @apply break-words;
+}
+
+/* block code */
+
+.markup-docs-code > pre > code {
+    display: block;
+    overflow-x: auto;
+    @apply rounded;
+    @apply my-8;
+    @apply p-6;
+    @apply bg-blue-lightest;
+    @apply border-gray-lighter;
+    @apply bg-opacity-25;
+    @apply text-sm;
+    @apply font-mono;
+}
+
+.markup-docs-code .article_badges {
+    @apply flex;
+    @apply flex-wrap;
+}
+
+.markup-docs-code .article_badges img {
+    @apply mb-2;
+    @apply mr-4;
+}
+
+/* Table styles */
+
+.markup-docs-tables table {
+    @apply border-collapse;
+    @apply border-t;
+    @apply border-b;
+    @apply w-full;
+    @apply text-xs;
+    @apply my-6;
+}
+
+.markup-docs-tables table thead tr {
+    @apply border-b;
+    @apply border-gray-lighter;
+    @apply bg-gray-lightest;
+    @apply bg-opacity-25;
+    font-size: 0.875em;
+}
+
+.markup-docs-tables table th,
+.markup-docs-tables table td {
+    @apply py-2;
+    @apply px-1;
+}
+
+@screen sm {
+    .markup-docs-tables table th,
+    .markup-docs-tables table td {
+        @apply px-2;
+    }
+}
+
+.markup-docs-tables table th {
+    @apply text-left;
+    @apply font-normal;
+    @apply whitespace-nowrap;
+    @apply uppercase;
+    @apply text-xs;
+    @apply text-gray-100;
+}
+
+.markup-docs-tables table tbody tr {
+    @apply border-t;
+}
+
+.markup-docs-tables table thead .th-numeric,
+.markup-docs-tables table tbody .td-numeric {
+    @apply text-right;
+    font-variant-numeric: tabular-nums;
+}
+
+.markup-docs-embeds iframe {
+    width: 100%;
+}

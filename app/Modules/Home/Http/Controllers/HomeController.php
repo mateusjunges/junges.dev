@@ -2,12 +2,16 @@
 
 namespace App\Modules\Home\Http\Controllers;
 
-use Illuminate\View\View;
+use App\Modules\Blog\Models\Post;
 
 final class HomeController
 {
-    public function __invoke(): View
+    public function __invoke()
     {
-        return view('welcome');
+        $posts = Post::query()
+            ->published()
+            ->simplePaginate(20);
+
+        return view('front.home.index', compact('posts'));
     }
 }

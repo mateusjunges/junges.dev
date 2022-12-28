@@ -3,7 +3,7 @@
 namespace App\Modules\Blog\Routing\Registrars;
 
 use App\Contracts\RouteRegistrar;
-use App\Modules\Blog\Http\Controllers\OriginalsController;
+use App\Modules\Blog\Http\Controllers\OgImageController;
 use App\Modules\Blog\Http\Controllers\ShowPostController;
 use Illuminate\Contracts\Routing\Registrar;
 
@@ -13,14 +13,12 @@ final class BlogRouteRegistrar implements RouteRegistrar
     {
         $router->group(
             attributes: [
-                'prefix' => 'blog',
-                'as' => 'blog.',
-                'middleware' => ['web'],
+//                'as' => 'blog.',
             ],
-            routes: static function (Registrar $router) {
-                $router->get('posts', OriginalsController::class)->name('posts.originals');
-                $router->get('posts/{post:slug}', ShowPostController::class)->name('posts.show');
-            },
+            routes: function(Registrar $router) {
+                $router->get('{post}/og-image', OgImageController::class)->name('post.ogImage');
+                $router->get('{postSlug}', ShowPostController::class)->name('post');
+            }
         );
     }
 }

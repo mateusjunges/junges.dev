@@ -2,7 +2,7 @@
 
 namespace Tests\Factories;
 
-use App\Modules\Posts\Models\Post;
+use App\Modules\Blog\Models\Post;
 use Faker\Factory;
 use Faker\Generator;
 use Illuminate\Support\Arr;
@@ -10,6 +10,8 @@ use Illuminate\Support\Collection;
 
 class PostFactory
 {
+    protected string $model = Post::class;
+
     private int $times;
 
     private ?string $type;
@@ -19,21 +21,21 @@ class PostFactory
         $this->times = $times;
     }
 
-    public function tweet(): PostFactory
+    public function tweet(): self
     {
         $this->type = Post::TYPE_TWEET;
 
         return $this;
     }
 
-    public function original(): PostFactory
+    public function original(): self
     {
         $this->type = Post::TYPE_ORIGINAL;
 
         return $this;
     }
 
-    public function link(): PostFactory
+    public function link(): self
     {
         $this->type = Post::TYPE_LINK;
 
@@ -43,7 +45,7 @@ class PostFactory
     public function create(array $attributes = [])
     {
         foreach (range(1, $this->times) as $i) {
-            /** @var \App\Modules\Posts\Models\Post $post */
+            /** @var \App\Modules\Blog\Models\Post $post */
             $post = Post::factory()->create($attributes);
             if (is_null($this->type)) {
                 $this->type = Arr::random([
@@ -56,10 +58,7 @@ class PostFactory
             if ($this->type === Post::TYPE_LINK) {
                 $post->original_content = false;
                 $post->external_url = $this->faker()->randomElement([
-                    'https://spatie.be',
-                    'https://laravel.com',
-                    'https://ohdear.app',
-                    'https://flareapp.io',
+                    'https://google.com',
                 ]);
                 $post->title = $this->faker()->sentence;
             }
@@ -95,7 +94,7 @@ class PostFactory
 
     protected function getStub(string $stubName): string
     {
-        return file_get_contents(__DIR__ . "/stubs/{$stubName}.md");
+        return file_get_contents(__DIR__."/stubs/{$stubName}.md");
     }
 
     public static function series(int $count): Collection
@@ -112,7 +111,7 @@ class PostFactory
             $post->update(['title' => "Series title part {$i}: Lorem ipsum"]);
 
             if ($i === 0) {
-                $firstSentence = "On [our Laravel powered company website](https://spatie.be) we sell digital products. ";
+                $firstSentence = 'junges.dev is a blog about web development, Laravel, and other things.';
 
                 $post->update(['text' => "{$firstSentence}{$post->text}"]);
             }

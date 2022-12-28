@@ -1,15 +1,15 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Modules\Blog\Actions;
 
-use App\Jobs\CreateOgImageJob;
-use App\Jobs\TweetPostJob;
+use App\Modules\Blog\Jobs\CreateOgImageJob;
+use App\Modules\Blog\Jobs\TweetPostJob;
 use App\Modules\Blog\Models\Post;
-use Illuminate\Support\Facades\Bus;
+use Spatie\ResponseCache\Facades\ResponseCache;
 
 final class PublishPostAction
 {
-    public function execute(Post $post): void
+    public function execute(Post $post):void
     {
         $post->published = true;
 
@@ -19,9 +19,9 @@ final class PublishPostAction
 
         $post->save();
 
-        Bus::chain([
-            new CreateOgImageJob($post),
-            new TweetPostJob($post),
-        ])->dispatch();
+        ResponseCache::clear();
+
+        dispatch(new CreateOgImageJob($post));
+        dispatch(new TweetPostJob($post))->delay(now()->addSeconds(20));
     }
 }

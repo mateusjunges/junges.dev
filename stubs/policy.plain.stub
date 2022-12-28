@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace {{ namespace }};
 
@@ -9,11 +9,6 @@ class {{ class }}
 {
     use HandlesAuthorization;
 
-    /**
-     * Create a new policy instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         //

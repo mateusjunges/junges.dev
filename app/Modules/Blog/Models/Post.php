@@ -1,69 +1,77 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Modules\Blog\Models;
 
-use App\Jobs\CreateOgImageJob;
-use App\Models\Concerns\HasSlug;
-use App\Modules\Auth\Models\User;
-use App\Modules\Blog\Actions\ConvertPostToHtmlAction;
+use App\Concerns\HasSlug;
+use App\Contracts\Sluggable;
+use App\Models\User;
+use App\Modules\Blog\Actions\ConvertPostTextToHtmlAction;
 use App\Modules\Blog\Actions\PublishPostAction;
-use App\Modules\Blog\Contracts\Sluggable;
-use App\Modules\Blog\Presenters\PostPresenter;
-use App\Modules\Blog\QueryBuilders\PostsEloquentBuilder;
-use Illuminate\Database\Eloquent\Builder;
+use App\Modules\Blog\Jobs\CreateOgImageJob;
+use App\Modules\Blog\Models\Presenters\PostPresenter;
+use App\Modules\Blog\QueryBuilders\PostEloquentBuilder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Str;
 use Spatie\Comments\Models\Concerns\HasComments;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\ResponseCache\Facades\ResponseCache;
 use Spatie\Tags\HasTags;
 use Spatie\Tags\Tag;
-use Tests\Factories\PostDatabaseFactory;
+use Tests\Factories\PostDbFactory;
 
 /**
- * @property string $promotional_url
- * @property \Illuminate\Support\Carbon $publish_date
- * @property bool $published
- * @property boolean $original_content
- * @property ?string $external_url
- * @property string $title
- * @property string $html
- * @property string $text
- * @property ?string $preview_secret
- * @property ?string $emoji
- * @property string $tweet_url
- * @property mixed $author_twitter_handle
- * @property \App\Modules\Auth\Models\User $submittedByUser
- * @property boolean $send_automated_tweet
- * @property boolean $tweet_sent
- * @property string $series_slug
- * @property int $id
+ * @property int $id The post identifier.
+ * @property int $submitted_by_user_id The user identifier who submitted the post.
+ * @property string $author The post author.
+ * @property string $external_url The external URL for this post.
+ * @property string $tweet_url The tweet URL for this post.
+ * @property bool $send_automated_tweet Whether to send an automated tweet for this post.
+ * @property string $author_twitter_handle The author's Twitter handle.
+ * @property string $text The post content.
+ * @property bool $original_content Whether the post is original content.
+ * @property string $type The post type.
+ * @property string $html The post content in HTML format.
+ * @property string $title The post title.
+ * @property bool $published Whether the post is published.
+ * @property \Illuminate\Support\Carbon $published_at The date and time when the post was published.
+ * @property \Illuminate\Support\Carbon $publish_date The date and time when the post should be published.
+ * @property bool $tweet_sent Whether the tweet was sent.
+ * @property string $slug The post slug.
+ * @property \Illuminate\Support\Carbon $created_at The date and time when the post was created.
+ * @property \Illuminate\Support\Carbon $updated_at The date and time when the post was updated.
+ * @property
  */
 final class Post extends Model implements Sluggable, HasMedia
 {
-    use HasFactory;
-    use HasSlug;
-    use PostPresenter;
-    use HasTags;
-    use InteractsWithMedia;
-    use HasComments;
-
     public const TYPE_LINK = 'link';
     public const TYPE_TWEET = 'tweet';
-    public const TYPE_ORIGINAL = 'original';
+    public const TYPE_ORIGINAL = 'originalPost';
+
+    use HasSlug,
+        HasTags,
+        PostPresenter,
+        HasFactory,
+        HasComments,
+        InteractsWithMedia;
 
     /** @var string $table */
     protected $table = 'blog__posts';
 
-    protected $dates = ['publish_date'];
+    public $with = ['tags'];
+
+    public $dates = ['publish_date'];
 
     public $casts = [
         'published' => 'boolean',
         'original_content' => 'boolean',
-        'send_automate_tweet' => 'boolean',
+        'send_automated_tweet' => 'boolean',
+        'toot_sent' => 'boolean',
     ];
 
     public static function booted()
@@ -72,14 +80,13 @@ final class Post extends Model implements Sluggable, HasMedia
             $post->preview_secret = Str::random(10);
         });
 
-
         self::saved(function (Post $post) {
             self::withoutEvents(function () use ($post) {
-                (new ConvertPostToHtmlAction())->execute($post);
+                (new ConvertPostTextToHtmlAction())->execute($post);
 
                 if ($post->isPartOfSeries()) {
-                    $post->getAllPostsInSeries()->each(function(Post $post) {
-                        (new ConvertPostToHtmlAction())->execute($post);
+                    $post->getAllPostsInSeries()->each(function (Post $post) {
+                        (new ConvertPostTextToHtmlAction())->execute($post);
                     });
                 }
             });
@@ -92,30 +99,25 @@ final class Post extends Model implements Sluggable, HasMedia
                 return;
             }
 
-            dispatch(new CreateOgImageJob($post));
+            Bus::chain([
+                new CreateOgImageJob($post),
+                fn () => ResponseCache::clear(),
+            ])->dispatch();
         });
     }
 
-    /**
-     * @inheritDoc
-     * @return PostsEloquentBuilder<self>
-     */
-    public static function query(): PostsEloquentBuilder
+    public static function query(): PostEloquentBuilder
     {
         $builder = parent::query();
-        assert($builder instanceof PostsEloquentBuilder);
+        assert($builder instanceof PostEloquentBuilder);
 
         return $builder;
     }
 
-    /**
-     * @inheritDoc
-     * @param \Illuminate\Database\Query\Builder $query
-     * @return PostsEloquentBuilder<self>
-     */
-    public function newEloquentBuilder($query): PostsEloquentBuilder
+    /** @inheritDoc */
+    public function newEloquentBuilder($query): PostEloquentBuilder
     {
-        return new PostsEloquentBuilder($query);
+        return new PostEloquentBuilder($query);
     }
 
     public function submittedByUser(): BelongsTo
@@ -123,25 +125,7 @@ final class Post extends Model implements Sluggable, HasMedia
         return $this->belongsTo(User::class, 'submitted_by_user_id');
     }
 
-    public function scopeScheduled(Builder $query)
-    {
-        $query
-            ->where('published', false)
-            ->whereNotNull('publish_date');
-    }
-
-    public function getHtmlWithExternalUrlAttribute(): string
-    {
-        $html = $this->html;
-
-        if (! $this->isTweet() && $this->external_url) {
-            $html .= PHP_EOL . PHP_EOL . "<a href='{$this->external_url}'>Read more</a>";
-        }
-
-        return $html;
-    }
-
-    public function updateAttributes(array $attributes): Post
+    public function updateAttributes(array $attributes): self
     {
         $this->title = $attributes['title'];
         $this->text = $attributes['text'];
@@ -161,14 +145,34 @@ final class Post extends Model implements Sluggable, HasMedia
         return $this;
     }
 
-    public function getUrlAttribute(): string
+    public function url(): Attribute
     {
-        return route('blog.posts.show', [$this->slug]);
+        return new Attribute(function () {
+            return route('post', [$this->idSlug()]);
+        });
     }
 
-    public function getPreviewUrlAttribute(): string
+    public function previewUrl(): Attribute
     {
-        return route('posts.show', [$this->idSlug()]) . "?preview_secret={$this->preview_secret}";
+        return new Attribute(function () {
+            return route('post', [$this->idSlug()])."?preview_secret={$this->preview_secret}";
+        });
+    }
+
+    public function adminPreviewUrl(): string
+    {
+        return $this->published ? $this->url : $this->preview_url;
+    }
+
+    public function promotionalUrl(): Attribute
+    {
+        return new Attribute(function () {
+            if (! empty($this->external_url)) {
+                return $this->external_url;
+            }
+
+            return $this->url;
+        });
     }
 
     public function hasTag(string $tagName): bool
@@ -180,33 +184,50 @@ final class Post extends Model implements Sluggable, HasMedia
 
     public function isLink(): bool
     {
-        return $this->getType() === static::TYPE_LINK;
+        return $this->getType() === self::TYPE_LINK;
     }
 
     public function isTweet(): bool
     {
-        return $this->getType() === static::TYPE_TWEET;
+        return $this->getType() === self::TYPE_TWEET;
     }
 
     public function isOriginal(): bool
     {
-        return $this->getType() === static::TYPE_ORIGINAL;
+        return $this->getType() === self::TYPE_ORIGINAL;
     }
 
     public function getType(): string
     {
-        if ($this->original_content) {
-            return static::TYPE_ORIGINAL;
+        if ($this->hasTag('tweet')) {
+            return self::TYPE_TWEET;
         }
 
-        return static::TYPE_LINK;
+        if ($this->original_content) {
+            return self::TYPE_ORIGINAL;
+        }
+
+        return self::TYPE_LINK;
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this
+            ->addMediaCollection('ogImage')
+            ->useDisk('og-images')
+            ->singleFile();
+    }
+
+    public function getSluggableValue(): string
+    {
+        return $this->title;
     }
 
     public function toTweet(): string
     {
         $tags = $this->tags
             ->map(fn (Tag $tag) => $tag->name)
-            ->map(fn (string $tagName) => '#' . str_replace(' ', '', $tagName))
+            ->map(fn (string $tagName) => '#'.str_replace(' ', '', $tagName))
             ->implode(' ');
 
         $twitterAuthorString = '';
@@ -214,9 +235,9 @@ final class Post extends Model implements Sluggable, HasMedia
             $twitterAuthorString = " (by @{$twitterHandle})";
         }
 
-        return $this->emoji . ' ' . $this->title . $twitterAuthorString
-            . PHP_EOL . $this->promotional_url
-            . PHP_EOL . $tags;
+        return $this->relatedEmoji().' '.$this->title.$twitterAuthorString
+            .PHP_EOL.$this->promotional_url
+            .PHP_EOL.$tags;
     }
 
     public function onAfterTweet(string $tweetUrl): void
@@ -232,17 +253,12 @@ final class Post extends Model implements Sluggable, HasMedia
             return $this->external_url;
         }
 
-        return route('post.ogImage', $this) . "?preview_secret={$this->preview_secret}";
+        return route('post.ogImage', $this)."?preview_secret={$this->preview_secret}";
     }
 
-    public function adminPreviewUrl(): string
+    public function isPartOfSeries()
     {
-        return $this->published ? $this->url : $this->preview_url;
-    }
-
-    public function isPartOfSeries(): bool
-    {
-        return $this->series_slug !== null;
+        return ! empty($this->series_slug);
     }
 
     public function getAllPostsInSeries(): Collection
@@ -263,21 +279,11 @@ final class Post extends Model implements Sluggable, HasMedia
             return $this->author_twitter_handle;
         }
 
-        if ($userTwitterHandle = optional($this->submittedByUser)->twitter_handle) {
+        if ($userTwitterHandle = $this->submittedByUser?->twitter_handle) {
             return $userTwitterHandle;
         }
 
         return null;
-    }
-
-    public function getSluggableValue(): string
-    {
-        return $this->title;
-    }
-
-    public static function newFactory(): PostDatabaseFactory
-    {
-        return new PostDatabaseFactory();
     }
 
     public function commentableName(): string
@@ -288,5 +294,10 @@ final class Post extends Model implements Sluggable, HasMedia
     public function commentUrl(): string
     {
         return $this->url;
+    }
+
+    public static function newFactory(): PostDbFactory
+    {
+        return new PostDbFactory();
     }
 }

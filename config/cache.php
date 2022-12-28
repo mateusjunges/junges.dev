@@ -54,14 +54,14 @@ return [
             'path' => storage_path('framework/cache/docs'),
         ],
 
-        'markdown' => [
-            'driver' => 'file',
-            'path' => storage_path('framework/cache/markdown'),
-        ],
-
         'file' => [
             'driver' => 'file',
             'path' => storage_path('framework/cache/data'),
+        ],
+
+        'markdown' => [
+            'driver' => 'file',
+            'path' => storage_path('framework/cache/markdown'),
         ],
 
         'memcached' => [

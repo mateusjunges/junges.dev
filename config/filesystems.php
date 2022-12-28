@@ -13,7 +13,9 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DISK', 'local'),
+
+    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
 
     /*
     |--------------------------------------------------------------------------
@@ -35,6 +37,12 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'og-images' => [
+            'driver' => 'local',
+            'root' => storage_path('og-images'),
+            'url' => '/og-images',
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
@@ -42,10 +50,10 @@ return [
             'visibility' => 'public',
         ],
 
-        'sponsors' => [
+        'admin-uploads' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/sponsors'),
-            'url' => env('APP_URL').'/storage/sponsors',
+            'root' => storage_path('admin-uploads'),
+            'url' => env('APP_URL').'/admin-uploads',
             'visibility' => 'public',
         ],
 
@@ -60,10 +68,6 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
-        'docs' => [
-            'driver' => 'local',
-            'root' => storage_path('docs'),
-        ],
     ],
 
     /*

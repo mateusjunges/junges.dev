@@ -1,10 +1,10 @@
 When a request comes in your app will return a response. To create that response, your application has to do some work. Most likely queries will execute. This all takes some time. Wouldn't it be nice if the same request comes in, we can return the response the application has constructed previously?
 
-That's precisely what our package [laravel-responsecache](https://github.com/spatie/laravel-responsecache) can do for you. It can speed up your application by caching the entire response. We recently released [a new major version](https://github.com/spatie/laravel-responsecache/releases/tag/6.0.0) of the package that has a new cool feature. It now can cache pages that still have some small dynamic pieces, such as a csrf token.
+That's precisely what our package [laravel-responsecache](https://github.com/spatie/laravel-responsecache) can do for you. It can speed up your application by caching the entire response. We recently released [a new major version](https://github.com/spatie/laravel-responsecache/releases/tag/6.0.0) of the package that has a new cool feature. It now can cache pages that still have some small dynamic pieces, such as a csrf token. 
 
 ## Basic usage
 
-After you've [installed](https://github.com/spatie/laravel-responsecache#installation) the package (which can be done with a simple `composer require`, all `GET` requests to your app will be cached for a week by default. Of course, you can customize that period.
+After you've [installed](https://github.com/spatie/laravel-responsecache#installation) the package (which can be done with a simple `composer require`, all `GET` requests to your app will be cached for a week by default. Of course, you can customize that period. 
 
 In fact, you can customize the entire caching behavior by implementing your own custom cache profile. Such a profile is a class that implements the `CacheProfile` interface. It is responsible for deciding if a request/response should be cached. Here's how that interface looks like:
 
@@ -154,7 +154,7 @@ With this in place, you can now even cache pages that contain forms and still al
 
 ## Alternatives
 
-There are some great alternatives to cache responses.
+There are some great alternatives to cache responses. 
 
 [Joseph Silber](https://twitter.com/joseph_silber) created [Laravel Page Cache](https://github.com/JosephSilber/page-cache) that can write it's cache to disk and let Nginx read them. Because PHP isn't needed anymore to respond when results are cached, the performance benefits are quite significant. This comes at the cost of a slighter more difficult installation procedure (you'll have to tinker with nginx settings), and you can't have any dynamic content on your page.
 
@@ -166,6 +166,6 @@ Varnish is a reverse proxy that can be used to cache content. There's quite some
 
 Our package isn't supposed to sweep performance troubles under the rug. All apps should be optimized so that they'll respond in an acceptable timeframe without using response caching.  Keep in mind that there are [a lot of other aspects that need to be considered](https://developers.google.com/web/fundamentals/performance/why-performance-matters/) when trying to deliver a speedy experience.
 
-Even though there are many good (and faster) alternatives available, I believe [laravel-responsecache](https://github.com/spatie/laravel-responsecache) is the easiest package to get started with response caching.
+Even though there are many good (and faster) alternatives available, I believe [laravel-responsecache](https://github.com/spatie/laravel-responsecache) is the easiest package to get started with response caching. 
 
 If you like the package, do take a look at [this list of packages](https://spatie.be/open-source) our team has released previously.
