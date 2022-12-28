@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Discovery\Community;
 
-use App\Models\Link;
+use App\Modules\Blog\Models\Link;
 use function view;
 
 class IndexController

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Discovery\Community;
 
-use App\Models\Link;
 use App\Modules\Blog\Actions\ApproveLinkAction;
 use App\Modules\Blog\Actions\CreatePostFromLinkAction;
 use App\Modules\Blog\Actions\RejectLinkAction;
+use App\Modules\Blog\Models\Link;
 use Spatie\RouteDiscovery\Attributes\Route;
 
 #[Route(middleware: 'signed')]
