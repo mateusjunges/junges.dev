@@ -2,8 +2,8 @@
 
 namespace App\Modules\Blog\Actions;
 
-use App\Mail\LinkApprovedMail;
-use App\Models\Link;
+use App\Modules\Blog\Mail\LinkApprovedMail;
+use App\Modules\Blog\Models\Link;
 use Illuminate\Support\Facades\Mail;
 use Spatie\ResponseCache\Facades\ResponseCache;
 

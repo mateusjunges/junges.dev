@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Mail;
+namespace App\Modules\Blog\Mail;
 
 use App\Modules\Blog\Models\Link;
 use Illuminate\Bus\Queueable;
@@ -16,7 +16,7 @@ class LinkSubmittedMail extends Mailable
     ) {
     }
 
-    public function build()
+    public function build(): Mailable
     {
         return $this->markdown('mails.links.submitted');
     }

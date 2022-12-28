@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Discovery\Community;
+namespace App\Modules\Blog\Http\Controllers\Links;
 
 use App\Http\Requests\CreateLinkRequest;
 use App\Modules\Blog\Actions\CreateLinkAction;

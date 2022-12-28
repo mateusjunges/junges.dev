@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Discovery\Community;
+namespace App\Modules\Blog\Http\Controllers\Links;
 
 use App\Modules\Blog\Actions\ApproveLinkAction;
 use App\Modules\Blog\Actions\CreatePostFromLinkAction;

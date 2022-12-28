@@ -2,7 +2,7 @@
 
 namespace App\Modules\Blog\Actions;
 
-use App\Models\Link;
+use App\Modules\Blog\Models\Link;
 
 class RejectLinkAction
 {

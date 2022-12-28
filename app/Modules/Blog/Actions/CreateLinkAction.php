@@ -2,9 +2,9 @@
 
 namespace App\Modules\Blog\Actions;
 
-use App\Mail\LinkSubmittedMail;
-use App\Models\Link;
 use App\Models\User;
+use App\Modules\Blog\Mail\LinkSubmittedMail;
+use App\Modules\Blog\Models\Link;
 use Illuminate\Support\Facades\Mail;
 
 final class CreateLinkAction
