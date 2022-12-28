@@ -12,5 +12,6 @@ final class HomeRouteRegistrar implements RouteRegistrar
     {
         $router->get('/', HomeController::class)->name('home');
         $router->view('/about', 'front.about')->name('about');
+        $router->redirect('/admin', '/admin/login')->name('admin');
     }
 }
