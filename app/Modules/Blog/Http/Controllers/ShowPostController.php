@@ -12,6 +12,10 @@ final class ShowPostController
     {
         $ad = Ad::getForCurrentPage();
 
+        if (! $post->exists) {
+            abort(404);
+        }
+
         return view('front.posts.show', compact('post', 'ad'));
     }
 }

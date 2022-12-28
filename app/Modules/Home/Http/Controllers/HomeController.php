@@ -8,6 +8,8 @@ final class HomeController
 {
     public function __invoke()
     {
+        return redirect()->route('docs.index');
+
         $posts = Post::query()
             ->published()
             ->simplePaginate(20);

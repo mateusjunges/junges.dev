@@ -13,7 +13,8 @@ class NavigationServiceProvider extends ServiceProvider
         Menu::macro('primary', function () {
             return Menu::new()
                 ->route('docs.index', 'Docs')
-                ->action(HomeController::class, 'Home')
+//                ->action(HomeController::class, 'Home')
+                ->link('/about', 'About')
                 ->setActiveFromRequest();
         });
 
