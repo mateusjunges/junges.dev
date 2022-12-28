@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Discovery\Community\IndexController;
+use App\Modules\Blog\Http\Controllers\Links\IndexController;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
@@ -12,10 +12,6 @@ class LoginController
 
     public function redirectPath()
     {
-        if (auth()->user()->admin) {
-            return '/nova';
-        }
-
         return action(IndexController::class);
     }
 }
