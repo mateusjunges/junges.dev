@@ -7,20 +7,26 @@ use Illuminate\Support\Str;
 
 class UserFactory extends Factory
 {
-    /** Define the model's default state.*/
-    public function definition(): array
+    protected $model = \App\Models\User::class;
+
+    public function definition()
     {
+        static $password;
+
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => bcrypt('password'),
+            'password' => $password ?: $password = bcrypt('secret'),
             'remember_token' => Str::random(10),
         ];
     }
 
-    /** Indicate that the model's email address should be unverified. */
-    public function unverified(): self
+    /**
+     * Define the model's unverified state.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function unverified()
     {
         return $this->state(function (array $attributes) {
             return [

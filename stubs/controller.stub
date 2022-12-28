@@ -1,57 +1,36 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace {{ namespace }};
 
-use {{ namespacedModel }};
-use {{ rootNamespace }}Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use {{ namespacedParentModel }};
 
-class {{ class }} extends Controller
+class {{ class }}
 {
-    /**
-     * Store the newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \{{ namespacedParentModel }}  ${{ parentModelVariable }}
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request, {{ parentModel }} ${{ parentModelVariable }})
+    public function index()
     {
-        abort(404);
     }
 
-    /**
-     * Display the resource.
-     *
-     * @param  \{{ namespacedParentModel }}  ${{ parentModelVariable }}
-     * @return \Illuminate\Http\Response
-     */
-    public function show({{ parentModel }} ${{ parentModelVariable }})
+    public function create()
     {
-        //
     }
 
-    /**
-     * Update the resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \{{ namespacedParentModel }}  ${{ parentModelVariable }}
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, {{ parentModel }} ${{ parentModelVariable }})
+    public function store(Request $request)
     {
-        //
     }
 
-    /**
-     * Remove the resource from storage.
-     *
-     * @param  \{{ namespacedParentModel }}  ${{ parentModelVariable }}
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy({{ parentModel }} ${{ parentModelVariable }})
+    public function show(int $id)
     {
-        abort(404);
+    }
+
+    public function edit(int $id)
+    {
+    }
+
+    public function update(Request $request, int $id)
+    {
+    }
+
+    public function destroy(int $id)
+    {
     }
 }

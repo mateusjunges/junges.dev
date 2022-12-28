@@ -2,7 +2,7 @@
 
 namespace Tests\Factories;
 
-use App\Modules\Documentation\Models\Repository;
+use App\Modules\Docs\Models\Repository;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class RepositoryFactory extends Factory

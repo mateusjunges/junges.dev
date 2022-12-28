@@ -3,18 +3,14 @@
 namespace App\Providers;
 
 use Abraham\TwitterOAuth\TwitterOAuth;
-use App\Contracts\Twitter as TwitterContract;
 use App\Services\Twitter\Twitter;
 use Illuminate\Support\ServiceProvider;
 
-final class TwitterServiceProvider extends ServiceProvider
+class TwitterServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        if (! config('services.twitter.enabled')) {
-            return;
-        }
-        $this->app->bind(TwitterContract::class, function () {
+        $this->app->bind(Twitter::class, function () {
             $connection = new TwitterOAuth(
                 config('services.twitter.consumer_key'),
                 config('services.twitter.consumer_secret'),

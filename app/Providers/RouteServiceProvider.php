@@ -3,43 +3,63 @@
 namespace App\Providers;
 
 use App\Concerns\MapRouteRegistrars;
+use App\Modules\Advertising\Routing\Registrars\AdvertisingRouteRegistrar;
 use App\Modules\Auth\Routing\Registrars\AuthRouteRegistrar;
+use App\Modules\Blog\Models\Post;
 use App\Modules\Blog\Routing\Registrars\BlogRouteRegistrar;
-use App\Modules\Documentation\Routing\Registrars\DocsRouteRegistrar;
+use App\Modules\Docs\Routing\Registrars\DocsRouteRegistrar;
 use App\Modules\Home\Routing\Registrars\HomeRouteRegistrar;
-use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Contracts\Routing\Registrar;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\RateLimiter;
-final class RouteServiceProvider extends ServiceProvider
+use Illuminate\Support\Facades\Route;
+
+class RouteServiceProvider extends ServiceProvider
 {
     use MapRouteRegistrars;
-    public const HOME = '/home';
 
-    /** @var array<int, class-string> $registrars */
-    private static array $registrars = [
-        DocsRouteRegistrar::class,
+    /** @var array<class-string> $registrars  */
+    private array $registrars = [
         HomeRouteRegistrar::class,
-        BlogRouteRegistrar::class,
+        DocsRouteRegistrar::class,
         AuthRouteRegistrar::class,
+        AdvertisingRouteRegistrar::class,
+        BlogRouteRegistrar::class, // This MUST be the last one because of wildcard routes
     ];
 
-    /** Define your route model bindings, pattern filters, etc.*/
-    public function boot(): void
+    public function boot()
     {
-        $this->configureRateLimiting();
+        parent::boot();
 
         $this->routes(
-            routesCallback: fn (Registrar $router) => $this->mapRoutes($router, self::$registrars)
+            routesCallback: fn (Registrar $router) => $this->mapRoutes($router, $this->registrars)
         );
+
+        $this->registerRouteModelBindings();
     }
 
-    /** Configure the rate limiters for the application.*/
-    protected function configureRateLimiting(): void
+
+    public function registerRouteModelBindings(): void
     {
-        RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
+        Route::bind('postSlug', function ($slug) {
+            $post = Post::findByIdSlug($slug);
+
+            if (! $post) {
+                abort(404);
+            }
+
+            if (auth()->user()?->email === 'mateus@junges.dev') {
+                return $post;
+            }
+
+            if ($post->preview_secret === request()->get('preview_secret')) {
+                return $post;
+            }
+
+            if (! $post->published) {
+                abort(404);
+            }
+
+            return $post;
         });
     }
 }

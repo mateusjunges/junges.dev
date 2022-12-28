@@ -3,18 +3,18 @@
 namespace App\Modules\Blog\Http\Controllers;
 
 use App\Modules\Blog\Models\Post;
+use Illuminate\Contracts\View\View;
+use function view;
 
 final class OriginalsController
 {
-    public function __invoke()
+    public function __invoke(): View
     {
         $posts = Post::query()
-            ->original()
             ->published()
-            ->simplePaginate();
+            ->originalContent()
+            ->simplePaginate(20);
 
-        return view('modules.blog.posts.index', [
-            'posts' => $posts
-        ]);
+        return view('front.originals.index', compact('posts'));
     }
 }

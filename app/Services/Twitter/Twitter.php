@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Services\Twitter;
 
@@ -20,6 +20,6 @@ final class Twitter implements TwitterContract
             return false;
         }
 
-        return (array)$this->twitter->post('statuses/update', compact('status'));
+        return (array) $this->twitter->post('statuses/update', compact('status'));
     }
 }

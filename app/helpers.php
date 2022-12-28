@@ -1,6 +1,16 @@
 <?php
 
 use Illuminate\Support\HtmlString;
+use Faker\Factory;
+use Faker\Generator;
+
+if (! function_exists('faker'))
+{
+    function faker(): Generator
+    {
+        return Factory::create();
+    }
+}
 
 if (! function_exists('__svg')) {
     function __svg($filename): HtmlString
@@ -10,3 +20,4 @@ if (! function_exists('__svg')) {
         );
     }
 }
+

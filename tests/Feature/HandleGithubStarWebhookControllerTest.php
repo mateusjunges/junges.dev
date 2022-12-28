@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Modules\Documentation\Models\Repository;
+use App\Modules\Docs\Models\Repository;
 use Illuminate\Support\Str;
 use Tests\TestCase;
 
@@ -173,7 +173,7 @@ class HandleGithubStarWebhookControllerTest extends TestCase
 }
 JSON;
 
-        /** @var \App\Modules\Documentation\Models\Repository $repository */
+        /** @var \App\Modules\Docs\Models\Repository $repository */
         Repository::factory()->createOne([
             'name' => 'test-repository'
         ]);

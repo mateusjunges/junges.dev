@@ -14,6 +14,31 @@ return [
     |
     */
 
+    'twitter' => [
+        'consumer_key' => env('TWITTER_CONSUMER_KEY'),
+        'consumer_secret' => env('TWITTER_CONSUMER_SECRET'),
+        'access_token' => env('TWITTER_ACCESS_TOKEN'),
+        'access_token_secret' => env('TWITTER_ACCESS_TOKEN_SECRET'),
+    ],
+
+    'mastodon' => [
+        'token' => env('MASTODON_TOKEN'),
+    ],
+
+    // Github
+    'github' => [
+        'webhook_secret' => env('GITHUB_WEBHOOK_SECRET'),
+        'docs_access_token' => env('GITHUB_DOCS_ACCESS_TOKEN'),
+        'token' => env('GITHUB_TOKEN'),
+        'username' => env('GITHUB_USERNAME', 'mateusjunges')
+    ],
+
+    'stripe' => [
+        'model' => App\Models\User::class,
+        'key' => env('STRIPE_KEY'),
+        'secret' => env('STRIPE_SECRET'),
+    ],
+
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
@@ -30,20 +55,7 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    // Github
-    'github' => [
-        'webhook_secret' => env('GITHUB_WEBHOOK_SECRET'),
-        'docs_access_token' => env('GITHUB_DOCS_ACCESS_TOKEN'),
-        'token' => env('GITHUB_TOKEN'),
-        'username' => env('GITHUB_USERNAME', 'mateusjunges')
+    'media-library' => [
+        'salt' => env('MEDIA_LIBRARY_PATH_GENERATOR_SALT'),
     ],
-
-    // Twitter
-    'twitter' => [
-        'enabled' => env('TWITTER_ENABLED', false),
-        'consumer_key' => env('TWITTER_CONSUMER_KEY'),
-        'consumer_secret' => env('TWITTER_CONSUMER_SECRET'),
-        'access_token' => env('TWITTER_ACCESS_TOKEN'),
-        'access_token_secret' => env('TWITTER_ACCESS_TOKEN_SECRET'),
-    ]
 ];

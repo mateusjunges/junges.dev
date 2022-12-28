@@ -1,19 +1,15 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace {{ factoryNamespace }};
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+use {{ namespacedModel }};
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\{{ namespacedModel }}>
- */
-class {{ factory }}Factory extends Factory
+class {{ model }}Factory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = {{ model }}::class;
+
     public function definition()
     {
         return [

@@ -1,4 +1,4 @@
-.select {
+.select-navigation {
     @apply inline-flex;
     @apply items-center;
     @apply border-2;
@@ -9,7 +9,7 @@
     @apply rounded-sm;
 }
 
-.select select {
+.select-navigation select {
     @apply font-sans;
     @apply lowercase;
     @apply text-gray-700;
@@ -19,16 +19,16 @@
     @apply outline-none;
 }
 
-.select-arrow {
+.select-navigation-arrow {
     @apply hidden;
 }
 
 @supports (display: grid) {
-    .select select {
+    .select-navigation select {
         @apply pr-6;
     }
 
-    .select-arrow {
+    .select-navigation-arrow {
         @apply absolute;
         @apply block;
         @apply right-0;
@@ -41,6 +41,6 @@
     }
 }
 
-.select select:active + .select-arrow {
+.select-navigation select:active + .select-navigation-arrow {
     transform: rotate(180deg);
 }

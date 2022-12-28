@@ -4,14 +4,16 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-final class DatabaseSeeder extends Seeder
+class DatabaseSeeder extends Seeder
 {
-    public function run(): void
+    public function run()
     {
-        $this->call([
-//            RepositoriesSeeder::class,
-            PostsSeeder::class,
-            UpdatesRepositoriesDocumentationUrl::class,
-        ]);
+        $this
+            ->call(UserSeeder::class)
+            ->call(TagSeeder::class)
+            ->call(PostSeeder::class)
+            ->call(CommentSeeder::class)
+            ->call(AdSeeder::class)
+            ->call(LinkSeeder::class);
     }
 }

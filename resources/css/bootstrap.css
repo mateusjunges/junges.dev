@@ -1,82 +1,17 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-* {
-    position: relative;
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
-    color: inherit;
-}
-
-*:after,
-*:before {
-    box-sizing: inherit;
-}
 
 html {
-    box-sizing: border-box;
-    font-size: 16px;
+    font-size: 17px;
 }
 
-@screen lg {
-    html {
-        font-size: 1.2vw;
-    }
-}
-
-@screen xl {
+@screen md {
     html {
         font-size: 18px;
     }
 }
 
-select:focus,
-input:focus {
-    outline: 0;
-}
-
-::-webkit-file-upload-button {
-    @apply cursor-pointer;
-}
-
-a {
-    text-decoration: none;
-}
-
-ol,
-ul {
-    list-style: none;
-}
-
-hr {
-    border: 0;
-    background-color: currentcolor;
-}
-
-img,
-svg {
-    display: block;
-    vertical-align: middle;
-}
-
-/* From http://valhead.com/2017/06/23/reduced-motion-query/ */
-
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation: none !important;
-        transition: none !important;
+@screen lg {
+    html {
+        font-size: 19px;
     }
-}
-
-/* Print */
-
-@page :first {
-    margin-top: 0;
-}
-
-@page {
-    margin-left: 0;
-    margin-right: 0;
 }
