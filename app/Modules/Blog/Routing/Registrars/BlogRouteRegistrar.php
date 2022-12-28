@@ -14,6 +14,7 @@ final class BlogRouteRegistrar implements RouteRegistrar
         $router->group(
             attributes: [
 //                'as' => 'blog.',
+                'middleware' => ['web'],
             ],
             routes: function(Registrar $router) {
                 $router->get('{post}/og-image', OgImageController::class)->name('post.ogImage');
