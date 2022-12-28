@@ -3,8 +3,9 @@
 namespace App\Services\Twitter;
 
 use Abraham\TwitterOAuth\TwitterOAuth;
+use App\Contracts\Twitter as TwitterContract;
 
-final class Twitter
+final class Twitter implements TwitterContract
 {
     protected TwitterOAuth $twitter;
 
@@ -13,10 +14,10 @@ final class Twitter
         $this->twitter = $twitter;
     }
 
-    public function tweet(string $status): ?array
+    public function tweet(string $status): array|bool
     {
         if (! app()->environment('production')) {
-            return null;
+            return false;
         }
 
         return (array) $this->twitter->post('statuses/update', compact('status'));

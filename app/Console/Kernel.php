@@ -3,6 +3,8 @@
 namespace App\Console;
 
 use App\Modules\Blog\Console\Commands\PublishScheduledPostsCommand;
+use App\Modules\Docs\Console\Commands\GitHub\ImportDocsFromRepositoriesCommand;
+use App\Modules\Docs\Console\Commands\Packagist\ImportPackagistDownloadsCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Spatie\Health\Commands\RunHealthChecksCommand;
@@ -12,6 +14,8 @@ class Kernel extends ConsoleKernel
 {
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command(ImportPackagistDownloadsCommand::class)->everyFifteenMinutes();
+        $schedule->command(ImportDocsFromRepositoriesCommand::class)->everyMinute();
         $schedule->command(RunHealthChecksCommand::class)->everyMinute();
         $schedule->command(PublishScheduledPostsCommand::class)->everyMinute();
         $schedule->command('responsecache:clear')->daily();
