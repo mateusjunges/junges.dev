@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Link;
+use App\Modules\Blog\Models\Link;
 use Illuminate\Database\Seeder;
 
 final class LinkSeeder extends Seeder
