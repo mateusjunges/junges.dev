@@ -35,6 +35,7 @@ use Tests\Factories\PostDbFactory;
  * @property string $author_twitter_handle The author's Twitter handle.
  * @property string $text The post content.
  * @property bool $original_content Whether the post is original content.
+ * @property string $preview_secret The preview secret.
  * @property string $type The post type.
  * @property string $html The post content in HTML format.
  * @property string $title The post title.
