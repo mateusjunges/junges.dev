@@ -19,7 +19,7 @@ final class AuthRouteRegistrar implements RouteRegistrar
     {
         $router->group(
             attributes: [
-                'middleware' => ['guest', 'doNotCacheResponse']
+                'middleware' => ['web', 'guest', 'doNotCacheResponse']
             ],
             routes: function (Registrar $router) {
                 $router->get('login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -35,20 +35,27 @@ final class AuthRouteRegistrar implements RouteRegistrar
             },
         );
 
-        $router->get('/email/verify', function () {
-            return view('auth.verify-email');
-        })->middleware('auth')->name('verification.notice');
+        $router->group(
+            attributes: [
+                'middleware' => ['web', 'auth']
+            ],
+            routes: function (Registrar $router) {
+                $router->get('/email/verify', function () {
+                    return view('auth.verify-email');
+                })->middleware('auth')->name('verification.notice');
 
-        $router->post('email/verify/send-link-again', ResendVerificationMailController::class)->name('verification.resend');
+                $router->post('email/verify/send-link-again', ResendVerificationMailController::class)->name('verification.resend');
 
-        $router->get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-            $request->fulfill();
+                $router->get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+                    $request->fulfill();
 
-            return view('auth.verified');
-        })->middleware(['auth', 'signed'])->name('verification.verify');
+                    return view('auth.verified');
+                })->middleware(['auth', 'signed'])->name('verification.verify');
 
-        $router->post('logout', [LoginController::class, 'logout'])->name('logout');
+                $router->post('logout', [LoginController::class, 'logout'])->name('logout');
 
-        $router->get('health', HealthCheckResultsController::class)->middleware(['auth', 'admin']);
+                $router->get('health', HealthCheckResultsController::class)->middleware(['auth', 'admin']);
+            }
+        );
     }
 }
