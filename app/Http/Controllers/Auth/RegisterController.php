@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Discovery\Community\IndexController;
 use App\Models\User;
+use App\Modules\Blog\Http\Controllers\Links\IndexController;
 use App\Services\Mailcoach;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Foundation\Validation\ValidatesRequests;
