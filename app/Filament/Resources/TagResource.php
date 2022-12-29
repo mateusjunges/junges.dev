@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
@@ -11,7 +11,7 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Tags\Tag;
 
-class TagResource extends Resource
+final class TagResource extends Resource
 {
     protected static ?string $model = Tag::class;
 

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Filament\Resources\VideoResource\Pages;
 
@@ -6,7 +6,7 @@ use App\Filament\Resources\VideoResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditVideo extends EditRecord
+final class EditVideo extends EditRecord
 {
     protected static string $resource = VideoResource::class;
 

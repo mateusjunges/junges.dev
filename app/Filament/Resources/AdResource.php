@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
@@ -10,7 +10,7 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 
-class AdResource extends Resource
+final class AdResource extends Resource
 {
     protected static ?string $model = Ad::class;
 

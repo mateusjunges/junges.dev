@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Filament\Resources\AdResource\Pages;
 
@@ -6,7 +6,7 @@ use App\Filament\Resources\AdResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditAd extends EditRecord
+final class EditAd extends EditRecord
 {
     protected static string $resource = AdResource::class;
 
