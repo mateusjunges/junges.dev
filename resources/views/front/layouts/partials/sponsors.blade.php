@@ -10,7 +10,7 @@
                 </div>
             </a>
     </div>
-    <div class="w-48">
+    <div class="w-48 py-8">
         <a href="https://github.com/sponsors/mateusjunges"  class="underline mt-5">
             <button
                 class="py-2 px-3 w-full bg-blue-800 rounded mb-8 text-white hover:underline">
