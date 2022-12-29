@@ -2,7 +2,7 @@
     /** @var \App\Modules\Docs\Support\Repository $repository */
 @endphp
 
-<li class="flex mb-4 w-full leading-5 text-left break-words text-slate-300">
+<li class="flex mb-4 w-full leading-5 text-left break-words px-2 text-slate-300 bg-blue-50 border-b-4 border-blue-800 rounded">
     <div
         class="flex py-4 w-full leading-5 text-left break-words rounded-md text-slate-300">
         <div
