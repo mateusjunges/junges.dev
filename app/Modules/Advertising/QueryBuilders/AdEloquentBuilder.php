@@ -18,4 +18,12 @@ final class AdEloquentBuilder extends Builder
             ->whereDate('starts_at', '<=', $now)
             ->whereDate('ends_at', '>=', $now);
     }
+
+    public function siteWide(): self
+    {
+        return $this->where(function (AdEloquentBuilder $builder) {
+            return $builder->where('display_on_url', '')
+                ->orWhereNull('display_on_url');
+        });
+    }
 }
