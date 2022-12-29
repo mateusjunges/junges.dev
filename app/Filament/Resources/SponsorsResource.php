@@ -37,6 +37,9 @@ final class SponsorsResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->helperText('The name of the sponsor.')
                     ->required(),
+                Forms\Components\TextInput::make('Website')
+                    ->helperText('The sponsor website')
+                    ->required(),
                 Forms\Components\TextInput::make('alt_text')
                     ->required()
                     ->helperText('This is the text that will be used as ALT text for this sponsor logo.'),
@@ -56,6 +59,7 @@ final class SponsorsResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')->limit(70)->sortable(),
+                Tables\Columns\TextColumn::make('website')->sortable(),
                 Tables\Columns\TextColumn::make('started_sponsoring_at')->sortable()->date(),
                 Tables\Columns\ImageColumn::make('logo_url')->disk('sponsors'),
                 Tables\Columns\TextColumn::make('alt_text'),
