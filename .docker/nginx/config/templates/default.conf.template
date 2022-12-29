@@ -12,35 +12,6 @@ server {
 
     # Duplicate from common.nginx that we  can't enable locally (because of Brotli)
 
-    error_page 503 @maintenance;
-    error_page 500 502 504 @servererror;
-
-    # display static page for maintenance mode
-    location @maintenance {
-        rewrite ^ /static/maintenance.html break;
-    }
-
-    # ⚠️ Just to test 5XX.html pages, should not be used on production
-    location /500 {
-        fastcgi_pass unix:/does/not/exist;
-    }
-
-    # display static page for server errors
-    location @servererror {
-        rewrite ^ /static/5XX.html break;
-    }
-
-    # hide maintenance.html in "normal" mode
-    location /static/maintenance.html {
-        return 404;
-    }
-
-
-    # display maintenance page if laravel app is down
-    if ( -f /var/www/storage/framework/down ) {
-        return 503;
-    }
-
     location ~* \.(jpg|jpeg|gif|png|webp|svg|woff|woff2|ttf|css|js|ico|xml)$ {
             try_files $uri $uri/ /index.php?$query_string;
             access_log off;
