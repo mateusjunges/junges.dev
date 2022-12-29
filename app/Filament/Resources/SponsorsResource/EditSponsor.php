@@ -3,7 +3,7 @@
 namespace App\Filament\Resources\SponsorsResource;
 
 use App\Filament\Resources\SponsorsResource;
-use Filament\Pages\Actions\CreateAction;
+use Filament\Pages\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
 final class EditSponsor extends EditRecord
@@ -13,7 +13,7 @@ final class EditSponsor extends EditRecord
     protected function getActions(): array
     {
         return [
-            CreateAction::make(),
+            DeleteAction::make(),
         ];
     }
 }

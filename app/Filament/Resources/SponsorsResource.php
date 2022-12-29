@@ -24,11 +24,23 @@ final class SponsorsResource extends Resource
         return $form
             ->columns(1)
             ->schema([
-                Forms\Components\FileUpload::make('logo_url')->required(),
-                Forms\Components\TextInput::make('name')->required(),
-                Forms\Components\TextInput::make('alt_text')->required(),
-                Forms\Components\TextInput::make('sponsor_tier')->required(),
-                Forms\Components\DatePicker::make('started_sponsoring_at'),
+                Forms\Components\FileUpload::make('logo_url')
+                    ->label('Logo')
+                    ->helperText('The logo to be displayed on "sponsors" section')
+                    ->required(),
+                Forms\Components\TextInput::make('name')
+                    ->helperText('The name of the sponsor.')
+                    ->required(),
+                Forms\Components\TextInput::make('alt_text')
+                    ->required()
+                    ->helperText('This is the text that will be used as ALT text for this sponsor logo.'),
+                Forms\Components\TextInput::make('sponsor_tier')
+                    ->placeholder('$50')
+                    ->helperText('The tier of the sponsor. For example: "$50", "$100", "$250"')
+                    ->required(),
+                Forms\Components\DatePicker::make('started_sponsoring_at')
+                    ->required()
+                    ->helperText('The date when this sponsor started sponsoring.'),
                 Forms\Components\DatePicker::make('stop_sponsoring_at'),
             ]);
     }
@@ -56,9 +68,9 @@ final class SponsorsResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListSponsors::class,
-            'edit' => EditSponsor::class,
-            'create' => CreateSponsor::class
+            'index' => ListSponsors::route('/'),
+            'create' => CreateSponsor::route('/create'),
+            'edit' => EditSponsor::route('/{sponsor}/edit'),
         ];
     }
 }
