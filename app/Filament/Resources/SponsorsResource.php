@@ -30,6 +30,7 @@ final class SponsorsResource extends Resource
                     ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
                         return (string) str(now()->format('Y-m-d_His'))
                             ->prepend('sponsor--')
+                            ->append('.')
                             ->append($file->getClientOriginalExtension());
                     })
                     ->acceptedFileTypes(['image/*'])
