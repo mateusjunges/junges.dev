@@ -4,6 +4,7 @@ namespace App\Modules\Advertising\Models;
 
 use App\Modules\Advertising\QueryBuilders\SponsorEloquentBuilder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 final class Sponsor extends Model
 {
@@ -27,5 +28,10 @@ final class Sponsor extends Model
     public function newEloquentBuilder($query): SponsorEloquentBuilder
     {
         return new SponsorEloquentBuilder($query);
+    }
+
+    public function getLogoAbsoluteUrl(): string
+    {
+        return Storage::disk('sponsors')->url($this->attributes['logo_url']);
     }
 }
