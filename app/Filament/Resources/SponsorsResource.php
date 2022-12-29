@@ -28,7 +28,9 @@ final class SponsorsResource extends Resource
                 Forms\Components\FileUpload::make('logo_url')
                     ->label('Logo')
                     ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
-                        return (string) str(now()->format('Y-m-d_His'))->prepend('sponsor--');
+                        return (string) str(now()->format('Y-m-d_His'))
+                            ->prepend('sponsor--')
+                            ->append($file->getClientOriginalExtension());
                     })
                     ->acceptedFileTypes(['image/*'])
                     ->disk('sponsors')
