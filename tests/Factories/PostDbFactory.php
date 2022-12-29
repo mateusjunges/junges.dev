@@ -1,15 +1,15 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Tests\Factories;
 
 use App\Modules\Blog\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PostDbFactory extends Factory
+final class PostDbFactory extends Factory
 {
     protected $model = Post::class;
 
-    public function definition()
+    public function definition(): array
     {
         return [
             'title' => $this->faker->sentence(),

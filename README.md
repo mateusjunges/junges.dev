@@ -1,4 +1,5 @@
 # Junges.dev
+[![Run tests](https://github.com/mateusjunges/junges.dev/actions/workflows/run-tests.yml/badge.svg)](https://github.com/mateusjunges/junges.dev/actions/workflows/run-tests.yml)
 
 The source code for my personal website.
 

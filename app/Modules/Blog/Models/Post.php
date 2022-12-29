@@ -44,6 +44,7 @@ use Tests\Factories\PostDbFactory;
  * @property \Illuminate\Support\Carbon $publish_date The date and time when the post should be published.
  * @property bool $tweet_sent Whether the tweet was sent.
  * @property string $slug The post slug.
+ * @property-read $promotional_url The promotional URL for this post.
  * @property \Illuminate\Support\Carbon $created_at The date and time when the post was created.
  * @property \Illuminate\Support\Carbon $updated_at The date and time when the post was updated.
  * @property
@@ -148,9 +149,9 @@ final class Post extends Model implements Sluggable, HasMedia
 
     public function url(): Attribute
     {
-        return new Attribute(function () {
-            return route('post', [$this->idSlug()]);
-        });
+        return new Attribute(
+            get: fn () => route('post', [$this->idSlug()])
+        );
     }
 
     public function previewUrl(): Attribute
@@ -167,13 +168,15 @@ final class Post extends Model implements Sluggable, HasMedia
 
     public function promotionalUrl(): Attribute
     {
-        return new Attribute(function () {
-            if (! empty($this->external_url)) {
-                return $this->external_url;
-            }
+        return new Attribute(
+            get: function () {
+                if ($this->external_url !== null && $this->external_url !== '') {
+                    return $this->external_url;
+                }
 
-            return $this->url;
-        });
+                return $this->url;
+            }
+        );
     }
 
     public function hasTag(string $tagName): bool

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Tests\Factories;
 
@@ -12,14 +12,10 @@ class PostFactory
 {
     protected string $model = Post::class;
 
-    private int $times;
+    private ?string $type = null;
 
-    private ?string $type;
-
-    public function __construct(int $times = 1)
-    {
-        $this->times = $times;
-    }
+    public function __construct(private int $times = 1)
+    {}
 
     public function tweet(): self
     {
@@ -42,11 +38,12 @@ class PostFactory
         return $this;
     }
 
-    public function create(array $attributes = [])
+    public function create(array $attributes = []): ?Post
     {
-        foreach (range(1, $this->times) as $i) {
+        foreach (range(1, $this->times) as $_) {
             /** @var \App\Modules\Blog\Models\Post $post */
-            $post = Post::factory()->create($attributes);
+            $post = (new PostDbFactory())->create($attributes);
+
             if (is_null($this->type)) {
                 $this->type = Arr::random([
                     Post::TYPE_LINK,
@@ -66,16 +63,16 @@ class PostFactory
             if ($this->type === Post::TYPE_TWEET) {
                 $post->original_content = false;
                 $post->external_url = '';
-                $post->title = $this->faker()->sentence;
+                $post->title = $attributes['title'] ?? $this->faker()->sentence;
                 $post->attachTag('tweet');
-                $post->text = $this->getStub('tweet');
+                $post->text = $attributes['text'] ?? $this->getStub('tweet');
             }
 
             if ($this->type === Post::TYPE_ORIGINAL) {
                 $post->original_content = true;
                 $post->external_url = '';
-                $post->title = $this->faker()->sentence;
-                $post->text = $this->getStub('original');
+                $post->title = $attributes['title'] ?? $this->faker()->sentence;
+                $post->text = $attributes['text'] ?? $this->getStub('original');
                 $post->tweet_url = 'https://twitter.com/TwitterAPI/status/1150141056027103247';
             }
 
@@ -85,6 +82,8 @@ class PostFactory
         if ($this->times === 1) {
             return $post;
         }
+
+		return null;
     }
 
     protected function faker(): Generator
