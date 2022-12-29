@@ -57,7 +57,7 @@ final class SponsorsResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')->limit(70)->sortable(),
                 Tables\Columns\TextColumn::make('started_sponsoring_at')->sortable()->date(),
-                Tables\Columns\ImageColumn::make('logo_url'),
+                Tables\Columns\ImageColumn::make('logo_url')->disk('sponsors'),
                 Tables\Columns\TextColumn::make('alt_text'),
             ])
             ->filters([
