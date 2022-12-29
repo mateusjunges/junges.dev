@@ -22,5 +22,6 @@ class BladeComponentServiceProvider extends ServiceProvider
 
         Blade::component('front.layouts.app', 'app-layout');
         Blade::component('front.layouts.app-docs', 'app-docs-layout');
+        Blade::component('front.layouts.error', 'error-layout');
     }
 }
