@@ -10,5 +10,9 @@ use Illuminate\Database\Eloquent\Builder;
  */
 final class SponsorEloquentBuilder extends Builder
 {
-
+    public function currentSponsoring(): self
+    {
+        return $this->whereNull('stop_sponsoring_at')
+            ->orWhere('stop_sponsoring_at', '>=', now());
+    }
 }
