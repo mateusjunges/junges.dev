@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\FilamentMarkdownEditor\MarkdownEditor;
 
-class PostResource extends Resource
+final class PostResource extends Resource
 {
     protected static ?int $navigationSort = 0;
 

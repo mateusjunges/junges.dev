@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
@@ -10,13 +10,13 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 
-class AdResource extends Resource
+final class AdResource extends Resource
 {
     protected static ?string $model = Ad::class;
 
     protected static ?int $navigationSort = 2;
 
-    protected static ?string $navigationGroup = 'Other';
+    protected static ?string $navigationGroup = 'Advertising';
 
     protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
 
