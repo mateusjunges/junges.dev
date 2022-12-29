@@ -10,6 +10,7 @@ use Filament\Forms;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Livewire\TemporaryUploadedFile;
 
 final class SponsorsResource extends Resource
 {
@@ -26,6 +27,11 @@ final class SponsorsResource extends Resource
             ->schema([
                 Forms\Components\FileUpload::make('logo_url')
                     ->label('Logo')
+                    ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file): string {
+                        return (string) str(now()->format('Y-m-d_His'))->prepend('sponsor--');
+                    })
+                    ->acceptedFileTypes(['image/*'])
+                    ->disk('sponsors')
                     ->helperText('The logo to be displayed on "sponsors" section')
                     ->required(),
                 Forms\Components\TextInput::make('name')
@@ -70,7 +76,7 @@ final class SponsorsResource extends Resource
         return [
             'index' => ListSponsors::route('/'),
             'create' => CreateSponsor::route('/create'),
-            'edit' => EditSponsor::route('/{sponsor}/edit'),
+            'edit' => EditSponsor::route('/{record}/edit'),
         ];
     }
 }
