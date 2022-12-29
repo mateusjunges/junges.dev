@@ -65,7 +65,7 @@ class PostFactory
                 $post->external_url = '';
                 $post->title = $attributes['title'] ?? $this->faker()->sentence;
                 $post->attachTag('tweet');
-                $post->text = $this->getStub('tweet');
+                $post->text = $attributes['text'] ?? $this->getStub('tweet');
             }
 
             if ($this->type === Post::TYPE_ORIGINAL) {

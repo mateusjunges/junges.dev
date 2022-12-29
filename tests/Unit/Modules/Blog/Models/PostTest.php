@@ -22,7 +22,7 @@ final class PostTest extends TestCase
     /** @test */
     public function it_can_determine_the_excerpt(): void
     {
-        $post = (new PostFactory())->create([
+        $post = (new PostFactory())->original()->create([
             'text' => 'excerpt<!--more-->full post',
         ]);
 
