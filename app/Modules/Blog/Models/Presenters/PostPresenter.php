@@ -4,24 +4,32 @@ namespace App\Modules\Blog\Models\Presenters;
 
 use App\Modules\Blog\Models\Post;
 use App\Services\CommonMark\CommonMark;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Str;
 
-/** @mixin Post */
+/**
+ * @property-read string $excerpt The post excerpt.
+ * @mixin Post
+ */
 trait PostPresenter
 {
-    public function getExcerptAttribute(): string
+    public function excerpt(): Attribute
     {
-        $excerpt = $this->getManualExcerpt() ?? $this->getAutomaticExcerpt();
+        return new Attribute(
+            get: function () {
+                $excerpt = $this->getManualExcerpt() ?? $this->getAutomaticExcerpt();
 
-        $excerpt = str_replace(
-            '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>',
-            '<div data-lazy="twitter"></div>',
-            $excerpt,
+                $excerpt = str_replace(
+                    '<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>',
+                    '<div data-lazy="twitter"></div>',
+                    $excerpt,
+                );
+
+                $excerpt = CommonMark::convertToHtml($excerpt);
+
+                return Str::limit(trim($excerpt), 250);
+            }
         );
-
-        $excerpt = CommonMark::convertToHtml($excerpt);
-
-        return Str::limit(trim($excerpt), 250);
     }
 
     public function plainTextExcerpt(): string
