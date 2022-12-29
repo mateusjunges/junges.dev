@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('advertising__sponsors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('website');
             $table->string('alt_text');
             $table->string('logo_url');
             $table->string('sponsor_tier');
