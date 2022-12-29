@@ -16,7 +16,7 @@ class AdResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
-    protected static ?string $navigationGroup = 'Other';
+    protected static ?string $navigationGroup = 'Advertising';
 
     protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
 
