@@ -6,7 +6,6 @@ use App\Modules\Blog\Actions\CreateLinkAction;
 use App\Modules\Blog\Http\Requests\CreateLinkRequest;
 use Spatie\RouteDiscovery\Attributes\Route;
 
-#[Route(middleware: ['auth', 'verified', 'doNotCacheResponse'])]
 class LinkController
 {
     public function create()
@@ -18,6 +17,6 @@ class LinkController
     {
         $createLinkAction->execute($request->validated(), auth()->user());
 
-        return redirect()->route('community.thanks');
+        return redirect()->route('links.thanks');
     }
 }
