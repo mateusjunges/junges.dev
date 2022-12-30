@@ -1,12 +1,12 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Http\ViewComposers;
 
 use Illuminate\View\View;
 
-class LazyViewComposer
+final class LazyViewComposer
 {
-    public function compose(View $view)
+    public function compose(View $view): void
     {
         $view->with('usesInternetExplorer', $this->usesInternetExplorer());
     }
@@ -23,7 +23,7 @@ class LazyViewComposer
             return true;
         }
 
-        if (strpos($userAgent, 'Trident/7.0; rv:11.0') !== false) {
+        if (str_contains($userAgent, 'Trident/7.0; rv:11.0')) {
             return true;
         }
 

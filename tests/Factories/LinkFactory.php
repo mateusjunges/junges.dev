@@ -2,7 +2,7 @@
 
 namespace Tests\Factories;
 
-use App\Models\User;
+use App\Modules\Auth\Models\User;
 use App\Modules\Blog\Models\Link;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

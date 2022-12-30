@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\User;
+use App\Modules\Auth\Models\User;
 use Exception;
 use Filament\Facades\Filament;
 use Illuminate\Database\Eloquent\Model;

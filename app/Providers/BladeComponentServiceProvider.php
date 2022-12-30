@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Http\Components\AdComponent;
+use App\Modules\Advertising\Http\Components\AdComponent;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 

@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('blog__posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreignIdFor(\App\Models\User::class, 'submitted_by_user_id')
+            $table->foreignIdFor(\App\Modules\Auth\Models\User::class, 'submitted_by_user_id')
                 ->nullable()
                 ->references('id')->on('users')
                 ->onDelete('cascade');

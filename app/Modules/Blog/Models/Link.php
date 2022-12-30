@@ -4,9 +4,8 @@ namespace App\Modules\Blog\Models;
 
 use App\Concerns\HasSlug;
 use App\Contracts\Sluggable;
-use App\Models\User;
+use App\Modules\Auth\Models\User;
 use App\Modules\Blog\QueryBuilders\LinkEloquentBuilder;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

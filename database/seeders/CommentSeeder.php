@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Modules\Auth\Models\User;
 use App\Modules\Blog\Models\Post;
 use Illuminate\Database\Seeder;
 

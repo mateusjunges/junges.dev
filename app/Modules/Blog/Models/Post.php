@@ -4,7 +4,7 @@ namespace App\Modules\Blog\Models;
 
 use App\Concerns\HasSlug;
 use App\Contracts\Sluggable;
-use App\Models\User;
+use App\Modules\Auth\Models\User;
 use App\Modules\Blog\Actions\ConvertPostTextToHtmlAction;
 use App\Modules\Blog\Actions\PublishPostAction;
 use App\Modules\Blog\Jobs\CreateOgImageJob;

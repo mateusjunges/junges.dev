@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Components;
+namespace App\Modules\Advertising\Http\Components;
 
 use App\Modules\Advertising\Models\Ad;
 use Illuminate\Contracts\View\View;
