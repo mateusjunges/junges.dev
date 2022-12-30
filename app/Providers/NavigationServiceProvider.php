@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 ;
+
+use App\Modules\Auth\Http\Controllers\LoginController;
 use App\Modules\Home\Http\Controllers\HomeController;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Menu\Laravel\Menu;
@@ -19,11 +21,19 @@ class NavigationServiceProvider extends ServiceProvider
         });
 
         Menu::macro('secondary', function () {
-            return Menu::new()
+            $menu = Menu::new()
                 ->addClass('space-y-2')
                 ->url('advertising', 'Advertising')
                 ->route('links.index', 'Links')
                 ->setActiveFromRequest();
+
+            if (auth()->check()) {
+                $menu->action([LoginController::class, 'logout'], 'Logout');
+            } else {
+                $menu->action([LoginController::class, 'showLoginForm'], 'Login');
+            }
+
+            return $menu;
         });
     }
 }

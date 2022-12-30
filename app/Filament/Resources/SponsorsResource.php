@@ -35,7 +35,10 @@ final class SponsorsResource extends Resource
                     })
                     ->acceptedFileTypes(['image/*'])
                     ->disk('sponsors')
-                    ->helperText('The logo to be displayed on "sponsors" section')
+                    ->requiredWithout('github_avatar_url')
+                    ->helperText('The logo to be displayed on "sponsors" section'),
+                Forms\Components\TextInput::make('github_username')
+                    ->label('Github username')
                     ->required(),
                 Forms\Components\TextInput::make('name')
                     ->helperText('The name of the sponsor.')
@@ -43,12 +46,15 @@ final class SponsorsResource extends Resource
                 Forms\Components\TextInput::make('Website')
                     ->helperText('The sponsor website')
                     ->required(),
+                Forms\Components\TextInput::make('GitHub avatar URL')
+                    ->helperText('The sponsor github avatar URL')
+                    ->requiredWithout('logo_url'),
                 Forms\Components\TextInput::make('alt_text')
                     ->required()
                     ->helperText('This is the text that will be used as ALT text for this sponsor logo.'),
                 Forms\Components\TextInput::make('sponsor_tier')
-                    ->placeholder('$50')
-                    ->helperText('The tier of the sponsor. For example: "$50", "$100", "$250"')
+                    ->placeholder('50')
+                    ->helperText('The tier of the sponsor. For example: "50", "100", "250"')
                     ->required(),
                 Forms\Components\DatePicker::make('started_sponsoring_at')
                     ->required()
@@ -61,7 +67,9 @@ final class SponsorsResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')->limit(70)->sortable(),
+                Tables\Columns\TextColumn::make('name')->limit(25)->sortable(),
+                Tables\Columns\TextColumn::make('github_username')->limit(10)->sortable(),
+                Tables\Columns\TextColumn::make('github_avatar_url')->limit(10)->sortable(),
                 Tables\Columns\TextColumn::make('website')->sortable(),
                 Tables\Columns\TextColumn::make('started_sponsoring_at')->sortable()->date(),
                 Tables\Columns\ImageColumn::make('logo_url')->disk('sponsors'),

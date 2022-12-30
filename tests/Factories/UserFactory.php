@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 class UserFactory extends Factory
 {
-    protected $model = \App\Models\User::class;
+    protected $model = \App\Modules\Auth\Models\User::class;
 
     public function definition()
     {

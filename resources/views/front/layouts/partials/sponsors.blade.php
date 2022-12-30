@@ -16,7 +16,7 @@
             <div class="flex rounded">
                 <a href="{{ $sponsor->website }}" target="_blank" rel="noopener noreferrer" class="px-8 py-4">
                     <div class="w-48 object-fit object-center">
-                        <img src="{{ $sponsor->getLogoAbsoluteUrl() }}" alt="{{ $sponsor->alt_text }}">
+                        <img src="{{ $sponsor->getLogoUrlForHtml() }}" alt="{{ $sponsor->alt_text }}">
                     </div>
                 </a>
             </div>

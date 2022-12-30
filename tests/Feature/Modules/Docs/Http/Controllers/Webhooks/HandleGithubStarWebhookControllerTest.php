@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Modules\Docs\Http\Controllers\Webhooks;
 
 use App\Modules\Docs\Models\Repository;
 use Illuminate\Support\Str;
@@ -179,7 +179,7 @@ JSON;
         ]);
         config()->set('services.github.should_verify_webhook_signature', false);
 
-        $this->post('/api/webhooks/github/repo-starred', $payloadArray = json_decode($payload, true), [
+        $this->post(route('api.docs.webhooks.github.repo-starred'), $payloadArray = json_decode($payload, true), [
             'X-Hub-Signature' => "sha1=".hash_hmac('sha1', $payload, Str::repeat('a', 32))
         ]);
 

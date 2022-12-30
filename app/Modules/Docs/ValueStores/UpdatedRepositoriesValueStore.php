@@ -2,45 +2,34 @@
 
 namespace App\Modules\Docs\ValueStores;
 
-use Illuminate\Support\Arr;
-use Spatie\Valuestore\Valuestore;
+use App\Modules\Docs\Contracts\ValueStoreDriver;
 
-final class UpdatedRepositoriesValueStore extends Valuestore
+final class UpdatedRepositoriesValueStore
 {
-    protected Valuestore $valueStore;
+    protected ValueStoreDriver $driver;
 
-    protected string $fileName = 'updatesRepositories.json';
-
-    public static function make(string $fileName = 'updatesRepositories', array $values = null): static
+    public static function make(): self
     {
         return new self();
     }
 
     public function __construct()
     {
-        parent::__construct();
-
-        $this->valueStore = Valuestore::make(storage_path('app/updatesRepositories.json'));
+        $this->driver = resolve(ValueStoreDriver::class);
     }
 
     public function getNames(): array
     {
-        return Arr::wrap($this->valueStore->get('updatedRepositoryNames') ?? []);
+        return $this->driver->getNames();
     }
 
     public function store(string $name): self
     {
-        $updatedRepositoryNames = $this->valueStore->get('updatedRepositoryNames', []);
-
-        $updatedRepositoryNames[] = $name;
-
-        $this->valueStore->put('updatedRepositoryNames', array_unique($updatedRepositoryNames));
-
-        return $this;
+        return $this->driver->store($name);
     }
 
-    public function flush(): static
+    public function flush(): void
     {
-        return $this->setContent([]);
+        $this->driver->flush();
     }
 }

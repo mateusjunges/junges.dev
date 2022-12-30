@@ -3,11 +3,11 @@
 namespace App\Modules\Auth\Routing\Registrars;
 
 use App\Contracts\RouteRegistrar;
-use App\Http\Controllers\Auth\ForgotPasswordController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\ResendVerificationMailController;
-use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Modules\Auth\Http\Controllers\ForgotPasswordController;
+use App\Modules\Auth\Http\Controllers\LoginController;
+use App\Modules\Auth\Http\Controllers\RegisterController;
+use App\Modules\Auth\Http\Controllers\ResendVerificationMailController;
+use App\Modules\Auth\Http\Controllers\ResetPasswordController;
 use Illuminate\Contracts\Routing\Registrar;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Spatie\Health\Http\Controllers\HealthCheckResultsController;
@@ -52,7 +52,7 @@ final class AuthRouteRegistrar implements RouteRegistrar
                     return view('auth.verified');
                 })->middleware(['auth', 'signed'])->name('verification.verify');
 
-                $router->post('logout', [LoginController::class, 'logout'])->name('logout');
+                $router->match(['post', 'get'], 'logout', [LoginController::class, 'logout'])->name('logout');
 
                 $router->get('health', HealthCheckResultsController::class)->middleware(['auth', 'admin']);
             }

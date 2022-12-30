@@ -1,11 +1,11 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace App\Http\Controllers\Auth;
+namespace App\Modules\Auth\Http\Controllers;
 
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
-class ForgotPasswordController
+final class ForgotPasswordController
 {
     use ValidatesRequests, SendsPasswordResetEmails;
 }

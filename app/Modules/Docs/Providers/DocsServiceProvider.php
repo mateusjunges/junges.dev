@@ -2,7 +2,10 @@
 
 namespace App\Modules\Docs\Providers;
 
+use App\Modules\Docs\Contracts\ValueStoreDriver;
+use App\Modules\Docs\ValueStores\Drivers\FileValueStoreDriver;
 use Illuminate\Support\ServiceProvider;
+use Spatie\Valuestore\Valuestore;
 
 final class DocsServiceProvider extends ServiceProvider
 {
@@ -21,5 +24,13 @@ final class DocsServiceProvider extends ServiceProvider
                 'content_parser' => \App\Modules\Docs\Services\ContentParser::class,
             ]);
         }
+
+        $this->app->bind(ValueStoreDriver::class, function () {
+            $store = Valuestore::make(config('docs.valuestore.filename'));
+
+            return new FileValueStoreDriver(
+                store: $store,
+            );
+        });
     }
 }

@@ -29,12 +29,12 @@ final class DocsRouteRegistrar implements RouteRegistrar
         $router->group(
             attributes: [
                 'prefix' => 'api/webhooks/github',
-                'as' => 'api.docs.',
+                'as' => 'api.docs.webhooks.github.',
                 'middleware' => ['api'],
             ],
             routes: static function (Registrar $router) {
-                $router->post('/', HandleGithubRepositoryWebhookController::class);
-                $router->post('repo-starred', HandleGithubStarWebhookController::class);
+                $router->post('/', [HandleGithubRepositoryWebhookController::class, 'handle'])->name('repository');
+                $router->post('repo-starred', [HandleGithubStarWebhookController::class, 'handle'])->name('repo-starred');
             },
         );
     }

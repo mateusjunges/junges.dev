@@ -1,21 +1,20 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace App\Http\Controllers\Auth;
+namespace App\Modules\Auth\Http\Controllers;
 
-use App\Models\User;
+use App\Modules\Auth\Models\User;
 use App\Modules\Blog\Http\Controllers\Links\IndexController;
-use App\Services\Mailcoach;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 
-class RegisterController
+final class RegisterController
 {
     use RegistersUsers, ValidatesRequests;
 
-    protected function validator(array $data)
+    protected function validator(array $data): Validator
     {
         $passwordRules = ['required', 'string', 'confirmed'];
 
@@ -34,7 +33,7 @@ class RegisterController
         ]);
     }
 
-    protected function create(array $data)
+    protected function create(array $data): User
     {
         $user = User::query()->create([
             'name' => $data['name'],
@@ -48,10 +47,10 @@ class RegisterController
         return $user;
     }
 
-    public function redirectPath()
+    public function redirectPath(): string
     {
         if (auth()->user()->admin) {
-            return '/nova/posts';
+            return '/admin/posts';
         }
 
         return action(IndexController::class);

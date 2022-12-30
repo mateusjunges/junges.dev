@@ -40,7 +40,7 @@ return [
          * The class that will comment on other things. Typically, this
          * would be a user model.
          */
-        'commentator' => \App\Models\User::class,
+        'commentator' => \App\Modules\Auth\Models\User::class,
 
         /*
          * The model you want to use as a Comment model. It needs to be or

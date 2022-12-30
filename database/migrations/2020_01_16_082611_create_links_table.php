@@ -13,7 +13,7 @@ return new class extends Migration
             $table->id();
             $table->boolean('approved')->default(false);
             $table
-                ->foreignIdFor(\App\Models\User::class, 'user_id')
+                ->foreignIdFor(\App\Modules\Auth\Models\User::class, 'user_id')
                 ->references('id')->on('users')
                 ->onDelete('cascade');
 
