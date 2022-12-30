@@ -30,5 +30,10 @@ return [
             ],
             "category" => "Laravel"
         ]
-    ]
+    ],
+
+    'valuestore' => [
+        'driver' => 'file',
+        'filename' => storage_path('app/updatesRepositories.json'),
+    ],
 ];
