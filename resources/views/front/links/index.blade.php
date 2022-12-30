@@ -28,7 +28,7 @@
 
                 <form method="post" action="/logout">
                     @csrf
-                    <button class="text-xs text-gray-70" type="submit">log out</button>
+                    <button class="text-gray-70 button-gray mr-4 button hover:bg-gray-200 hover:border-gray-700 hover:border-t-3 hover:border-b-3 hover:text-black" type="submit">log out</button>
                 </form>
             </div>
         @endauth
