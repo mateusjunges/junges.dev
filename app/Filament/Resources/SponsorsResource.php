@@ -37,6 +37,9 @@ final class SponsorsResource extends Resource
                     ->disk('sponsors')
                     ->helperText('The logo to be displayed on "sponsors" section')
                     ->required(),
+                Forms\Components\TextInput::make('github_username')
+                    ->label('Github username')
+                    ->required(),
                 Forms\Components\TextInput::make('name')
                     ->helperText('The name of the sponsor.')
                     ->required(),
@@ -61,7 +64,8 @@ final class SponsorsResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')->limit(70)->sortable(),
+                Tables\Columns\TextColumn::make('name')->limit(25)->sortable(),
+                Tables\Columns\TextColumn::make('github_username')->limit(10)->sortable(),
                 Tables\Columns\TextColumn::make('website')->sortable(),
                 Tables\Columns\TextColumn::make('started_sponsoring_at')->sortable()->date(),
                 Tables\Columns\ImageColumn::make('logo_url')->disk('sponsors'),
