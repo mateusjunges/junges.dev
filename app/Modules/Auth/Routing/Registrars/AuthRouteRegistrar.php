@@ -52,7 +52,7 @@ final class AuthRouteRegistrar implements RouteRegistrar
                     return view('auth.verified');
                 })->middleware(['auth', 'signed'])->name('verification.verify');
 
-                $router->post('logout', [LoginController::class, 'logout'])->name('logout');
+                $router->match(['post', 'get'], 'logout', [LoginController::class, 'logout'])->name('logout');
 
                 $router->get('health', HealthCheckResultsController::class)->middleware(['auth', 'admin']);
             }

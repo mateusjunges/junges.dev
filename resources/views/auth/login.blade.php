@@ -26,12 +26,12 @@
                 <x-submit-button label="Login"/>
 
                 <div class="ml-4 text-xs text-gray-700">
-                    <a href="{{ route('password.request') }}">
+                    <a href="{{ route('password.request') }}" class="hover:underline">
                         Forgot your password?
                     </a>
 &nbsp;
-                    <a href="{{ route('register') }}">
-                        No account yet?
+                    <a href="{{ route('register') }}" class="hover:underline">
+                        Don't have an account?
                     </a>
                 </div>
             </div>
