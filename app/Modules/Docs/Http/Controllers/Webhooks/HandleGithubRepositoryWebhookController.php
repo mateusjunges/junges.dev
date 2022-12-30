@@ -2,21 +2,30 @@
 
 namespace App\Modules\Docs\Http\Controllers\Webhooks;
 
-use App\Modules\Docs\Http\Requests\GithubWebhookRequest;
+use App\Concerns\GitHub\AuthorizesGithubWebhookRequest;
+use App\Contracts\HandleGitHubWebhookRequest;
 use App\Modules\Docs\ValueStores\UpdatedRepositoriesValueStore;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
-final class HandleGithubRepositoryWebhookController
+final class HandleGithubRepositoryWebhookController implements HandleGitHubWebhookRequest
 {
-    public function __invoke(GithubWebhookRequest $request): void
+    use AuthorizesGithubWebhookRequest;
+
+    public function handle(Request $request): ?JsonResponse
     {
-        $payload = json_decode($request->getContent(), true);
+        $this->authorize($request);
+
+        $payload = $request->all();
 
         $updatedRepositoryName = $payload['repository']['full_name'] ?? null;
 
         if ($updatedRepositoryName === null) {
-            return;
+            return null;
         }
 
         UpdatedRepositoriesValueStore::make()->store($updatedRepositoryName);
+
+        return response()->json(['message' => 'OK']);
     }
 }
