@@ -54,6 +54,8 @@ final class LinksRouteRegistrar implements RouteRegistrar
                     uri: '/links',
                     action: [LinkController::class, 'store']
                 )->name('links.store');
+
+                $router->view('thanks', 'front.links.thanks')->name('links.thanks');
             },
         );
     }
