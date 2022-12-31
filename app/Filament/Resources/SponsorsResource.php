@@ -43,11 +43,13 @@ final class SponsorsResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->helperText('The name of the sponsor.')
                     ->required(),
-                Forms\Components\TextInput::make('Website')
+                Forms\Components\TextInput::make('website')
+                    ->label('Website')
                     ->helperText('The sponsor website')
                     ->required(),
-                Forms\Components\TextInput::make('GitHub avatar URL')
+                Forms\Components\TextInput::make('github_avatar_url')
                     ->helperText('The sponsor github avatar URL')
+                    ->label('GitHub avatar URL')
                     ->requiredWithout('logo_url'),
                 Forms\Components\TextInput::make('alt_text')
                     ->required()
