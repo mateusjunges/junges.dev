@@ -10,7 +10,7 @@
             <div class="flex items-center justify-between">
                <div class="flex flex-row justify-center mx-auto md:m-0 items-center">
                    <figure class="w-12 inline-block mb-1 md:mb-0 mr-3">
-                       <a href="/" title="Freek.dev">
+                       <a href="/" title="Junges.dev">
                            <img src="{{ asset('images/icon.png') }}" class="w-full" alt="Junges.dev logotype" />
                        </a>
                    </figure>
