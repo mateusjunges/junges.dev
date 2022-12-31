@@ -23,8 +23,8 @@ pre[class*="shiki"] {
 }
 
 .docs-copied-icon {
-    color: #3fb950 !important;
-    fill: #3fb950 !important;
+    color: #148a25 !important;
+    fill: #148a25 !important;
 }
 
 @screen sm {
