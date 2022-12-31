@@ -19,6 +19,7 @@
 @import "./utilities/title.css";
 @import "./utilities/links.css";
 @import "./utilities/banner.css";
+@import "./utilities/blockquote.css";
 
 @tailwind base
 @tailwind components;
