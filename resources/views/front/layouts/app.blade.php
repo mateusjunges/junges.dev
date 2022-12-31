@@ -9,7 +9,7 @@
         <header class="mt-8 md:mt-12 mb-8 sm:mb-12 md:mb-16 px-4 leading-tight">
             <div class="flex items-center justify-start">
                 <figure class="w-12 inline-block mb-1 md:mb-0 mr-3">
-                    <a href="/" title="Freek.dev">
+                    <a href="/" title="Junges.dev">
                         <img src="{{ asset('images/icon.png') }}" class="w-full" alt="Junges.dev logotype" />
                     </a>
                 </figure>
