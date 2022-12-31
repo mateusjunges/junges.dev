@@ -7,6 +7,26 @@
     @vite(['resources/css/utilities/line-numbers.css', 'resources/js/app.js', 'resources/js/utilities/copy-button.js'])
 @endpush
 
+@push('scripts')
+    <script>
+
+        (function () {
+            console.log('ok');
+            let blockquotes = document.querySelectorAll('blockquote p');
+
+            let icon = document.createElement('div');
+            icon.classList.add('h-6', 'w-6', 'md:mr-4', 'mx-auto', 'md:m-0', 'mb-2', 'text-orange-400', 'fill-current', 'items-center');
+            icon.innerHTML = `{{ __svg('icons/fal-exclamation-circle') }}`;
+
+
+            blockquotes.forEach(function (blockquote) {
+                blockquote.classList.add('md:flex', 'flex-none', 'items-center');
+                blockquote.prepend(icon)
+            });
+        })();
+    </script>
+@endpush
+
 <x-app-docs-layout>
     @include('front.docs.partials.breadcrumbs')
 
