@@ -34,7 +34,7 @@ async function copyCode(block) {
     block.querySelector("button.button-copy-code").innerHTML = copiedIcon;
     setTimeout(function () {
         block.querySelector("button.button-copy-code").innerHTML = copyIcon;
-    }, 3000);
+    }, 2000);
 
     const parsedHTML = htmlDecode(html);
 
