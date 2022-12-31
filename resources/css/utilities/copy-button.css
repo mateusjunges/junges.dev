@@ -4,18 +4,22 @@ pre[class*="shiki"] {
     padding: 1.75rem 0 1.75rem 1rem;
 }
 
-.button-copy-code {
+.markup-docs > pre > .button-copy-code {
     @apply rounded;
     @apply bg-gray-300;
-    /*@apply button;*/
-    /*@apply button-gray;*/
+    @apply py-2 px-2;
     position: absolute;
-    top: 75px;
-    right: 10px;
+    top: 85px;
+    right: 15px;
 }
 
-.button-copy-code:hover {
-    @apply bg-gray-500;
+.markup-docs > pre > .button-copy-code:hover {
+    @apply border-2 border-gray-600;
+    @apply bg-gray-200;
+}
+
+.markup-docs > pre > .button-copy-code:focus {
+    @apply bg-gray-300;
 }
 
 .copy-docs-icon {

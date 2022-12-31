@@ -58,7 +58,7 @@ blocks.forEach((block) => {
     }
 
     let button = document.createElement("button");
-    button.className = "button button-copy-code";
+    button.className = "button-copy-code";
     button.innerHTML = copyIcon;
     block.appendChild(button);
 
