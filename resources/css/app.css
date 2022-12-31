@@ -19,7 +19,6 @@
 @import "./utilities/title.css";
 @import "./utilities/links.css";
 @import "./utilities/banner.css";
-@import "./utilities/copy-button.css";
 
 @tailwind base
 @tailwind components;

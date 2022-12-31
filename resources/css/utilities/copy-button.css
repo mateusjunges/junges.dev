@@ -32,7 +32,7 @@ pre[class*="shiki"] {
 }
 
 @screen sm {
-    .button-copy-code {
+    .markup-docs > pre > .button-copy-code {
         top: 85px;
         right: 10px;
     }

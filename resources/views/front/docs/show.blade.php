@@ -3,7 +3,7 @@
     $latestVersion = $repository->getSortedAliases()->first();
 @endphp
 
-@vite(['resources/css/utilities/line-numbers.css'])
+@vite(['resources/css/utilities/line-numbers.css', 'resources/js/utilities/copy-button.js'])
 
 <x-app-docs-layout>
 
