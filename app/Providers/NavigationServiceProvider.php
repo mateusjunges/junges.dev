@@ -19,15 +19,18 @@ class NavigationServiceProvider extends ServiceProvider
                 ->route('docs.index', 'Docs')
                 ->action(HomeController::class, 'Home')
                 ->route('links.index', 'Links')
-                ->link('/about', 'About')
+                ->route('about', 'About')
                 ->setActiveFromRequest();
         });
 
-        Menu::macro('secondary', function () {
+        Menu::macro('secondary', function (bool $withSpaceClass = true) {
             $menu = Menu::new()
-                ->addClass('space-y-2')
                 ->url('advertising', 'Advertising')
                 ->setActiveFromRequest();
+
+            if ($withSpaceClass) {
+                $menu->addClass('space-y-2');
+            }
 
             $user = Auth::user();
             if ($user) {
