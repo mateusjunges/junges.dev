@@ -23,7 +23,7 @@ final class UpdatedRepositoriesValueStore
         return $this->driver->getNames();
     }
 
-    public function store(string $name): self
+    public function store(string $name): ValueStoreDriver
     {
         return $this->driver->store($name);
     }
