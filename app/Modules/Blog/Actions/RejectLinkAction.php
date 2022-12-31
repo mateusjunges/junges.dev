@@ -4,7 +4,7 @@ namespace App\Modules\Blog\Actions;
 
 use App\Modules\Blog\Models\Link;
 
-class RejectLinkAction
+final class RejectLinkAction
 {
     public function execute(Link $link): Link
     {

@@ -6,7 +6,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
 use Spatie\SiteSearch\Profiles\DefaultSearchProfile;
 
-class SearchProfile extends DefaultSearchProfile
+final class SearchProfile extends DefaultSearchProfile
 {
     public function shouldIndex(UriInterface $url, ResponseInterface $response): bool
     {

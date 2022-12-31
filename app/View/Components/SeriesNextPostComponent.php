@@ -5,7 +5,7 @@ namespace App\View\Components;
 use App\Modules\Blog\Models\Post;
 use Illuminate\View\Component;
 
-class SeriesNextPostComponent extends Component
+final class SeriesNextPostComponent extends Component
 {
     public Post $post;
 
@@ -22,6 +22,6 @@ class SeriesNextPostComponent extends Component
             ->orderBy('id')
             ->first();
 
-        return view('components.series-next-post-component', compact('nextPost'));
+        return view('components.series-next-post-component', ['nextPost' => $nextPost]);
     }
 }

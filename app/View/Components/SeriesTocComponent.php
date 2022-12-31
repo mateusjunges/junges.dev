@@ -5,7 +5,7 @@ namespace App\View\Components;
 use App\Modules\Blog\Models\Post;
 use Illuminate\View\Component;
 
-class SeriesTocComponent extends Component
+final class SeriesTocComponent extends Component
 {
     public Post $post;
 

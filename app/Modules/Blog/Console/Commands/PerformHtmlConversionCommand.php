@@ -8,7 +8,7 @@ use App\Modules\Blog\Actions\ConvertPostTextToHtmlAction;
 use App\Modules\Blog\Models\Post;
 use Illuminate\Console\Command;
 
-class PerformHtmlConversionCommand extends Command
+final class PerformHtmlConversionCommand extends Command
 {
     protected $signature = 'blog:perform-html-conversion';
 

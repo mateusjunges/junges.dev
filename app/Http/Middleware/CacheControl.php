@@ -32,11 +32,6 @@ final class CacheControl
         if ($request->method() !== 'GET') {
             return false;
         }
-
-        if (! $response->isSuccessful()) {
-            return false;
-        }
-
-        return true;
+        return (bool) $response->isSuccessful();
     }
 }

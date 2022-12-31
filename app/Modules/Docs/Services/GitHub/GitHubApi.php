@@ -55,7 +55,7 @@ final class GitHubApi
         $featureVersionNumber = Str::beforeLast($latestAvailableReleaseOnDate['tag_name'], '.');
 
         $latestBugFixReleaseForFeatureVersionRelease = collect($releases)
-            ->first(function (array $releaseProperties) use ($featureVersionNumber) {
+            ->first(function (array $releaseProperties) use ($featureVersionNumber): bool {
                 return str_starts_with($releaseProperties['tag_name'], $featureVersionNumber . '.');
             });
 
@@ -130,8 +130,6 @@ final class GitHubApi
     }
 
     /**
-     * @param string $searchString
-     *
      * @return array{ResultPager, array}
      */
     public function search(string $searchString): array

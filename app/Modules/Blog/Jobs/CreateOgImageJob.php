@@ -12,7 +12,7 @@ use Illuminate\Queue\SerializesModels;
 use Spatie\Browsershot\Browsershot;
 use Spatie\ResponseCache\Facades\ResponseCache;
 
-class CreateOgImageJob implements ShouldQueue
+final class CreateOgImageJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 

@@ -6,7 +6,7 @@ use App\Modules\Advertising\Http\Components\AdComponent;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
-class BladeComponentServiceProvider extends ServiceProvider
+final class BladeComponentServiceProvider extends ServiceProvider
 {
     public function boot()
     {

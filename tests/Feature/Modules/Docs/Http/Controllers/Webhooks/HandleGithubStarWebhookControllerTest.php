@@ -6,7 +6,7 @@ use App\Modules\Docs\Models\Repository;
 use Illuminate\Support\Str;
 use Tests\TestCase;
 
-class HandleGithubStarWebhookControllerTest extends TestCase
+final class HandleGithubStarWebhookControllerTest extends TestCase
 {
     public function test_it_update_repository_stars_when_webhook_is_received()
     {

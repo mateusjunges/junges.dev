@@ -47,8 +47,8 @@ final class Docs
             ->map(function (string $repositoryName) {
                 try {
                     return $this->getRepository($repositoryName);
-                } catch (Exception $e) {
-                    report("Error while loading {$repositoryName} docs: " . $e->getMessage());
+                } catch (Exception $exception) {
+                    report("Error while loading {$repositoryName} docs: " . $exception->getMessage());
                     return null;
                 }
             })->filter();

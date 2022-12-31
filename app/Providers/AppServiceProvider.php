@@ -13,7 +13,7 @@ use Illuminate\Support\ServiceProvider;
 use Spatie\Comments\Models\Comment;
 use Spatie\Comments\Notifications\PendingCommentNotification;
 
-class AppServiceProvider extends ServiceProvider
+final class AppServiceProvider extends ServiceProvider
 {
     public function boot()
     {

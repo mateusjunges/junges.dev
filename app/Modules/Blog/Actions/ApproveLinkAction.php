@@ -7,7 +7,7 @@ use App\Modules\Blog\Models\Link;
 use Illuminate\Support\Facades\Mail;
 use Spatie\ResponseCache\Facades\ResponseCache;
 
-class ApproveLinkAction
+final class ApproveLinkAction
 {
     public function execute(Link $link): Link
     {

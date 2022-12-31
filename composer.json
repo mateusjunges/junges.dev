@@ -141,6 +141,12 @@
         ],
         "format": [
             "vendor/bin/php-cs-fixer fix"
-        ]
+        ],
+        "rector": [
+            "@rector:install",
+            "@rector:run"
+        ],
+        "rector:install": "@composer install --working-dir=tools/rector --no-interaction --no-progress --no-scripts --ansi",
+        "rector:run": "@php -d memory_limit=-1 tools/rector/vendor/bin/rector process --ansi"
     }
 }

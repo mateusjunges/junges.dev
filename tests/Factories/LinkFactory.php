@@ -6,7 +6,7 @@ use App\Modules\Auth\Models\User;
 use App\Modules\Blog\Models\Link;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class LinkFactory extends Factory
+final class LinkFactory extends Factory
 {
     protected $model = Link::class;
 

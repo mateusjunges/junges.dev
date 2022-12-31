@@ -6,7 +6,7 @@ use App\Modules\Blog\Actions\CreateLinkAction;
 use App\Modules\Blog\Http\Requests\CreateLinkRequest;
 use Spatie\RouteDiscovery\Attributes\Route;
 
-class LinkController
+final class LinkController
 {
     public function create()
     {

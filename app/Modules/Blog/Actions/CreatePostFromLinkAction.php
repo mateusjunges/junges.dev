@@ -5,7 +5,7 @@ namespace App\Modules\Blog\Actions;
 use App\Modules\Blog\Models\Link;
 use App\Modules\Blog\Models\Post;
 
-class CreatePostFromLinkAction
+final class CreatePostFromLinkAction
 {
     public function execute(Link $link): void
     {

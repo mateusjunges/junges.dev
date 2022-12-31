@@ -26,7 +26,7 @@ final class HandleGitHubRepositoryWebhookControllerTest extends TestCase
         $this->assertNotContains('mateusjunges/laravel-kafka', UpdatedRepositoriesValueStore::make()->getNames());
 
         $payload = $this->getPayload();
-        $this->post('/api/webhooks/github/', json_decode($payload, true), [
+        $this->post('/api/webhooks/github/', json_decode($payload, true, 512, JSON_THROW_ON_ERROR), [
             'X-Hub-Signature' => "sha1=".hash_hmac('sha1', $payload, Str::repeat('a', 32))
         ]);
 

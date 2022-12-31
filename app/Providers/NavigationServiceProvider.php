@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Menu\Laravel\Menu;
 
-class NavigationServiceProvider extends ServiceProvider
+final class NavigationServiceProvider extends ServiceProvider
 {
     public function boot()
     {

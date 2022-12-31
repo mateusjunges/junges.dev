@@ -5,7 +5,7 @@ namespace App\Modules\Blog\Http\Controllers\Links;
 use App\Modules\Blog\Models\Link;
 use Illuminate\Contracts\View\View;
 
-class IndexController
+final class IndexController
 {
     public function __invoke(): View
     {
@@ -14,6 +14,6 @@ class IndexController
             ->approved()
             ->simplePaginate(20);
 
-        return view('front.links.index', compact('links'));
+        return view('front.links.index', ['links' => $links]);
     }
 }

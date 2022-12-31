@@ -96,8 +96,6 @@ final class Repository extends Model
 
     /**
      * Create a new factory instance for the model.
-     *
-     * @return \Tests\Factories\RepositoryFactory
      */
     protected static function newFactory(): RepositoryFactory
     {

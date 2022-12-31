@@ -5,7 +5,7 @@ namespace Tests\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class UserFactory extends Factory
+final class UserFactory extends Factory
 {
     protected $model = \App\Modules\Auth\Models\User::class;
 
