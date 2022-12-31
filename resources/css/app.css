@@ -18,6 +18,7 @@
 @import "./utilities/select.css";
 @import "./utilities/title.css";
 @import "./utilities/links.css";
+@import "./utilities/banner.css";
 
 @tailwind base
 @tailwind components;

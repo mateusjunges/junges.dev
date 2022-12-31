@@ -1,5 +1,6 @@
 .button {
     @apply px-3 py-2 text-sm text-white font-semibold border-b-3;
+    border-top: transparent;
 }
 
 .button-gray {
@@ -11,11 +12,9 @@
 }
 
 .button-blue:hover {
-    @apply bg-white text-black border-blue-900 border-3;
-    @apply border-t-blue-900 border-b-blue-900;
+    @apply underline;
 }
 
 .button-gray:hover {
-    @apply bg-gray-300 text-black border-gray-700 border-3;
-    @apply border-t-gray-700 border-b-gray-700;
+    @apply underline;
 }

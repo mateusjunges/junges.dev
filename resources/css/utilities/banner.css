@@ -1,0 +1,43 @@
+.banner {
+    @apply py-8;
+}
+@screen md {
+    .banner {
+        @apply py-12;
+    }
+}
+
+@screen lg {
+    .banner {
+        @apply py-16;
+    }
+}
+
+.banner-slogan {
+    @apply font-serif;
+    @apply font-bold;
+    @apply leading-none;
+    @apply text-4xl;
+}
+@screen sm {
+    .banner-slogan {
+        @apply text-5xl;
+    }
+}
+
+@screen md {
+    .banner-slogan {
+        @apply text-6xl;
+    }
+}
+
+.banner-intro {
+    @apply hidden;
+}
+@screen md {
+    .banner-intro {
+        @apply block;
+        @apply text-2xl;
+        @apply mt-4;
+    }
+}
