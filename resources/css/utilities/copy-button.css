@@ -1,0 +1,35 @@
+pre[class*="shiki"] {
+    position: relative;
+    margin: 5px 0;
+    padding: 1.75rem 0 1.75rem 1rem;
+}
+
+.button-copy-code {
+    @apply rounded;
+    @apply bg-gray-300;
+    /*@apply button;*/
+    /*@apply button-gray;*/
+    position: absolute;
+    top: 75px;
+    right: 10px;
+}
+
+.button-copy-code:hover {
+    @apply bg-gray-500;
+}
+
+.copy-docs-icon {
+    fill: #0a001f;
+}
+
+.docs-copied-icon {
+    color: #3fb950 !important;
+    fill: #3fb950 !important;
+}
+
+@screen sm {
+    .button-copy-code {
+        top: 85px;
+        right: 10px;
+    }
+}
