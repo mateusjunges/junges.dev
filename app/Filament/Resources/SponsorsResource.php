@@ -54,7 +54,7 @@ final class SponsorsResource extends Resource
                 Forms\Components\TextInput::make('alt_text')
                     ->required()
                     ->helperText('This is the text that will be used as ALT text for this sponsor logo.'),
-                Forms\Components\TextInput::make('sponsor_tier')
+                Forms\Components\TextInput::make('monthly_price_in_dollars')
                     ->placeholder('50')
                     ->helperText('The tier of the sponsor. For example: "50", "100", "250"')
                     ->required(),
