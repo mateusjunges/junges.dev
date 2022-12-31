@@ -6,6 +6,7 @@ use App\Concerns\HasSlug;
 use App\Contracts\Sluggable;
 use App\Modules\Auth\Models\User;
 use App\Modules\Blog\QueryBuilders\LinkEloquentBuilder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -21,6 +22,7 @@ use Tests\Factories\LinkFactory;
  * @property string $text The link text.
  * @property string $status The link status.
  * @property string $slug The link slug.
+ * @property-read string $host_url The link host URL.
  * @property \Illuminate\Support\Carbon $publish_date The link publish date.
  * @property \Illuminate\Support\Carbon $created_at The date and time the link was created.
  * @property \Illuminate\Support\Carbon $updated_at The date and time the link was last updated.
@@ -68,6 +70,13 @@ final class Link extends Model implements Sluggable
     public function isApproved(): bool
     {
         return $this->status === self::STATUS_APPROVED;
+    }
+
+    public function hostUrl(): Attribute
+    {
+        return new Attribute(
+            get: fn () => parse_url($this->url)['host'] ?? null,
+        );
     }
 
     public function isRejected(): bool

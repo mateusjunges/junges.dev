@@ -18,6 +18,7 @@ class NavigationServiceProvider extends ServiceProvider
             return Menu::new()
                 ->route('docs.index', 'Docs')
                 ->action(HomeController::class, 'Home')
+                ->route('links.index', 'Links')
                 ->link('/about', 'About')
                 ->setActiveFromRequest();
         });
@@ -26,7 +27,6 @@ class NavigationServiceProvider extends ServiceProvider
             $menu = Menu::new()
                 ->addClass('space-y-2')
                 ->url('advertising', 'Advertising')
-                ->route('links.index', 'Links')
                 ->setActiveFromRequest();
 
             $user = Auth::user();
