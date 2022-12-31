@@ -13,14 +13,23 @@
                         <a href="/">junges.dev</a>
                     </h1>
                 </div>
-                <div class="hidden md:block">
+                <div class="hidden md:block flex">
                     {{ Menu::primary()
-                        ->addClass('text-gray-700 px-6 flex')
+                        ->addClass('text-gray-700 flex')
                         ->each(function (\Spatie\Menu\Laravel\Link $item) {
-                            $item->addClass('px-4');
+                            $item->addClass('pl-4 hover:underline');
                         })
                         ->setActiveClass('font-bold text-black') }}
+
+                    {{ Menu::secondary(false)
+                       ->addClass('text-xs text-gray-700 flex items-center justify-end mt-2')
+
+                       ->each(function (\Spatie\Menu\Laravel\Link $item) {
+                            $item->addClass('pl-2 hover:underline');
+                        })
+                       ->setActiveClass('font-semibold text-black') }}
                 </div>
+
             </div>
             <nav class="md:hidden mt-4 flex flex-col w-full">
                 <input class="hidden" type="checkbox" id="mobile-menu-toggle" />
@@ -36,6 +45,10 @@
                         ->addClass('text-gray-700 mb-2 md:mb-6')
                         ->setActiveClass('font-bold text-black') }}
 
+
+                    {{ Menu::secondary()
+                       ->addClass('text-xs text-gray-700')
+                       ->setActiveClass('font-semibold text-black') }}
                 </div>
             </nav>
         </header>
