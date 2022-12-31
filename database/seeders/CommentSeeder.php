@@ -15,7 +15,7 @@ final class CommentSeeder extends Seeder
                 return;
             }
 
-            foreach (range(1, rand(1, 10)) as $i) {
+            foreach (range(1, random_int(1, 10)) as $i) {
                 $user = User::all()->random();
 
                 $post->comment(faker()->text, $user);
