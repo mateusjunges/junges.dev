@@ -59,8 +59,8 @@ return [
 
         'admin-uploads' => [
             'driver' => 'local',
-            'root' => storage_path('admin-uploads'),
-            'url' => env('APP_URL').'/admin-uploads',
+            'root' => storage_path('app/public/admin-uploads'),
+            'url' => env('APP_URL').'/storage/admin-uploads',
             'visibility' => 'public',
         ],
 
