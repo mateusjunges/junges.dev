@@ -46,8 +46,8 @@ return [
 
         'og-images' => [
             'driver' => 'local',
-            'root' => storage_path('og-images'),
-            'url' => '/og-images',
+            'root' => storage_path('app/public/og-images'),
+            'url' => env('APP_URL').'/storage/og-images',
         ],
 
         'public' => [
