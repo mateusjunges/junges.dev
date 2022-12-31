@@ -15,7 +15,7 @@ final class HandleSponsorshipWebhookControllerTest extends TestCase
 
         Carbon::setTestNow('2022-12-30 00:24:00');
         $payload = $this->getPayload();
-        $this->post(route('api.advertising.webhooks.github.sponsors'), json_decode($payload, true), [
+        $this->post(route('api.advertising.webhooks.github.sponsors'), json_decode($payload, true, 512, JSON_THROW_ON_ERROR), [
             'X-Hub-Signature' => "sha1=".hash_hmac('sha1', $payload, Str::repeat('a', 32))
         ]);
 

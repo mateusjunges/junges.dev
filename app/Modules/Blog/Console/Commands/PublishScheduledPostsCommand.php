@@ -6,7 +6,7 @@ use App\Modules\Blog\Actions\PublishPostAction;
 use App\Modules\Blog\Models\Post;
 use Illuminate\Console\Command;
 
-class PublishScheduledPostsCommand extends Command
+final class PublishScheduledPostsCommand extends Command
 {
     protected $signature = 'blog:publish-scheduled-posts';
 

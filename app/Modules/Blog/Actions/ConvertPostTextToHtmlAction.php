@@ -7,7 +7,7 @@ use App\Services\CommonMark\CommonMark;
 use App\View\Components\SeriesNextPostComponent;
 use App\View\Components\SeriesTocComponent;
 
-class ConvertPostTextToHtmlAction
+final class ConvertPostTextToHtmlAction
 {
     public function execute(Post $post): void
     {

@@ -20,6 +20,6 @@ final class Twitter implements TwitterContract
             return false;
         }
 
-        return (array) $this->twitter->post('statuses/update', compact('status'));
+        return (array) $this->twitter->post('statuses/update', ['status' => $status]);
     }
 }

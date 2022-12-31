@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Services\CommonMark\CommonMark;
 use Illuminate\Database\Eloquent\Model;
 
-class Video extends Model
+final class Video extends Model
 {
     public static function booted()
     {

@@ -15,7 +15,7 @@ use Spatie\Health\Checks\Checks\UsedDiskSpaceCheck;
 use Spatie\Health\Facades\Health;
 use Spatie\SecurityAdvisoriesHealthCheck\SecurityAdvisoriesCheck;
 
-class HealthServiceProvider extends ServiceProvider
+final class HealthServiceProvider extends ServiceProvider
 {
     public function register()
     {

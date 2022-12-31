@@ -10,7 +10,7 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Spatie\Health\Commands\RunHealthChecksCommand;
 use Spatie\ScheduleMonitor\Models\MonitoredScheduledTaskLogItem;
 
-class Kernel extends ConsoleKernel
+final class Kernel extends ConsoleKernel
 {
     protected function schedule(Schedule $schedule)
     {

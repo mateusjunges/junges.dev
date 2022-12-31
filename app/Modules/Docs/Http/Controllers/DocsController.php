@@ -26,7 +26,7 @@ final class DocsController
     {
         try {
             $repository = $docs->getRepository($repository);
-        } catch (\RuntimeException $e) {
+        } catch (\RuntimeException) {
             abort(404, 'Repository not found');
         }
 
@@ -40,7 +40,7 @@ final class DocsController
                 $slug = $alias;
                 $alias = $latest;
 
-                return redirect()->action([\App\Modules\Documentation\Http\Controllers\DocsController::class, 'show'], [$repository->slug, $alias, $slug]);
+                return redirect()->action([DocsController::class, 'show'], [$repository->slug, $alias, $slug]);
             }
 
             $alias = $repository->getAlias($alias);
@@ -61,7 +61,7 @@ final class DocsController
     {
         try {
             $repository = $docs->getRepository($repository);
-        } catch (\RuntimeException $e) {
+        } catch (\RuntimeException) {
             abort(404, 'Repository not found');
         }
 
@@ -79,7 +79,7 @@ final class DocsController
 
         $alias = $repository->getAlias($alias);
 
-        if (! $alias) {
+        if ($alias === null) {
             $alias = $repository->aliases->keys()->first();
 
             return redirect()->action([DocsController::class, 'show'], [$repository->slug, $alias, $slug]);
@@ -101,16 +101,16 @@ final class DocsController
 
         $tableOfContents = $this->extractTableOfContents($page->contents);
 
-        return view('front.docs.show', compact(
-            'page',
-            'repositories',
-            'repository',
-            'pages',
-            'navigation',
-            'alias',
-            'showBigTitle',
-            'tableOfContents'
-        ));
+        return view('front.docs.show', [
+            'page' => $page,
+            'repositories' => $repositories,
+            'repository' => $repository,
+            'pages' => $pages,
+            'navigation' => $navigation,
+            'alias' => $alias,
+            'showBigTitle' => $showBigTitle,
+            'tableOfContents' => $tableOfContents
+        ]);
     }
 
     private function getNavigation(Collection $pages): Collection

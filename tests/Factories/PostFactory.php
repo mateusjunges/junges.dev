@@ -8,13 +8,13 @@ use Faker\Generator;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
-class PostFactory
+final class PostFactory
 {
     protected string $model = Post::class;
 
     private ?string $type = null;
 
-    public function __construct(private int $times = 1)
+    public function __construct(private readonly int $times = 1)
     {}
 
     public function tweet(): self
@@ -40,6 +40,7 @@ class PostFactory
 
     public function create(array $attributes = []): ?Post
     {
+        $post = null;
         foreach (range(1, $this->times) as $_) {
             /** @var \App\Modules\Blog\Models\Post $post */
             $post = (new PostDbFactory())->create($attributes);

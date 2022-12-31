@@ -5,7 +5,7 @@ namespace App\Modules\Blog\Console\Commands;
 use App\Modules\Blog\Models\Post;
 use Illuminate\Console\Command;
 
-class RemoveExternalUrlFromTextCommand extends Command
+final class RemoveExternalUrlFromTextCommand extends Command
 {
     protected $signature = 'blog:remove-external-url-from-text';
 

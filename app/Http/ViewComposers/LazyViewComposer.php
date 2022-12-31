@@ -22,11 +22,6 @@ final class LazyViewComposer
         if (preg_match('~MSIE|Internet Explorer~i', $userAgent)) {
             return true;
         }
-
-        if (str_contains($userAgent, 'Trident/7.0; rv:11.0')) {
-            return true;
-        }
-
-        return false;
+        return str_contains($userAgent, 'Trident/7.0; rv:11.0');
     }
 }

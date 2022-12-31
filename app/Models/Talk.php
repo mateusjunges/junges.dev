@@ -6,7 +6,7 @@ use App\Models\Presenters\TalkPresenter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Talk extends Model
+final class Talk extends Model
 {
     use HasFactory;
     use TalkPresenter;

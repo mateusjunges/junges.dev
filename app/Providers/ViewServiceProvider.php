@@ -7,7 +7,7 @@ use App\Modules\Advertising\View\Composers\SponsorsComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
-class ViewServiceProvider extends ServiceProvider
+final class ViewServiceProvider extends ServiceProvider
 {
     public function register()
     {

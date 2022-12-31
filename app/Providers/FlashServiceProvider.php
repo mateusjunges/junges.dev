@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Flash\Flash;
 
-class FlashServiceProvider extends ServiceProvider
+final class FlashServiceProvider extends ServiceProvider
 {
     public function register()
     {

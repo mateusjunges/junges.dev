@@ -14,6 +14,6 @@ final class HomeController
             ->published()
             ->simplePaginate(20);
 
-        return view('front.home.index', compact('posts'));
+        return view('front.home.index', ['posts' => $posts]);
     }
 }

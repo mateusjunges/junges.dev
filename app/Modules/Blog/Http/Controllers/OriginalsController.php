@@ -15,6 +15,6 @@ final class OriginalsController
             ->originalContent()
             ->simplePaginate(20);
 
-        return view('front.originals.index', compact('posts'));
+        return view('front.originals.index', ['posts' => $posts]);
     }
 }

@@ -9,6 +9,6 @@ final class OgImageController
 {
     public function __invoke(Post $post): View
     {
-        return view('front.posts.ogImage', compact('post'));
+        return view('front.posts.ogImage', ['post' => $post]);
     }
 }

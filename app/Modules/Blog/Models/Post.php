@@ -253,14 +253,14 @@ final class Post extends Model implements Sluggable, HasMedia
 
     public function ogImageBaseUrl(): string
     {
-        if ($this->external_url) {
+        if ($this->external_url !== '' && $this->external_url !== null) {
             return $this->external_url;
         }
 
         return route('post.ogImage', $this)."?preview_secret={$this->preview_secret}";
     }
 
-    public function isPartOfSeries()
+    public function isPartOfSeries(): bool
     {
         return ! empty($this->series_slug);
     }
@@ -279,7 +279,7 @@ final class Post extends Model implements Sluggable, HasMedia
 
     public function authorTwitterHandle(): ?string
     {
-        if ($this->author_twitter_handle) {
+        if ($this->author_twitter_handle !== '' && $this->author_twitter_handle !== null) {
             return $this->author_twitter_handle;
         }
 

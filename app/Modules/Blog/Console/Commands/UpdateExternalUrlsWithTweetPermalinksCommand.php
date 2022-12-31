@@ -5,7 +5,7 @@ namespace App\Modules\Blog\Console\Commands;
 use App\Modules\Blog\Models\Post;
 use Illuminate\Console\Command;
 
-class UpdateExternalUrlsWithTweetPermalinksCommand extends Command
+final class UpdateExternalUrlsWithTweetPermalinksCommand extends Command
 {
     protected $signature = 'blog:update-external-urls-with-tweet-permalinks';
 

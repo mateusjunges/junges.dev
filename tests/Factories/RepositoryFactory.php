@@ -5,7 +5,7 @@ namespace Tests\Factories;
 use App\Modules\Docs\Models\Repository;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class RepositoryFactory extends Factory
+final class RepositoryFactory extends Factory
 {
     protected $model = Repository::class;
 

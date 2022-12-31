@@ -16,6 +16,6 @@ final class ShowPostController
             abort(404);
         }
 
-        return view('front.posts.show', compact('post', 'ad'));
+        return view('front.posts.show', ['post' => $post, 'ad' => $ad]);
     }
 }
