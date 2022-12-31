@@ -3,6 +3,8 @@
     $latestVersion = $repository->getSortedAliases()->first();
 @endphp
 
+@vite(['resources/css/utilities/line-numbers.css'])
+
 <x-app-docs-layout>
 
     @include('front.docs.partials.breadcrumbs')
