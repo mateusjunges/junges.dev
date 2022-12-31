@@ -7,6 +7,7 @@ export default defineConfig({
             input: [
                 'resources/js/app.js',
                 'resources/css/filament.css',
+                'resources/css/utilities/line-numbers.css',
             ],
         }),
     ],
