@@ -3,10 +3,11 @@
     $latestVersion = $repository->getSortedAliases()->first();
 @endphp
 
-@vite(['resources/css/utilities/line-numbers.css', 'resources/js/utilities/copy-button.js'])
+@push('styles')
+    @vite(['resources/css/utilities/line-numbers.css', 'resources/js/app.js', 'resources/js/utilities/copy-button.js'])
+@endpush
 
 <x-app-docs-layout>
-
     @include('front.docs.partials.breadcrumbs')
 
     <section class="md:grid pb-4 gap-12 md:grid-cols-10 items-stretch border-r">

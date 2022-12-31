@@ -18,6 +18,8 @@
 
 @vite(['resources/js/app.js'])
 
+@stack('styles')
+
 <link rel="stylesheet" href="https://cloud.typography.com/6194432/6581412/css/fonts.css"/>
 <link href="https://twitter.com/mateusjungess" rel="me">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
