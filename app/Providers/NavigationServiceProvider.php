@@ -33,7 +33,7 @@ final class NavigationServiceProvider extends ServiceProvider
             }
 
             $user = Auth::user();
-            if ($user) {
+            if ($user !== null) {
                 assert($user instanceof User);
 
                 if ($user->admin) {

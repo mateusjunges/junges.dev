@@ -76,7 +76,7 @@ final class Post extends Model implements Sluggable, HasMedia
         'toot_sent' => 'boolean',
     ];
 
-    public static function booted()
+    protected static function booted()
     {
         self::creating(function (Post $post) {
             $post->preview_secret = Str::random(10);

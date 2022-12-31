@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 final class Video extends Model
 {
-    public static function booted()
+    protected static function booted()
     {
         static::saved(function (Video $ad) {
             static::withoutEvents(function () use ($ad) {
