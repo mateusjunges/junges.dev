@@ -6,9 +6,14 @@
     @include('front.layouts.partials.flash')
 
     <div class="max-w-xl md:max-w-7xl mx-auto">
-        <header class="mt-8 md:mt-12 mb-8 sm:mb-12 md:mb-16 px-4 md:px-8 leading-tight">
-            <div class="md:flex items-end justify-between">
-                <div class="">
+        <header class="mt-8 md:mt-12 mb-8 sm:mb-12 md:mb-16 px-4 leading-tight">
+            <div class="flex items-center justify-start">
+                <figure class="w-12 inline-block mb-1 md:mb-0 mr-3">
+                    <a href="/" title="Freek.dev">
+                        <img src="{{ asset('images/icon.png') }}" class="w-full" alt="Junges.dev logotype" />
+                    </a>
+                </figure>
+                <div>
                     <h1 class="text-lg uppercase tracking-wider font-extrabold">
                         <a href="/">junges.dev</a>
                     </h1>
