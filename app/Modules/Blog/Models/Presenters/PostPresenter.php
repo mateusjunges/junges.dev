@@ -115,7 +115,7 @@ trait PostPresenter
             return '#7578ab';
         }
 
-        return '#cbd5e0';
+        return '#1a20c9';
     }
 
     public function gradientColors(): string
