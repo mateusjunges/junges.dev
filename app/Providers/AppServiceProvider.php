@@ -21,8 +21,6 @@ final class AppServiceProvider extends ServiceProvider
             return $user->admin;
         });
 
-        Carbon::setToStringFormat('jS F Y');
-
         Model::unguard();
 
         PendingCommentNotification::sendTo(function (Comment $comment) {
