@@ -31,7 +31,7 @@
                 <input class="hidden" type="checkbox" id="mobile-menu-toggle" />
                 <label
                     for="mobile-menu-toggle"
-                    class="bg-gray-700 border-b-3 border-gray-900 w-full text-center text-white uppercase tracking-wider font-semibold p-2 pb-1"
+                    class="bg-bunker-800 border-b-3 border-gray-900 w-full text-center text-white uppercase tracking-wider font-semibold p-2 pb-1"
                     style="top: -6rem; right: 0"
                 >
                     Menu

@@ -157,7 +157,9 @@
 /* inline code */
 
 .markup-docs-code :not(pre) code {
-    @apply bg-blue-light;
+    @apply bg-bunker-300;
+    @apply border-b-2;
+    @apply border-bunker-300;
     @apply bg-opacity-25;
     @apply px-1;
     @apply font-mono;
@@ -171,9 +173,9 @@
     display: block;
     overflow-x: auto;
     @apply rounded;
-    @apply my-8;
+    @apply my-4;
     @apply p-6;
-    @apply bg-blue-lightest;
+    @apply bg-bunker-200;
     @apply border-gray-lighter;
     @apply bg-opacity-25;
     @apply text-sm;
