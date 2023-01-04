@@ -24,3 +24,16 @@
 @tailwind base
 @tailwind components;
 @tailwind utilities;
+
+body {
+    --bunker-50: #f3f6fa;
+    --bunker-100: #d6e3f1;
+    --bunker-200: #acc6e3;
+    --bunker-300: #7b9ecd;
+    --bunker-400: #4f76b2;
+    --bunker-500: #355a97;
+    --bunker-600: #294578;
+    --bunker-700: #243961;
+    --bunker-800: #21304e;
+    --bunker-900: #080b11;
+}
