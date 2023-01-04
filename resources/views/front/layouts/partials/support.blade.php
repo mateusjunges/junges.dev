@@ -1,4 +1,4 @@
-<div class="-mx-4 sm:mx-0 p-4 sm:p-6 md:p-8 bg-blue-50 border-b-5 border-blue-200 text-sm text-gray-700 {{ $class ?? '' }} markup">
+<div class="-mx-4 sm:mx-0 p-4 sm:p-6 md:p-8 bg-bunker-50 border-b-5 border-bunker-300 text-sm text-bunker-800 {{ $class ?? '' }} markup">
     <p class="font-extrabold text-2xl leading-tight mb-4 text-black">
         Enjoying this blog?
     </p>
