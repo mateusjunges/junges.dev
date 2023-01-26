@@ -7,7 +7,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <link href="https://github.com/mateusjunges" rel="me">
 @isset($title)
-<title>{{ $title }} - Mateus Junges's blog on PHP and Laravel</title>
+<title>{{ $title }} - Blog and Open source docsl</title>
 @else
 <title>Mateus Junges's blog on PHP and Laravel</title>
 @endisset
