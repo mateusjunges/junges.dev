@@ -6,13 +6,10 @@ return [
             "name" => "laravel-kafka",
             "repository" => "mateusjunges/laravel-kafka",
             "branches" => [
-                "v1.6.x" => "v1.6",
-                "v1.7.x" => "v1.7",
-                "v1.8.x" => "v1.8",
-                "v1.9.x" => "v1.9",
                 "v1.10.x" => "v1.10",
                 "v1.11.x" => "v1.11",
-                "v1.12.x" => "v1.12"
+                "v1.12.x" => "v1.12",
+                "v1.13.x" => "v1.13",
             ],
             "category" => "Laravel"
         ],
