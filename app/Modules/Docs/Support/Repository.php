@@ -38,8 +38,14 @@ final class Repository
 
     public function getSortedAliases(): Collection
     {
+        $repository = collect(config('docs.repositories'))
+            ->where('name', $this->slug)
+            ->first();
+
         return $this->aliases->sortByDesc(
             fn (Alias $value, string $key) => (int) Str::after($key, 'v1.')
+        )->filter(
+            fn (Alias $alias) => in_array($alias->slug, $repository['branches'])
         );
     }
 }
