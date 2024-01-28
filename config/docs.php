@@ -8,7 +8,7 @@ return [
             "branches" => [
                 // branch => version
                 "v1.13.x" => "v1.13",
-                "v2.x" => "v2.0"
+                "master" => "v2.0"
             ],
             "category" => "Laravel"
         ],
