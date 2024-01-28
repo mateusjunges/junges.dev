@@ -7,9 +7,6 @@ return [
             "repository" => "mateusjunges/laravel-kafka",
             "branches" => [
                 // branch => version
-                "v1.10.x" => "v1.10",
-                "v1.11.x" => "v1.11",
-                "v1.12.x" => "v1.12",
                 "v1.13.x" => "v1.13",
                 "v2.x" => "v2.0"
             ],
