@@ -24,8 +24,8 @@ return [
             "name" => "trackable-jobs-for-laravel",
             "repository" => "mateusjunges/trackable-jobs-for-laravel",
             "branches" => [
-                "v1.5.x" => "v1.5",
-                "v1.6.x" => "v1.6"
+                "v1.6.x" => "v1.6",
+                "master" => "v2"
             ],
             "category" => "Laravel"
         ]
