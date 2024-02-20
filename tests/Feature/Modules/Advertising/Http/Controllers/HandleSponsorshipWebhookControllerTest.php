@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Modules\Advertising\Http\Controllers;
 
+use App\Modules\Advertising\Models\Sponsor;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Tests\TestCase;
@@ -19,7 +20,7 @@ final class HandleSponsorshipWebhookControllerTest extends TestCase
             'X-Hub-Signature' => "sha1=".hash_hmac('sha1', $payload, Str::repeat('a', 32))
         ]);
 
-        $this->assertDatabaseHas('advertising__sponsors', [
+        $this->assertDatabaseHas(Sponsor::class, [
             'github_username' => 'typesense',
             'monthly_price_in_dollars' => 5,
             'started_sponsoring_at' => '2022-12-30 00:24:00',

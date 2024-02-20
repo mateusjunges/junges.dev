@@ -20,6 +20,19 @@ final class Sponsor extends Model
 {
     protected $table= 'advertising__sponsors';
 
+    /** @var list<string> */
+    protected $fillable = [
+        'name',
+        'website',
+        'alt_text',
+        'logo_url',
+        'sponsor_tier',
+        'started_sponsoring_at',
+        'stop_sponsoring_at',
+        'github_username',
+        'github_avatar_url',
+    ];
+
     /** @var array<string, string> $casts */
     protected $casts = [
         'started_sponsoring_at' => 'datetime'

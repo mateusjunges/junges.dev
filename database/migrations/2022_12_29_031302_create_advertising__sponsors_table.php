@@ -11,10 +11,12 @@ return new class extends Migration
         Schema::create('advertising__sponsors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('github_username')->nullable();
+            $table->string('github_avatar_url')->nullable();
             $table->string('website');
             $table->string('alt_text');
             $table->string('logo_url');
-            $table->string('sponsor_tier');
+            $table->string('monthly_price_in_dollars');
             $table->timestamp('started_sponsoring_at');
             $table->timestamp('stop_sponsoring_at')->nullable();
             $table->softDeletes();
