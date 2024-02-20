@@ -25,9 +25,5 @@
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
         <server name="TELESCOPE_ENABLED" value="false"/>
-        <server name="DB_HOST" value="127.0.0.1"/>
-        <server name="DB_PASSWORD" value="root"/>
-        <server name="DB_USERNAME" value="root"/>
-        <server name="DB_DATABASE" value="junges_dev"/>
     </php>
 </phpunit>
