@@ -45,6 +45,3 @@ jobs:
           run: php artisan migrate --seed --env=testing-ci
       -   name: Run tests
           run: ./vendor/bin/phpunit --configuration phpunit-ci.xml
-          env:
-            DB_PASSWORD: root
-            REDIS_PORT: ${{ job.services.redis.ports[6379] }}
