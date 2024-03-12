@@ -42,9 +42,7 @@ final class Repository
             ->where('name', $this->slug)
             ->first();
 
-        return $this->aliases->sortByDesc(
-            fn (Alias $value, string $key) => (int) Str::after($key, 'v1.')
-        )->filter(
+        return $this->aliases->sortByDesc(static fn(Alias $value, string $key) => $key)->filter(
             fn (Alias $alias) => in_array($alias->slug, $repository['branches'])
         );
     }
