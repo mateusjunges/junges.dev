@@ -71,9 +71,8 @@ final class Post extends Model implements HasMedia, Sluggable
 
     public $with = ['tags'];
 
-    public $dates = ['publish_date'];
-
-    public $casts = [
+    protected $casts = [
+        'publish_date' => 'datetime',
         'published' => 'boolean',
         'original_content' => 'boolean',
         'send_automated_tweet' => 'boolean',

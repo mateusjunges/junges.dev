@@ -34,7 +34,9 @@ final class Link extends Model implements Sluggable
 
     protected $table = 'blog__links';
 
-    public $dates = ['publish_date'];
+    protected $casts = [
+        'publish_date' => 'datetime',
+    ];
 
     public const STATUS_SUBMITTED = 'pending';
 
