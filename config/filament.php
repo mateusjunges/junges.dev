@@ -296,7 +296,7 @@ return [
     | font, or set to `null` to prevent any Google Fonts from loading.
     |
     | When using a custom font, you should also set the font family in your
-    | custom theme's `tailwind.config.js` file.
+    | custom theme's `tailwind.config.cjs` file.
     |
     */
 
