@@ -12,7 +12,7 @@ use Spatie\ScheduleMonitor\Models\MonitoredScheduledTaskLogItem;
 
 final class Kernel extends ConsoleKernel
 {
-    protected function schedule(Schedule $schedule)
+    protected function schedule(Schedule $schedule): void
     {
         $schedule->command(ImportPackagistDownloadsCommand::class)->everyFifteenMinutes();
         $schedule->command(ImportDocsFromRepositoriesCommand::class)->everyMinute();
@@ -25,7 +25,7 @@ final class Kernel extends ConsoleKernel
         $schedule->command('model:prune', ['--model' => MonitoredScheduledTaskLogItem::class])->daily();
     }
 
-    protected function commands()
+    protected function commands(): void
     {
         $this->load([
             __DIR__.'/Commands',

@@ -10,7 +10,7 @@ final class LinkFactory extends Factory
 {
     protected $model = Link::class;
 
-    public function definition()
+    public function definition(): array
     {
         $status = $this->faker->randomElement([
             Link::STATUS_SUBMITTED,

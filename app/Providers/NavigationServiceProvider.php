@@ -11,7 +11,7 @@ use Spatie\Menu\Laravel\Menu;
 
 final class NavigationServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         Menu::macro('primary', function () {
             return Menu::new()

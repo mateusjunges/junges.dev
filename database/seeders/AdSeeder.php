@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 
 final class AdSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
         Ad::factory()->times(10)->create();
     }

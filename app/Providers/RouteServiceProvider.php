@@ -28,7 +28,7 @@ final class RouteServiceProvider extends ServiceProvider
         BlogRouteRegistrar::class, // This MUST be the last one because of wildcard routes
     ];
 
-    public function boot()
+    public function boot(): void
     {
         parent::boot();
 

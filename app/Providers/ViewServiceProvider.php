@@ -9,7 +9,7 @@ use Illuminate\Support\ServiceProvider;
 
 final class ViewServiceProvider extends ServiceProvider
 {
-    public function register()
+    public function register(): void
     {
         View::composer('front.components.lazy', LazyViewComposer::class);
         View::composer('front.layouts.partials.sponsors', SponsorsComposer::class);

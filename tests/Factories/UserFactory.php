@@ -9,7 +9,7 @@ final class UserFactory extends Factory
 {
     protected $model = \App\Modules\Auth\Models\User::class;
 
-    public function definition()
+    public function definition(): array
     {
         static $password;
 

@@ -9,7 +9,7 @@ final class AdFactory extends Factory
 {
     protected $model = Ad::class;
 
-    public function definition()
+    public function definition(): array
     {
         $startsAt = now()->addDays(random_int(-30, 30));
         $endsAt = $startsAt->copy()->addDays(30);
