@@ -26,7 +26,7 @@
 
             <!-- Slogan -->
             <p class="flex-grow flex-shrink-0 mt-2 mb-0 text-xs leading-4 text-left break-words basis-auto text-black">
-                {{ optional($repository->aliases->last())->slogan }}
+                {{ $repository->aliases->last()?->slogan }}
             </p>
 
 
