@@ -9,10 +9,6 @@ use Illuminate\Validation\ValidationException;
 
 final class Handler extends ExceptionHandler
 {
-    protected $dontReport = [
-        //
-    ];
-
     protected $dontFlash = [
         'password',
         'password_confirmation',
