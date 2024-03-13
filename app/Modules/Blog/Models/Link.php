@@ -34,10 +34,6 @@ final class Link extends Model implements Sluggable
 
     protected $table = 'blog__links';
 
-    protected $casts = [
-        'publish_date' => 'datetime',
-    ];
-
     public const STATUS_SUBMITTED = 'pending';
 
     public const STATUS_APPROVED = 'approved';
@@ -45,6 +41,13 @@ final class Link extends Model implements Sluggable
     public const STATUS_REJECTED = 'rejected';
 
     /** {@inheritDoc} */
+    protected function casts(): array
+    {
+        return [
+            'publish_date' => 'datetime',
+        ];
+    }
+
     public static function query(): LinkEloquentBuilder
     {
         $builder = parent::query();

@@ -32,16 +32,19 @@ final class Repository extends Model
 
     protected $guarded = ['id'];
 
-    protected $casts = [
-        'topics' => 'array',
-    ];
-
     /**
      * {@inheritDoc}
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return RepositoryEloquentBuilder<self>
      */
+    protected function casts(): array
+    {
+        return [
+            'topics' => 'array',
+        ];
+    }
+
     public static function query(): RepositoryEloquentBuilder
     {
         $query = parent::query();

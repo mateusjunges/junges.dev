@@ -71,13 +71,16 @@ final class Post extends Model implements HasMedia, Sluggable
 
     public $with = ['tags'];
 
-    protected $casts = [
-        'publish_date' => 'datetime',
-        'published' => 'boolean',
-        'original_content' => 'boolean',
-        'send_automated_tweet' => 'boolean',
-        'toot_sent' => 'boolean',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'publish_date' => 'datetime',
+            'published' => 'boolean',
+            'original_content' => 'boolean',
+            'send_automated_tweet' => 'boolean',
+            'toot_sent' => 'boolean',
+        ];
+    }
 
     protected static function booted()
     {

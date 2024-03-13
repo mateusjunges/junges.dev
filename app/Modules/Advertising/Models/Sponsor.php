@@ -35,12 +35,19 @@ final class Sponsor extends Model
         'github_avatar_url',
     ];
 
-    /** @var array<string, string> */
-    protected $casts = [
-        'started_sponsoring_at' => 'datetime',
-    ];
-
     /** {@inheritDoc} */
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'started_sponsoring_at' => 'datetime',
+        ];
+    }
+
     public static function query(): SponsorEloquentBuilder
     {
         $builder = parent::query();
