@@ -5,7 +5,18 @@ use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
 return Application::configure(basePath: dirname(__DIR__))
-    ->withProviders()
+    ->withProviders([
+        \App\Providers\FlashServiceProvider::class,
+        \App\Providers\HorizonServiceProvider::class,
+        \App\Providers\RouteServiceProvider::class,
+        \App\Providers\TelescopeServiceProvider::class,
+        \App\Providers\TwitterServiceProvider::class,
+        \App\Providers\ViewServiceProvider::class,
+        \App\Providers\BladeComponentServiceProvider::class,
+        \App\Providers\HealthServiceProvider::class,
+        \App\Providers\ModulesServiceProvider::class,
+        \App\Providers\NavigationServiceProvider::class,
+    ])
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
         // api: __DIR__.'/../routes/api.php',
