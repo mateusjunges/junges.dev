@@ -38,10 +38,13 @@ class User extends Authenticatable implements CanComment, FilamentUser, MustVeri
         'password', 'remember_token',
     ];
 
-    protected $casts = [
-        'admin' => 'boolean',
-        'email_verified_at' => 'datetime',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'admin' => 'boolean',
+            'email_verified_at' => 'datetime',
+        ];
+    }
 
     public function links(): HasMany
     {
