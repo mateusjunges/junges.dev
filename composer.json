@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "mateusjunges/junges.dev",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "The source code for my blog and open source documentations",
     "keywords": [
         "framework",
         "laravel"
