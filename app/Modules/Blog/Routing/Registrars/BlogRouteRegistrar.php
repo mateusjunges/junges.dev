@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Modules\Blog\Routing\Registrars;
 
@@ -13,10 +15,10 @@ final class BlogRouteRegistrar implements RouteRegistrar
     {
         $router->group(
             attributes: [
-//                'as' => 'blog.',
+                //                'as' => 'blog.',
                 'middleware' => ['web'],
             ],
-            routes: function(Registrar $router) {
+            routes: function (Registrar $router) {
                 $router->get('{post}/og-image', OgImageController::class)->name('post.ogImage');
                 $router->get('{postSlug}', ShowPostController::class)->name('post');
             }

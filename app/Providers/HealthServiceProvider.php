@@ -7,7 +7,6 @@ use Spatie\CpuLoadHealthCheck\CpuLoadCheck;
 use Spatie\Health\Checks\Checks\DatabaseCheck;
 use Spatie\Health\Checks\Checks\DebugModeCheck;
 use Spatie\Health\Checks\Checks\EnvironmentCheck;
-use Spatie\Health\Checks\Checks\FlareErrorOccurrenceCountCheck;
 use Spatie\Health\Checks\Checks\HorizonCheck;
 use Spatie\Health\Checks\Checks\MeiliSearchCheck;
 use Spatie\Health\Checks\Checks\OptimizedAppCheck;
@@ -17,7 +16,7 @@ use Spatie\SecurityAdvisoriesHealthCheck\SecurityAdvisoriesCheck;
 
 final class HealthServiceProvider extends ServiceProvider
 {
-    public function register()
+    public function register(): void
     {
         Health::checks([
             CpuLoadCheck::new()->failWhenLoadIsHigherInTheLast15Minutes(4.0),

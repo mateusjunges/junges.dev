@@ -7,7 +7,7 @@ use Tests\Factories\TagFactory;
 
 final class TagSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
         TagFactory::times(20)->create();
     }

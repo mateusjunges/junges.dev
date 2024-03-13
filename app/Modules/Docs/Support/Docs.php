@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Modules\Docs\Support;
 
@@ -26,6 +28,7 @@ final class Docs
                     ->sortBy(fn (DocumentationPage $page): int => $page->weight ?? PHP_INT_MAX)
                     ->map(function (DocumentationPage $page) use ($slug): DocumentationPage {
                         $page->repository = $slug;
+
                         return $page;
                     });
 
@@ -48,7 +51,8 @@ final class Docs
                 try {
                     return $this->getRepository($repositoryName);
                 } catch (Exception $exception) {
-                    report("Error while loading {$repositoryName} docs: " . $exception->getMessage());
+                    report("Error while loading {$repositoryName} docs: ".$exception->getMessage());
+
                     return null;
                 }
             })->filter();

@@ -4,7 +4,6 @@ namespace App\Modules\Blog\Http\Controllers\Links;
 
 use App\Modules\Blog\Actions\CreateLinkAction;
 use App\Modules\Blog\Http\Requests\CreateLinkRequest;
-use Spatie\RouteDiscovery\Attributes\Route;
 
 final class LinkController
 {

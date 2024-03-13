@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Exceptions;
 
@@ -7,16 +9,12 @@ use Illuminate\Validation\ValidationException;
 
 final class Handler extends ExceptionHandler
 {
-    protected $dontReport = [
-        //
-    ];
-
     protected $dontFlash = [
         'password',
         'password_confirmation',
     ];
 
-    public function register()
+    public function register(): void
     {
         $this->reportable(function (ValidationException $exception) {
             flash()->error('Please correct the errors in the form');

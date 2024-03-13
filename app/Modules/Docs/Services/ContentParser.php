@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Modules\Docs\Services;
 
@@ -28,7 +30,7 @@ final class ContentParser implements ContentParserContract
                 'heading_permalink' => [
                     'html_class' => 'anchor-link doc-anchor-link',
                     'symbol' => '#',
-                ]
+                ],
             ]);
     }
 

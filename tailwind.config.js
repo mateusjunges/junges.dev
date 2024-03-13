@@ -1,6 +1,8 @@
-const colors = require('tailwindcss/colors')
+import colors from 'tailwindcss/colors'
+import forms from '@tailwindcss/forms'
+import typography from "@tailwindcss/typography";
 
-module.exports = {
+export default {
     content: [
         './resources/**/*.blade.php',
         './app/*.php',
@@ -9,8 +11,8 @@ module.exports = {
 
     ],
     plugins: [
-        require('@tailwindcss/forms'),
-        require('@tailwindcss/typography'),
+        forms,
+        typography
     ],
     theme: {
         fontFamily: {

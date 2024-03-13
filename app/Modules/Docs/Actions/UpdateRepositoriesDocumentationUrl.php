@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Modules\Docs\Actions;
 
@@ -15,12 +17,12 @@ final class UpdateRepositoriesDocumentationUrl
             'laravel-invite-codes',
             'laravel-pix',
             'laravel-time-helpers',
-            'trackable-jobs-for-laravel'
+            'trackable-jobs-for-laravel',
         ];
 
         collect($repositories)->each(function (string $repository) {
             Repository::query()->where('name', $repository)->update([
-                'documentation_url' => "/documentation/$repository"
+                'documentation_url' => "/documentation/$repository",
             ]);
         });
     }

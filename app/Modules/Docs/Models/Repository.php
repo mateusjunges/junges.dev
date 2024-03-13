@@ -22,24 +22,24 @@ use Tests\Factories\RepositoryFactory;
  * @property string $language Tha language used in this package.
  * @property \Illuminate\Support\Carbon $created_at The date and time this repository was created.
  * @property \Illuminate\Support\Carbon $updated_at The date and time this repository was last updated.
- *
  */
 final class Repository extends Model
 {
     use HasFactory;
 
-    /** @var string $table */
+    /** @var string */
     protected $table = 'docs__repositories';
 
     protected $guarded = ['id'];
 
     protected $casts = [
-        'topics' => 'array'
+        'topics' => 'array',
     ];
 
     /**
-     * @inheritDoc
-     * @param \Illuminate\Database\Query\Builder $query
+     * {@inheritDoc}
+     *
+     * @param  \Illuminate\Database\Query\Builder  $query
      * @return RepositoryEloquentBuilder<self>
      */
     public static function query(): RepositoryEloquentBuilder
@@ -51,8 +51,9 @@ final class Repository extends Model
     }
 
     /**
-     * @inheritDoc
-     * @param \Illuminate\Database\Query\Builder $query
+     * {@inheritDoc}
+     *
+     * @param  \Illuminate\Database\Query\Builder  $query
      * @return RepositoryEloquentBuilder<self>
      */
     public function newEloquentBuilder($query): RepositoryEloquentBuilder
@@ -82,7 +83,7 @@ final class Repository extends Model
 
     public static function getTotalDownloads(): int
     {
-        return static::sum('downloads');
+        return self::sum('downloads');
     }
 
     public function setTopics(Collection $topics): self

@@ -8,7 +8,7 @@ use Illuminate\Support\ServiceProvider;
 
 final class BladeComponentServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         Blade::component('ad', AdComponent::class);
 

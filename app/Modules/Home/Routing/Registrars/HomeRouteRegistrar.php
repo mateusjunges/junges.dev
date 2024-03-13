@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Modules\Home\Routing\Registrars;
 
@@ -12,7 +14,7 @@ final class HomeRouteRegistrar implements RouteRegistrar
     {
         $router->group(
             attributes: [
-                'middleware' => ['web']
+                'middleware' => ['web'],
             ],
             routes: function (Registrar $router) {
                 $router->get('/', HomeController::class)->name('home');

@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 
 final class UserSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
         User::query()->create([
             'name' => 'Mateus Junges',

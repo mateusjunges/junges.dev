@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Modules\Auth\Routing\Registrars;
 
@@ -19,7 +21,7 @@ final class AuthRouteRegistrar implements RouteRegistrar
     {
         $router->group(
             attributes: [
-                'middleware' => ['web', 'guest', 'doNotCacheResponse']
+                'middleware' => ['web', 'guest', 'doNotCacheResponse'],
             ],
             routes: function (Registrar $router) {
                 $router->get('login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -37,7 +39,7 @@ final class AuthRouteRegistrar implements RouteRegistrar
 
         $router->group(
             attributes: [
-                'middleware' => ['web', 'auth']
+                'middleware' => ['web', 'auth'],
             ],
             routes: function (Registrar $router) {
                 $router->get('/email/verify', function () {

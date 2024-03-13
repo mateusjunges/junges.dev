@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Modules\Blog\Actions;
 
@@ -9,7 +11,7 @@ use Spatie\ResponseCache\Facades\ResponseCache;
 
 final class PublishPostAction
 {
-    public function execute(Post $post):void
+    public function execute(Post $post): void
     {
         $post->published = true;
 

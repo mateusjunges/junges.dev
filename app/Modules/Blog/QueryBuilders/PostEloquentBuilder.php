@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Modules\Blog\QueryBuilders;
 
@@ -6,6 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 /**
  * @template TModelClass of \App\Modules\Blog\Models\Post
+ *
  * @extends \Illuminate\Database\Eloquent\Builder<TModelClass>
  */
 final class PostEloquentBuilder extends Builder
@@ -28,6 +31,4 @@ final class PostEloquentBuilder extends Builder
         return $this->where('published', false)
             ->whereNotNull('publish_date');
     }
-
-
 }

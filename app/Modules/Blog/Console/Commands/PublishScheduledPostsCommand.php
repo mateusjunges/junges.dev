@@ -12,7 +12,7 @@ final class PublishScheduledPostsCommand extends Command
 
     protected $description = 'Publish scheduled posts';
 
-    public function handle(PublishPostAction $publishPostAction)
+    public function handle(PublishPostAction $publishPostAction): void
     {
         Post::query()
             ->scheduled()

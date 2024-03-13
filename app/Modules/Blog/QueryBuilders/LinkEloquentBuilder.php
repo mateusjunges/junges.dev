@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Modules\Blog\QueryBuilders;
 
@@ -7,6 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 /**
  * @template TModelClass of \App\Modules\Blog\Models\Link
+ *
  * @extends \Illuminate\Database\Eloquent\Builder<TModelClass>
  */
 final class LinkEloquentBuilder extends Builder

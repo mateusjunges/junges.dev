@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Modules\Docs\Console\Commands\GitHub;
 
@@ -31,7 +33,7 @@ final class ImportGitHubRepositoriesCommand extends Command
                 'stars' => $repositoryAttributes['stargazers_count'],
                 'language' => $repositoryAttributes['language'],
                 'repository_created_at' => Carbon::createFromFormat(DateTimeInterface::ATOM, $repositoryAttributes['created_at']),
-                'forks' => $repositoryAttributes['forks']
+                'forks' => $repositoryAttributes['forks'],
             ]);
 
             $repository->setTopics(

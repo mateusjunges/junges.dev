@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Modules\Advertising\Models;
 
@@ -18,7 +20,7 @@ use Illuminate\Support\Facades\Storage;
  */
 final class Sponsor extends Model
 {
-    protected $table= 'advertising__sponsors';
+    protected $table = 'advertising__sponsors';
 
     /** @var list<string> */
     protected $fillable = [
@@ -33,12 +35,12 @@ final class Sponsor extends Model
         'github_avatar_url',
     ];
 
-    /** @var array<string, string> $casts */
+    /** @var array<string, string> */
     protected $casts = [
-        'started_sponsoring_at' => 'datetime'
+        'started_sponsoring_at' => 'datetime',
     ];
 
-    /** @inheritDoc */
+    /** {@inheritDoc} */
     public static function query(): SponsorEloquentBuilder
     {
         $builder = parent::query();
@@ -47,7 +49,7 @@ final class Sponsor extends Model
         return $builder;
     }
 
-    /** @inheritDoc */
+    /** {@inheritDoc} */
     public function newEloquentBuilder($query): SponsorEloquentBuilder
     {
         return new SponsorEloquentBuilder($query);

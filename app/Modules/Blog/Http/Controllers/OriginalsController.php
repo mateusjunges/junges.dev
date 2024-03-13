@@ -4,6 +4,7 @@ namespace App\Modules\Blog\Http\Controllers;
 
 use App\Modules\Blog\Models\Post;
 use Illuminate\Contracts\View\View;
+
 use function view;
 
 final class OriginalsController

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Modules\Advertising\QueryBuilders;
 
@@ -6,6 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 /**
  * @template TModelClass of \App\Modules\Advertising\Models\Ad
+ *
  * @extends \Illuminate\Database\Eloquent\Builder<TModelClass>
  */
 final class AdEloquentBuilder extends Builder

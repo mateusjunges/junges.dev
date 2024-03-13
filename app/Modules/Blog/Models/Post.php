@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Modules\Blog\Models;
 
@@ -49,27 +51,28 @@ use Tests\Factories\PostDbFactory;
  * @property \Illuminate\Support\Carbon $updated_at The date and time when the post was updated.
  * @property
  */
-final class Post extends Model implements Sluggable, HasMedia
+final class Post extends Model implements HasMedia, Sluggable
 {
     public const TYPE_LINK = 'link';
+
     public const TYPE_TWEET = 'tweet';
+
     public const TYPE_ORIGINAL = 'originalPost';
 
-    use HasSlug,
-        HasTags,
-        PostPresenter,
+    use HasComments,
         HasFactory,
-        HasComments,
-        InteractsWithMedia;
+        HasSlug,
+        HasTags,
+        InteractsWithMedia,
+        PostPresenter;
 
-    /** @var string $table */
+    /** @var string */
     protected $table = 'blog__posts';
 
     public $with = ['tags'];
 
-    public $dates = ['publish_date'];
-
-    public $casts = [
+    protected $casts = [
+        'publish_date' => 'datetime',
         'published' => 'boolean',
         'original_content' => 'boolean',
         'send_automated_tweet' => 'boolean',
@@ -116,7 +119,7 @@ final class Post extends Model implements Sluggable, HasMedia
         return $builder;
     }
 
-    /** @inheritDoc */
+    /** {@inheritDoc} */
     public function newEloquentBuilder($query): PostEloquentBuilder
     {
         return new PostEloquentBuilder($query);

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Http\ViewComposers;
 
@@ -22,6 +24,7 @@ final class LazyViewComposer
         if (preg_match('~MSIE|Internet Explorer~i', $userAgent)) {
             return true;
         }
+
         return str_contains($userAgent, 'Trident/7.0; rv:11.0');
     }
 }
