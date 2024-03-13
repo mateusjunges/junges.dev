@@ -12,13 +12,13 @@ use Rector\Set\ValueObject\SetList;
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->importNames(false);
     $rectorConfig->paths([
-        __DIR__ . '/app',
-        __DIR__ . '/bootstrap',
-        __DIR__ . '/config',
-        __DIR__ . '/database',
-        __DIR__ . '/public',
-        __DIR__ . '/resources',
-        __DIR__ . '/tests',
+        __DIR__.'/app',
+        __DIR__.'/bootstrap',
+        __DIR__.'/config',
+        __DIR__.'/database',
+        __DIR__.'/public',
+        __DIR__.'/resources',
+        __DIR__.'/tests',
     ]);
 
     // Specify a path that works locally as well as on CI job runners.
@@ -43,7 +43,7 @@ return static function (RectorConfig $rectorConfig): void {
         __DIR__.'/database/migrations',
 
         // file-specific to replace @noRector individual cases
-       __DIR__.'/tests/Factories/Factory.php', // to prevent removing "static" PHPDoc @return block needed for some readon by Psalm
+        __DIR__.'/tests/Factories/Factory.php', // to prevent removing "static" PHPDoc @return block needed for some readon by Psalm
 
         // PHP_81
         \Rector\Php81\Rector\ClassConst\FinalizePublicClassConstantRector::class, // ATM, we do not want to make constants final in final classes (do not duplicate final keyword), see https://github.com/rectorphp/rector/issues/6583#issuecomment-992661858

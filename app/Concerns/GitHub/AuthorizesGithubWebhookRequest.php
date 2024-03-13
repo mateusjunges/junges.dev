@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Concerns\GitHub;
 
@@ -29,7 +31,7 @@ trait AuthorizesGithubWebhookRequest
         $knownSignature = hash_hmac('sha1', $request->getContent(), config('services.github.webhook_secret'));
 
         if (! hash_equals($knownSignature, $signatureParts[1])) {
-            throw new UnauthorizedException('Could not verify the request signature: '. $signatureParts[1]);
+            throw new UnauthorizedException('Could not verify the request signature: '.$signatureParts[1]);
         }
 
         return true;

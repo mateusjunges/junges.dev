@@ -1,11 +1,10 @@
 <?php
 
-use Illuminate\Support\HtmlString;
 use Faker\Factory;
 use Faker\Generator;
+use Illuminate\Support\HtmlString;
 
-if (! function_exists('faker'))
-{
+if (! function_exists('faker')) {
     function faker(): Generator
     {
         return Factory::create();
@@ -20,4 +19,3 @@ if (! function_exists('__svg')) {
         );
     }
 }
-

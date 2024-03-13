@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Http\Middleware;
 
@@ -32,6 +34,7 @@ final class CacheControl
         if ($request->method() !== 'GET') {
             return false;
         }
+
         return (bool) $response->isSuccessful();
     }
 }

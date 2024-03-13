@@ -10,7 +10,7 @@ final class HandleGithubStarWebhookControllerTest extends TestCase
 {
     public function test_it_update_repository_stars_when_webhook_is_received()
     {
-        $payload = <<<JSON
+        $payload = <<<'JSON'
 {
   "zen": "Half measures are as bad as nothing at all.",
   "hook_id": 361612418,
@@ -175,12 +175,12 @@ JSON;
 
         /** @var \App\Modules\Docs\Models\Repository $repository */
         Repository::factory()->createOne([
-            'name' => 'test-repository'
+            'name' => 'test-repository',
         ]);
         config()->set('services.github.should_verify_webhook_signature', false);
 
         $this->post(route('api.docs.webhooks.github.repo-starred'), $payloadArray = json_decode($payload, true), [
-            'X-Hub-Signature' => "sha1=".hash_hmac('sha1', $payload, Str::repeat('a', 32))
+            'X-Hub-Signature' => 'sha1='.hash_hmac('sha1', $payload, Str::repeat('a', 32)),
         ]);
 
         $expectedStars = $payloadArray['repository']['stargazers_count'];

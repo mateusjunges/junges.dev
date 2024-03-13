@@ -18,7 +18,7 @@ final class RouteServiceProvider extends ServiceProvider
 {
     use MapRouteRegistrars;
 
-    /** @var array<class-string> $registrars  */
+    /** @var array<class-string> */
     private array $registrars = [
         HomeRouteRegistrar::class,
         LinksRouteRegistrar::class,
@@ -38,7 +38,6 @@ final class RouteServiceProvider extends ServiceProvider
 
         $this->registerRouteModelBindings();
     }
-
 
     public function registerRouteModelBindings(): void
     {

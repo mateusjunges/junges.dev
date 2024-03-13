@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Providers;
-;
 
 use App\Modules\Auth\Http\Controllers\LoginController;
 use App\Modules\Auth\Models\User;

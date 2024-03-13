@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Tests\Feature\Modules\Docs\Http\Controllers\Webhooks;
 
@@ -15,7 +17,7 @@ final class HandleGitHubRepositoryWebhookControllerTest extends TestCase
     public function it_should_add_the_repository_to_updated_repositories_value_store(): void
     {
         (new RepositoryFactory())->createOne([
-            'name' => 'mateusjunges/laravel-kafka'
+            'name' => 'mateusjunges/laravel-kafka',
         ]);
         config()->set('services.github.should_verify_webhook_signature', false);
 
@@ -27,7 +29,7 @@ final class HandleGitHubRepositoryWebhookControllerTest extends TestCase
 
         $payload = $this->getPayload();
         $this->post('/api/webhooks/github/', json_decode($payload, true, 512, JSON_THROW_ON_ERROR), [
-            'X-Hub-Signature' => "sha1=".hash_hmac('sha1', $payload, Str::repeat('a', 32))
+            'X-Hub-Signature' => 'sha1='.hash_hmac('sha1', $payload, Str::repeat('a', 32)),
         ]);
 
         $this->assertContains('mateusjunges/laravel-kafka', UpdatedRepositoriesValueStore::make()->getNames());
@@ -35,7 +37,7 @@ final class HandleGitHubRepositoryWebhookControllerTest extends TestCase
 
     private function getPayload(): string
     {
-        return <<<JSON
+        return <<<'JSON'
 {
   "ref": "refs/heads/v2.x",
   "before": "0000000000000000000000000000000000000000",

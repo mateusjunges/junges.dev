@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Tests\Factories;
 
@@ -15,7 +17,8 @@ final class PostFactory
     private ?string $type = null;
 
     public function __construct(private readonly int $times = 1)
-    {}
+    {
+    }
 
     public function tweet(): self
     {
@@ -84,7 +87,7 @@ final class PostFactory
             return $post;
         }
 
-		return null;
+        return null;
     }
 
     protected function faker(): Generator

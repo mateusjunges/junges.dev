@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Modules\Blog\Routing\Registrars;
 
@@ -15,7 +17,7 @@ final class LinksRouteRegistrar implements RouteRegistrar
         $router->group(
             attributes: [
                 'prefix' => 'links',
-                'middleware' => ['web', 'signed']
+                'middleware' => ['web', 'signed'],
             ],
             routes: function (Registrar $router) {
                 $router->get(
@@ -37,7 +39,7 @@ final class LinksRouteRegistrar implements RouteRegistrar
 
         $router->group(
             attributes: [
-                'middleware' => ['web', 'auth', 'verified', 'doNotCacheResponse']
+                'middleware' => ['web', 'auth', 'verified', 'doNotCacheResponse'],
             ],
             routes: function (Registrar $router) {
                 $router->get(

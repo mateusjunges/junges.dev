@@ -1,12 +1,14 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SponsorsResource\CreateSponsor;
 use App\Filament\Resources\SponsorsResource\EditSponsor;
 use App\Filament\Resources\SponsorsResource\ListSponsors;
-use Filament\Resources\Form;
 use Filament\Forms;
+use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
@@ -88,6 +90,7 @@ final class SponsorsResource extends Resource
             ])
             ->defaultSort('started_sponsoring_at', 'desc');
     }
+
     public static function getPages(): array
     {
         return [

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Modules\Auth\Http\Controllers;
 
@@ -8,7 +10,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 
 final class LoginController
 {
-    use ValidatesRequests, AuthenticatesUsers;
+    use AuthenticatesUsers, ValidatesRequests;
 
     public function redirectPath(): string
     {

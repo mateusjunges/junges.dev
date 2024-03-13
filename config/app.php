@@ -182,7 +182,6 @@ return [
         \App\Providers\BladeComponentServiceProvider::class,
         \App\Providers\HealthServiceProvider::class,
 
-
         /**
          * Modules providers
          */

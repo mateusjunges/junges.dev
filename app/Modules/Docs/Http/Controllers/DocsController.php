@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Modules\Docs\Http\Controllers;
 
@@ -18,7 +20,7 @@ final class DocsController
 
         return view('front.docs.index', [
             'repositories' => $docs->getRepositories(),
-            'githubRepositories' => $githubRepositories
+            'githubRepositories' => $githubRepositories,
         ]);
     }
 
@@ -109,7 +111,7 @@ final class DocsController
             'navigation' => $navigation,
             'alias' => $alias,
             'showBigTitle' => $showBigTitle,
-            'tableOfContents' => $tableOfContents
+            'tableOfContents' => $tableOfContents,
         ]);
     }
 

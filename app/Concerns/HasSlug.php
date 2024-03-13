@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 /**
  * @property string $slug
  * @property int $id
+ *
  * @mixin Model
  */
 trait HasSlug

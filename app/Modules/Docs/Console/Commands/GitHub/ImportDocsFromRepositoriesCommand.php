@@ -45,7 +45,7 @@ final class ImportDocsFromRepositoriesCommand extends Command
         $this->getOutput()->progressStart(count($callables));
 
         Fork::new()
-            ->after(parent: fn() => $this->getOutput()->progressAdvance())
+            ->after(parent: fn () => $this->getOutput()->progressAdvance())
             ->concurrent(4)
             ->run(...$callables);
 
@@ -84,7 +84,8 @@ final class ImportDocsFromRepositoriesCommand extends Command
 
                     if (! $process->isSuccessful()) {
                         $this->error($process->getErrorOutput());
-                        report(new DocsImportException("Import for repository {$repository['name']} unsuccessful: " . $process->getErrorOutput()));
+                        report(new DocsImportException("Import for repository {$repository['name']} unsuccessful: ".$process->getErrorOutput()));
+
                         return;
                     }
 
@@ -128,7 +129,7 @@ final class ImportDocsFromRepositoriesCommand extends Command
     private function cleanRepositoryFolders(): void
     {
         $publicDocsPath = public_path('docs');
-        $storageDocsPath  = storage_path('docs');
+        $storageDocsPath = storage_path('docs');
 
         File::ensureDirectoryExists($publicDocsPath);
         File::ensureDirectoryExists($storageDocsPath);

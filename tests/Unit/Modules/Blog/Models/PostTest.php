@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Tests\Unit\Modules\Blog\Models;
 
@@ -13,7 +15,7 @@ final class PostTest extends TestCase
     {
         $post = (new PostFactory())->original()->create([
             'title' => 'test',
-            'send_automated_tweet' => false
+            'send_automated_tweet' => false,
         ]);
 
         $this->assertEquals("http://localhost:8000/$post->id-test", $post->promotional_url);

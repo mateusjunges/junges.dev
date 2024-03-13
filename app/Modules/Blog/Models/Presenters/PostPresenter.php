@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 
 /**
  * @property-read string $excerpt The post excerpt.
+ *
  * @mixin Post
  */
 trait PostPresenter
@@ -75,7 +76,6 @@ trait PostPresenter
 
         return $excerpt ?? '';
     }
-
 
     public function relatedEmoji(): string
     {

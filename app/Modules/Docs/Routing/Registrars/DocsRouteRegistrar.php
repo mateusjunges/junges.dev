@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Modules\Docs\Routing\Registrars;
 
@@ -8,7 +10,6 @@ use App\Modules\Docs\Http\Controllers\Webhooks\HandleGithubRepoForkedWebhookCont
 use App\Modules\Docs\Http\Controllers\Webhooks\HandleGithubRepositoryWebhookController;
 use App\Modules\Docs\Http\Controllers\Webhooks\HandleGithubStarWebhookController;
 use Illuminate\Contracts\Routing\Registrar;
-use function Clue\StreamFilter\fun;
 
 final class DocsRouteRegistrar implements RouteRegistrar
 {

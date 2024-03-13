@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 final class HandleGithubRepoForkedWebhookController implements HandleGitHubWebhookRequest
 {
     use AuthorizesGithubWebhookRequest;
+
     public function handle(Request $request): ?JsonResponse
     {
         $this->authorize($request);

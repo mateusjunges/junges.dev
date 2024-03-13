@@ -16,7 +16,7 @@ final class RepositoryFactory extends Factory
             'description' => null,
             'topics' => null,
             'stars' => 0,
-            'language' => 'php'
+            'language' => 'php',
         ];
     }
 }

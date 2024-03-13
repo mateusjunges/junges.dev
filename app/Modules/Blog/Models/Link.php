@@ -42,7 +42,7 @@ final class Link extends Model implements Sluggable
 
     public const STATUS_REJECTED = 'rejected';
 
-    /** @inheritDoc */
+    /** {@inheritDoc} */
     public static function query(): LinkEloquentBuilder
     {
         $builder = parent::query();
@@ -51,7 +51,7 @@ final class Link extends Model implements Sluggable
         return $builder;
     }
 
-    /** @inheritDoc */
+    /** {@inheritDoc} */
     public function newEloquentBuilder($query): LinkEloquentBuilder
     {
         return new LinkEloquentBuilder($query);

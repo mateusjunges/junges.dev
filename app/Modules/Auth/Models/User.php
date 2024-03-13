@@ -23,10 +23,12 @@ use Tests\Factories\UserFactory;
  * @property string $password The user's password
  * @property \Illuminate\Support\Carbon $email_verified_at The date and time the user's email address was verified
  * @property string $remember_token The user's remember token
+ *
  * @Property \Illuminate\Support\Carbon $created_at The date and time the model was created
+ *
  * @property \Illuminate\Support\Carbon $updated_at The date and time the model was updated
  */
-class User extends Authenticatable implements CanComment, MustVerifyEmail, FilamentUser
+class User extends Authenticatable implements CanComment, FilamentUser, MustVerifyEmail
 {
     use HasFactory;
     use InteractsWithComments;
