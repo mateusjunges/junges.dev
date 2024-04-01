@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Filament\Resources\VideoResource\Pages;
 
 use App\Filament\Resources\VideoResource;
-use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Tables\Actions\CreateAction;
 
 final class ListVideos extends ListRecords
 {
@@ -15,7 +15,7 @@ final class ListVideos extends ListRecords
     protected function getActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            CreateAction::make(),
         ];
     }
 }

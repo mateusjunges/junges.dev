@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App\Filament\Resources\SponsorsResource;
 
 use App\Filament\Resources\SponsorsResource;
-use Filament\Pages\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Tables\Actions\CreateAction;
 
 final class ListSponsors extends ListRecords
 {

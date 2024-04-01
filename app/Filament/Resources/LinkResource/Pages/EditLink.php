@@ -10,9 +10,11 @@ use App\Modules\Blog\Actions\CreatePostFromLinkAction;
 use App\Modules\Blog\Actions\RejectLinkAction;
 use App\Modules\Blog\Models\Link;
 use Filament\Notifications\Notification;
-use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions;
 
+/** @property-read Link $record */
 final class EditLink extends EditRecord
 {
     protected static string $resource = LinkResource::class;
@@ -21,7 +23,7 @@ final class EditLink extends EditRecord
     {
         ray('get actions');
 
-        $actions = [Actions\DeleteAction::make()];
+        $actions = [DeleteAction::make()];
 
         if ($this->record->status === Link::STATUS_SUBMITTED) {
             $actions = array_merge([
