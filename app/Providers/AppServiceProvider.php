@@ -33,4 +33,13 @@ final class AppServiceProvider extends ServiceProvider
         } catch (Exception) {
         }
     }
+
+    public function register(): void
+    {
+        $this->app->register(\App\Providers\RouteServiceProvider::class);
+        $this->app->register(\App\Providers\TwitterServiceProvider::class);
+        $this->app->register(\App\Providers\ViewServiceProvider::class);
+        $this->app->register(\App\Providers\BladeComponentServiceProvider::class);
+        $this->app->register(\App\Providers\HealthServiceProvider::class);
+    }
 }
