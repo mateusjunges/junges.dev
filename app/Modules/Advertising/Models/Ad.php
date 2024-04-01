@@ -26,12 +26,15 @@ final class Ad extends Model
 {
     use HasFactory;
 
-    protected $casts = [
-        'starts_at' => 'datetime',
-        'ends_at' => 'datetime',
-    ];
-
     protected $table = 'advertising__ads';
+
+    protected function casts(): array
+    {
+        return [
+            'starts_at' => 'datetime',
+            'ends_at' => 'datetime',
+        ];
+    }
 
     public static function booted()
     {

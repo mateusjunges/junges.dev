@@ -5,6 +5,7 @@ namespace App\Modules\Auth\Models;
 use App\Modules\Blog\Models\Link;
 use App\Modules\Blog\Models\Post;
 use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -38,10 +39,13 @@ class User extends Authenticatable implements CanComment, FilamentUser, MustVeri
         'password', 'remember_token',
     ];
 
-    protected $casts = [
-        'admin' => 'boolean',
-        'email_verified_at' => 'datetime',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'admin' => 'boolean',
+            'email_verified_at' => 'datetime',
+        ];
+    }
 
     public function links(): HasMany
     {
@@ -61,5 +65,10 @@ class User extends Authenticatable implements CanComment, FilamentUser, MustVeri
     public static function newFactory(): UserFactory
     {
         return new UserFactory();
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return true;
     }
 }
