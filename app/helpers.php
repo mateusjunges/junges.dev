@@ -3,6 +3,7 @@
 use Faker\Factory;
 use Faker\Generator;
 use Illuminate\Support\HtmlString;
+use Illuminate\Support\Str;
 
 if (! function_exists('faker')) {
     function faker(): Generator

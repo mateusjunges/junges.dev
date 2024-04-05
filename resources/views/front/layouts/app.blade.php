@@ -3,9 +3,18 @@
 <body>
 
 <div class="font-sans text-black">
+    <x-banner>
+        <a href="{{ route('hire-me') }}" class="transition hover:opacity-80">
+        <span class="font-light">
+            <span class="font-semibold text-yellow-600">Hire me:</span>
+            I offer hourly pairing sessions!
+        </span>
+            <x-icons.arrow-right class="mb-1 ml-2 inline-block size-5"/>
+        </a>
+    </x-banner>
     @include('front.layouts.partials.flash')
 
-    <div class="max-w-xl md:max-w-7xl mx-auto">
+    <div class="max-w-xl md:max-w-7xl mx-auto mt-16">
         <header class="mt-8 md:mt-12 mb-8 sm:mb-12 md:mb-16 px-4 leading-tight">
             <div class="flex items-center mx-auto justify-center md:justify-start">
                 <figure class="w-12 inline-block mb-1 md:mb-0 mr-3">

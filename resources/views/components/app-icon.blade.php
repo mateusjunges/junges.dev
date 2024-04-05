@@ -1,0 +1,1 @@
+{{ __svg('icons/' . $icon) }}

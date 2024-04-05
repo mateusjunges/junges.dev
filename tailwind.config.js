@@ -1,6 +1,7 @@
 import colors from 'tailwindcss/colors'
 import forms from '@tailwindcss/forms'
 import typography from "@tailwindcss/typography";
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
     content: [
@@ -18,20 +19,7 @@ export default {
     theme: {
         fontFamily: {
             sans: [
-                'Whitney SSm A',
-                'Whitney SSm B',
-                '-apple-system',
-                'BlinkMacSystemFont',
-                'Segoe UI',
-                'Roboto',
-                'Helvetica Neue',
-                'Arial',
-                'Noto Sans',
-                'sans-serif',
-                'Apple Color Emoji',
-                'Segoe UI Emoji',
-                'Segoe UI Symbol',
-                'Noto Color Emoji',
+                'Montserrat', ...defaultTheme.fontFamily.sans
             ],
             mono: [
                 'Operator Mono SSm A',
@@ -71,6 +59,14 @@ export default {
                 blue: {
                     lightest: '#cae1e8',
                     light: '#cae1e8',
+                    100: '#F2F6F9',
+                    'dark': '#045291',
+                    'darker': '#004075',
+                },
+                yellow: {
+                    500: '#E2BC67',
+                    600: '#E09E10',
+                    700: '#D19216',
                 },
                 'bunker': {
                     '50': '#f3f6fa',

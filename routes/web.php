@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use App\Http\Controllers\HireMeController;
 use App\Http\Controllers\UsesController;
 use App\Modules\Auth\Http\Controllers\ForgotPasswordController;
 use App\Modules\Auth\Http\Controllers\LoginController;
@@ -22,6 +23,7 @@ Route::middleware('web')->group(static function () {
     Route::get('/', HomeController::class)->name('home');
     Route::view('/about', 'front.about')->name('about');
     Route::redirect('/admin', '/admin/posts')->name('admin');
+    Route::get('hire-me', HireMeController::class)->name('hire-me');
 
     // Docs
     Route::get('documentation', [DocsController::class, 'index'])->name('docs.index');

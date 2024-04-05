@@ -25,7 +25,7 @@
         <div class="w-48 py-8">
             <a href="https://github.com/sponsors/mateusjunges"  class="underline mt-5">
                 <button
-                    class="py-2 px-3 w-full button bg-bunker-800 hover:underline rounded mb-8 text-white">
+                    class="py-2 px-3 w-full button bg-blue-darker border-b-gray-900 hover:underline rounded mb-8 text-white">
                     Your logo here?
                 </button>
             </a>
