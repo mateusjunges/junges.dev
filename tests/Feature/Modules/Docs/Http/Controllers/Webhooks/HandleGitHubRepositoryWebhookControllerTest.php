@@ -19,6 +19,7 @@ final class HandleGitHubRepositoryWebhookControllerTest extends TestCase
         (new RepositoryFactory())->createOne([
             'name' => 'mateusjunges/laravel-kafka',
         ]);
+
         config()->set('services.github.should_verify_webhook_signature', false);
 
         $this->app->bind(ValueStoreDriver::class, function () {
@@ -28,7 +29,7 @@ final class HandleGitHubRepositoryWebhookControllerTest extends TestCase
         $this->assertNotContains('mateusjunges/laravel-kafka', UpdatedRepositoriesValueStore::make()->getNames());
 
         $payload = $this->getPayload();
-        $this->post('/api/webhooks/github/', json_decode($payload, true, 512, JSON_THROW_ON_ERROR), [
+        $this->post(route('api.docs.webhooks.github.repository'), json_decode($payload, true, 512, JSON_THROW_ON_ERROR), [
             'X-Hub-Signature' => 'sha1='.hash_hmac('sha1', $payload, Str::repeat('a', 32)),
         ]);
 
