@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 final class Video extends Model
 {
-    protected static function booted()
+    protected static function booted(): void
     {
         self::saved(function (Video $ad) {
-            static::withoutEvents(function () use ($ad) {
+            self::withoutEvents(function () use ($ad) {
                 $ad->update(['html' => CommonMark::convertToHtml($ad->text, false)]);
             });
         });
