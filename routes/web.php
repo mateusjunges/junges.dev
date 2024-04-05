@@ -1,6 +1,5 @@
 <?php declare(strict_types=1);
 
-use App\Modules\Advertising\Http\Controllers\HandleSponsorshipWebhookController;
 use App\Modules\Auth\Http\Controllers\ForgotPasswordController;
 use App\Modules\Auth\Http\Controllers\LoginController;
 use App\Modules\Auth\Http\Controllers\RegisterController;
@@ -12,9 +11,6 @@ use App\Modules\Blog\Http\Controllers\Links\LinkController;
 use App\Modules\Blog\Http\Controllers\OgImageController;
 use App\Modules\Blog\Http\Controllers\ShowPostController;
 use App\Modules\Docs\Http\Controllers\DocsController;
-use App\Modules\Docs\Http\Controllers\Webhooks\HandleGithubRepoForkedWebhookController;
-use App\Modules\Docs\Http\Controllers\Webhooks\HandleGithubRepositoryWebhookController;
-use App\Modules\Docs\Http\Controllers\Webhooks\HandleGithubStarWebhookController;
 use App\Modules\Home\Http\Controllers\HomeController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
@@ -78,12 +74,4 @@ Route::middleware('web')->group(static function () {
     // Blog (this must be the last one, because it uses some wildcards)
     Route::get('{post}/og-image', OgImageController::class)->name('post.ogImage');
     Route::get('{postSlug}', ShowPostController::class)->name('post');
-});
-
-Route::middleware('api')->group(static function () {
-    Route::post('api/webhooks/github', [HandleGithubRepositoryWebhookController::class, 'handle'])->name('api.docs.webhooks.github.repository');
-    Route::post('api/webhooks/github/repo-starred', [HandleGithubStarWebhookController::class, 'handle'])->name('api.docs.webhooks.github.repo-starred');
-    Route::post('api/webhooks/github/repo-forked', [HandleGithubRepoForkedWebhookController::class, 'handle'])->name('api.docs.webhooks.github.repo-forked');
-
-    Route::post('api/advertising/webhooks/github/sponsors', [HandleSponsorshipWebhookController::class, 'handle'])->name('api.advertising.webhooks.github.sponsors');
 });
