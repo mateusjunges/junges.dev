@@ -8,7 +8,8 @@ export default {
         './app/*.php',
         './vendor/filament/**/*.blade.php',
         './vendor/filament/**/*.css',
-
+        './resources/css/**/*.css',
+        './resources/css/*.css',
     ],
     plugins: [
         forms,

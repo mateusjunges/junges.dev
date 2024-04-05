@@ -8,7 +8,11 @@
 }
 
 .button-blue {
-    @apply bg-blue-700 font-semibold border-blue-900;
+    @apply bg-blue-600 font-semibold border-blue-900;
+}
+
+.btn-blue {
+    @apply bg-blue-600 font-semibold border-blue-900;
 }
 
 .button-blue:hover {
