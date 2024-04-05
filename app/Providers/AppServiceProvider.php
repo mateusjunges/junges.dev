@@ -25,18 +25,10 @@ final class AppServiceProvider extends ServiceProvider
         PendingCommentNotification::sendTo(function (Comment $comment) {
             return User::query()->where('email', 'mateus@junges.dev')->first();
         });
-
-        try {
-            Filament::registerTheme(
-                app(Vite::class)('resources/css/filament.css'),
-            );
-        } catch (Exception) {
-        }
     }
 
     public function register(): void
     {
-        $this->app->register(\App\Providers\RouteServiceProvider::class);
         $this->app->register(\App\Providers\TwitterServiceProvider::class);
         $this->app->register(\App\Providers\ViewServiceProvider::class);
         $this->app->register(\App\Providers\BladeComponentServiceProvider::class);

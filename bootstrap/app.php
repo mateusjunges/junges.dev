@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+use App\Modules\Blog\Models\Post;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -9,7 +11,6 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withProviders([
         \App\Providers\FlashServiceProvider::class,
         \App\Providers\HorizonServiceProvider::class,
-        \App\Providers\RouteServiceProvider::class,
         \App\Providers\TelescopeServiceProvider::class,
         \App\Providers\TwitterServiceProvider::class,
         \App\Providers\ViewServiceProvider::class,
@@ -20,10 +21,34 @@ return Application::configure(basePath: dirname(__DIR__))
     ])
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
-        // api: __DIR__.'/../routes/api.php',
         commands: __DIR__.'/../routes/console.php',
-        // channels: __DIR__.'/../routes/channels.php',
         health: '/up',
+        then: function () {
+            Route::bind('postSlug', function ($slug) {
+                /** @var Post $post */
+                $post = Post::findByIdSlug($slug);
+
+                if (! $post) {
+                    abort(404);
+                }
+
+                $user = auth()->user();
+
+                if ($user instanceof User && $user->email === 'mateus@junges.dev') {
+                    return $post;
+                }
+
+                if ($post->preview_secret === request()->get('preview_secret')) {
+                    return $post;
+                }
+
+                if (! $post->published) {
+                    abort(404);
+                }
+
+                return $post;
+            });
+        },
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->redirectGuestsTo(fn () => route('login'));
