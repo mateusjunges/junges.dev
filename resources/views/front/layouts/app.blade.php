@@ -3,15 +3,18 @@
 <body>
 
 <div class="font-sans text-black">
-    <x-banner>
-        <a href="{{ route('hire-me') }}" class="transition hover:opacity-80">
+    @sectionMissing('no-banner')
+        <x-banner>
+            <a href="{{ route('hire-me') }}" class="transition hover:opacity-80">
         <span class="font-light">
             <span class="font-semibold text-yellow-600">Hire me:</span>
             I offer hourly pairing sessions!
         </span>
-            <x-icons.arrow-right class="mb-1 ml-2 inline-block size-5"/>
-        </a>
-    </x-banner>
+                <x-icons.arrow-right class="mb-1 ml-2 inline-block size-5"/>
+            </a>
+        </x-banner>
+    @endif
+
     @include('front.layouts.partials.flash')
 
     <div class="max-w-xl md:max-w-7xl mx-auto mt-16">
