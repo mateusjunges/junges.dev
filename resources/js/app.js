@@ -1,4 +1,7 @@
 import "../css/app.css";
+import { Livewire, Alpine } from '../../vendor/livewire/livewire/dist/livewire.esm'
+
+window.Alpine = Alpine;
 
 Array.from(document.querySelectorAll("[data-lazy]")).forEach(lazy);
 
@@ -41,3 +44,5 @@ function loadTwitter() {
 
     document.body.appendChild(script);
 }
+
+Livewire.start();
