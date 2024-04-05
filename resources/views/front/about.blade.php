@@ -4,7 +4,7 @@
     </div>
     <div class="markup">
         <p>
-            I'm a Laravel developer and Open Source lover. Most of my time is spent at <a href="https://interaction-design.org">IxDF</a>.
+            I'm a Laravel developer and Open Source lover. Most of my time is spent at <a href="https://tighten.co">Tighten</a>.
         </p>
         <h2 id="side-projects">
             Side projects
