@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use App\Http\Controllers\UsesController;
 use App\Modules\Auth\Http\Controllers\ForgotPasswordController;
 use App\Modules\Auth\Http\Controllers\LoginController;
 use App\Modules\Auth\Http\Controllers\RegisterController;
@@ -72,6 +73,7 @@ Route::middleware('web')->group(static function () {
     Route::view('advertising', 'front.advertising')->name('advertising.index');
 
     // Blog (this must be the last one, because it uses some wildcards)
+    Route::get('uses', UsesController::class)->name('uses');
     Route::get('{post}/og-image', OgImageController::class)->name('post.ogImage');
     Route::get('{postSlug}', ShowPostController::class)->name('post');
 });

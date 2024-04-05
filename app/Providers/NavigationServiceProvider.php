@@ -19,6 +19,7 @@ final class NavigationServiceProvider extends ServiceProvider
                 ->action(HomeController::class, 'Home')
                 ->route('links.index', 'Links')
                 ->route('about', 'About')
+                ->route('uses', 'Uses')
                 ->setActiveFromRequest();
         });
 
