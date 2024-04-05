@@ -21,8 +21,6 @@ final class EditLink extends EditRecord
 
     protected function getActions(): array
     {
-        ray('get actions');
-
         $actions = [DeleteAction::make()];
 
         if ($this->record->status === Link::STATUS_SUBMITTED) {

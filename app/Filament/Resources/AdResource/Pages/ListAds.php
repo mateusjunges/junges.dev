@@ -6,16 +6,8 @@ namespace App\Filament\Resources\AdResource\Pages;
 
 use App\Filament\Resources\AdResource;
 use Filament\Resources\Pages\ListRecords;
-use Filament\Tables\Actions\CreateAction;
 
 final class ListAds extends ListRecords
 {
     protected static string $resource = AdResource::class;
-
-    protected function getActions(): array
-    {
-        return [
-            CreateAction::make(),
-        ];
-    }
 }

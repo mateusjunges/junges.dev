@@ -40,7 +40,8 @@ final class LinkResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title')->limit(70)->sortable(),
-                Tables\Columns\BadgeColumn::make('status')
+                Tables\Columns\TextColumn::make('status')
+                    ->badge()
                     ->colors([
                         'bg-gray-200' => static fn ($state): bool => $state === Link::STATUS_SUBMITTED,
                         'success' => static fn ($state): bool => $state === Link::STATUS_APPROVED,
@@ -62,13 +63,6 @@ final class LinkResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ])
             ->defaultSort('created_at', 'desc');
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
     }
 
     public static function getPages(): array
