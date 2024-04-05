@@ -28,7 +28,7 @@
 
                 <form method="post" action="/logout">
                     @csrf
-                    <button class="text-gray-70 button-gray mr-4 button" type="submit">log out</button>
+                    <button class="text-gray-70 button bg-gray-400 mr-4 border-gray-600" type="submit">log out</button>
                 </form>
             </div>
         @endauth
@@ -50,7 +50,7 @@
         box-shadow: 0 3px 0 #cbd5e0dd, 0 3px 0 #000;
         "></div>
                 <header class="mb-6">
-                    <h2 class="max-w-lg text-2xl md:text-3xl font-extrabold leading-tight mb-1">
+                    <h2 class="max-w-xl text-2xl md:text-3xl font-extrabold leading-tight mb-1">
                         <a href="{{ $link->url }}">{{ $link->title }}</a>
                     </h2>
 

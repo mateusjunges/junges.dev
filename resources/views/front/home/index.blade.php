@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-ad />
+    <x-ad/>
 
     @include('front.posts.partials.list')
 

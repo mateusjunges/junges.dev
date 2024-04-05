@@ -5,14 +5,13 @@
         box-shadow: 0 3px 0 {{ $post->theme() }}dd, 0 3px 0 #000;
         "></div>
     <header class="mb-6">
-        <{{ $heading ?? 'h1' }} class
-        ="max-w-lg text-2xl md:text-3xl font-extrabold leading-tight mb-1">
-        @isset($url)
-            <a href="{{ $url }}">{{ $post->title }}</a>
-        @else
-            {{ $post->title }}
-        @endisset
-    </{{ $heading ?? 'h1' }}>
+        <h1 class="max-w-xl text-2xl md:text-3xl font-extrabold leading-tight mb-1">
+            @isset($url)
+                <a href="{{ $url }}">{{ $post->title }}</a>
+            @else
+                {{ $post->title }}
+            @endisset
+        </h1>
 
     <p class="text-sm text-gray-700">
         {{ $post->formattedType() }} –
@@ -49,8 +48,7 @@
         @auth
             @if(Auth::user()->admin)
                 –
-                <a target="_blank" href="/admin/posts/{{ $post->id }}/edit">
-                    Edit</a>
+                <a target="_blank" href="/admin/posts/{{ $post->id }}/edit">Edit</a>
             @endif
         @endauth
     </p>

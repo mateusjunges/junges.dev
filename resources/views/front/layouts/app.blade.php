@@ -60,8 +60,8 @@
 {{--                    @include( 'front.layouts.partials.carbon')--}}
                 </div>
             </nav>
-            <div class="flex flex-col lg:flex-row">
-                <main class="flex-1 min-w-0 px-4 md:px-12 lg:pl-12 lg:pr-0">
+            <div class="flex flex-col lg:flex-row flex-1">
+                <main class="flex-1 min-w-0 px-4 md:px-12">
                     {{ $slot }}
                 </main>
                 <div class="flex justify-center items-center lg:items-start">
