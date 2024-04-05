@@ -1,11 +1,16 @@
 <?php
 
 use App\Models\User;
+use App\Modules\Blog\Console\Commands\PublishScheduledPostsCommand;
 use App\Modules\Blog\Models\Post;
+use App\Modules\Docs\Console\Commands\GitHub\ImportDocsFromRepositoriesCommand;
+use App\Modules\Docs\Console\Commands\Packagist\ImportPackagistDownloadsCommand;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Validation\ValidationException;
+use Spatie\Health\Commands\RunHealthChecksCommand;
+use Spatie\ScheduleMonitor\Models\MonitoredScheduledTaskLogItem;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withProviders([
@@ -58,18 +63,33 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->throttleApi('60,1');
 
-        $middleware->replace(\Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance::class, \App\Http\Middleware\PreventRequestsDuringMaintenance::class);
-        $middleware->replace(\Illuminate\Foundation\Http\Middleware\TrimStrings::class, \App\Http\Middleware\TrimStrings::class);
         $middleware->replace(\Illuminate\Http\Middleware\TrustProxies::class, \App\Http\Middleware\TrustProxies::class);
-
-        $middleware->replaceInGroup('web', \Illuminate\Cookie\Middleware\EncryptCookies::class, \App\Http\Middleware\EncryptCookies::class);
-        $middleware->replaceInGroup('web', \Illuminate\Foundation\Http\Middleware\ValidateCsrfToken::class, \App\Http\Middleware\VerifyCsrfToken::class);
 
         $middleware->alias([
             'admin' => \App\Http\Middleware\Admin::class,
             'cacheResponse' => \Spatie\ResponseCache\Middlewares\CacheResponse::class,
             'doNotCacheResponse' => \Spatie\ResponseCache\Middlewares\DoNotCacheResponse::class,
         ]);
+
+        $middleware->validateCsrfTokens(except: [
+            'webhook-webmentions',
+            'mailgun-feedback',
+        ]);
+    })
+    ->withCommands([
+        app_path('Modules/Blog/Console/Commands'),
+        app_path('Modules/Docs/Console/Commands'),
+    ])
+    ->withSchedule(function (\Illuminate\Console\Scheduling\Schedule $schedule) {
+        $schedule->call(ImportPackagistDownloadsCommand::class)->everyFifteenMinutes();
+        $schedule->call(ImportDocsFromRepositoriesCommand::class)->everyMinute();
+        $schedule->call(RunHealthChecksCommand::class)->everyMinute();
+        $schedule->call(PublishScheduledPostsCommand::class)->everyMinute();
+        $schedule->call('responsecache:clear')->daily();
+        $schedule->call('backup:clean')->daily()->at('01:00');
+        $schedule->call('backup:run')->dailyAt('3:00');
+        $schedule->call('site-search:crawl')->daily();
+        $schedule->call('model:prune', ['--model' => MonitoredScheduledTaskLogItem::class])->daily();
     })
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->reportable(function (ValidationException $exception) {
