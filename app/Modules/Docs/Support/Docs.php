@@ -36,11 +36,7 @@ final class Docs
             })
             ->sortBy('slug');
 
-        $index = $pages
-            ->whereNull('alias')
-            ->firstWhere('slug', '_index');
-
-        return new Repository($slug, $aliases, $index);
+        return new Repository($slug, $aliases);
     }
 
     public function getRepositories(): Collection

@@ -13,13 +13,10 @@ final class Repository
 
     public Collection $aliases;
 
-    public ?string $category;
-
-    public function __construct(string $slug, Collection $aliases, DocumentationPage $index)
+    public function __construct(string $slug, Collection $aliases)
     {
         $this->slug = $slug;
         $this->aliases = $aliases->sortByDesc('slug');
-        $this->category = $index->category ?? null;
     }
 
     public function getAlias(string $alias): ?Alias

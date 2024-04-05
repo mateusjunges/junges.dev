@@ -9,6 +9,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Spatie\Fork\Fork;
+use Symfony\Component\Console\Command\Command as SymfonyCommand;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Process\Process;
 
@@ -58,6 +59,8 @@ final class ImportDocsFromRepositoriesCommand extends Command
         File::deleteDirectory(storage_path('docs-temp'));
 
         $this->info('All done!');
+
+        return SymfonyCommand::SUCCESS;
     }
 
     protected function convertRepositoriesToCallables(
