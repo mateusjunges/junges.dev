@@ -21,7 +21,7 @@
 @import "./utilities/banner.css";
 @import "./utilities/blockquote.css";
 
-@tailwind base
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
