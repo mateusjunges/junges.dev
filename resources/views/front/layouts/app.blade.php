@@ -70,7 +70,7 @@
     </div>
 </div>
 
-<livewire:scripts />
+@livewireScriptConfig
 </body>
 
 

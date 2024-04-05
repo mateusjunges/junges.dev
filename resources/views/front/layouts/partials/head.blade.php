@@ -17,7 +17,7 @@
 @include('front.layouts.partials.seo')
 
 @vite(['resources/js/app.js'])
-
+@livewireStyles
 @stack('styles')
 
 <link rel="stylesheet" href="https://cloud.typography.com/6194432/6581412/css/fonts.css"/>
@@ -25,6 +25,5 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
 <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
-<livewire:styles />
 <x-comments::styles />
 </head>
