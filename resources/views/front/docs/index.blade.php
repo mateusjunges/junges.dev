@@ -1,5 +1,5 @@
 <x-app-layout title="Documentation">
-    <div class="container">
+    <div class="container px-24">
         <div>
             <h1 class="banner-slogan text-2xl mt-4 md:mt-0 font-bold text-black md:text-4xl">Docs</h1>
             <p class="mt-4 text-lg">

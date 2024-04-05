@@ -59,7 +59,7 @@
                 </div>
             </nav>
         </header>
-        <div class="md:flex pb-12">
+        <div class="md:flex md:flex-col xl:flex-row pb-12">
             <main class="flex-1 min-w-0">
                 {{ $slot }}
             </main>
@@ -70,7 +70,7 @@
     </div>
 </div>
 
-<livewire:scripts />
+@livewireScriptConfig
 @stack('scripts')
 </body>
 

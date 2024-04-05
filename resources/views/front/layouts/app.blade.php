@@ -60,11 +60,13 @@
 {{--                    @include( 'front.layouts.partials.carbon')--}}
                 </div>
             </nav>
-            <main class="flex-1 min-w-0 px-4 md:px-12 lg:pl-24 lg:pr-16">
-                {{ $slot }}
-            </main>
-            <div>
-                @include('front.layouts.partials.sponsors')
+            <div class="flex flex-col lg:flex-row">
+                <main class="flex-1 min-w-0 px-4 md:px-12 lg:pl-12 lg:pr-0">
+                    {{ $slot }}
+                </main>
+                <div class="flex justify-center items-center lg:items-start">
+                    @include('front.layouts.partials.sponsors')
+                </div>
             </div>
         </div>
     </div>
