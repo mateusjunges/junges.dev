@@ -9,10 +9,10 @@ use App\Modules\Blog\Actions\ApproveLinkAction;
 use App\Modules\Blog\Actions\CreatePostFromLinkAction;
 use App\Modules\Blog\Actions\RejectLinkAction;
 use App\Modules\Blog\Models\Link;
+use Filament\Actions\ActionGroup;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\EditRecord;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions;
+use Filament\Actions\Action;
 
 /** @property-read Link $record */
 final class EditLink extends EditRecord
@@ -21,11 +21,11 @@ final class EditLink extends EditRecord
 
     protected function getActions(): array
     {
-        $actions = [DeleteAction::make()];
+        $actions = [];
 
         if ($this->record->status === Link::STATUS_SUBMITTED) {
             $actions = array_merge([
-                Actions\Action::make('Approve and create post')
+                Action::make('Approve and create post')
                     ->color('primary')
                     ->requiresConfirmation()
                     ->action(function (ApproveLinkAction $approveLink, CreatePostFromLinkAction $createPostFromLink) {
@@ -39,7 +39,7 @@ final class EditLink extends EditRecord
 
                         $this->data['status'] = $this->record->status;
                     }),
-                Actions\Action::make('Approve')
+                Action::make('Approve')
                     ->color('success')
                     ->requiresConfirmation()
                     ->action(function (ApproveLinkAction $approveLink) {
@@ -52,7 +52,7 @@ final class EditLink extends EditRecord
 
                         $this->data['status'] = $this->record->status;
                     }),
-                Actions\Action::make('Reject')
+                Action::make('Reject')
                     ->color('warning')
                     ->requiresConfirmation()
                     ->action(function (RejectLinkAction $rejectLink) {
@@ -68,6 +68,8 @@ final class EditLink extends EditRecord
             ], $actions);
         }
 
-        return $actions;
+        return [
+            ActionGroup::make($actions)
+        ];
     }
 }

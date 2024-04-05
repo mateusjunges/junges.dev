@@ -13,15 +13,14 @@ final class BlogRouteRegistrar implements RouteRegistrar
 {
     public function map(Registrar $router): void
     {
-        $router->group(
-            attributes: [
-                //                'as' => 'blog.',
-                'middleware' => ['web'],
-            ],
-            routes: function (Registrar $router) {
-                $router->get('{post}/og-image', OgImageController::class)->name('post.ogImage');
-                $router->get('{postSlug}', ShowPostController::class)->name('post');
-            }
-        );
+//        $router->group(
+//            attributes: [
+//                'middleware' => ['web'],
+//            ],
+//            routes: function (Registrar $router) {
+//                $router->get('{post}/og-image', OgImageController::class)->name('post.ogImage');
+//                $router->get('{postSlug}', ShowPostController::class)->name('post');
+//            }
+//        );
     }
 }

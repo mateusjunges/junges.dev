@@ -17,9 +17,9 @@ final class HomeRouteRegistrar implements RouteRegistrar
                 'middleware' => ['web'],
             ],
             routes: function (Registrar $router) {
-                $router->get('/', HomeController::class)->name('home');
-                $router->view('/about', 'front.about')->name('about');
-                $router->redirect('/admin', '/admin/posts')->name('admin');
+//                $router->get('/', HomeController::class)->name('home');
+//                $router->view('/about', 'front.about')->name('about');
+//                $router->redirect('/admin', '/admin/posts')->name('admin');
             }
         );
     }

@@ -15,30 +15,30 @@ final class DocsRouteRegistrar implements RouteRegistrar
 {
     public function map(Registrar $router): void
     {
-        $router->group(
-            attributes: [
-                'prefix' => 'documentation',
-                'as' => 'docs.',
-                'middleware' => ['web'],
-            ],
-            routes: static function (Registrar $router) {
-                $router->get('/', [DocsController::class, 'index'])->name('index');
-                $router->get('{repository}/{alias?}', [DocsController::class, 'repository'])->name('repository');
-                $router->get('{repository}/{alias}/{slug}', [DocsController::class, 'show'])->where('slug', '.*')->name('page');
-            },
-        );
-
-        $router->group(
-            attributes: [
-                'prefix' => 'api/webhooks/github',
-                'as' => 'api.docs.webhooks.github.',
-                'middleware' => ['api'],
-            ],
-            routes: static function (Registrar $router) {
-                $router->post('/', [HandleGithubRepositoryWebhookController::class, 'handle'])->name('repository');
-                $router->post('repo-starred', [HandleGithubStarWebhookController::class, 'handle'])->name('repo-starred');
-                $router->post('repo-forked', [HandleGithubRepoForkedWebhookController::class, 'handle'])->name('repo-forked');
-            },
-        );
+//        $router->group(
+//            attributes: [
+//                'prefix' => 'documentation',
+//                'as' => 'docs.',
+//                'middleware' => ['web'],
+//            ],
+//            routes: static function (Registrar $router) {
+//                $router->get('/', [DocsController::class, 'index'])->name('index');
+//                $router->get('{repository}/{alias?}', [DocsController::class, 'repository'])->name('repository');
+//                $router->get('{repository}/{alias}/{slug}', [DocsController::class, 'show'])->where('slug', '.*')->name('page');
+//            },
+//        );
+//
+//        $router->group(
+//            attributes: [
+//                'prefix' => 'api/webhooks/github',
+//                'as' => 'api.docs.webhooks.github.',
+//                'middleware' => ['api'],
+//            ],
+//            routes: static function (Registrar $router) {
+//                $router->post('/', [HandleGithubRepositoryWebhookController::class, 'handle'])->name('repository');
+//                $router->post('repo-starred', [HandleGithubStarWebhookController::class, 'handle'])->name('repo-starred');
+//                $router->post('repo-forked', [HandleGithubRepoForkedWebhookController::class, 'handle'])->name('repo-forked');
+//            },
+//        );
     }
 }
