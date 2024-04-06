@@ -2,6 +2,7 @@
 
 namespace App\Services\CommonMark;
 
+use App\Services\CommonMark\Extensions\CodeRendererExtension;
 use Spatie\LaravelMarkdown\MarkdownRenderer;
 
 final class CommonMark
@@ -13,6 +14,8 @@ final class CommonMark
         if (! $highlightCode) {
             $renderer->disableHighlighting();
         }
+
+        $renderer->addExtension(new CodeRendererExtension());
 
         return $renderer->toHtml($markdown);
     }
