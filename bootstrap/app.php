@@ -22,7 +22,6 @@ return Application::configure(basePath: dirname(__DIR__))
         \App\Providers\BladeComponentServiceProvider::class,
         \App\Providers\HealthServiceProvider::class,
         \App\Providers\ModulesServiceProvider::class,
-        \App\Providers\NavigationServiceProvider::class,
     ])
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
