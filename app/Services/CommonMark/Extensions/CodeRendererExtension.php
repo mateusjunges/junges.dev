@@ -24,9 +24,8 @@ final class CodeRendererExtension implements ExtensionInterface, NodeRendererInt
         /** @var FencedCode|IndentedCode $node  */
         $info = $node->getInfoWords();
 
-        // Look for our magic word
+        // Any code blocks with the `+parse` keyword will be passed through blade.
         if (in_array('+parse', $info)) {
-            // Run the content through Blade
             return Blade::render($node->getLiteral());
         }
     }
