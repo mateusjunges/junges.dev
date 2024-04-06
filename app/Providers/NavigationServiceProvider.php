@@ -11,42 +11,4 @@ use Spatie\Menu\Laravel\Menu;
 
 final class NavigationServiceProvider extends ServiceProvider
 {
-    public function boot(): void
-    {
-        Menu::macro('primary', function () {
-            return Menu::new()
-                ->route('docs.index', 'Docs')
-                ->action(HomeController::class, 'Home')
-                ->route('links.index', 'Links')
-                ->route('about', 'About')
-                ->route('uses', 'Uses')
-                ->setActiveFromRequest();
-        });
-
-        Menu::macro('secondary', function (bool $withSpaceClass = true) {
-            $menu = Menu::new()
-                ->url('advertising', 'Advertising')
-                ->setActiveFromRequest();
-
-            if ($withSpaceClass) {
-                $menu->addClass('space-y-2');
-            }
-
-            $user = Auth::user();
-            if ($user !== null) {
-                assert($user instanceof User);
-
-                if ($user->admin) {
-                    $menu->url('/admin', 'Admin Panel');
-                }
-
-                $menu->action([LoginController::class, 'logout'], 'Logout');
-
-            } else {
-                $menu->action([LoginController::class, 'showLoginForm'], 'Login');
-            }
-
-            return $menu;
-        });
-    }
 }
