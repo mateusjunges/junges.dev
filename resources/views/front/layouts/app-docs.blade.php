@@ -21,14 +21,14 @@
                    </div>
                </div>
                 <div class="hidden md:block flex">
-                    {{ Menu::primary()
+                    {{ \App\Support\Menu::primary()
                         ->addClass('text-gray-700 flex')
                         ->each(function (\Spatie\Menu\Laravel\Link $item) {
                             $item->addClass('pl-4 hover:underline');
                         })
                         ->setActiveClass('font-bold text-black') }}
 
-                    {{ Menu::secondary(false)
+                    {{ \App\Support\Menu::secondary(false)
                        ->addClass('text-xs text-gray-700 flex items-center justify-end mt-2')
 
                        ->each(function (\Spatie\Menu\Laravel\Link $item) {
@@ -48,12 +48,12 @@
                     Menu
                 </label>
                 <div class="mobile-menu | pt-4 text-center leading-loose">
-                    {{ Menu::primary()
+                    {{ \App\Support\Menu::primary()
                         ->addClass('text-gray-700 mb-2 md:mb-6')
                         ->setActiveClass('font-bold text-black') }}
 
 
-                    {{ Menu::secondary()
+                    {{ \App\Support\Menu::secondary()
                        ->addClass('text-xs text-gray-700')
                        ->setActiveClass('font-semibold text-black') }}
                 </div>
