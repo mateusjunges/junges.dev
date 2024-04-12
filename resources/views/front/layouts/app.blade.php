@@ -17,7 +17,7 @@
 
     @include('front.layouts.partials.flash')
 
-    <div class="max-w-xl md:max-w-7xl mx-auto mt-16">
+    <div class="max-w-xl md:max-w-7xl mx-auto mt-24 sm:mt-16">
         <header class="mt-8 md:mt-12 mb-8 sm:mb-12 md:mb-16 px-4 leading-tight">
             <div class="flex items-center mx-auto justify-center md:justify-start">
                 <figure class="w-12 inline-block mb-1 md:mb-0 mr-3">
