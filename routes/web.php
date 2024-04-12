@@ -14,6 +14,7 @@ use App\Modules\Blog\Http\Controllers\OgImageController;
 use App\Modules\Blog\Http\Controllers\ShowPostController;
 use App\Modules\Docs\Http\Controllers\DocsController;
 use App\Modules\Home\Http\Controllers\HomeController;
+use App\Modules\Products\Http\Controllers\ProductController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 use Spatie\Health\Http\Controllers\HealthCheckResultsController;
@@ -24,6 +25,7 @@ Route::middleware('web')->group(static function () {
     Route::view('/about', 'front.about')->name('about');
     Route::redirect('/admin', '/admin/posts')->name('admin');
     Route::get('hire-me', HireMeController::class)->name('hire-me');
+    Route::get('products', [ProductController::class, 'index'])->name('products.index');
 
     // Docs
     Route::get('documentation', [DocsController::class, 'index'])->name('docs.index');
