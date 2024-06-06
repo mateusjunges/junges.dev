@@ -29,8 +29,7 @@ final class CheckoutProductController
         ]);
         assert($pairingSession instanceof PairingSession);
 
-        return $customer
-            ->checkout([$product->stripe_price_id => 1], [
+        return $customer->checkout([$product->stripe_price_id => 1], [
             'success_url' => URL::temporarySignedRoute('checkout.success', now()->addMinutes(5), ['pairing_session' => $pairingSession->id]),
             'cancel_url' => URL::temporarySignedRoute('checkout.failed', now()->addMinutes(5), ['pairing_session' => $pairingSession->id]),
             'metadata' => [
