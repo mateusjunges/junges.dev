@@ -1,4 +1,5 @@
-<x-app-layout title="Hire me!">
+<x-app-layout title="Developer pairing sessions">
+    @section('no-banner', true)
     <div class="markup">
         <h1>Developer pairing sessions</h1>
 
@@ -6,7 +7,7 @@
     </div>
 
     <div class="mt-5">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:gap-6 justify-center">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:gap-6">
             <h1 class="text-2xl font-bold">30-minute pairing session</h1>
             <div class="underline sm:no-underline sm:bg-blue-200/50 rounded-full py-1 sm:px-2 text-sm sm:text-xs sm:text-center font-bold w-44">
                 Quick and focused help

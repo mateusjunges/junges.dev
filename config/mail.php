@@ -20,6 +20,12 @@ return [
             // ],
         ],
 
+        'mailcoach' => [
+            'transport' => 'mailcoach',
+            'domain' => 'personalpro.mailcoach.app',
+            'token' => env('MAILCOACH_API_TOKEN'),
+        ],
+
         'roundrobin' => [
             'transport' => 'roundrobin',
             'mailers' => [

@@ -13,7 +13,8 @@ use Illuminate\Support\Carbon;
  * @property int $customer_id The id of the person who bought the pairing session.
  * @property Carbon $paid_at The datetime this pairing session was paid.
  * @property Carbon $scheduled_to The datetime this pairing session is scheduled to happen.
- * @property Collection<int, Customer> The customer who bought this pairing session.
+ * @property Customer $customer The customer who bought this pairing session.
+ * @property Product $product The product associated with this pairing session.
  * @property \Illuminate\Support\Carbon $created_at Time at which the object was created. Technical column and should not represent any domain information.
  * @property \Illuminate\Support\Carbon $updated_at Time at which the object was last time updated. Technical column and should not represent any domain information.
  */
@@ -40,6 +41,11 @@ final class PairingSession extends Model
     public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class, 'customer_id');
+    }
+
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class, 'product_id');
     }
 
     public function markAsPaid(): void

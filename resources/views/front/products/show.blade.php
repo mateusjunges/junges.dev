@@ -1,9 +1,9 @@
 <x-app-layout title="{{ $product->name }}">
+    @section('no-banner', true)
     <div class="markup">
         <h1>{{ $product->name }}</h1>
 
         <p>{{ $product->description }} I'll reach out to you to schedule our session.</p>
-
     </div>
 
     <div class="mt-5">

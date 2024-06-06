@@ -6,6 +6,7 @@ use App\Modules\Products\Models\Customer;
 use App\Modules\Products\Models\PairingSession;
 use App\Modules\Products\Models\Product;
 use App\Modules\Products\Requests\CheckoutProductRequest;
+use Illuminate\Support\Facades\URL;
 use Laravel\Cashier\Checkout;
 
 final class CheckoutProductController
@@ -29,8 +30,8 @@ final class CheckoutProductController
         assert($pairingSession instanceof PairingSession);
 
         return $customer->checkout([$product->stripe_price_id => 1], [
-            'success_url' => route('checkout.success', ['pairing_session' => $pairingSession->id]),
-            'cancel_url' => route('checkout.failed', ['pairing_session' => $pairingSession->id]),
+            'success_url' => URL::temporarySignedRoute('checkout.success', now()->addMinutes(5), ['pairing_session' => $pairingSession->id]),
+            'cancel_url' => URL::temporarySignedRoute('checkout.failed', now()->addMinutes(5), ['pairing_session' => $pairingSession->id]),
             'metadata' => [
                 'pairing_session_id' => $pairingSession->id,
             ]

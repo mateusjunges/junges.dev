@@ -18,6 +18,7 @@ use App\Modules\Products\Http\Controllers\CheckoutProductController;
 use App\Modules\Products\Http\Controllers\FailedCheckoutController;
 use App\Modules\Products\Http\Controllers\ProductController;
 use App\Modules\Products\Http\Controllers\SuccessfulCheckoutController;
+use App\Modules\Products\Http\Controllers\ThankYouController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 use Spatie\Health\Http\Controllers\HealthCheckResultsController;
@@ -33,9 +34,14 @@ Route::middleware('web')->group(static function () {
 
     Route::post('products/{product:slug}/checkout', [CheckoutProductController::class, 'store'])->name('products.checkout');
 
-    Route::get('checkout/success', SuccessfulCheckoutController::class)->name('checkout.success');
-    Route::get('checkout/failed', FailedCheckoutController::class)->name('checkout.failed');
-    Route::get('thank-you', fn () => 'Thank you')->name('thank-you');
+    Route::get('checkout/success', SuccessfulCheckoutController::class)
+        ->middleware('signed')
+        ->name('checkout.success');
+    Route::get('checkout/failed', FailedCheckoutController::class)
+        ->middleware('signed')
+        ->name('checkout.failed');
+    Route::get('thanks/{product:slug}', ThankYouController::class)->name('thank-you');
+    Route::get('something-went-wrong/{product:slug}', ThankYouController::class)->name('checkout-failure');
 
     // Docs
     Route::get('documentation', [DocsController::class, 'index'])->name('docs.index');

@@ -5,6 +5,7 @@ namespace App\Modules\Products\Models;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Notifications\Notifiable;
 use Laravel\Cashier\Billable;
 
 /**
@@ -18,6 +19,7 @@ use Laravel\Cashier\Billable;
 final class Customer extends Model
 {
     use Billable;
+    use Notifiable;
 
     /** @var string $table */
     protected $table = 'customers';
