@@ -14,6 +14,7 @@ use App\Modules\Blog\Http\Controllers\OgImageController;
 use App\Modules\Blog\Http\Controllers\ShowPostController;
 use App\Modules\Docs\Http\Controllers\DocsController;
 use App\Modules\Home\Http\Controllers\HomeController;
+use App\Modules\Products\Http\Controllers\BookingFailedController;
 use App\Modules\Products\Http\Controllers\CheckoutProductController;
 use App\Modules\Products\Http\Controllers\FailedCheckoutController;
 use App\Modules\Products\Http\Controllers\ProductController;
@@ -41,7 +42,7 @@ Route::middleware('web')->group(static function () {
         ->middleware('signed')
         ->name('checkout.failed');
     Route::get('thanks/{product:slug}', ThankYouController::class)->name('thank-you');
-    Route::get('something-went-wrong/{product:slug}', ThankYouController::class)->name('checkout-failure');
+    Route::get('something-went-wrong/{product:slug}', BookingFailedController::class)->name('checkout-failure');
 
     // Docs
     Route::get('documentation', [DocsController::class, 'index'])->name('docs.index');
