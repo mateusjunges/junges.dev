@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use App\Http\Controllers\HireMeController;
 use App\Http\Controllers\UsesController;
 use App\Modules\Auth\Http\Controllers\ForgotPasswordController;
 use App\Modules\Auth\Http\Controllers\LoginController;
@@ -13,6 +14,11 @@ use App\Modules\Blog\Http\Controllers\OgImageController;
 use App\Modules\Blog\Http\Controllers\ShowPostController;
 use App\Modules\Docs\Http\Controllers\DocsController;
 use App\Modules\Home\Http\Controllers\HomeController;
+use App\Modules\Products\Http\Controllers\CheckoutProductController;
+use App\Modules\Products\Http\Controllers\FailedCheckoutController;
+use App\Modules\Products\Http\Controllers\ProductController;
+use App\Modules\Products\Http\Controllers\SuccessfulCheckoutController;
+use App\Modules\Products\Http\Controllers\ThankYouController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 use Spatie\Health\Http\Controllers\HealthCheckResultsController;
@@ -22,6 +28,20 @@ Route::middleware('web')->group(static function () {
     Route::get('/', HomeController::class)->name('home');
     Route::view('/about', 'front.about')->name('about');
     Route::redirect('/admin', '/admin/posts')->name('admin');
+    Route::get('hire-me', HireMeController::class)->name('hire-me');
+    Route::get('products', [ProductController::class, 'index'])->name('products.index');
+    Route::get('products/{product:slug}', [ProductController::class, 'show'])->name('product.show');
+
+    Route::post('products/{product:slug}/checkout', [CheckoutProductController::class, 'store'])->name('products.checkout');
+
+    Route::get('checkout/success', SuccessfulCheckoutController::class)
+        ->middleware('signed')
+        ->name('checkout.success');
+    Route::get('checkout/failed', FailedCheckoutController::class)
+        ->middleware('signed')
+        ->name('checkout.failed');
+    Route::get('thanks/{product:slug}', ThankYouController::class)->name('thank-you');
+    Route::get('something-went-wrong/{product:slug}', ThankYouController::class)->name('checkout-failure');
 
     // Docs
     Route::get('documentation', [DocsController::class, 'index'])->name('docs.index');

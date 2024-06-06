@@ -1,10 +1,17 @@
 @include('front.layouts.partials.head')
 
-<body>
-
-<div class="font-sans text-black">
+<body x-data="{ bannerOpen: true }">
+<x-banner>
+    <a href="{{ route('hire-me') }}" class="transition hover:opacity-80">
+        <span class="font-light">
+            <span class="font-semibold text-yellow-600">Hire me:</span>
+            I can help you to integrate this package
+        </span>
+        <x-icons.arrow-right class="mb-1 ml-2 inline-block size-5"/>
+    </a>
+</x-banner>
+<div class="font-sans text-black mt-16">
     @include('front.layouts.partials.flash')
-
     <div class="max-w-xl md:max-w-8xl mx-auto">
         <header class="mt-8 md:mt-12 mb-8 px-4 leading-tight">
             <div class="flex items-center justify-between">

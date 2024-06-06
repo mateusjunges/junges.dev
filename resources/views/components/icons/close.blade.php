@@ -1,0 +1,1 @@
+<svg {{ $attributes }} xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.67" d="M5 15 15 5M5 5l10 10"/></svg>

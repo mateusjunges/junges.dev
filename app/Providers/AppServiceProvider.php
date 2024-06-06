@@ -3,10 +3,7 @@
 namespace App\Providers;
 
 use App\Modules\Auth\Models\User;
-use Exception;
-use Filament\Facades\Filament;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Vite;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Comments\Models\Comment;
@@ -33,5 +30,6 @@ final class AppServiceProvider extends ServiceProvider
         $this->app->register(\App\Providers\ViewServiceProvider::class);
         $this->app->register(\App\Providers\BladeComponentServiceProvider::class);
         $this->app->register(\App\Providers\HealthServiceProvider::class);
+        $this->app->register(\App\Providers\CashierServiceProvider::class);
     }
 }

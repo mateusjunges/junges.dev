@@ -18,6 +18,7 @@ final class Menu
             ->route('links.index', 'Links')
             ->route('about', 'About')
             ->route('uses', 'Uses')
+            ->route('products.index', 'Hire me!')
             ->setActiveFromRequest();
     }
 

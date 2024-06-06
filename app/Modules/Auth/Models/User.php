@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Cashier\Billable;
 use Spatie\Comments\Models\Concerns\InteractsWithComments;
 use Spatie\Comments\Models\Concerns\Interfaces\CanComment;
 use Tests\Factories\UserFactory;
@@ -24,9 +25,7 @@ use Tests\Factories\UserFactory;
  * @property string $password The user's password
  * @property \Illuminate\Support\Carbon $email_verified_at The date and time the user's email address was verified
  * @property string $remember_token The user's remember token
- *
  * @Property \Illuminate\Support\Carbon $created_at The date and time the model was created
- *
  * @property \Illuminate\Support\Carbon $updated_at The date and time the model was updated
  */
 class User extends Authenticatable implements CanComment, FilamentUser, MustVerifyEmail
@@ -36,7 +35,8 @@ class User extends Authenticatable implements CanComment, FilamentUser, MustVeri
     use Notifiable;
 
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     protected function casts(): array

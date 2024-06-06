@@ -1,5 +1,6 @@
 import "../css/app.css";
-import { Livewire, Alpine } from '../../vendor/livewire/livewire/dist/livewire.esm'
+import { Livewire } from '../../vendor/livewire/livewire/dist/livewire.esm'
+import { Alpine } from 'alpinejs';
 
 window.Alpine = Alpine;
 

@@ -72,6 +72,11 @@ final class Link extends Model implements Sluggable
         return $this->title;
     }
 
+    public function setSlug(string $slug): void
+    {
+        $this->slug = $slug;
+    }
+
     public function isApproved(): bool
     {
         return $this->status === self::STATUS_APPROVED;
