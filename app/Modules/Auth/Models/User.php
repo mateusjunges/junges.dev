@@ -33,7 +33,6 @@ class User extends Authenticatable implements CanComment, FilamentUser, MustVeri
     use HasFactory;
     use InteractsWithComments;
     use Notifiable;
-    use Billable;
 
     protected $hidden = [
         'password',

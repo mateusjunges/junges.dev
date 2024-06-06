@@ -1,4 +1,4 @@
-<x-app-layout title="Advertising">
+<x-app-layout title="Hire me!">
     <div class="markup">
         <h1>Hire me!</h1>
         <p>
@@ -17,7 +17,7 @@
 
         <h3>How do I schedule a pairing session?</h3>
         <p>
-            You can buy one pairing session on my products page. I'll reach out to you to schedule it.
+            You can <a class="underline" href="{{ route('products.index') }}">buy one pairing session on my products page</a>. I'll reach out to you to schedule it.
         </p>
 
         <h3>How many people can join each session?</h3>

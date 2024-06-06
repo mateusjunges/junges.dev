@@ -3,12 +3,14 @@
 namespace App\Providers;
 
 use App\Modules\Auth\Models\User;
+use Illuminate\Support\ServiceProvider;
+use Laravel\Cashier\Billable;
 use Laravel\Cashier\Cashier;
 
-final class CashierServiceProvider
+final class CashierServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Cashier::useCustomerModel(User::class);
+        Cashier::useCustomerModel(Billable::class);
     }
 }

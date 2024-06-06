@@ -233,6 +233,11 @@ final class Post extends Model implements HasMedia, Sluggable
         return $this->title;
     }
 
+    public function setSlug(string $slug): void
+    {
+        $this->slug = $slug;
+    }
+
     public function toTweet(): string
     {
         $tags = $this->tags
