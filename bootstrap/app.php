@@ -81,15 +81,15 @@ return Application::configure(basePath: dirname(__DIR__))
         app_path('Modules/Docs/Console/Commands'),
     ])
     ->withSchedule(function (\Illuminate\Console\Scheduling\Schedule $schedule) {
-        $schedule->call(ImportPackagistDownloadsCommand::class)->everyFifteenMinutes();
-        $schedule->call(ImportDocsFromRepositoriesCommand::class)->everyMinute();
-        $schedule->call(RunHealthChecksCommand::class)->everyMinute();
-        $schedule->call(PublishScheduledPostsCommand::class)->everyMinute();
-        $schedule->call('responsecache:clear')->daily();
-        $schedule->call('backup:clean')->daily()->at('01:00');
-        $schedule->call('backup:run')->dailyAt('3:00');
-        $schedule->call('site-search:crawl')->daily();
-        $schedule->call('model:prune', ['--model' => MonitoredScheduledTaskLogItem::class])->daily();
+        $schedule->command(ImportPackagistDownloadsCommand::class)->everyFifteenMinutes();
+        $schedule->command(ImportDocsFromRepositoriesCommand::class)->everyMinute();
+        $schedule->command(RunHealthChecksCommand::class)->everyMinute();
+        $schedule->command(PublishScheduledPostsCommand::class)->everyMinute();
+        $schedule->command('responsecache:clear')->daily();
+        $schedule->command('backup:clean')->daily()->at('01:00');
+        $schedule->command('backup:run')->dailyAt('3:00');
+        $schedule->command('site-search:crawl')->daily();
+        $schedule->command('model:prune', ['--model' => MonitoredScheduledTaskLogItem::class])->daily();
     })
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->reportable(function (ValidationException $exception) {
