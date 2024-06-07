@@ -104,7 +104,7 @@ final class DocsController
 
         $tableOfContents = $this->extractTableOfContents($page->contents);
 
-        $content = str_replace('[[announcement-placeholder]]', Blade::render('<x-pairing-announcement/>'), $page->contents);
+        $content = str_replace('[[announcement-placeholder]]', Blade::render('<x-pairing-session-announcement/>'), $page->contents);
 
         return view('front.docs.show', [
             'page' => $page,
