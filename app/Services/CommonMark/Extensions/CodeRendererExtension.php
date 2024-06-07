@@ -21,12 +21,13 @@ final class CodeRendererExtension implements ExtensionInterface, NodeRendererInt
 
     public function render(Node $node, ChildNodeRendererInterface $childRenderer)
     {
-        /** @var FencedCode|IndentedCode $node  */
-        $info = $node->getInfoWords();
+        if ($node instanceof FencedCode || $node instanceof IndentedCode) {
+            $info = $node->getInfoWords();
 
-        // Any code blocks with the `+parse` keyword will be passed through blade.
-        if (in_array('+parse', $info)) {
-            return Blade::render($node->getLiteral());
+            // Any code blocks with the `+parse` keyword will be passed through blade.
+            if (in_array('+parse', $info)) {
+                return Blade::render($node->getLiteral());
+            }
         }
     }
 }

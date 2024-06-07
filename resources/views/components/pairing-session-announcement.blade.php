@@ -1,6 +1,6 @@
 <div>
     <div class="mb-12 md:mb-24 md:-mt-4">
-        <div class="-mx-4 sm:mx-0 p-4 sm:p-6 md:p-8 bg-yellow-50 border-b-5 border-blue-900 text-sm text-gray-700 markup bg-blue-200">
+        <div class="-mx-4 sm:mx-0 p-4 sm:p-6 md:p-8 border-b-5 border-blue-900 text-sm text-gray-700 markup bg-blue-200">
             <p class="font-extrabold text-2xl leading-tight mb-4 text-black">
                 Do you need any help? Book a pairing session!
             </p>
