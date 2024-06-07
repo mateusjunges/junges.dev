@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Docs\Services;
 
+use App\Services\CommonMark\Extensions\CodeRendererExtension;
 use Illuminate\Support\HtmlString;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Image;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Link;
@@ -23,6 +24,7 @@ final class ContentParser implements ContentParserContract
     {
         $this->markdownRenderer = app(MarkdownRenderer::class)
             ->addExtension(new TableExtension())
+            ->addExtension(new CodeRendererExtension())
             ->addExtension(new HeadingPermalinkExtension())
             ->addInlineRenderer(Image::class, new ImageRenderer())
             ->addInlineRenderer(Link::class, new LinkRenderer())

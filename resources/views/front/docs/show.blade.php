@@ -76,7 +76,7 @@
 
             <div
                 class="markup-docs markup-docs-titles markup-docs-lists markup-docs-code markup-docs-tables markup-docs-shiki markup-docs-embeds links-underline">
-                {!! $content !!}
+                {!! $page->contents !!}
             </div>
         </article>
 
