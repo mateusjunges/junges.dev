@@ -22,6 +22,10 @@ final class CodeRendererExtension implements ExtensionInterface, NodeRendererInt
     public function render(Node $node, ChildNodeRendererInterface $childRenderer)
     {
         if ($node instanceof FencedCode || $node instanceof IndentedCode) {
+            if (! method_exists($node, 'getInfoWords')) {
+                return null;
+            }
+
             $info = $node->getInfoWords();
 
             // Any code blocks with the `+parse` keyword will be passed through blade.
