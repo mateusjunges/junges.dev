@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Modules\Auth\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Comments\Models\Comment;
 use Spatie\Comments\Notifications\PendingCommentNotification;
@@ -22,6 +23,8 @@ final class AppServiceProvider extends ServiceProvider
         PendingCommentNotification::sendTo(function (Comment $comment) {
             return User::query()->where('email', 'mateus@junges.dev')->first();
         });
+
+        $this->enforceHttps();
     }
 
     public function register(): void
@@ -31,5 +34,12 @@ final class AppServiceProvider extends ServiceProvider
         $this->app->register(\App\Providers\BladeComponentServiceProvider::class);
         $this->app->register(\App\Providers\HealthServiceProvider::class);
         $this->app->register(\App\Providers\CashierServiceProvider::class);
+    }
+
+    private function enforceHttps(): void
+    {
+        if ($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
     }
 }
