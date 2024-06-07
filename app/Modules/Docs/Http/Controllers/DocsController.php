@@ -110,7 +110,9 @@ final class DocsController
             $content = $content->toHtml();
         }
 
-        $content = str_replace('[[announcement-placeholder]]', Blade::render('<x-pairing-session-announcement/>'), $content);
+        $content = new HtmlString(
+            html: str_replace('[[announcement-placeholder]]', Blade::render('<x-pairing-session-announcement/>'), $content)
+        );
 
         return view('front.docs.show', [
             'page' => $page,
