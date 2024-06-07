@@ -20,10 +20,17 @@ use App\Modules\Products\Http\Controllers\FailedCheckoutController;
 use App\Modules\Products\Http\Controllers\ProductController;
 use App\Modules\Products\Http\Controllers\SuccessfulCheckoutController;
 use App\Modules\Products\Http\Controllers\ThankYouController;
+use App\Notifications\PairingSessionBooked;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 use Spatie\Health\Http\Controllers\HealthCheckResultsController;
 use Spatie\Honeypot\ProtectAgainstSpam;
+
+Route::get('mail', function () {
+    \App\Modules\Products\Models\Customer::first()->notify(new PairingSessionBooked(\App\Modules\Products\Models\Product::first()));
+
+    return 'ok';
+});
 
 Route::middleware('web')->group(static function () {
     Route::get('/', HomeController::class)->name('home');

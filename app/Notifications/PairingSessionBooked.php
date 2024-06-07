@@ -31,7 +31,7 @@ final class PairingSessionBooked extends Notification implements ShouldQueue
         assert($notifiable instanceof Customer);
 
         return (new MailMessage)
-                    ->from('mateus@mail.junges.dev', 'Mateus Junges')
+                    ->from('mateus@junges.dev', 'Mateus Junges')
                     ->subject('Pairing session booked!')
                     ->greeting("Hey {$notifiable->name}")
                     ->line("Thank you for booking a {$this->product->name}.")
