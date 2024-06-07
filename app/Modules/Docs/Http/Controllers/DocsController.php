@@ -9,6 +9,7 @@ use App\Modules\Docs\Sheets\DocumentationPage;
 use App\Modules\Docs\Support\Docs;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\HtmlString;
 use Illuminate\View\View;
 
@@ -103,8 +104,11 @@ final class DocsController
 
         $tableOfContents = $this->extractTableOfContents($page->contents);
 
+        $content = str_replace('[[announcement-placeholder]]', Blade::render('<x-pairing-announcement/>'), $page->contents);
+
         return view('front.docs.show', [
             'page' => $page,
+            'content' => $content,
             'repositories' => $repositories,
             'repository' => $repository,
             'pages' => $pages,

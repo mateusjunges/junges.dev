@@ -6,14 +6,14 @@ namespace App\Modules\Docs\Support;
 
 use Illuminate\Support\Collection;
 
-final class Alias
+final readonly class Alias
 {
     public function __construct(
-        public readonly string $slug,
-        public readonly string $slogan,
-        public readonly string $branch,
-        public readonly string $githubUrl,
-        public readonly Collection $pages
+        public string $slug,
+        public string $slogan,
+        public string $branch,
+        public string $githubUrl,
+        public Collection $pages
     ) {
     }
 }
