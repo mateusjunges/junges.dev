@@ -38,4 +38,7 @@ return [
         'salt' => env('MEDIA_LIBRARY_PATH_GENERATOR_SALT'),
     ],
 
+    'postmark' => [
+        'token' => env('POSTMARK_TOKEN')
+    ],
 ];
