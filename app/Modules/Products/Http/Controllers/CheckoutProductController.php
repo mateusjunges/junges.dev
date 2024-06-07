@@ -6,12 +6,13 @@ use App\Modules\Products\Models\Customer;
 use App\Modules\Products\Models\PairingSession;
 use App\Modules\Products\Models\Product;
 use App\Modules\Products\Requests\CheckoutProductRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Laravel\Cashier\Checkout;
 
 final class CheckoutProductController
 {
-    public function store(CheckoutProductRequest $request): Checkout
+    public function store(Request $request): Checkout
     {
         $customer = Customer::query()->firstOrCreate(
             attributes: ['email' => $request->input('email')],
