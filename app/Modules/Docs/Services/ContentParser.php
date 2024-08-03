@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace App\Modules\Docs\Services;
 
-use App\Services\CommonMark\Extensions\CodeRendererExtension;
 use Illuminate\Support\HtmlString;
+use League\CommonMark\Extension\CommonMark\Node\Block\FencedCode;
+use League\CommonMark\Extension\CommonMark\Node\Block\IndentedCode;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Image;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Link;
 use League\CommonMark\Extension\CommonMark\Renderer\Inline\ImageRenderer;
 use League\CommonMark\Extension\CommonMark\Renderer\Inline\LinkRenderer;
 use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
-use League\CommonMark\Extension\Table\TableExtension;
+use Spatie\CommonMarkHighlighter\FencedCodeRenderer;
+use Spatie\CommonMarkHighlighter\IndentedCodeRenderer;
 use Spatie\LaravelMarkdown\MarkdownRenderer;
 use Spatie\Sheets\ContentParser as ContentParserContract;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
@@ -23,11 +25,11 @@ final class ContentParser implements ContentParserContract
     public function __construct()
     {
         $this->markdownRenderer = app(MarkdownRenderer::class)
-            ->addExtension(new TableExtension())
-            ->addExtension(new CodeRendererExtension())
             ->addExtension(new HeadingPermalinkExtension())
             ->addInlineRenderer(Image::class, new ImageRenderer())
             ->addInlineRenderer(Link::class, new LinkRenderer())
+            ->addBlockRenderer(FencedCode::class, new FencedCodeRenderer(['html', 'php', 'js', 'ts', 'css']))
+            ->addBlockRenderer(IndentedCode::class, new IndentedCodeRenderer(['html', 'php', 'js', 'ts', 'css']))
             ->commonmarkOptions([
                 'heading_permalink' => [
                     'html_class' => 'anchor-link doc-anchor-link',
@@ -40,7 +42,7 @@ final class ContentParser implements ContentParserContract
     {
         $document = YamlFrontMatter::parse($contents);
 
-        $htmlContents = $this->markdownRenderer->toHtml($document->body());
+        $htmlContents = $this->markdownRenderer->convertToHtml($document->body());
 
         return array_merge(
             $document->matter(),
