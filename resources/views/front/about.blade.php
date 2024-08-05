@@ -1,4 +1,5 @@
 <x-app-layout title="About">
+    @section('no-banner', true)
     <div class="markup mb-6">
         <h1>About</h1>
     </div>

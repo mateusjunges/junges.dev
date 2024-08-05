@@ -1,4 +1,5 @@
 <x-app-layout title="Log in">
+    @section('no-banner', true)
     <div class="markup mb-8">
         <h1>Login</h1>
     </div>

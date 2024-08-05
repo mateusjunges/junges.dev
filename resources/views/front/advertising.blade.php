@@ -1,4 +1,5 @@
 <x-app-layout title="Advertising">
+    @section('no-banner', true)
     <div class="markup">
         <h1>Advertising</h1>
         <p>

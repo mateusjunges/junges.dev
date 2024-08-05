@@ -1,4 +1,5 @@
 <x-app-layout title="Links">
+    @section('no-banner', true)
     <div
         class="-mx-4 sm:mx-0 p-4 sm:p-6 md:p-8 bg-gray-100 border-b-5 border-gray-200 text-sm text-gray-700">
 

@@ -1,4 +1,5 @@
 <x-app-layout :title="$post->title" :canonical="$post->external_url">
+    @section('no-banner', true)
     <x-ad/>
 
     <x-post-header :post="$post" class="mb-8">
