@@ -34,6 +34,7 @@
     @apply px-4;
     @apply mb-5;
     @apply bg-gray-200;
+    @apply overflow-x-scroll;
 }
 
 .markup-docs-titles h1 {
