@@ -3,10 +3,6 @@
     $latestVersion = $repository->getSortedAliases()->first();
 @endphp
 
-@push('styles')
-    @vite(['resources/css/utilities/line-numbers.css', 'resources/js/app.js', 'resources/js/utilities/copy-button.js'])
-@endpush
-
 @push('scripts')
     <script>
 
