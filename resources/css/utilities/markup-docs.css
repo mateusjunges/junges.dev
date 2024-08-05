@@ -29,6 +29,13 @@
     @apply text-xs;
 }
 
+.markup-docs pre {
+    @apply py-6;
+    @apply px-4;
+    @apply mb-5;
+    @apply bg-gray-200;
+}
+
 .markup-docs-titles h1 {
     @apply text-4xl;
     @apply font-serif;
