@@ -34,7 +34,7 @@
         </div>
         <article class="md:col-span-7 lg:col-span-8 px-2">
             @if(count($repository->aliases) > 1)
-                <div class="mb-12 p-4 flex text-sm bg-bunker-200 bg-opacity-50 rounded-sm md:shadow-light markup-docs-shiki mx-2">
+                <div class="mb-12 p-4 flex text-sm bg-bunker-200 bg-opacity-50 rounded-sm md:shadow-light markup-docs mx-2">
                     <div class="flex-none h-6 w-6 text-orange-400 fill-current">{{ __svg('icons/fal-exclamation-circle') }}</div>
                     <div class="ml-4 hid">
                         <p>
@@ -75,7 +75,7 @@
             @endif
 
             <div
-                class="markup-docs markup-docs-titles markup-docs-lists markup-docs-code markup-docs-tables markup-docs-shiki markup-docs-embeds links-underline">
+                class="markup-docs markup-docs-titles markup-docs-lists markup-docs-code markup-docs-tables markup-docs-embeds links-underline">
                 {!! $page->contents !!}
             </div>
         </article>

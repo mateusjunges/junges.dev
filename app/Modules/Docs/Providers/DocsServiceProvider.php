@@ -22,7 +22,7 @@ final class DocsServiceProvider extends ServiceProvider
             config()->set("sheets.collections.{$docsRepository['name']}", [
                 'disk' => $docsRepository['name'],
                 'sheet_class' => \App\Modules\Docs\Sheets\DocumentationPage::class,
-                'path_parser' => \App\Modules\Docs\Services\PathParser::class,
+                'path_parser' => \App\Modules\Docs\Services\DocumentationPathParser::class,
                 'content_parser' => \App\Modules\Docs\Services\ContentParser::class,
             ]);
         }

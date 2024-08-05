@@ -4,49 +4,24 @@ declare(strict_types=1);
 
 namespace App\Modules\Docs\Services;
 
-use Illuminate\Support\HtmlString;
-use League\CommonMark\Extension\CommonMark\Node\Block\FencedCode;
-use League\CommonMark\Extension\CommonMark\Node\Block\IndentedCode;
-use League\CommonMark\Extension\CommonMark\Node\Inline\Image;
-use League\CommonMark\Extension\CommonMark\Node\Inline\Link;
-use League\CommonMark\Extension\CommonMark\Renderer\Inline\ImageRenderer;
-use League\CommonMark\Extension\CommonMark\Renderer\Inline\LinkRenderer;
-use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
-use Spatie\CommonMarkHighlighter\FencedCodeRenderer;
-use Spatie\CommonMarkHighlighter\IndentedCodeRenderer;
-use Spatie\LaravelMarkdown\MarkdownRenderer;
-use Spatie\Sheets\ContentParser as ContentParserContract;
+use App\Modules\Docs\Http\Controllers\DocsController;
+use Spatie\Sheets\ContentParsers\MarkdownWithFrontMatterParser;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
-final class ContentParser implements ContentParserContract
+final class ContentParser extends MarkdownWithFrontMatterParser
 {
-    protected MarkdownRenderer $markdownRenderer;
-
-    public function __construct()
-    {
-        $this->markdownRenderer = app(MarkdownRenderer::class)
-            ->addExtension(new HeadingPermalinkExtension())
-            ->addInlineRenderer(Image::class, new ImageRenderer())
-            ->addInlineRenderer(Link::class, new LinkRenderer())
-            ->addBlockRenderer(FencedCode::class, new FencedCodeRenderer(['html', 'php', 'js', 'ts', 'css']))
-            ->addBlockRenderer(IndentedCode::class, new IndentedCodeRenderer(['html', 'php', 'js', 'ts', 'css']))
-            ->commonmarkOptions([
-                'heading_permalink' => [
-                    'html_class' => 'anchor-link doc-anchor-link',
-                    'symbol' => '#',
-                ],
-            ]);
-    }
 
     public function parse(string $contents): array
     {
         $document = YamlFrontMatter::parse($contents);
 
-        $htmlContents = $this->markdownRenderer->convertToHtml($document->body());
-
         return array_merge(
             $document->matter(),
-            ['contents' => new HtmlString($htmlContents)]
+            /**
+             * Markdown parsing is done when rendering the page.
+             * @see DocsController::show()
+             */
+            ['contents' => $document->body()]
         );
     }
 }

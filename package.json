@@ -19,7 +19,6 @@
         "@tailwindcss/typography": "^0.5.7",
         "alpinejs": "^3.13.8",
         "laravel-vite-plugin": "^1.0.0",
-        "shiki": "^0.9.5",
         "tippy.js": "^6.3.7",
         "vite": "^5.0.0"
     }

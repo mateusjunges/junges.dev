@@ -685,11 +685,6 @@ jiti@^1.19.1:
   resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.21.0.tgz#7c97f8fe045724e136a397f7340475244156105d"
   integrity sha512-gFqAIbuKyyso/3G2qhiO2OM6shY6EPP/R0+mkDbyspxKazh8BXDC5FiFsUjlczgdNz/vfra0da2y+aHrusLG/Q==
 
-jsonc-parser@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/jsonc-parser/-/jsonc-parser-3.0.0.tgz"
-  integrity sha512-fQzRfAbIBnR0IQvftw9FJveWiHp72Fg20giDrHz6TdfB12UH/uue0D3hm57UB5KgAVuniLMCaS8P1IMj9NR7cA==
-
 laravel-vite-plugin@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/laravel-vite-plugin/-/laravel-vite-plugin-1.0.2.tgz#97575181a1f870532b39ab3b423b53f01385feba"
@@ -1003,15 +998,6 @@ shebang-regex@^3.0.0:
   resolved "https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
-shiki@^0.9.5:
-  version "0.9.15"
-  resolved "https://registry.yarnpkg.com/shiki/-/shiki-0.9.15.tgz#2481b46155364f236651319d2c18e329ead6fa44"
-  integrity sha512-/Y0z9IzhJ8nD9nbceORCqu6NgT9X6I8Fk8c3SICHI5NbZRLdZYFaB233gwct9sU0vvSypyaL/qaKvzyQGJBZSw==
-  dependencies:
-    jsonc-parser "^3.0.0"
-    vscode-oniguruma "^1.6.1"
-    vscode-textmate "5.2.0"
-
 signal-exit@^4.0.1:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-4.1.0.tgz#952188c1cbd546070e2dd20d0f41c0ae0530cb04"
@@ -1180,16 +1166,6 @@ vite@^5.0.0:
     rollup "^4.2.0"
   optionalDependencies:
     fsevents "~2.3.3"
-
-vscode-oniguruma@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.npmjs.org/vscode-oniguruma/-/vscode-oniguruma-1.6.1.tgz"
-  integrity sha512-vc4WhSIaVpgJ0jJIejjYxPvURJavX6QG41vu0mGhqywMkQqulezEqEQ3cO3gc8GvcOpX6ycmKGqRoROEMBNXTQ==
-
-vscode-textmate@5.2.0:
-  version "5.2.0"
-  resolved "https://registry.npmjs.org/vscode-textmate/-/vscode-textmate-5.2.0.tgz"
-  integrity sha512-Uw5ooOQxRASHgu6C7GVvUxisKXfSgW4oFlO+aa+PAkgmH89O3CXxEEzNRNtHSqtXFTl0nAC1uYj0GMSH27uwtQ==
 
 vue-template-compiler@^2.6.12:
   version "2.7.14"

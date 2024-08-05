@@ -7,11 +7,25 @@ namespace App\Modules\Docs\Http\Controllers;
 use App\Modules\Docs\Models\Repository;
 use App\Modules\Docs\Sheets\DocumentationPage;
 use App\Modules\Docs\Support\Docs;
+use App\Modules\Docs\Support\Highlighting\DiffLanguage;
+use App\Modules\Docs\Support\Highlighting\JsxLanguage;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\HtmlString;
 use Illuminate\View\View;
+use League\CommonMark\Extension\CommonMark\Node\Block\FencedCode;
+use League\CommonMark\Extension\CommonMark\Node\Inline\Code;
+use League\CommonMark\Extension\CommonMark\Node\Inline\Image;
+use League\CommonMark\Extension\CommonMark\Node\Inline\Link;
+use League\CommonMark\Extension\CommonMark\Renderer\Inline\LinkRenderer;
+use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
+use League\CommonMark\Extension\Table\TableExtension;
+use Spatie\CommonMarkWireNavigate\WireNavigateExtension;
+use Spatie\LaravelMarkdown\MarkdownRenderer;
+use Tempest\Highlight\CommonMark\CodeBlockRenderer;
+use Tempest\Highlight\CommonMark\InlineCodeBlockRenderer;
+use Tempest\Highlight\Highlighter;
 
 final class DocsController
 {
@@ -96,9 +110,15 @@ final class DocsController
             return redirect()->action([DocsController::class, 'repository'], [$repository->slug, $alias->slug]);
         }
 
+        $page->contents = $this->renderMarkdown($page->contents);
+        $page->contents = str_replace('<pre ', '<pre translate="no"', $page->contents);
+
         $repositories = $docs->getRepositories();
 
         $navigation = $this->getNavigation($pages);
+
+        $prevPage = $this->getPrevPage($page, $navigation);
+        $nextPage = $this->getNextPage($page, $navigation);
 
         $showBigTitle = $page->slug === $navigation['_root']['pages'][0]->slug;
 
@@ -114,6 +134,32 @@ final class DocsController
             'showBigTitle' => $showBigTitle,
             'tableOfContents' => $tableOfContents,
         ]);
+    }
+
+    private function renderMarkdown(string $contents): string
+    {
+        $highlighter = new Highlighter;
+        $highlighter->addLanguage(new DiffLanguage);
+        $highlighter->addLanguage(new JsxLanguage);
+
+        return app(MarkdownRenderer::class)
+            ->highlightCode(false)
+            ->addExtension(new TableExtension)
+            ->addExtension(new HeadingPermalinkExtension)
+            ->addExtension(new WireNavigateExtension)
+            ->addInlineRenderer(Image::class, new CodeBlockRenderer, 10)
+            ->addInlineRenderer(Link::class, new LinkRenderer, 10)
+            ->addInlineRenderer(FencedCode::class, new CodeBlockRenderer($highlighter), 10)
+            ->addInlineRenderer(Code::class, new InlineCodeBlockRenderer($highlighter), 10)
+            ->commonmarkOptions([
+                'heading_permalink' => [
+                    'html_class' => 'anchor-link',
+                    'symbol' => '#',
+                ],
+                'wire_navigate' => [
+                    'paths' => ['docs'],
+                ]
+            ])->toHtml($contents);
     }
 
     private function getNavigation(Collection $pages): Collection
@@ -147,5 +193,51 @@ final class DocsController
         $matches = $h2 + $h3;
 
         return array_combine($matches[1], $matches[2]);
+    }
+
+    private function getPrevPage(DocumentationPage $currentPage, Collection $navigation): ?DocumentationPage
+    {
+        $prevPage = null;
+        $currentFound = false;
+
+        $previousSection = null;
+
+        foreach ($navigation as $key => $section) {
+            foreach ($section['pages'] as $index => $page) {
+                if ($currentPage->slug === $page->slug) {
+                    $prevPage = $section['pages'][$index - 1] ?? null;
+                    $currentFound = true;
+                }
+            }
+
+            if (! $prevPage && $currentFound && $previousSection) {
+                return Arr::last($previousSection['pages']);
+            }
+
+            $previousSection = $section;
+        }
+
+        return $prevPage;
+    }
+
+    private function getNextPage(DocumentationPage $currentPage, Collection $navigation): ?DocumentationPage
+    {
+        $nextPage = null;
+        $currentFound = false;
+
+        foreach ($navigation as $key => $section) {
+            if (! $nextPage && $currentFound) {
+                return $section['pages'][0];
+            }
+
+            foreach ($section['pages'] as $index => $page) {
+                if ($currentPage->slug === $page->slug) {
+                    $nextPage = $section['pages'][$index + 1] ?? null;
+                    $currentFound = true;
+                }
+            }
+        }
+
+        return $nextPage;
     }
 }

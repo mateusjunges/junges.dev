@@ -42,6 +42,7 @@
         "predis/predis": "^1.1.10",
         "spatie/browsershot": "^4.0",
         "spatie/commonmark-highlighter": "^3.0",
+        "spatie/commonmark-wire-navigate": "^1.0",
         "spatie/cpu-load-health-check": "^1.0.2",
         "spatie/filament-markdown-editor": "dev-main",
         "spatie/fork": "^1.1",
@@ -72,6 +73,7 @@
         "symfony/http-client": "^7.0",
         "symfony/mailgun-mailer": "^7.0",
         "symfony/postmark-mailer": "^7.0",
+        "tempest/highlight": "^2.8",
         "wyrihaximus/react-child-process-promise": "^3.0"
     },
     "require-dev": {
