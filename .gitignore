@@ -11,6 +11,7 @@
 /public/vendor/
 /public/storage
 /storage/*.key
+/storage/docs/*
 /vendor
 .env
 .env.backup
