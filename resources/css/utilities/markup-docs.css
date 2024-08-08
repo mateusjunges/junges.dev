@@ -33,7 +33,7 @@
     @apply py-6;
     @apply px-4;
     @apply mb-5;
-    @apply bg-gray-200;
+    @apply bg-blue-200;
     @apply overflow-x-scroll;
 }
 
