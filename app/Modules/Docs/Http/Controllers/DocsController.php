@@ -9,6 +9,7 @@ use App\Modules\Docs\Sheets\DocumentationPage;
 use App\Modules\Docs\Support\Docs;
 use App\Modules\Docs\Support\Highlighting\DiffLanguage;
 use App\Modules\Docs\Support\Highlighting\JsxLanguage;
+use App\Modules\Docs\Support\Highlighting\LinkRenderer;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
@@ -18,7 +19,6 @@ use League\CommonMark\Extension\CommonMark\Node\Block\FencedCode;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Code;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Image;
 use League\CommonMark\Extension\CommonMark\Node\Inline\Link;
-use League\CommonMark\Extension\CommonMark\Renderer\Inline\LinkRenderer;
 use League\CommonMark\Extension\HeadingPermalink\HeadingPermalinkExtension;
 use League\CommonMark\Extension\Table\TableExtension;
 use Spatie\CommonMarkWireNavigate\WireNavigateExtension;
@@ -82,7 +82,7 @@ final class DocsController
             abort(404, 'Repository not found');
         }
 
-        preg_match('/v\d+/', $alias, $matches);
+        preg_match('/v\d+|Development/', $alias, $matches);
 
         if (! count($matches)) {
             $latest = $repository->aliases->keys()->first();
@@ -143,6 +143,7 @@ final class DocsController
         $highlighter->addLanguage(new JsxLanguage);
 
         return app(MarkdownRenderer::class)
+            ->cacheStoreName(false)
             ->highlightCode(false)
             ->addExtension(new TableExtension)
             ->addExtension(new HeadingPermalinkExtension)
