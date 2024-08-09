@@ -2,6 +2,10 @@
     @apply mb-8;
 }
 
+.markup-docs blockquote {
+    @apply mb-8;
+}
+
 .markup-docs .title-sm {
     @apply mb-4;
 }
@@ -35,6 +39,10 @@
     @apply mb-5;
     @apply bg-bunker-100;
     @apply overflow-x-scroll;
+}
+
+.markup-docs a {
+    @apply px-2;
 }
 
 .markup-docs-titles h1 {
