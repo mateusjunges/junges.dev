@@ -9,6 +9,7 @@ return [
                 // branch => version
                 'v1.13.x' => 'v1.13',
                 'master' => 'v2.0',
+                'dev' => 'Development'
             ],
             'category' => 'Laravel',
         ],
