@@ -3,7 +3,6 @@
 namespace App\Modules\Docs\Support\Highlighting;
 
 use League\CommonMark\Extension\CommonMark\Node\Inline\Link;
-use League\CommonMark\Extension\CommonMark\Renderer\Inline\LinkRenderer as CommonMarkLinkRenderer;
 use League\CommonMark\Node\Node;
 use League\CommonMark\Renderer\ChildNodeRendererInterface;
 use League\CommonMark\Renderer\NodeRendererInterface;
@@ -15,23 +14,17 @@ use League\Config\ConfigurationInterface;
 
 final class LinkRenderer  implements NodeRendererInterface, XmlNodeRendererInterface, ConfigurationAwareInterface
 {
-    private readonly CommonMarkLinkRenderer $linkRenderer;
-
     /** @psalm-readonly-allow-private-mutation */
     private ConfigurationInterface $config;
 
-    public function __construct()
-    {
-        $this->linkRenderer = new CommonMarkLinkRenderer;
-    }
-
-    public function setConfiguration(ConfigurationInterface $configuration): void
-    {
-        $this->config = $configuration;
-        $this->linkRenderer->setConfiguration($configuration);
-    }
-
-    public function render(Node $node, ChildNodeRendererInterface $childRenderer)
+    /**
+     * @param Link $node
+     *
+     * {@inheritDoc}
+     *
+     * @psalm-suppress MoreSpecificImplementedParamType
+     */
+    public function render(Node $node, ChildNodeRendererInterface $childRenderer): \Stringable
     {
         Link::assertInstanceOf($node);
 
@@ -58,13 +51,30 @@ final class LinkRenderer  implements NodeRendererInterface, XmlNodeRendererInter
         return new HtmlElement('a', $attrs, $childRenderer->renderNodes($node->children()));
     }
 
-    public function getXmlTagName(Node $node): string
+    public function setConfiguration(ConfigurationInterface $configuration): void
     {
-        return $this->linkRenderer->getXmlTagName($node);
+        $this->config = $configuration;
     }
 
+    public function getXmlTagName(Node $node): string
+    {
+        return 'link';
+    }
+
+    /**
+     * @param Link $node
+     *
+     * @return array<string, scalar>
+     *
+     * @psalm-suppress MoreSpecificImplementedParamType
+     */
     public function getXmlAttributes(Node $node): array
     {
-        return $this->linkRenderer->getXmlAttributes($node);
+        Link::assertInstanceOf($node);
+
+        return [
+            'destination' => $node->getUrl(),
+            'title' => $node->getTitle() ?? '',
+        ];
     }
 }
