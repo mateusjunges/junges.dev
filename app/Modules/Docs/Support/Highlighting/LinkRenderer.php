@@ -47,8 +47,7 @@ final class LinkRenderer  implements NodeRendererInterface, XmlNodeRendererInter
             $attrs['href'] = str_replace('.md', '', $attrs['href']);
         }
 
-
-        return new HtmlElement('a', $attrs, $childRenderer->renderNodes($node->children()));
+        return new HtmlElement('a', $attrs, " {$childRenderer->renderNodes($node->children())} ");
     }
 
     public function setConfiguration(ConfigurationInterface $configuration): void
