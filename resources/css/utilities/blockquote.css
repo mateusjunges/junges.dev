@@ -1,9 +1,15 @@
-blockquote > p {
+blockquote {
     @apply bg-blue-100;
     @apply border-l-8;
     @apply border-gray-500;
-    @apply py-4;
-    @apply ml-4;
-    @apply px-4;
     @apply rounded;
+}
+
+blockquote > p {
+    @apply py-4;
+    @apply pr-4;
+}
+
+blockquote div {
+    @apply px-2;
 }

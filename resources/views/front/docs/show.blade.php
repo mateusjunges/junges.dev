@@ -7,15 +7,15 @@
     <script>
 
         (function () {
-            const blockquotes = document.querySelectorAll('blockquote p');
+            const blockquotes = document.querySelectorAll('blockquote');
 
             const icon = document.createElement('div');
-            icon.classList.add('h-6', 'w-6', 'md:mr-4', 'mx-auto', 'md:m-0', 'mb-2', 'text-orange-400', 'fill-current', 'items-center');
+            icon.classList.add('w-24', 'sm:w-12', 'mx-auto', 'md:m-0', 'mb-2', 'text-orange-400', 'fill-current', 'items-center');
             icon.innerHTML = `{{ __svg('icons/fal-exclamation-circle') }}`;
 
             blockquotes.forEach(function (blockquote) {
-                blockquote.classList.add('md:flex', 'flex-none', 'items-center');
-                blockquote.prepend(icon)
+                blockquote.classList.add('flex', 'flex-none', 'items-center');
+                blockquote.prepend(icon);
             });
         })();
     </script>
