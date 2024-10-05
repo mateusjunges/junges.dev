@@ -76,6 +76,10 @@ final class DocsController
 
     public function show(string $repository, string $alias, string $slug, Docs $docs): View|RedirectResponse
     {
+        if ($repository === 'laravel-kafka') {
+            return redirect()->to('https://laravelkafka.com');
+        }
+
         try {
             $repository = $docs->getRepository($repository);
         } catch (\RuntimeException) {
