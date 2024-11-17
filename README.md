@@ -1,5 +1,9 @@
 # Junges.dev
 
+> [!WARNING]  
+> As of 2024-11-17 this repo is archived. I moved my personal website to [mateusjunges.com](mateusjunges.com) in a new laravel app.
+> Laravel kafka docs, previously hosted here, now runs at [laravelkafka.com](laravelkafka.com). For other minor open source repos,
+> I moved docs back to the readme.
 
 [![Run tests](https://github.com/mateusjunges/junges.dev/actions/workflows/run-tests.yml/badge.svg)](https://github.com/mateusjunges/junges.dev/actions/workflows/run-tests.yml)
 [![Laravel Forge Site Deployment Status](https://img.shields.io/endpoint?url=https%3A%2F%2Fforge.laravel.com%2Fsite-badges%2Fed303015-52a2-4087-b19d-ba612fff6441%3Fdate%3D1%26commit%3D1&style=flat)](https://forge.laravel.com)
